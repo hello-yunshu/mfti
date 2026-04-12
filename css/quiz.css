@@ -24,9 +24,14 @@
 }
 
 .landing-logo {
-  font-size: 72px;
+  width: 128px;
+  height: 128px;
   margin-bottom: 12px;
-  filter: drop-shadow(0 4px 12px rgba(91,206,250,0.3));
+  filter:
+    saturate(0.7) brightness(1.1)
+    drop-shadow(0 0 12px rgba(255,160,200,0.5))
+    drop-shadow(0 0 30px rgba(255,140,185,0.3))
+    drop-shadow(0 0 50px rgba(255,120,170,0.15));
   animation: float 3s ease-in-out infinite;
 }
 
