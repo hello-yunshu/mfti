@@ -178,7 +178,7 @@ const App = (() => {
     // 头像图片
     const avatarEl = document.getElementById('result-avatar');
     const avatarUrl = AVATARS[res.typeCode] || '';
-    avatarEl.innerHTML = `<img src="${avatarUrl}" alt="${p.name}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">`;
+    avatarEl.innerHTML = `<img src="${avatarUrl}?v=1.0.0" alt="${p.name}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">`;
     avatarEl.style.background = 'white';
 
     // 基本信息
@@ -336,7 +336,7 @@ const App = (() => {
       const avatarUrl = AVATARS[code] || '';
       
       card.innerHTML = `
-        <img src="${avatarUrl}" alt="${p.name}" class="personality-avatar">
+        <img src="${avatarUrl}?v=1.0.0" alt="${p.name}" class="personality-avatar">
         <div class="personality-code" style="color: ${p.color}">${p.code}</div>
         <div class="personality-name-zh">${p.name}</div>
         <div class="personality-name-en">${p.nameEn}</div>
