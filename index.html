@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MFTI — 一个「男娘」人格测试，纯属娱乐。30道题目，10个维度评分，测出你是哪种生物。">
+  <title>MFTI — 「男娘」人格测试</title>
+
+  <!-- 样式 -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/quiz.css">
+  <link rel="stylesheet" href="css/result.css">
+
+  <style>
+    /* 使用系统字体栈，无需加载外部字体 */
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     PAGE 1: 封面页
+     ============================================================ -->
+<div id="page-landing">
+  <div class="landing-logo">🌸</div>
+  <h1 class="landing-title">MFTI</h1>
+  <p class="landing-subtitle">Male to Female Type Indicator</p>
+
+  <p class="landing-desc">
+    一个「男娘」人格测试，纯属娱乐。<br>
+    30道题目，10个维度评分。<br>
+    测出你是哪种生物。<br>
+    <em style="font-size:13px;opacity:0.6;">（科学性约等于星座，但比星座有趣）</em>
+  </p>
+
+  <div class="landing-stats">
+    <div class="stat-item">
+      <span class="stat-num">16</span>
+      <span class="stat-label">人格类型</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">30</span>
+      <span class="stat-label">道测试题</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">10</span>
+      <span class="stat-label">个维度</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">~5</span>
+      <span class="stat-label">分钟完成</span>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" onclick="App.showDisclaimer()" style="font-size:18px;padding:18px 48px;">
+    开始测试 →
+  </button>
+
+  <button id="btn-show-result" class="btn btn-secondary hidden" onclick="App.showSavedResult()" style="padding-top:18px;padding-bottom:18px;padding-left:48px;padding-right:48px;margin-top:15px;margin-bottom:15px;">
+    查看上次结果
+  </button>
+
+  <p style="font-size:12px;color:var(--text-sub);margin-top:20px;opacity:0.6;">
+    点击前需阅读并同意免责声明
+  </p>
+</div>
+
+
+<!-- ============================================================
+     免责声明弹窗
+     ============================================================ -->
+<div id="modal-disclaimer" class="modal-overlay hidden">
+  <div class="modal-box">
+    <span class="modal-emoji">⚠️🎀</span>
+    <h2 class="modal-title">在进入测试前，请先看完这段话</h2>
+
+    <div class="disclaimer-text">
+      <p>🎭 <strong>本测试纯属娱乐，整活性质，请不要认真。</strong></p>
+      <p>😂 测试内容包含大量夸张描述、辛辣嘲讽和无厘头选项，如果你容易被冒犯，建议关掉这个页面去看点正经的东西。</p>
+      <p>🔬 虽然题目设计参考了若干心理学框架，但我们不是心理学家，你也不需要因为测试结果对自己做任何定义。</p>
+      <p>🌈 测试结果不代表任何价值判断，所有人格类型都是平等的，包括那些听起来在被嘲讽的类型——我们在嘲讽的是人类共有的荒谬，不是针对任何个体。</p>
+      <p>🎯 如果测试结果让你感到困惑或情绪波动，这可能是因为你需要和真正的心理咨询师聊聊，而不是再做一遍测试。</p>
+      <p>💫 <strong>总之：轻松做，别当真，笑一笑，往前走。</strong></p>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="App.hideDisclaimer()">不同意，返回</button>
+      <button class="btn btn-primary" onclick="App.agreeAndStart()">我已阅读，同意进入</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     PAGE 2: 测试进行页
+     ============================================================ -->
+<div id="page-quiz" class="hidden">
+  <div class="container">
+
+    <!-- 顶部导航 -->
+    <div class="quiz-header">
+      <div class="quiz-nav">
+        <span class="quiz-brand">🌸 MFTI</span>
+        <span class="quiz-counter" id="q-counter">1 / 30</span>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+    </div>
+
+    <!-- 题目卡片 -->
+    <div class="question-card" id="question-card">
+      <div class="question-num" id="q-num">1</div>
+      <p class="question-text" id="q-text">题目加载中...</p>
+      <div class="options-list" id="options-list"></div>
+    </div>
+
+    <!-- 底部导航 -->
+    <div class="quiz-footer">
+      <span class="quiz-footer-info" id="q-remain">还剩 30 题</span>
+      <div style="display:flex;gap:12px;align-items:center;">
+        <button class="btn btn-ghost" id="btn-prev" onclick="App.prevQuestion()" style="visibility:hidden;">
+          ← 上一题
+        </button>
+        <button class="btn btn-primary" id="btn-next" onclick="App.nextQuestion()" disabled style="opacity:0.5;">
+          下一题 →
+        </button>
+        <button class="btn btn-primary hidden" id="btn-submit" onclick="App.submitQuiz()">
+          查看结果 ✨
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============================================================
+     PAGE 3: 计算中
+     ============================================================ -->
+<div id="page-calculating" class="hidden">
+  <div class="calc-spinner"></div>
+  <p class="calc-text" id="calc-text">正在分析您的心理画像...</p>
+  <p class="calc-subtext">AI正在努力研究你这个复杂个体...</p>
+</div>
+
+
+<!-- ============================================================
+     PAGE 4: 结果页
+     ============================================================ -->
+<div id="page-result" class="hidden">
+  <div class="container">
+
+    <!-- 英雄区 -->
+    <div class="result-hero">
+      <div class="result-avatar" id="result-avatar">🌸</div>
+
+      <div class="result-code" id="result-code">PSAE</div>
+      <div class="result-name-zh" id="result-name-zh">粉色炸弹</div>
+      <div class="result-name-en" id="result-name-en">The Pink Detonator</div>
+      <div class="result-hero-divider"></div>
+      <div class="result-subtitle" id="result-subtitle">副标题</div>
+      <div class="result-tags" id="result-tags"></div>
+    </div>
+
+    <!-- 人格描述 -->
+    <div class="result-desc-card">
+      <h3>🔍 人格画像</h3>
+      <div id="result-desc"></div>
+    </div>
+
+    <!-- 维度得分 -->
+    <div class="dimensions-card">
+      <h3>📊 你的十维度评分</h3>
+      <div id="dimensions-list"></div>
+    </div>
+
+    <!-- 相近人格 -->
+    <div class="card similar-section" style="margin-bottom:28px;">
+      <h3>🔮 你与以下类型也有相似之处</h3>
+      <div class="similar-list" id="similar-list"></div>
+    </div>
+
+    <!-- 操作按钮 -->
+    <div class="result-actions">
+      <button class="btn btn-primary" onclick="App.shareResult()">
+        📤 分享结果
+      </button>
+      <button class="btn btn-secondary" onclick="App.retake()">
+        🔄 再测一次
+      </button>
+      <button class="btn btn-secondary hidden" onclick="App.showAllPersonalities()">
+        👥 查看所有人格
+      </button>
+    </div>
+
+    <p class="result-footer-note">
+      MFTI · 男娘人格测试 · 结果仅供娱乐参考<br>
+      如有雷同，纯属你也是这类人 🌸
+    </p>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     PAGE 5: 所有人格展示页
+     ============================================================ -->
+<div id="page-all-personalities" class="hidden">
+  <div class="container">
+    <div class="all-personalities-header">
+      <h1>👥 所有16种MFTI人格</h1>
+      <p class="subtitle">探索不同的人格类型，找到最符合你的特质</p>
+      <button class="btn btn-secondary" onclick="App.showLanding()">
+        ← 返回首页
+      </button>
+    </div>
+
+    <div class="personalities-grid" id="personalities-grid">
+      <!-- 人格卡片将通过JavaScript动态生成 -->
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     数据 & 逻辑（按依赖顺序加载）
+     ============================================================ -->
+<script src="data/personalities.js"></script>
+<script src="data/questions.js"></script>
+<script src="data/avatars.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
