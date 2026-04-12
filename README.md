@@ -4,7 +4,7 @@
 
 ## 项目简介
 
-MFTI 是一个基于 Myers-Briggs Type Indicator (MBTI) 概念的趣味人格测试，但专为跨性别女性 (MTF) 和男娘群体设计。
+MFTI 是一个基于 Myers-Briggs Type Indicator (MBTI) 概念的趣味人格测试，但专为跨性别女性 (MTF) 和「男娘」群体设计。
 
 - **科学性**：约等于星座，但比星座有趣
 - **娱乐性质**：整活性质，不要认真
