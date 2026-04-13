@@ -166,6 +166,12 @@ const App = (() => {
     const footerAuthorLabel = document.getElementById('footer-author-label');
     if (footerAuthorLabel && t('footerAuthor')) {
       footerAuthorLabel.textContent = t('footerAuthor');
+      // 英文时添加间距
+      if (t('footerAuthor') === 'By ') {
+        footerAuthorLabel.classList.add('by-label');
+      } else {
+        footerAuthorLabel.classList.remove('by-label');
+      }
     }
     
     // 如果在结果页面，重新渲染以更新标签
