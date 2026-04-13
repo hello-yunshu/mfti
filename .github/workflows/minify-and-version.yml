@@ -15,7 +15,7 @@ on:
       force_regenerate_all:
         description: '强制重新生成所有 JS 和 CSS 文件的最小化版本'
         type: boolean
-        default: false
+        default: true
 
 permissions:
   contents: write
