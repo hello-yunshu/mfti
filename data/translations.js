@@ -214,7 +214,7 @@ const TRANSLATIONS = {
       PR: { name: "Pinky Dream Index", low: "Realist", high: "Dreamer", balanced: "Balanced" },
       SH: { name: "Social Activity", low: "Homebody", high: "Social Butterfly", balanced: "Balanced" },
       AI: { name: "Appearance Anxiety", low: "Chill", high: "Anxious", balanced: "Balanced" },
-      EW: { name: "Expression Level", low: "Deep Closet", high: "Fully Out", balanced: "Balanced" },
+      EW: { name: "Openness Level", low: "Deep Closet", high: "Fully Out", balanced: "Balanced" },
       CF: { name: "Self-Discipline", low: "Go with Flow", high: "Strictly Planned", balanced: "Balanced" },
       DK: { name: "Community Belonging", low: "Loner", high: "Community Oriented", balanced: "Balanced" },
       TN: { name: "Analytical Level", low: "Intuition Driven", high: "Theory Nerd", balanced: "Balanced" },
