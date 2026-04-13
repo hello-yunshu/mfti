@@ -225,7 +225,7 @@ You've deconstructed your identity at least three hundred times in your head, ea
 **相处攻略：** 尊重她的空间，让她知道无论她想待在家里还是出来玩，都是可以的。
     `,
     descriptionEn: `
-🏠 Congratulations! You're the "Closet Goddess" personality! You have a beautiful world that belongs only to you, where you can completely relax and be your most authentic self! You have a unique taste for life and can find beauty in ordinary days!
+🏠 Congratulations! You're the "Cloud Fairy" personality! You have a beautiful world that belongs only to you, where you can completely relax and be your most authentic self! You have a unique taste for life and can find beauty in ordinary days!
 
 You enjoy spending time in your own little space, where you feel most at ease.
 
