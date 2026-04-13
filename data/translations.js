@@ -4,9 +4,9 @@ const TRANSLATIONS = {
   zh: {
     // 页面标题和描述
     pageTitle: "MFTI — 「男娘」人格测试",
-    metaDescription: "MFTI — 一个「男娘」人格测试，纯属娱乐。37道题目，10个维度评分，测出你是哪种生物。",
+    metaDescription: "MFTI — 一个「男娘」人格测试，纯属娱乐。39道题目，10个维度评分，测出你是哪种生物。",
     subtitle: "Male to Female Type Indicator",
-    description: "一个「男娘」人格测试，纯属娱乐。<br>37道题目，10个维度评分。<br>测出你是哪种生物。<br><em style=\"font-size:13px;opacity:0.6;\">（科学性约等于星座，但比星座有趣）</em>",
+    description: "一个「男娘」人格测试，纯属娱乐。<br>39道题目，10个维度评分。<br>测出你是哪种生物。<br><em style=\"font-size:13px;opacity:0.6;\">（科学性约等于星座，但比星座有趣）</em>",
     statLabels: ["人格类型", "道测试题", "个维度", "分钟完成"],
     startBtn: "开始测试 →",
     showResultBtn: "查看上次结果",
@@ -150,9 +150,9 @@ const TRANSLATIONS = {
   en: {
     // Page title and description
     pageTitle: "MFTI — Male to Female Type Indicator",
-    metaDescription: "MFTI — A playful personality test. 37 questions, 10 dimensions, find out what type you are.",
+    metaDescription: "MFTI — A playful personality test. 39 questions, 10 dimensions, find out what type you are.",
     subtitle: "Male to Female Type Indicator",
-    description: "A playful personality test, just for fun.<br>37 questions, 10 dimensions.<br>Find out what type you are.<br><em style=\"font-size:13px;opacity:0.6;\">(About as scientific as astrology, but way more fun)</em>",
+    description: "A playful personality test, just for fun.<br>39 questions, 10 dimensions.<br>Find out what type you are.<br><em style=\"font-size:13px;opacity:0.6;\">(About as scientific as astrology, but way more fun)</em>",
     statLabels: ["Personality Types", "Questions", "Dimensions", "Minutes to Complete"],
     startBtn: "Start Test →",
     showResultBtn: "View Previous Result",
