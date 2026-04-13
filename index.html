@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <meta name="description" content="MFTI — 一个「男娘」人格测试，纯属娱乐。30道题目，10个维度评分，测出你是哪种生物。">
-  <link rel="icon" href="favicon.ico?v=1.0.0">
+  <meta name="description" content="MFTI — 一个「男娘」人格测试，纯属娱乐。37道题目，10个维度评分，测出你是哪种生物。">
+  <link rel="icon" href="favicon.ico?v=1.0.1">
   <title>MFTI — 「男娘」人格测试</title>
 
   <!-- 样式 -->
-  <link rel="stylesheet" href="css/base.css?v=1.0.0">
-  <link rel="stylesheet" href="css/quiz.css?v=1.0.0">
-  <link rel="stylesheet" href="css/result.css?v=1.0.0">
+  <link rel="stylesheet" href="css/base.css?v=1.0.1">
+  <link rel="stylesheet" href="css/quiz.css?v=1.0.1">
+  <link rel="stylesheet" href="css/result.css?v=1.0.1">
 
   <style>
     /* 使用系统字体栈，无需加载外部字体 */
@@ -23,15 +23,68 @@
      PAGE 1: 封面页
      ============================================================ -->
 <div id="page-landing">
-  <div class="landing-logo">
-    <img src="images/sakura.svg?v=1.0.0" alt="MFTI" style="width: 100%; height: 100%;">
+  <!-- 语言切换按钮 -->
+  <div style="position: absolute; top: 20px; right: 20px; z-index: 100;">
+    <button class="btn btn-ghost" id="lang-switch" style="font-size: 14px; padding: 8px 16px;">
+      🌐 English
+    </button>
   </div>
+  
+  <div class="landing-logo">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="sakura-svg">
+      <!-- 花瓣1 (右上) -->
+      <g class="petal petal-1">
+        <path d="M26.2355 19.7655C28.7055 18.9655 30.1955 16.5755 29.9955 14.0855C29.9755 13.8555 29.7955 13.6555 29.5655 13.6155C29.5655 13.6155 28.6755 13.4255 28.4755 13.3855C28.3755 13.3655 28.3355 13.2355 28.3955 13.1655C28.5255 13.0255 29.1455 12.3255 29.1455 12.3255C29.3055 12.1555 29.3355 11.8855 29.2155 11.6855C27.9255 9.5555 25.3155 8.4955 22.8355 9.3055C22.1255 9.5355 21.5055 9.9555 20.9655 10.4855C21.3055 9.8055 21.5055 9.0955 21.5055 8.3455C21.5055 5.7455 19.6955 3.5855 17.2655 3.0155C17.0355 2.9655 16.7955 3.0755 16.6755 3.2755C16.6755 3.2755 16.2155 4.0655 16.1155 4.2455C16.0655 4.3355 15.9255 4.3255 15.8855 4.2555C15.7855 4.0855 15.3255 3.2755 15.3255 3.2755C15.2055 3.0755 14.9655 2.9555 14.7455 3.0155C12.3255 3.5755 10.5055 5.7355 10.5055 8.3355C10.5055 9.0855 10.7155 9.7955 11.0455 10.4755C10.5055 9.9455 9.89549 9.5355 9.18549 9.3055C6.70549 8.4955 4.09549 9.5555 2.80549 11.6855C2.68549 11.8855 2.71549 12.1455 2.87549 12.3255C2.87549 12.3255 3.48549 13.0055 3.62549 13.1555C3.69549 13.2255 3.64549 13.3655 3.55549 13.3855C3.36549 13.4255 2.45549 13.6155 2.45549 13.6155C2.22549 13.6655 2.04549 13.8555 2.02549 14.0855C1.81549 16.5655 3.30549 18.9555 5.78549 19.7655C6.50549 19.9955 7.24549 20.0255 8.00549 19.9055C7.32549 20.2555 6.72549 20.7155 6.28549 21.3255C4.75549 23.4255 4.95549 26.2355 6.58549 28.1255C6.73549 28.3055 6.99549 28.3555 7.21549 28.2555C7.21549 28.2555 8.04549 27.8855 8.23549 27.7955C8.32549 27.7555 8.43549 27.8355 8.42549 27.9255C8.40549 28.1155 8.30549 29.0455 8.30549 29.0455C8.28549 29.2755 8.40549 29.5155 8.62549 29.6055C10.9255 30.5655 13.6555 29.8855 15.1855 27.7855C15.6255 27.1755 15.8755 26.4855 16.0055 25.7355C16.1355 26.4855 16.3855 27.1855 16.8255 27.7855C18.3555 29.8855 21.0855 30.5655 23.3855 29.6055C23.6055 29.5155 23.7255 29.2855 23.7055 29.0455C23.7055 29.0455 23.6055 28.1355 23.5855 27.9355C23.5755 27.8355 23.6855 27.7555 23.7755 27.7955C23.9555 27.8755 24.8055 28.2555 24.8055 28.2555C25.0155 28.3555 25.2855 28.3055 25.4355 28.1255C27.0655 26.2355 27.2655 23.4255 25.7355 21.3255C25.2955 20.7155 24.6955 20.2655 24.0155 19.9055C24.7755 20.0255 25.5155 19.9955 26.2355 19.7655Z" fill="url(#paint0_radial_28327_7131)"/>
+      </g>
+      <!-- 花瓣纹理线条 -->
+      <g class="petal-veins">
+        <path d="M12.7055 9.58553C13.0255 10.6755 14.1255 13.2655 16.0055 15.2355" stroke="url(#paint1_linear_28327_7131)" stroke-width="0.8" stroke-linecap="round"/>
+        <path d="M9.38549 12.9055C10.4855 13.2255 13.0755 14.3255 15.0355 16.2055" stroke="url(#paint2_linear_28327_7131)" stroke-width="0.8" stroke-linecap="round"/>
+        <path d="M8.50549 17.5055C9.63549 17.3455 12.4755 16.9155 15.0055 15.9855" stroke="url(#paint3_linear_28327_7131)" stroke-width="0.8" stroke-linecap="round"/>
+        <path d="M11.3055 21.9255C11.9655 20.9755 13.6155 18.7355 15.2955 16.8055" stroke="url(#paint4_linear_28327_7131)" stroke-width="0.8" stroke-linecap="round"/>
+        <path d="M16.5055 23.3055C16.4255 22.1055 16.1555 19.2455 15.5155 16.6155" stroke="url(#paint5_linear_28327_7131)" stroke-width="0.8" stroke-linecap="round"/>
+        <path d="M21.7055 21.3055C20.7555 20.6455 18.5155 18.9955 16.5755 17.3155" stroke="url(#paint6_linear_28327_7131)" stroke-width="0.8" stroke-linecap="round"/>
+        <path d="M23.5055 16.5055C22.3055 16.5855 19.4555 16.8555 16.8155 17.4955" stroke="url(#paint7_linear_28327_7131)" stroke-width="0.8" stroke-linecap="round"/>
+        <path d="M22.5055 11.3055C21.6955 12.2655 19.8055 14.5655 17.8855 16.4055" stroke="url(#paint8_linear_28327_7131)" stroke-width="0.8" stroke-linecap="round"/>
+        <path d="M19.7055 9.58553C19.3855 10.6755 18.2855 13.2655 16.4055 15.2355" stroke="url(#paint9_linear_28327_7131)" stroke-width="0.8" stroke-linecap="round"/>
+        <path d="M15.0055 7.90552C15.1655 9.03552 15.5955 11.8755 16.5255 14.4055" stroke="url(#paint10_linear_28327_7131)" stroke-width="0.8" stroke-linecap="round"/>
+      </g>
+      <!-- 花蕊 -->
+      <g class="stamen">
+        <circle cx="16" cy="15.5" r="2.5" fill="url(#stamenGrad)"/>
+      </g>
+      <defs>
+        <radialGradient id="stamenGrad" cx="16" cy="15.5" r="2.5" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#F5C842"/>
+          <stop offset="40%" stop-color="#FFE0B2"/>
+          <stop offset="100%" stop-color="#FFB6C1" stop-opacity="0.4"/>
+        </radialGradient>
+        <radialGradient id="paint0_radial_28327_7131" cx="16" cy="16" r="14" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#FFB6C1"/>
+          <stop offset="0.6" stop-color="#FF9AAF"/>
+          <stop offset="1" stop-color="#FF7E95"/>
+        </radialGradient>
+        <linearGradient id="paint1_linear_28327_7131" x1="12" y1="9" x2="16" y2="15" gradientUnits="userSpaceOnUse"><stop stop-color="#FFA2B3"/><stop offset="1" stop-color="#FFA2B3" stop-opacity="0"/></linearGradient>
+        <linearGradient id="paint2_linear_28327_7131" x1="9" y1="13" x2="15" y2="16" gradientUnits="userSpaceOnUse"><stop stop-color="#FFA2B3"/><stop offset="1" stop-color="#FFA2B3" stop-opacity="0"/></linearGradient>
+        <linearGradient id="paint3_linear_28327_7131" x1="8" y1="18" x2="15" y2="16" gradientUnits="userSpaceOnUse"><stop stop-color="#FFA2B3"/><stop offset="1" stop-color="#FFA2B3" stop-opacity="0"/></linearGradient>
+        <linearGradient id="paint4_linear_28327_7131" x1="11" y1="22" x2="15" y2="17" gradientUnits="userSpaceOnUse"><stop stop-color="#FFA2B3"/><stop offset="1" stop-color="#FFA2B3" stop-opacity="0"/></linearGradient>
+        <linearGradient id="paint5_linear_28327_7131" x1="17" y1="23" x2="16" y2="17" gradientUnits="userSpaceOnUse"><stop stop-color="#FFA2B3"/><stop offset="1" stop-color="#FFA2B3" stop-opacity="0"/></linearGradient>
+        <linearGradient id="paint6_linear_28327_7131" x1="22" y1="21" x2="17" y2="17" gradientUnits="userSpaceOnUse"><stop stop-color="#FFA2B3"/><stop offset="1" stop-color="#FFA2B3" stop-opacity="0"/></linearGradient>
+        <linearGradient id="paint7_linear_28327_7131" x1="24" y1="17" x2="17" y2="17" gradientUnits="userSpaceOnUse"><stop stop-color="#FFA2B3"/><stop offset="1" stop-color="#FFA2B3" stop-opacity="0"/></linearGradient>
+        <linearGradient id="paint8_linear_28327_7131" x1="23" y1="11" x2="18" y2="16" gradientUnits="userSpaceOnUse"><stop stop-color="#FFA2B3"/><stop offset="1" stop-color="#FFA2B3" stop-opacity="0"/></linearGradient>
+        <linearGradient id="paint9_linear_28327_7131" x1="20" y1="9" x2="16" y2="15" gradientUnits="userSpaceOnUse"><stop stop-color="#FFA2B3"/><stop offset="1" stop-color="#FFA2B3" stop-opacity="0"/></linearGradient>
+        <linearGradient id="paint10_linear_28327_7131" x1="15" y1="8" x2="16" y2="14" gradientUnits="userSpaceOnUse"><stop stop-color="#FFA2B3"/><stop offset="1" stop-color="#FFA2B3" stop-opacity="0"/></linearGradient>
+      </defs>
+    </svg>
+  </div>
+  <!-- 飘落花瓣粒子 -->
+  <div class="sakura-petals" id="sakura-petals"></div>
   <h1 class="landing-title">MFTI</h1>
   <p class="landing-subtitle">Male to Female Type Indicator</p>
 
   <p class="landing-desc">
     一个「男娘」人格测试，纯属娱乐。<br>
-    30道题目，10个维度评分。<br>
+    37道题目，10个维度评分。<br>
     测出你是哪种生物。<br>
     <em style="font-size:13px;opacity:0.6;">（科学性约等于星座，但比星座有趣）</em>
   </p>
@@ -42,7 +95,7 @@
       <span class="stat-label">人格类型</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num">30</span>
+      <span class="stat-num">37</span>
       <span class="stat-label">道测试题</span>
     </div>
     <div class="stat-item">
@@ -104,10 +157,10 @@
     <div class="quiz-header">
       <div class="quiz-nav">
         <span class="quiz-brand">
-          <img src="images/sakura.svg?v=1.0.0" alt="" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 4px;">
+          <img src="images/sakura.svg?v=1.0.1" alt="" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 4px;">
           MFTI
         </span>
-        <span class="quiz-counter" id="q-counter">1 / 30</span>
+        <span class="quiz-counter" id="q-counter">1 / 37</span>
       </div>
       <div class="progress-bar-wrap">
         <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
@@ -123,7 +176,7 @@
 
     <!-- 底部导航 -->
     <div class="quiz-footer">
-      <span class="quiz-footer-info" id="q-remain">还剩 30 题</span>
+      <span class="quiz-footer-info" id="q-remain">还剩 37 题</span>
       <div style="display:flex;gap:12px;align-items:center;">
         <button class="btn btn-ghost" id="btn-prev" onclick="App.prevQuestion()" style="visibility:hidden;">
           ← 上一题
@@ -231,11 +284,12 @@
 <!-- ============================================================
      数据 & 逻辑（按依赖顺序加载）
      ============================================================ -->
-<script src="data/personalities.js?v=1.0.0"></script>
-<script src="data/questions.js?v=1.0.0"></script>
-<script src="data/avatars.js?v=1.0.0"></script>
-<script src="js/engine.js?v=1.0.0"></script>
-<script src="js/app.js?v=1.0.1"></script>
+<script src="data/translations.js?v=1.0.1"></script>
+<script src="data/personalities.js?v=1.0.1"></script>
+<script src="data/questions.js?v=1.0.1"></script>
+<script src="data/avatars.js?v=1.0.1"></script>
+<script src="js/engine.js?v=1.0.1"></script>
+<script src="js/app.js?v=1.0.2"></script>
 
 </body>
 </html>

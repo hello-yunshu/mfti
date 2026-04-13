@@ -231,6 +231,37 @@
   font-size: 12px;
 }
 
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  .similar-section h3 {
+    color: var(--text-main);
+  }
+  
+  .similar-item {
+    background: var(--card-bg);
+  }
+  
+  .similar-name {
+    color: var(--text-main);
+  }
+  
+  .personality-card {
+    background: var(--card-bg);
+  }
+  
+  .personality-code {
+    color: var(--text-main);
+  }
+  
+  .personality-name-zh {
+    color: var(--text-main);
+  }
+  
+  .personality-tag {
+    background: var(--card-bg);
+  }
+}
+
 @media (max-width: 768px) {
   .personalities-grid {
     grid-template-columns: 1fr;

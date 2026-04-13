@@ -1,7 +1,7 @@
 /* 全站基础样式 */
 
 :root {
-  /* 蓝粉白配色 */
+  /* 蓝粉白配色 - 浅色模式 */
   --blue-primary: #5BCEFA;
   --blue-dark: #3AA8D8;
   --pink-primary: #F5A9B8;
@@ -20,6 +20,29 @@
   --radius: 18px;
   --radius-sm: 10px;
   --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-main: #E8F4FC;
+    --text-sub: #A8B8C8;
+    --bg: #0A1520;
+    --card-bg: #152030;
+    --border: #2D3E4E;
+    --shadow: 0 4px 24px rgba(0,0,0,0.40);
+  }
+  
+  .btn-secondary {
+    background: #152030;
+  }
+  .btn-secondary:hover {
+    background: #203040;
+  }
+  
+  .tag {
+    background: #152030;
+  }
 }
 
 * {
