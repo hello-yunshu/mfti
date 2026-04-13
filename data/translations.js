@@ -60,6 +60,9 @@ const TRANSLATIONS = {
     allPersonalitiesSubtitle: "探索不同的人格类型，找到最符合你的特质",
     backBtn: "← 返回首页",
     
+    // 页脚
+    footerAuthor: "作者：",
+    
     // 维度标签
     dimensions: {
       PR: { name: "粉色梦境指数", low: "现实派", high: "梦幻派", balanced: "均衡型" },
@@ -197,6 +200,9 @@ const TRANSLATIONS = {
     allPersonalitiesTitle: "👥 All 16 MFTI Personalities",
     allPersonalitiesSubtitle: "Explore different personality types and find your best fit",
     backBtn: "← Back to Home",
+    
+    // Footer
+    footerAuthor: "By ",
     
     // Dimension labels
     dimensions: {
