@@ -145,7 +145,7 @@ You know what to say and how to present yourself in different situations, and th
 
 **How to Get Along:** Give her a sense of security, let her know she doesn't have to be so tired in front of you, she can relax.
     `,
-    dimensions: { PR: 58, SH: 86, AI: 8, EW: 90, CF: 56, DK: 100, TN: 50, MB: 85, GL: 100, XZ: 53 }
+    dimensions: { PR: 58, SH: 86, AI: 15, EW: 90, CF: 56, DK: 100, TN: 50, MB: 85, GL: 100, XZ: 53 }
   },
 
   PSWI: {
@@ -193,13 +193,13 @@ You've deconstructed your identity at least three hundred times in your head, ea
 
 **How to Get Along:** Throw her a concrete small problem, not a grand identity question. Big questions will trap her in an endless loop.
     `,
-    dimensions: { PR: 55, SH: 62, AI: 8, EW: 33, CF: 56, DK: 36, TN: 32, MB: 54, GL: 57, XZ: 53 }
+    dimensions: { PR: 55, SH: 62, AI: 15, EW: 33, CF: 56, DK: 36, TN: 32, MB: 54, GL: 57, XZ: 53 }
   },
 
   PHAE: {
     code: "CLOUD-G",
     name: "云端仙子",
-    nameEn: "The Closet Goddess",
+    nameEn: "The Cloud Fairy",
     subtitle: "在自己的世界里绽放型",
     subtitleEn: "Blooming in her own world",
     emoji: "🏠✨",
@@ -385,7 +385,7 @@ You know. You've always known. But between "knowing" and "admitting" there's a p
 
 **How to Get Along:** Don't push her, don't ask her "what exactly are you." She needs a safe, pressure-free environment that makes her feel it's okay to come out—but that's her decision, not yours.
     `,
-    dimensions: { PR: 50, SH: 10, AI: 8, EW: 10, CF: 6, DK: 18, TN: 68, MB: 0, GL: 21, XZ: 0 }
+    dimensions: { PR: 50, SH: 10, AI: 15, EW: 10, CF: 6, DK: 18, TN: 68, MB: 0, GL: 21, XZ: 0 }
   },
 
   // ==================== R系（现实清醒派）====================
@@ -523,9 +523,9 @@ You've accepted yourself, but you haven't made it the central issue of your life
 
 **Daily Behavior Patterns:** Your reason for wearing a skirt might be "it's hot today." Your coming out might have been a casual mention in some conversation—"By the way, I'm this kind of person"—and then you moved on to the next topic without waiting for the other person to have time to react. You don't attend many events, don't particularly care about dressing up, don't have special in-group community belonging. You know who you are, but you don't think this matter is worth spending too much energy "maintaining."
 
-**Strengths:** You're one of the types with the least internal friction among the 16. You don't anxiety about external validation, don't consume yourself in identity politics debates, don't lose sleep over "what exactly am I"—you've already answered, handed in your paper, and are waiting in the hallway for school to end.
+**Strengths:** You're one of the types with the least internal friction among the 16. You don't worry about external validation, don't consume yourself in identity politics debates, don't lose sleep over "what exactly am I"—you've already answered, handed in your paper, and are waiting in the hallway for school to end.
 
-**Fatal Weakness:** Your "whatever" is sometimes misread as "don't care" or "haven't thought seriously." Your low-energy state may make people who need support feel you're "too calm, not empathetic enough." Also, rotten-style acceptance is sometimes just actively giving up on dealing with deeper issues, not true reconciliation—the difference is, you occasionally still have a moment where you feel some kind of inexplicable emptiness.
+    **Fatal Weakness:** Your "whatever" is sometimes misread as "don't care" or "haven't thought seriously." Your low-energy state may make people who need support feel you're "too calm, not empathetic enough." Also, laid-back acceptance is sometimes just actively giving up on dealing with deeper issues, not true reconciliation—the difference is, you occasionally still have a moment where you feel some kind of inexplicable emptiness.
 
 **Your Catchphrase:** "Yeah, that's how it is. And then?"
 
@@ -617,7 +617,7 @@ You're out, you stay at home, you're very anxious about your appearance, and you
 
 **Psychological Profile:** You demonstrate a high degree of "Goal-Oriented Identity Construction," combining extremely strong executive will with clear awareness of reality. You don't float between dreams and anxiety; you tackle problems directly at the reality level. "Self-Efficacy" in psychology is maxed out for you—you believe you can change what you want to change, and you're proving it.
 
-**Daily Behavior Patterns:** Your hormone management plan is more precise than some fitness coaches' training plans, with detailed timelines, dosage records, effect evaluations, and contingency plans. Your skincare routine is a systematic engineering project with steps; you know the mechanism of action of every product. Your hairstyle, body shape, and demeanor are long-term planned; you have phased goals and evaluation criteria. You don't procrastinate, don't anxiety (or immediately convert anxiety into action).
+**Daily Behavior Patterns:** Your hormone management plan is more precise than some fitness coaches' training plans, with detailed timelines, dosage records, effect evaluations, and contingency plans. Your skincare routine is a systematic engineering project with steps; you know the mechanism of action of every product. Your hairstyle, body shape, and demeanor are long-term planned; you have phased goals and evaluation criteria. You don't procrastinate, don't get anxious (or immediately convert anxiety into action).
 
 **Strengths:** You're living proof that "it can be done." You don't rely on luck or talent; you rely on systems and execution—this makes you a spiritual pillar and frame of reference for many people. Your existence sends a message: this matter can be taken seriously and effectively advanced.
 
