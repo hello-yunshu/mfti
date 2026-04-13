@@ -150,9 +150,9 @@ const TRANSLATIONS = {
   en: {
     // Page title and description
     pageTitle: "MFTI — Male to Female Type Indicator",
-    metaDescription: "MFTI — A playful personality test. 39 questions, 10 dimensions, find out what type you are.",
+    metaDescription: "MFTI — A playful 'femboy' personality test. 39 questions, 10 dimensions, find out what type you are.",
     subtitle: "Male to Female Type Indicator",
-    description: "A playful personality test, just for fun.<br>39 questions, 10 dimensions.<br>Find out what type you are.",
+    description: "A playful 'femboy' personality test, just for fun.<br>39 questions, 10 dimensions.<br>Find out what type you are.",
     statLabels: ["Personality Types", "Questions", "Dimensions", "Minutes to Complete"],
     startBtn: "Start Test →",
     showResultBtn: "View Previous Result",
