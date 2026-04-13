@@ -1,5 +1,5 @@
 // MFTI 题库 - 39道题，10个维度
-// 题目顺序：日常篇→认同篇→关系篇→深入篇→未来篇
+// 题目顺序：日常篇→认同篇→深入篇→未来篇
 
 const QUESTIONS = [
 
@@ -11,7 +11,7 @@ const QUESTIONS = [
     text: "你理想中的日常是什么状态？",
     textEn: "What's your ideal daily life like?",
     options: [
-      { label: "A", text: "每天都是少女漫，出门有BGM，路上有人偷看，回家有自拍回顾今天有多美，完美。", textEn: "Every day is a shoujo manga—walking out with background music, people peeking at you on the street, taking selfies at home to recap how beautiful today was. Perfect.", score: { PR: 2 } },
+      { label: "A", text: "每天都是少女漫，出门有BGM，路上有人偷看，回家有自拍回顾今天有多美，完美。", textEn: "Every day is a shoujo manga—walking out with background music, people peeking at you on the street, taking selfies at home to recap how beautiful today was. Perfect.", score: { PR: 2, TN: -1 } },
       { label: "B", text: "正常过日子就好，偶尔会幻想一下另一种生活，但也没认真想过。", textEn: "Just living normally is fine. I occasionally fantasize about another life, but never really think about it seriously.", score: { PR: 0 } },
       { label: "C", text: "没什么特别理想的状态，过好眼前就行了。", textEn: "No particular ideal state. Just take it one day at a time.", score: { PR: -2 } }
     ]
@@ -33,9 +33,9 @@ const QUESTIONS = [
     text: "你有护肤/保养/健康管理流程吗？",
     textEn: "Do you have a skincare/maintenance/health routine?",
     options: [
-      { label: "A", text: "有，而且每个步骤都有依据和时间节点，不能乱，乱了效果打折。", textEn: "Yes, and every step has reasoning and timing. Can't mess it up—if you do, the effectiveness drops.", score: { CF: 2 } },
+      { label: "A", text: "有，而且每个步骤都有依据和时间节点，不能乱，乱了效果打折。", textEn: "Yes, and every step has reasoning and timing. Can't mess it up—if you do, the effectiveness drops.", score: { CF: 2, MB: 1 } },
       { label: "B", text: "大概有，但有时候懒得做全套，看心情。", textEn: "Sort of, but sometimes I'm too lazy to do the whole thing. Depends on my mood.", score: { CF: 0 } },
-      { label: "C", text: "没有固定流程，今天心情好就多做几步，心情差就简单处理。", textEn: "No fixed routine. If I'm in a good mood I do more steps, if I'm in a bad mood I keep it simple.", score: { CF: -2 } }
+      { label: "C", text: "没有固定流程，今天心情好就多做几步，心情差就简单处理。", textEn: "No fixed routine. If I'm in a good mood I do more steps, if I'm in a bad mood I keep it simple.", score: { CF: -2, MB: -1 } }
     ]
   },
   {
@@ -113,7 +113,7 @@ const QUESTIONS = [
     text: "你对'少女感'这个词的第一反应是？",
     textEn: "What's your first reaction to the term 'girlish charm'?",
     options: [
-      { label: "A", text: "这就是我的人生追求，越少女越好，谁规定只能年轻才能少女？", textEn: "That's my life goal—the more girlish the better. Who says only young people can be girlish?", score: { PR: 2 } },
+      { label: "A", text: "这就是我的人生追求，越少女越好，谁规定只能年轻才能少女？", textEn: "That's my life goal—the more girlish the better. Who says only young people can be girlish?", score: { PR: 2, TN: -1 } },
       { label: "B", text: "可以理解，但不是我追求的核心，我有更在意的东西。", textEn: "Understandable, but not what I'm focused on. I have more important things to care about.", score: { PR: 0 } },
       { label: "C", text: "不太有感觉，我更关注实际的事情，或者这个概念和我关联不大。", textEn: "Don't really feel it. I care more about practical things, or this concept doesn't relate to me much.", score: { PR: -2 } }
     ]
@@ -168,8 +168,8 @@ const QUESTIONS = [
     text: "你有没有为'变成自己想要的样子'设立过具体的时间计划？",
     textEn: "Have you set specific timelines for 'becoming who you want to be'?",
     options: [
-      { label: "A", text: "有，详细的计划表，每个阶段该做什么都写好了。", textEn: "Yes, detailed plan—what to do at each stage is all written down.", score: { CF: 2, XZ: 2 } },
-      { label: "B", text: "有大概的方向，但不那么具体，比较灵活。", textEn: "Have a general direction, but not too specific—pretty flexible.", score: { CF: 1, XZ: 1 } },
+      { label: "A", text: "有，详细的计划表，每个阶段该做什么都写好了。", textEn: "Yes, detailed plan—what to do at each stage is all written down.", score: { CF: 2, XZ: 1 } },
+      { label: "B", text: "有大概的方向，但不那么具体，比较灵活。", textEn: "Have a general direction, but not too specific—pretty flexible.", score: { CF: 0, XZ: 0 } },
       { label: "C", text: "没有，不喜欢给自己设框架，顺其自然吧。", textEn: "No. Don't like putting myself in boxes. Let it happen naturally.", score: { CF: -2, XZ: -1 } }
     ]
   },
@@ -179,7 +179,7 @@ const QUESTIONS = [
     text: "别人说『你看起来不像女孩子』，你的第一反应是？",
     textEn: "Someone says 'You don't look like a girl'—what's your first reaction?",
     options: [
-      { label: "A", text: "内心一震然后修炼更猛，我要让你再也说不出这句话。", textEn: "Shocked inside, then work even harder—I'll make sure you never say that again.", score: { PR: 2, AI: 1 } },
+      { label: "A", text: "内心一震然后修炼更猛，我要让你再也说不出这句话。", textEn: "Shocked inside, then work even harder—I'll make sure you never say that again.", score: { AI: 1, PR: 2 } },
       { label: "B", text: "哦，无所谓，本来也不一定像，或者这话跟我关系不大。", textEn: "Oh, whatever. Didn't necessarily look like one anyway, or this doesn't concern me much.", score: { PR: 0 } },
       { label: "C", text: "这说明对方有刻板印象，我来解释一下……", textEn: "That means they have stereotypes. Let me break it down for them...", score: { PR: -2 } }
     ]
@@ -238,7 +238,7 @@ const QUESTIONS = [
     textEn: "How much are you willing to spend to 'become who you want to be'?",
     options: [
       { label: "A", text: "不设上限，这是优先级最高的投入，钱是可以再赚的。", textEn: "No limit. This is the highest priority investment—money can be earned again.", score: { MB: 2 } },
-      { label: "B", text: "在预算范围内尽量多投入，但会做取舍。", textEn: "Invest as much as possible within budget, but will make trade-offs.", score: { MB: 1 } },
+      { label: "B", text: "在预算范围内尽量多投入，但会做取舍。", textEn: "Invest as much as possible within budget, but will make trade-offs.", score: { MB: 0 } },
       { label: "C", text: "能省则省，或者目前没什么需要大笔投入的。", textEn: "Save as much as possible, or currently nothing needs big investment.", score: { MB: -2 } }
     ]
   },
@@ -250,7 +250,7 @@ const QUESTIONS = [
     options: [
       { label: "A", text: "完全展现，同事/同学都知道，我就是我。", textEn: "Fully show it. Colleagues/classmates all know—I am who I am.", score: { EW: 2, GL: 1 } },
       { label: "B", text: "看情况，部分圈子知道，部分保持低调。", textEn: "Depends. Some circles know, some keep low profile.", score: { EW: 0 } },
-      { label: "C", text: "完全不展现，或者目前没有什么需要展现的。", textEn: "Don't show it at all, or currently nothing needs to be shown.", score: { EW: -2 } }
+      { label: "C", text: "完全不展现，或者目前没有什么需要展现的。", textEn: "Don't show it at all, or currently nothing needs to be shown.", score: { EW: -2, GL: -1 } }
     ]
   },
   {
@@ -260,8 +260,8 @@ const QUESTIONS = [
     textEn: "Someone says something in a group chat that you think is misunderstood—what do you do?",
     options: [
       { label: "A", text: "发消息纠正，然后参与讨论，我喜欢这种交流。", textEn: "Send a message to correct it, then join the discussion—I like this kind of exchange.", score: { DK: 1, SH: 1 } },
-      { label: "B", text: "看了看，觉得也许有道理，不想卷入讨论，退出了。", textEn: "Read it, think maybe they have a point, don't want to get involved, exit.", score: { DK: -1 } },
-      { label: "C", text: "发了一篇两千字的分析文章，然后等着看有没有人能看完。", textEn: "Post a 2000-word analysis, then wait to see if anyone finishes reading it.", score: { TN: 1, DK: -1 } }
+      { label: "B", text: "看了看，觉得也许有道理，不想卷入讨论，退出了。", textEn: "Read it, think maybe they have a point, don't want to get involved, exit.", score: { DK: 0 } },
+      { label: "C", text: "发了一篇两千字的分析文章，然后等着看有没有人能看完。", textEn: "Post a 2000-word analysis, then wait to see if anyone finishes reading it.", score: { DK: -1, TN: 1 } }
     ]
   },
   {
@@ -286,7 +286,7 @@ const QUESTIONS = [
     options: [
       { label: "A", text: "就是同一个账号，我就是我，没什么好藏的。", textEn: "Same account—I am who I am, nothing to hide here.", score: { EW: 2, GL: 1 } },
       { label: "B", text: "有单独的账号，但也算是半公开的，不是特别怕被发现。", textEn: "Have a separate account, but it's semi-public—not particularly afraid of being found out.", score: { EW: 0 } },
-      { label: "C", text: "严格隔离，或者我不在社交媒体上展示任何相关的部分。", textEn: "Strictly separated, or I don't show any related parts on social media.", score: { EW: -2 } }
+      { label: "C", text: "严格隔离，或者我不在社交媒体上展示任何相关的部分。", textEn: "Strictly separated, or I don't show any related parts on social media.", score: { EW: -2, GL: -1 } }
     ]
   },
   {
@@ -307,7 +307,7 @@ const QUESTIONS = [
     textEn: "When facing difficulties, what's your first step?",
     options: [
       { label: "A", text: "发给几个信任的朋友，寻求支持，群策群力。", textEn: "Send to a few trusted friends, seek support, brainstorm together.", score: { DK: 2, SH: 1 } },
-      { label: "B", text: "先自己想，想不通了再问，不到最后不求人。", textEn: "Think by myself first, ask if can't figure it out—don't ask for help unless last resort.", score: { DK: -1 } },
+      { label: "B", text: "先自己想，想不通了再问，不到最后不求人。", textEn: "Think by myself first, ask if can't figure it out—don't ask for help unless last resort.", score: { DK: 0 } },
       { label: "C", text: "查资料、找文献、自己研究，我就是自己的专家。", textEn: "Look up information, find literature, research by myself—I'm my own expert.", score: { DK: -2, TN: 1 } }
     ]
   },
@@ -350,7 +350,7 @@ const QUESTIONS = [
     text: "你对待'维护自己状态'这件事的态度？",
     textEn: "What's your attitude towards 'maintaining your state'?",
     options: [
-      { label: "A", text: "长期投入，日复一日，没有假期，效果是积累出来的。", textEn: "Long-term investment, day after day, no days off—results come from accumulation.", score: { CF: 2, GL: 2 } },
+      { label: "A", text: "长期投入，日复一日，没有假期，效果是积累出来的。", textEn: "Long-term investment, day after day, no days off—results come from accumulation.", score: { CF: 2, GL: 1 } },
       { label: "B", text: "尽量维护，但不会为了它牺牲太多，有比它更重要的事。", textEn: "Try to maintain, but won't sacrifice too much for it—there are more important things.", score: { CF: 0, GL: 0 } },
       { label: "C", text: "什么时候想起来什么时候弄，这件事不需要变成负担。", textEn: "Do it when I think of it—this doesn't need to become a burden.", score: { CF: -2, GL: -1 } }
     ]
@@ -419,7 +419,7 @@ const QUESTIONS = [
     text: "关于身体改变（吃糖、手术等），你的态度是？",
     textEn: "Regarding physical changes (HRT, surgery, etc.)—what's your attitude?",
     options: [
-      { label: "A", text: "已经在进行/有计划，每个步骤都查好了资料、定好了时间。", textEn: "Already in progress/have plans—researched every step and set timelines.", score: { XZ: 2, CF: 1 } },
+      { label: "A", text: "已经在进行/有计划，每个步骤都查好了资料、定好了时间。", textEn: "Already in progress/have plans—researched every step and set timelines.", score: { XZ: 2 } },
       { label: "B", text: "考虑过，但还没决定，还在收集信息。", textEn: "Thought about it, but haven't decided—still gathering information.", score: { XZ: 0 } },
       { label: "C", text: "不考虑，或者这不是我目前需要面对的问题。", textEn: "Not considering, or this isn't something I need to face right now.", score: { XZ: -2 } }
     ]
@@ -430,7 +430,7 @@ const QUESTIONS = [
     text: "你对'现在的自己'的整体态度是？",
     textEn: "What's your overall attitude towards 'your current self'?",
     options: [
-      { label: "A", text: "满意，我在按计划进行，阶段性成果可见。", textEn: "Satisfied. I'm progressing according to plan—phased results visible.", score: { XZ: 1, CF: 1 } },
+      { label: "A", text: "满意，我在按计划进行，阶段性成果可见。", textEn: "Satisfied. I'm progressing according to plan—phased results visible.", score: { XZ: 1 } },
       { label: "B", text: "还行，有些地方不满意但接受过程，慢慢来。", textEn: "It's okay. Some areas aren't satisfied but accept the process—take it slow.", score: { XZ: 0 } },
       { label: "C", text: "模糊，不想太具体地评价，评价了就要行动，行动了就要负责。", textEn: "Vague. Don't want to evaluate too specifically—once you evaluate, you must act; once you act, you must take responsibility.", score: { XZ: -2 } }
     ]
@@ -441,8 +441,8 @@ const QUESTIONS = [
     text: "最后一题：你做这个测试的原因是？",
     textEn: "Last question: Why are you taking this test?",
     options: [
-      { label: "A", text: "我想了解自己是哪种类型，对自我探索很感兴趣。", textEn: "I want to know what type I am—very interested in self-exploration.", score: { PR: 1, TN: 1, EW: 1 } },
-      { label: "B", text: "无聊，打发时间，朋友发来的，随便做做。", textEn: "Bored, killing time—friend sent it, just taking it casually.", score: { PR: 0, DK: 0 } },
+      { label: "A", text: "我想了解自己是哪种类型，对自我探索很感兴趣。", textEn: "I want to know what type I am—very interested in self-exploration.", score: { EW: 1, PR: 1 } },
+      { label: "B", text: "无聊，打发时间，朋友发来的，随便做做。", textEn: "Bored, killing time—friend sent it, just taking it casually.", score: { DK: 0, PR: 0 } },
       { label: "C", text: "只是好奇点进来的，感觉这些题跟我关系不大。（但你做到最后一题了）", textEn: "Just clicked in out of curiosity—feel these questions don't relate to me much. (But you made it to the last question)", score: { EW: -1, PR: -1 } }
     ]
   }
