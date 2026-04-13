@@ -42,12 +42,12 @@ const MFTIEngine = (() => {
 
   // 根据分数得出4字母类型
   // 编码规则: P/R(PR) + S/H(SH) + A/W(AI) + E/I(EW)
-  // A=颜值焦虑(AI>50) W=心态平和(AI<50) E=有出柜行为(EW>50) I=未出柜(EW<50)
+  // A=颜值焦虑(AI>=50) W=心态平和(AI<50) E=有出柜行为(EW>=50) I=未出柜(EW<50)
   function getTypeCode(normalized) {
-    const p = normalized.PR > 50 ? 'P' : 'R';
-    const s = normalized.SH > 50 ? 'S' : 'H';
-    const a = normalized.AI > 50 ? 'A' : 'W';
-    const e = normalized.EW > 50 ? 'E' : 'I';
+    const p = normalized.PR >= 50 ? 'P' : 'R';
+    const s = normalized.SH >= 50 ? 'S' : 'H';
+    const a = normalized.AI >= 50 ? 'A' : 'W';
+    const e = normalized.EW >= 50 ? 'E' : 'I';
     return `${p}${s}${a}${e}`;
   }
 
