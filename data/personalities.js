@@ -289,7 +289,7 @@ You're the type with the highest aesthetic level and lowest social presence in t
 
 **How to Get Along:** Don't disturb her ritual. If she voluntarily speaks to you, that's rarer than winning a Nobel Prize; catch it well.
     `,
-    dimensions: { PR: 80, SH: -10, AI: 100, EW: 29, CF: 88, DK: 18, TN: 18, MB: 92, GL: 86, XZ: 93 }
+    dimensions: { PR: 80, SH: 5, AI: 100, EW: 29, CF: 88, DK: 18, TN: 18, MB: 92, GL: 86, XZ: 93 }
   },
 
   PHWE: {
@@ -675,7 +675,7 @@ You stay at home, you're in the process of coming out, you care about appearance
 
 **How to Get Along:** Talk with her about topics she's interested in, rather than trying to give her conclusions. She doesn't need answers; she needs good dialogue partners.
     `,
-    dimensions: { PR: 28, SH: -10, AI: 92, EW: 24, CF: 81, DK: 18, TN: 27, MB: 92, GL: 64, XZ: 87 }
+    dimensions: { PR: 28, SH: 5, AI: 92, EW: 24, CF: 81, DK: 18, TN: 27, MB: 92, GL: 64, XZ: 87 }
   },
 
   RHWE: {
@@ -771,7 +771,7 @@ You like learning new things, thinking, and observing—this isn't confusion, it
 
 **How to Get Along:** Share interesting things with her, explore new possibilities together. Don't rush her to make decisions—just enjoy the process of exploration.
     `,
-    dimensions: { PR: 16, SH: -10, AI: 0, EW: 5, CF: 6, DK: 18, TN: 91, MB: 0, GL: 0, XZ: 0 }
+    dimensions: { PR: 16, SH: 5, AI: 0, EW: 5, CF: 6, DK: 18, TN: 91, MB: 0, GL: 0, XZ: 0 }
   }
 
 };

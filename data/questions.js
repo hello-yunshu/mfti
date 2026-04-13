@@ -1,4 +1,4 @@
-// MFTI 题库 - 37道题，10个维度
+// MFTI 题库 - 39道题，10个维度
 // 题目顺序：日常篇→认同篇→关系篇→深入篇→未来篇
 
 const QUESTIONS = [
@@ -13,7 +13,7 @@ const QUESTIONS = [
     options: [
       { label: "A", text: "每天都是少女漫，出门有BGM，路上有人偷看，回家有自拍回顾今天有多美，完美。", textEn: "Every day is a shoujo manga—walking out with background music, people peeking at you on the street, taking selfies at home to recap how beautiful today was. Perfect.", score: { PR: 2 } },
       { label: "B", text: "正常过日子就好，偶尔会幻想一下另一种生活，但也没认真想过。", textEn: "Just living normally is fine. I occasionally fantasize about another life, but never really think about it seriously.", score: { PR: 0 } },
-      { label: "C", text: "没什么特别理想的状态，过好眼前就行了。", textEn: "No particular ideal state. Just take it one day at a time.", score: { PR: -1 } }
+      { label: "C", text: "没什么特别理想的状态，过好眼前就行了。", textEn: "No particular ideal state. Just take it one day at a time.", score: { PR: -2 } }
     ]
   },
   {
@@ -45,7 +45,7 @@ const QUESTIONS = [
     textEn: "What did you post on your social media recently?",
     options: [
       { label: "A", text: "滤镜+文案+位置打卡，评论区被'好美'淹没，完美结束这一天。", textEn: "Filters + caption + location check-in. Comments flooded with 'so beautiful'. Perfect end to the day.", score: { PR: 2 } },
-      { label: "B", text: "偶尔看看别人的内容，自己不太发相关的东西。", textEn: "Occasionally look at other people's content, don't really post related stuff myself.", score: { PR: -1 } },
+      { label: "B", text: "偶尔看看别人的内容，自己不太发相关的东西。", textEn: "Occasionally look at other people's content, don't really post related stuff myself.", score: { PR: 0 } },
       { label: "C", text: "我的社交账号和这面完全无关，不会留下任何痕迹。", textEn: "My social media accounts are completely unrelated to this side. Won't leave any traces.", score: { PR: -2 } }
     ]
   },
@@ -56,7 +56,7 @@ const QUESTIONS = [
     textEn: "Where is your main social battlefield?",
     options: [
       { label: "A", text: "线下活动、姐妹饭局、各种见面，认识新朋友让我充电。", textEn: "Offline events, girl dinners, all kinds of meetups. Meeting new people recharges me.", score: { SH: 2 } },
-      { label: "B", text: "社交媒体为主，偶尔线下，线下结束了要花时间恢复元气。", textEn: "Mostly social media, occasionally offline. Need time to recover after offline events.", score: { SH: 1 } },
+      { label: "B", text: "社交媒体为主，偶尔线下，线下结束了要花时间恢复元气。", textEn: "Mostly social media, occasionally offline. Need time to recover after offline events.", score: { SH: 0 } },
       { label: "C", text: "我的社交圈是两个固定的、高度精选的好友，其他一概不需要。", textEn: "My social circle is two fixed, highly curated friends. Don't need anything else.", score: { SH: -2 } }
     ]
   },
@@ -85,12 +85,12 @@ const QUESTIONS = [
   {
     id: 8,
     dimension: "SH",
-    text: "一个人在家待了一周，你感觉怎么样？",
-    textEn: "Stayed home alone for a week—how do you feel?",
+    text: "周末下午突然有人组局，说就差你了，你？",
+    textEn: "Someone's putting together a last-minute weekend gathering and says they're just missing you—what do you do?",
     options: [
-      { label: "A", text: "快憋死了，赶紧找人出去，哪怕只是逛超市也行。", textEn: "Almost suffocating. Need to find someone to go out with immediately—even just grocery shopping is fine.", score: { SH: 2 } },
-      { label: "B", text: "还好，但开始觉得有点空，偶尔刷刷群聊看看动态。", textEn: "It's okay, but starting to feel a bit empty. Occasionally check group chats for updates.", score: { SH: 0 } },
-      { label: "C", text: "这才叫生活，关掉消息提醒，人均打扰降到零，天堂了。", textEn: "This is what life is about. Turn off notifications, zero interruptions—heaven.", score: { SH: -2 } }
+      { label: "A", text: "已经在换衣服了，地址发来，我马上到！", textEn: "Already changing clothes—send me the address, I'm on my way!", score: { SH: 2 } },
+      { label: "B", text: "看是什么局，有认识的人就去，全是生面孔就算了。", textEn: "Depends on what kind of gathering—if I know people there I'll go, all strangers then never mind.", score: { SH: 0 } },
+      { label: "C", text: "谢谢邀请，但我周末的安排就是没有安排，下次一定——永远没有下次。", textEn: "Thanks for the invite, but my weekend plan is having no plans—next time for sure. And there's never a next time.", score: { SH: -2 } }
     ]
   },
 
@@ -109,17 +109,6 @@ const QUESTIONS = [
   },
   {
     id: 10,
-    dimension: "TN",
-    text: "你是怎么确认自己内心真实想法的？",
-    textEn: "How do you confirm your true inner feelings?",
-    options: [
-      { label: "A", text: "就是一种感觉，某天突然清楚了，没有想太多。", textEn: "It's just a feeling. One day it suddenly became clear. Didn't think too much about it.", score: { TN: -2 } },
-      { label: "B", text: "一开始是感觉，后来也查了一些资料，两者结合。", textEn: "Started with a feeling, then looked up some info later—combining both.", score: { TN: 0 } },
-      { label: "C", text: "看了很多书、做了很多分析、对比了各种说法，最后才确定——或者我目前还没想清楚。", textEn: "Read many books, did lots of analysis, compared various perspectives before deciding—or I still haven't figured it out.", score: { TN: 2 } }
-    ]
-  },
-  {
-    id: 11,
     dimension: "PR",
     text: "你对'少女感'这个词的第一反应是？",
     textEn: "What's your first reaction to the term 'girlish charm'?",
@@ -130,18 +119,51 @@ const QUESTIONS = [
     ]
   },
   {
+    id: 11,
+    dimension: "TN",
+    text: "你是怎么确认自己内心真实想法的？",
+    textEn: "How do you confirm your true inner feelings?",
+    options: [
+      { label: "A", text: "就是一种感觉，某天突然清楚了，没有想太多。", textEn: "It's just a feeling. One day it suddenly became clear. Didn't think too much about it.", score: { TN: -2 } },
+      { label: "B", text: "一开始是感觉，后来也查了一些资料，两者结合。", textEn: "Started with a feeling, then looked up some info later—combining both.", score: { TN: 0 } },
+      { label: "C", text: "看了很多书、做了很多分析、对比了各种说法，最后才确定——或者我目前还没想清楚。", textEn: "Read many books, did lots of analysis, compared various perspectives before deciding—or I still haven't figured it out.", score: { TN: 2 } }
+    ]
+  },
+  {
     id: 12,
+    dimension: "AI",
+    text: "你手机相册里，关于'自己好看的样子'的照片有多少？",
+    textEn: "How many photos of 'yourself looking good' are in your phone gallery?",
+    options: [
+      { label: "A", text: "一个专属相册，按穿搭和妆容分类，不好看的当场删，只留能见人的。", textEn: "A dedicated album, categorized by outfit and makeup—bad ones deleted on the spot, only the presentable ones stay.", score: { AI: 2 } },
+      { label: "B", text: "有一些，但大部分是风景和截图，自拍不是主角。", textEn: "Some, but mostly landscapes and screenshots—selfies aren't the main feature.", score: { AI: 0 } },
+      { label: "C", text: "几乎没有，我不太拍自己，或者手机里都是别的乱七八糟的东西。", textEn: "Almost none—I don't really take pictures of myself, or my phone is full of random other stuff.", score: { AI: -2 } }
+    ]
+  },
+  {
+    id: 13,
+    dimension: "SH",
+    text: "一个人在家待了一周，你感觉怎么样？",
+    textEn: "Stayed home alone for a week—how do you feel?",
+    options: [
+      { label: "A", text: "快憋死了，赶紧找人出去，哪怕只是逛超市也行。", textEn: "Almost suffocating. Need to find someone to go out with immediately—even just grocery shopping is fine.", score: { SH: 2 } },
+      { label: "B", text: "还好，但开始觉得有点空，偶尔刷刷群聊看看动态。", textEn: "It's okay, but starting to feel a bit empty. Occasionally check group chats for updates.", score: { SH: 0 } },
+      { label: "C", text: "这才叫生活，关掉消息提醒，人均打扰降到零，天堂了。", textEn: "This is what life is about. Turn off notifications, zero interruptions—heaven.", score: { SH: -2 } }
+    ]
+  },
+  {
+    id: 14,
     dimension: "AI",
     text: "你觉得'颜值'这件事对你的影响有多大？",
     textEn: "How much do you think 'appearance' affects you?",
     options: [
-      { label: "A", text: "非常大，我经常觉得自己不够好，别人的评价会直接改变我一天的心情。", textEn: "A lot. I often feel I'm not good enough. Other people's opinions can directly change my mood for the day.", score: { AI: 2, PR: 1 } },
+      { label: "A", text: "非常大，我经常觉得自己不够好，别人的评价会直接改变我一天的心情。", textEn: "A lot. I often feel I'm not good enough. Other people's opinions can directly change my mood for the day.", score: { AI: 2 } },
       { label: "B", text: "有一些影响，但不是决定性的，我可以靠别的东西撑住自信。", textEn: "Some effect, but not decisive. I can rely on other things to maintain my confidence.", score: { AI: 0 } },
       { label: "C", text: "几乎没影响，我对自己的认知不建立在外表上，或者已经过了在意的阶段了。", textEn: "Almost no effect. My self-perception isn't based on appearance, or I've already passed the stage of caring.", score: { AI: -2 } }
     ]
   },
   {
-    id: 13,
+    id: 15,
     dimension: "CF",
     text: "你有没有为'变成自己想要的样子'设立过具体的时间计划？",
     textEn: "Have you set specific timelines for 'becoming who you want to be'?",
@@ -152,18 +174,21 @@ const QUESTIONS = [
     ]
   },
   {
-    id: 14,
+    id: 16,
     dimension: "PR",
     text: "别人说『你看起来不像女孩子』，你的第一反应是？",
     textEn: "Someone says 'You don't look like a girl'—what's your first reaction?",
     options: [
-      { label: "A", text: "内心一震然后修炼更猛，我要让你再也说不出这句话。", textEn: "Shocked inside, then work even harder—I'll make sure you never say that again.", score: { PR: 1, AI: 1 } },
-      { label: "B", text: "哦，无所谓，本来也不一定像，或者这话跟我关系不大。", textEn: "Oh, whatever. Didn't necessarily look like one anyway, or this doesn't concern me much.", score: { PR: -1 } },
-      { label: "C", text: "这说明对方有刻板印象，我来解释一下……", textEn: "That means they have stereotypes. Let me explain...", score: { TN: 2 } }
+      { label: "A", text: "内心一震然后修炼更猛，我要让你再也说不出这句话。", textEn: "Shocked inside, then work even harder—I'll make sure you never say that again.", score: { PR: 2, AI: 1 } },
+      { label: "B", text: "哦，无所谓，本来也不一定像，或者这话跟我关系不大。", textEn: "Oh, whatever. Didn't necessarily look like one anyway, or this doesn't concern me much.", score: { PR: 0 } },
+      { label: "C", text: "这说明对方有刻板印象，我来解释一下……", textEn: "That means they have stereotypes. Let me explain...", score: { PR: -2 } }
     ]
   },
+
+  // ===== 关系篇 =====
+
   {
-    id: 15,
+    id: 17,
     dimension: "SH",
     text: "一个人去一家从没去过的咖啡店，你会？",
     textEn: "Going to a new coffee shop alone—what do you do?",
@@ -174,7 +199,7 @@ const QUESTIONS = [
     ]
   },
   {
-    id: 16,
+    id: 18,
     dimension: "TN",
     text: "别人说『你想太多了，跟着感觉走就好』，你觉得？",
     textEn: "Someone says 'You think too much, just go with your feelings'—what do you think?",
@@ -184,22 +209,19 @@ const QUESTIONS = [
       { label: "C", text: "感觉是一种信息，但未经检验的信息不可靠，我需要验证。", textEn: "Feelings are information, but untested information isn't reliable. I need verification.", score: { TN: 2 } }
     ]
   },
-
-  // ===== 关系篇 =====
-
   {
-    id: 17,
+    id: 19,
     dimension: "EW",
     text: "你身边重要的人（家人/伴侣/挚友）了解真实的你吗？",
     textEn: "Do the important people in your life (family/partner/close friends) know the real you?",
     options: [
       { label: "A", text: "了解，而且他们的反应比我预期的要……复杂，但总之已经说了。", textEn: "Yes, and their reactions were... more complicated than I expected, but I've told them anyway.", score: { EW: 2 } },
-      { label: "B", text: "部分人了解，或者暂时和他们没有关系，这是我自己的事。", textEn: "Some know, or it's not related to them right now—this is my own business.", score: { EW: -1 } },
+      { label: "B", text: "部分人了解，或者暂时和他们没有关系，这是我自己的事。", textEn: "Some know, or it's not related to them right now—this is my own business.", score: { EW: 0 } },
       { label: "C", text: "没有人了解，或者目前没有打算告诉别人。", textEn: "No one knows, or I currently have no plans to tell anyone.", score: { EW: -2 } }
     ]
   },
   {
-    id: 18,
+    id: 20,
     dimension: "DK",
     text: "你需要找到和你一样的'姐妹'吗？",
     textEn: "Do you need to find 'sisters' like you?",
@@ -210,7 +232,7 @@ const QUESTIONS = [
     ]
   },
   {
-    id: 19,
+    id: 21,
     dimension: "MB",
     text: "你愿意为'变成自己想成为的样子'花多少钱？",
     textEn: "How much are you willing to spend to 'become who you want to be'?",
@@ -221,7 +243,7 @@ const QUESTIONS = [
     ]
   },
   {
-    id: 20,
+    id: 22,
     dimension: "EW",
     text: "在工作或学校里，你展现女孩子一面的程度是？",
     textEn: "At work or school, how much do you show your feminine side?",
@@ -232,29 +254,32 @@ const QUESTIONS = [
     ]
   },
   {
-    id: 21,
+    id: 23,
     dimension: "DK",
     text: "有人在群里说了一件让你觉得理解错了的事，你会？",
     textEn: "Someone says something in a group chat that you think is misunderstood—what do you do?",
     options: [
       { label: "A", text: "发消息纠正，然后参与讨论，我喜欢这种交流。", textEn: "Send a message to correct it, then join the discussion—I like this kind of exchange.", score: { DK: 1, SH: 1 } },
       { label: "B", text: "看了看，觉得也许有道理，不想卷入讨论，退出了。", textEn: "Read it, think maybe they have a point, don't want to get involved, exit.", score: { DK: -1 } },
-      { label: "C", text: "发了一篇两千字的分析文章，然后等着看有没有人能看完。", textEn: "Post a 2000-word analysis, then wait to see if anyone finishes reading it.", score: { TN: 1, DK: 0 } }
+      { label: "C", text: "发了一篇两千字的分析文章，然后等着看有没有人能看完。", textEn: "Post a 2000-word analysis, then wait to see if anyone finishes reading it.", score: { TN: 1, DK: -1 } }
     ]
   },
   {
-    id: 22,
+    id: 24,
     dimension: "EW",
     text: "如果有人在公开场合问你『你是男生还是女生』，你怎么回应？",
     textEn: "If someone asks you 'Are you a boy or a girl?' in public—how do you respond?",
     options: [
       { label: "A", text: "直接说我是女生，这有什么需要回避的。", textEn: "Directly say I'm a girl—nothing to hide here.", score: { EW: 2 } },
       { label: "B", text: "看情况，有时候直说，有时候打哈哈过去。", textEn: "Depends. Sometimes say it directly, sometimes joke it off.", score: { EW: 0 } },
-      { label: "C", text: "反问他：你为什么需要知道这个？然后保持微笑。", textEn: "Ask back: Why do you need to know that? Then keep smiling.", score: { EW: -1, TN: 1 } }
+      { label: "C", text: "反问他：你为什么需要知道这个？然后保持微笑。", textEn: "Ask back: Why do you need to know that? Then keep smiling.", score: { EW: -2 } }
     ]
   },
+
+  // ===== 深入篇 =====
+
   {
-    id: 23,
+    id: 25,
     dimension: "EW",
     text: "你的社交媒体账号，和你'这一面'的关系是？",
     textEn: "What's the relationship between your social media accounts and 'this side' of you?",
@@ -265,7 +290,18 @@ const QUESTIONS = [
     ]
   },
   {
-    id: 24,
+    id: 26,
+    dimension: "EW",
+    text: "新认识的朋友问你怎么周末总一个人待着，你怎么回？",
+    textEn: "A new friend asks why you always spend weekends alone—how do you respond?",
+    options: [
+      { label: "A", text: "直接说因为我是这样的啊，然后顺便科普一下，对方爱听不听。", textEn: "Just say it's because this is who I am, then casually educate them—whether they listen is up to them.", score: { EW: 2 } },
+      { label: "B", text: "含糊带过，说'就是比较宅'，等熟了再说真话。", textEn: "Vague it out with 'just a homebody'—save the real talk for when we're closer.", score: { EW: 0 } },
+      { label: "C", text: "说'就是喜欢待在家'，这件事跟新朋友没什么好聊的。", textEn: "Just say 'I like staying home'—this isn't something to discuss with a new friend.", score: { EW: -2 } }
+    ]
+  },
+  {
+    id: 27,
     dimension: "DK",
     text: "遇到困难的时候，你第一步是？",
     textEn: "When facing difficulties, what's your first step?",
@@ -275,11 +311,8 @@ const QUESTIONS = [
       { label: "C", text: "查资料、找文献、自己研究，我就是自己的专家。", textEn: "Look up information, find literature, research by myself—I'm my own expert.", score: { DK: -2, TN: 1 } }
     ]
   },
-
-  // ===== 深入篇 =====
-
   {
-    id: 25,
+    id: 28,
     dimension: "TN",
     text: "你有没有研究过关于跨性别相关的学术文章或心理学资料？",
     textEn: "Have you researched academic articles or psychological materials about transgender topics?",
@@ -290,29 +323,29 @@ const QUESTIONS = [
     ]
   },
   {
-    id: 26,
-    dimension: "TN",
-    text: "面对需要和家人沟通的重要事情，你的风格是？",
-    textEn: "When facing important things that need communicating with family—what's your style?",
+    id: 29,
+    dimension: "AI",
+    text: "出门前照镜子，你通常会？",
+    textEn: "Looking in the mirror before going out—what do you usually do?",
     options: [
-      { label: "A", text: "直接说，或者没什么需要特别沟通的，跟着感觉走就行。", textEn: "Say it directly, or nothing special to communicate—just go with feelings.", score: { TN: -1 } },
-      { label: "B", text: "会先想想要怎么说，但不做太多准备，到时候看情况。", textEn: "Will think about how to say it first, but don't prepare too much—play it by ear.", score: { TN: 0 } },
-      { label: "C", text: "会做系统准备：收集资料、预演对话、制定方案，确保沟通到位。", textEn: "Will prepare systematically: gather info, rehearse conversations, make plans—ensure communication is thorough.", score: { TN: 2 } }
+      { label: "A", text: "反复确认每个细节，头发、妆容、穿搭，有一处不满意就浑身不自在，改到满意为止。", textEn: "Check every detail repeatedly—hair, makeup, outfit. One imperfection makes me uncomfortable, fix it until satisfied.", score: { AI: 2 } },
+      { label: "B", text: "大概看一眼，差不多就行，又不是去选美。", textEn: "Quick glance—good enough, it's not a beauty pageant.", score: { AI: 0 } },
+      { label: "C", text: "照镜子？出门前看一眼确认没把衣服穿反就行了。", textEn: "Mirror? Just check my clothes aren't inside out and I'm good.", score: { AI: -2 } }
     ]
   },
   {
-    id: 27,
+    id: 30,
     dimension: "GL",
     text: "你以女孩子状态生活的频率是？",
     textEn: "How often do you live as your feminine self?",
     options: [
       { label: "A", text: "每天，这不是特殊模式，这就是我的正常生活。", textEn: "Every day. This isn't a special mode—this is my normal life.", score: { GL: 2 } },
       { label: "B", text: "有机会就是，没机会就等，不强求。", textEn: "When there's opportunity yes, no opportunity wait—don't force it.", score: { GL: 0 } },
-      { label: "C", text: "很少或者没有，目前还没有这样的生活状态。", textEn: "Rarely or never—don't have this lifestyle yet.", score: { GL: 0, CF: 1 } }
+      { label: "C", text: "很少或者没有，目前还没有这样的生活状态。", textEn: "Rarely or never—don't have this lifestyle yet.", score: { GL: -2 } }
     ]
   },
   {
-    id: 28,
+    id: 31,
     dimension: "CF",
     text: "你对待'维护自己状态'这件事的态度？",
     textEn: "What's your attitude towards 'maintaining your state'?",
@@ -323,18 +356,7 @@ const QUESTIONS = [
     ]
   },
   {
-    id: 29,
-    dimension: "PR",
-    text: "你理想中的周末是怎样的？",
-    textEn: "What's your ideal weekend like?",
-    options: [
-      { label: "A", text: "穿上最爱的裙子，和朋友出去逛街拍照，每一家店都要进去看一下。", textEn: "Put on favorite dress, go out with friends shopping and taking photos—need to check out every shop.", score: { PR: 2, SH: 1 } },
-      { label: "B", text: "在家安静度过，可能做做自己的事，偶尔刷刷手机看看朋友在干嘛。", textEn: "Spend quietly at home, maybe do own things, occasionally check phone to see what friends are up to.", score: { PR: 0, SH: 0 } },
-      { label: "C", text: "没什么特别的安排，平时干嘛周末就干嘛，不太会去想这种事。", textEn: "No special plans—do what I usually do, don't really think about this kind of thing.", score: { PR: -1, SH: -1 } }
-    ]
-  },
-  {
-    id: 30,
+    id: 32,
     dimension: "GL",
     text: "一整个月都没机会做自己理想中的样子，你会？",
     textEn: "A whole month without chance to be your ideal self—what do you do?",
@@ -344,8 +366,11 @@ const QUESTIONS = [
       { label: "C", text: "没什么，我心里知道我是谁，不需要靠外在表达。", textEn: "It's fine. I know who I am inside—don't need external expression.", score: { GL: -2 } }
     ]
   },
+
+  // ===== 未来篇 =====
+
   {
-    id: 31,
+    id: 33,
     dimension: "GL",
     text: "如果明天全世界都接受你了，你第一件事做什么？",
     textEn: "If the whole world accepts you tomorrow—what do you do first?",
@@ -356,7 +381,7 @@ const QUESTIONS = [
     ]
   },
   {
-    id: 32,
+    id: 34,
     dimension: "PR",
     text: "对你来说'做自己'最重要的是？",
     textEn: "For you, what's most important about 'being yourself'?",
@@ -366,11 +391,8 @@ const QUESTIONS = [
       { label: "C", text: "理性认识自己，不欺骗自己，也不给自己制造不必要的幻想。", textEn: "Know myself rationally—don't deceive myself, don't create unnecessary fantasies.", score: { PR: -2, TN: 1 } }
     ]
   },
-
-  // ===== 未来篇 =====
-
   {
-    id: 33,
+    id: 35,
     dimension: "XZ",
     text: "你有没有认真想过五年后你的状态是什么样的？",
     textEn: "Have you seriously thought about what your state will be like in five years?",
@@ -381,7 +403,7 @@ const QUESTIONS = [
     ]
   },
   {
-    id: 34,
+    id: 36,
     dimension: "MB",
     text: "最近一次在'变美/变女孩子'这件事上的最大单笔消费是多少？",
     textEn: "What was your biggest single purchase recently for 'becoming more beautiful/becoming a girl'?",
@@ -392,7 +414,7 @@ const QUESTIONS = [
     ]
   },
   {
-    id: 35,
+    id: 37,
     dimension: "XZ",
     text: "关于身体改变（吃糖、手术等），你的态度是？",
     textEn: "Regarding physical changes (HRT, surgery, etc.)—what's your attitude?",
@@ -403,7 +425,7 @@ const QUESTIONS = [
     ]
   },
   {
-    id: 36,
+    id: 38,
     dimension: "XZ",
     text: "你对'现在的自己'的整体态度是？",
     textEn: "What's your overall attitude towards 'your current self'?",
@@ -414,14 +436,14 @@ const QUESTIONS = [
     ]
   },
   {
-    id: 37,
+    id: 39,
     dimension: "PR",
     text: "最后一题：你做这个测试的原因是？",
     textEn: "Last question: Why are you taking this test?",
     options: [
       { label: "A", text: "我想了解自己是哪种类型，对自我探索很感兴趣。", textEn: "I want to know what type I am—very interested in self-exploration.", score: { PR: 1, TN: 1, EW: 1 } },
       { label: "B", text: "无聊，打发时间，朋友发来的，随便做做。", textEn: "Bored, killing time—friend sent it, just taking it casually.", score: { PR: 0, DK: 0 } },
-      { label: "C", text: "只是好奇点进来的，感觉这些题跟我关系不大。（但你做到第37题了）", textEn: "Just clicked in out of curiosity—feel these questions don't relate to me much. (But you made it to question 37)", score: { EW: -2, PR: -1 } }
+      { label: "C", text: "只是好奇点进来的，感觉这些题跟我关系不大。（但你做到最后一题了）", textEn: "Just clicked in out of curiosity—feel these questions don't relate to me much. (But you made it to the last question)", score: { EW: -2, PR: -1 } }
     ]
   }
 
