@@ -145,7 +145,7 @@ You know what to say and how to present yourself in different situations, and th
 
 **How to Get Along:** Give her a sense of security, let her know she doesn't have to be so tired in front of you, she can relax.
     `,
-    dimensions: { PR: 58, SH: 86, AI: 15, EW: 90, CF: 56, DK: 100, TN: 50, MB: 85, GL: 100, XZ: 53 }
+    dimensions: { PR: 62, SH: 86, AI: 15, EW: 90, CF: 56, DK: 100, TN: 50, MB: 85, GL: 100, XZ: 53 }
   },
 
   PSWI: {
@@ -193,7 +193,7 @@ You've deconstructed your identity at least three hundred times in your head, ea
 
 **How to Get Along:** Throw her a concrete small problem, not a grand identity question. Big questions will trap her in an endless loop.
     `,
-    dimensions: { PR: 55, SH: 62, AI: 15, EW: 33, CF: 56, DK: 36, TN: 65, MB: 54, GL: 57, XZ: 53 }
+    dimensions: { PR: 60, SH: 62, AI: 15, EW: 33, CF: 56, DK: 36, TN: 65, MB: 54, GL: 57, XZ: 53 }
   },
 
   PHAE: {
@@ -337,7 +337,7 @@ Your secret isn't hidden; it's carefully placed in a location only you know, loc
 
 **How to Get Along:** Her secret isn't distrust of you; it's her way of protecting herself. If one day she voluntarily opens the door, that's the greatest gift she gives you.
     `,
-    dimensions: { PR: 55, SH: 24, AI: 20, EW: 62, CF: 88, DK: 18, TN: 68, MB: 92, GL: 71, XZ: 93 }
+    dimensions: { PR: 60, SH: 24, AI: 20, EW: 62, CF: 88, DK: 18, TN: 68, MB: 92, GL: 71, XZ: 93 }
   },
 
   PHWI: {
@@ -385,7 +385,7 @@ You know. You've always known. But between "knowing" and "admitting" there's a p
 
 **How to Get Along:** Don't push her, don't ask her "what exactly are you." She needs a safe, pressure-free environment that makes her feel it's okay to come out—but that's her decision, not yours.
     `,
-    dimensions: { PR: 55, SH: 10, AI: 15, EW: 10, CF: 6, DK: 18, TN: 68, MB: 0, GL: 21, XZ: 0 }
+    dimensions: { PR: 60, SH: 10, AI: 15, EW: 10, CF: 6, DK: 18, TN: 68, MB: 0, GL: 21, XZ: 0 }
   },
 
   // ==================== R系（现实清醒派）====================
@@ -483,7 +483,7 @@ You know your E2, T, and SHBG curves better than your endocrinologist. You've se
 
 **How to Get Along:** Come to her with questions, not emotional breakdowns—she's like a fish in water with the former, and at a loss with the latter.
     `,
-    dimensions: { PR: 28, SH: 57, AI: 92, EW: 43, CF: 75, DK: 18, TN: 75, MB: 54, GL: 36, XZ: 60 }
+    dimensions: { PR: 28, SH: 65, AI: 92, EW: 43, CF: 75, DK: 18, TN: 75, MB: 54, GL: 36, XZ: 60 }
   },
 
   RSWE: {
@@ -579,7 +579,7 @@ Your research depth on transgender-related topics has surpassed many professiona
 
 **How to Get Along:** Give her a truly challenging problem, and she'll take you seriously. Don't pretend to understand—she can see through it immediately.
     `,
-    dimensions: { PR: 24, SH: 62, AI: 0, EW: 29, CF: 50, DK: 18, TN: 80, MB: 0, GL: 7, XZ: 13 }
+    dimensions: { PR: 24, SH: 65, AI: 0, EW: 29, CF: 50, DK: 18, TN: 80, MB: 0, GL: 7, XZ: 13 }
   },
 
   RHAE: {
