@@ -1,0 +1,74 @@
+name: Minify and Version Assets
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - '**.js'
+      - '**.css'
+      - '!node_modules/**'
+      - '!**.min.js'
+      - '!**.min.css'
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  minify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@main
+        with:
+          fetch-depth: 2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@main
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@main
+        with:
+          files: |
+            **.js
+            **.css
+          files_ignore: |
+            **.min.js
+            **.min.css
+            node_modules/**
+
+      - name: Process files
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          echo "Changed files: ${{ steps.changed-files.outputs.all_changed_files }}"
+          node scripts/minify-and-version.js ${{ steps.changed-files.outputs.all_changed_files }}
+
+      - name: Commit and push changes
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "chore: minify assets and update versions [skip ci]"
+          git push
+
+  cleanup-old-runs:
+    runs-on: ubuntu-latest
+    needs: minify
+    if: always()
+    steps:
+      - name: Cleanup old workflow runs
+        uses: Mattraks/delete-workflow-runs@main
+        with:
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          retain_days: 7
+          keep_minimum_runs: 5

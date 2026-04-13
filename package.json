@@ -1,0 +1,12 @@
+{
+  "name": "mfti",
+  "version": "1.0.0",
+  "description": "MFTI - Male to Female Type Indicator",
+  "scripts": {
+    "minify": "node scripts/minify-and-version.js"
+  },
+  "dependencies": {
+    "terser": "^5.44.0",
+    "clean-css": "^5.3.3"
+  }
+}
