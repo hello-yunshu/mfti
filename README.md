@@ -2,6 +2,8 @@
 
 一个「男娘」人格测试，纯属娱乐。37道题目，10个维度评分，测出你是哪种生物。
 
+👉 **立即体验：[https://mfti.hey.run/](https://mfti.hey.run/)**
+
 ## 项目简介
 
 MFTI 是一个基于 Myers-Briggs Type Indicator (MBTI) 概念的趣味人格测试，但专为跨性别女性 (MTF) 和「男娘」群体设计。
@@ -43,6 +45,12 @@ MFTI 是一个基于 Myers-Briggs Type Indicator (MBTI) 概念的趣味人格测
 | 4 | EW | E（公开出柜） | I（未出柜） |
 
 ## 使用说明
+
+### 在线体验（推荐）
+
+直接访问：[https://mfti.hey.run/](https://mfti.hey.run/)
+
+### 本地运行
 
 1. 直接在浏览器中打开 `index.html` 文件
 2. 点击"开始测试"，阅读并同意免责声明

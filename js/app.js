@@ -162,6 +162,12 @@ const App = (() => {
       renderAllPersonalities();
     }
     
+    // 更新页脚
+    const footerAuthorLabel = document.getElementById('footer-author-label');
+    if (footerAuthorLabel && t('footerAuthor')) {
+      footerAuthorLabel.textContent = t('footerAuthor');
+    }
+    
     // 如果在结果页面，重新渲染以更新标签
     const resultPage = document.getElementById('page-result');
     if (resultPage && result && !resultPage.classList.contains('hidden')) {
