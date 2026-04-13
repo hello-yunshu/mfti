@@ -75,7 +75,11 @@ jobs:
         if: steps.determine-files.outputs.has_files == 'true'
         run: |
           echo "Files to process: ${{ steps.determine-files.outputs.files }}"
-          node scripts/minify-and-version.js ${{ steps.determine-files.outputs.files }}
+          if [ "${{ inputs.force_regenerate_all }}" = "true" ]; then
+            node scripts/minify-and-version.js ${{ steps.determine-files.outputs.files }} --no-version
+          else
+            node scripts/minify-and-version.js ${{ steps.determine-files.outputs.files }}
+          fi
 
       - name: Commit and push changes
         if: steps.determine-files.outputs.has_files == 'true'

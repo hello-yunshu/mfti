@@ -67,29 +67,38 @@ function versionToString(version) {
   return `${version.major}.${version.minor}.${version.patch}`;
 }
 
-function updateHTMLReferences(modifiedFiles) {
+function updateHTMLReferences(modifiedFiles, incrementVersions = true) {
   let html = fs.readFileSync(HTML_FILE, 'utf8');
-  const originalToMinMap = new Map();
   
   for (const file of modifiedFiles) {
     const relativePath = toForwardSlash(path.relative(PROJECT_ROOT, file));
     const minPath = toForwardSlash(getMinifiedPath(relativePath));
-    originalToMinMap.set(relativePath, minPath);
-  }
-  
-  for (const [originalPath, minPath] of originalToMinMap) {
-    const escapedOriginalPath = originalPath.replace(/\./g, '\\.');
-    const pattern = new RegExp(escapedOriginalPath + '(\\?v=[^"\']*)?', 'g');
+    
+    // 在 HTML 中查找 minified 文件的引用
+    const escapedMinPath = minPath.replace(/\./g, '\\.');
+    const pattern = new RegExp(escapedMinPath + '(\\?v=[^"\']*)?', 'g');
+    
     html = html.replace(pattern, (match, versionPart) => {
-      if (versionPart) {
-        const currentVersion = parseVersion(versionPart.substring(3));
-        const newVersion = incrementVersion(currentVersion);
-        const newVersionStr = versionToString(newVersion);
-        console.log(`Updated version: ${originalPath}${versionPart} -> ${minPath}?v=${newVersionStr}`);
-        return `${minPath}?v=${newVersionStr}`;
+      if (incrementVersions) {
+        if (versionPart) {
+          const currentVersion = parseVersion(versionPart.substring(3));
+          const newVersion = incrementVersion(currentVersion);
+          const newVersionStr = versionToString(newVersion);
+          console.log(`Updated version: ${minPath}${versionPart} -> ${minPath}?v=${newVersionStr}`);
+          return `${minPath}?v=${newVersionStr}`;
+        }
+        // 如果没有版本号，添加一个初始版本
+        console.log(`Added version to: ${minPath} -> ${minPath}?v=1.0.1`);
+        return `${minPath}?v=1.0.1`;
+      } else {
+        // 不递增版本号，保持原样
+        if (versionPart) {
+          console.log(`Skipped version update: ${minPath}${versionPart}`);
+          return match;
+        }
+        console.log(`Skipped version update: ${minPath}`);
+        return match;
       }
-      console.log(`Updated reference: ${originalPath} -> ${minPath}`);
-      return minPath;
     });
   }
   
@@ -97,15 +106,21 @@ function updateHTMLReferences(modifiedFiles) {
 }
 
 async function main() {
-  const modifiedFiles = process.argv.slice(2);
+  const args = process.argv.slice(2);
   const jsFiles = [];
   const cssFiles = [];
+  let incrementVersions = true;
   
-  for (const file of modifiedFiles) {
-    const fullPath = path.join(PROJECT_ROOT, file);
+  for (const arg of args) {
+    if (arg === '--no-version') {
+      incrementVersions = false;
+      continue;
+    }
+    
+    const fullPath = path.join(PROJECT_ROOT, arg);
     if (!fs.existsSync(fullPath)) continue;
     
-    const ext = path.extname(file).toLowerCase();
+    const ext = path.extname(arg).toLowerCase();
     if (ext === '.js') {
       jsFiles.push(fullPath);
     } else if (ext === '.css') {
@@ -114,6 +129,7 @@ async function main() {
   }
   
   console.log(`Found ${jsFiles.length} JS files and ${cssFiles.length} CSS files to process`);
+  console.log(`Increment versions: ${incrementVersions}`);
   
   for (const file of jsFiles) {
     await processFile(file, 'js');
@@ -123,7 +139,7 @@ async function main() {
     await processFile(file, 'css');
   }
   
-  updateHTMLReferences([...jsFiles, ...cssFiles]);
+  updateHTMLReferences([...jsFiles, ...cssFiles], incrementVersions);
   
   console.log('Done!');
 }
