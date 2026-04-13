@@ -46,7 +46,7 @@ const QUESTIONS = [
     options: [
       { label: "A", text: "滤镜+文案+位置打卡，评论区被'好美'淹没，完美结束这一天。", textEn: "Filters + caption + location check-in. Comments flooded with 'so beautiful'. Perfect end to the day.", score: { PR: 2 } },
       { label: "B", text: "偶尔看看别人的内容，自己不太发相关的东西。", textEn: "Occasionally look at other people's content, don't really post related stuff myself.", score: { PR: 0 } },
-      { label: "C", text: "我的社交账号和这面完全无关，不会留下任何痕迹。", textEn: "My social media accounts are completely unrelated to this side. Won't leave any traces.", score: { PR: -2 } }
+      { label: "C", text: "我的社交账号和这面完全无关，不会留下任何痕迹。", textEn: "My social media accounts are completely unrelated to this side of me. Won't leave any traces.", score: { PR: -2 } }
     ]
   },
   {
@@ -181,7 +181,7 @@ const QUESTIONS = [
     options: [
       { label: "A", text: "内心一震然后修炼更猛，我要让你再也说不出这句话。", textEn: "Shocked inside, then work even harder—I'll make sure you never say that again.", score: { PR: 2, AI: 1 } },
       { label: "B", text: "哦，无所谓，本来也不一定像，或者这话跟我关系不大。", textEn: "Oh, whatever. Didn't necessarily look like one anyway, or this doesn't concern me much.", score: { PR: 0 } },
-      { label: "C", text: "这说明对方有刻板印象，我来解释一下……", textEn: "That means they have stereotypes. Let me explain...", score: { PR: -2 } }
+      { label: "C", text: "这说明对方有刻板印象，我来解释一下……", textEn: "That means they have stereotypes. Let me break it down for them...", score: { PR: -2 } }
     ]
   },
 
@@ -284,7 +284,7 @@ const QUESTIONS = [
     text: "你的社交媒体账号，和你'这一面'的关系是？",
     textEn: "What's the relationship between your social media accounts and 'this side' of you?",
     options: [
-      { label: "A", text: "就是同一个账号，我就是我，没什么好藏的。", textEn: "Same account—I am who I am, nothing to hide.", score: { EW: 2, GL: 1 } },
+      { label: "A", text: "就是同一个账号，我就是我，没什么好藏的。", textEn: "Same account—I am who I am, nothing to hide here.", score: { EW: 2, GL: 1 } },
       { label: "B", text: "有单独的账号，但也算是半公开的，不是特别怕被发现。", textEn: "Have a separate account, but it's semi-public—not particularly afraid of being found out.", score: { EW: 0 } },
       { label: "C", text: "严格隔离，或者我不在社交媒体上展示任何相关的部分。", textEn: "Strictly separated, or I don't show any related parts on social media.", score: { EW: -2 } }
     ]
@@ -419,7 +419,7 @@ const QUESTIONS = [
     text: "关于身体改变（吃糖、手术等），你的态度是？",
     textEn: "Regarding physical changes (HRT, surgery, etc.)—what's your attitude?",
     options: [
-      { label: "A", text: "已经在进行/有计划，每个步骤都查好了资料、定好了时间。", textEn: "Already in progress/have plans—each step has researched info and set timeline.", score: { XZ: 2, CF: 1 } },
+      { label: "A", text: "已经在进行/有计划，每个步骤都查好了资料、定好了时间。", textEn: "Already in progress/have plans—researched every step and set timelines.", score: { XZ: 2, CF: 1 } },
       { label: "B", text: "考虑过，但还没决定，还在收集信息。", textEn: "Thought about it, but haven't decided—still gathering information.", score: { XZ: 0 } },
       { label: "C", text: "不考虑，或者这不是我目前需要面对的问题。", textEn: "Not considering, or this isn't something I need to face right now.", score: { XZ: -2 } }
     ]
@@ -432,7 +432,7 @@ const QUESTIONS = [
     options: [
       { label: "A", text: "满意，我在按计划进行，阶段性成果可见。", textEn: "Satisfied. I'm progressing according to plan—phased results visible.", score: { XZ: 1, CF: 1 } },
       { label: "B", text: "还行，有些地方不满意但接受过程，慢慢来。", textEn: "It's okay. Some areas aren't satisfied but accept the process—take it slow.", score: { XZ: 0 } },
-      { label: "C", text: "模糊，不想太具体地评价，评价了就要行动，行动了就要负责。", textEn: "Vague. Don't want to evaluate too specifically—evaluation means action, action means responsibility.", score: { XZ: -2 } }
+      { label: "C", text: "模糊，不想太具体地评价，评价了就要行动，行动了就要负责。", textEn: "Vague. Don't want to evaluate too specifically—once you evaluate, you must act; once you act, you must take responsibility.", score: { XZ: -2 } }
     ]
   },
   {

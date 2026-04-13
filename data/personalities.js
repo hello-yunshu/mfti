@@ -283,7 +283,7 @@ You're the type with the highest aesthetic level and lowest social presence in t
 
 **Strengths:** Your aesthetic taste and technical level are admirable. You aren't swayed by trends, because your frame of reference is purely internal; you only know what makes you feel beautiful, regardless of what others think is fashionable. This is an extremely free way of existing.
 
-**Fatal Weakness:** Long-term introverted identity expression may lead to the "self-echo chamber" effect—your world becomes more and more sophisticated, but also more and more closed. Without external disturbance, the system cannot evolve; it only infinitely refines existing content, lacking new input. You may be building a prison that's more and more beautiful, more and more solid, with beauty.
+**Fatal Weakness:** Long-term introverted identity expression may lead to the "self-echo chamber" effect—your world becomes more and more sophisticated, but also more and more closed. Without external disturbance, the system cannot evolve; it only infinitely refines existing content, lacking new input. You may be using beauty to build a prison that grows ever more beautiful and ever more impenetrable.
 
 **Your Catchphrase:** (says nothing, just looks at the mirror)
 
@@ -525,7 +525,7 @@ You've accepted yourself, but you haven't made it the central issue of your life
 
 **Strengths:** You're one of the types with the least internal friction among the 16. You don't worry about external validation, don't consume yourself in identity politics debates, don't lose sleep over "what exactly am I"—you've already answered, handed in your paper, and are waiting in the hallway for school to end.
 
-    **Fatal Weakness:** Your "whatever" is sometimes misread as "don't care" or "haven't thought seriously." Your low-energy state may make people who need support feel you're "too calm, not empathetic enough." Also, laid-back acceptance is sometimes just actively giving up on dealing with deeper issues, not true reconciliation—the difference is, you occasionally still have a moment where you feel some kind of inexplicable emptiness.
+**Fatal Weakness:** Your "whatever" is sometimes misread as "don't care" or "haven't thought seriously." Your low-energy state may make people who need support feel you're "too calm, not empathetic enough." Also, laid-back acceptance is sometimes just actively giving up on dealing with deeper issues, not true reconciliation—the difference is, you occasionally still have a moment where you feel some kind of inexplicable emptiness.
 
 **Your Catchphrase:** "Yeah, that's how it is. And then?"
 
@@ -613,11 +613,11 @@ Your research depth on transgender-related topics has surpassed many professiona
     descriptionEn: `
 ⚙️ Congratulations! You're the "Iron Lolita" personality! You prove with action that anything is possible; your persistence is an example for countless people! Your girl's heart and iron will are perfectly combined—this power is admirable!
 
-You're out, you stay at home, you're very anxious about your appearance, and your action ability stresses everyone out—including cisgender women who have never experienced any identity crisis.
+You're out, you stay at home, you're very anxious about your appearance, and your drive stresses everyone out—including cisgender women who have never experienced any identity crisis.
 
 **Psychological Profile:** You demonstrate a high degree of "Goal-Oriented Identity Construction," combining extremely strong executive will with clear awareness of reality. You don't float between dreams and anxiety; you tackle problems directly at the reality level. "Self-Efficacy" in psychology is maxed out for you—you believe you can change what you want to change, and you're proving it.
 
-**Daily Behavior Patterns:** Your hormone management plan is more precise than some fitness coaches' training plans, with detailed timelines, dosage records, effect evaluations, and contingency plans. Your skincare routine is a systematic engineering project with steps; you know the mechanism of action of every product. Your hairstyle, body shape, and demeanor are long-term planned; you have phased goals and evaluation criteria. You don't procrastinate, don't get anxious (or immediately convert anxiety into action).
+**Daily Behavior Patterns:** Your hormone management plan is more precise than some fitness coaches' training plans, with detailed timelines, dosage records, effect evaluations, and contingency plans. Your skincare routine is a systematic engineering project with steps; you know the mechanism of action of every product. Your hairstyle, body shape, and demeanor are part of a long-term plan; you have phased goals and evaluation criteria. You don't procrastinate, don't get anxious (or immediately convert anxiety into action).
 
 **Strengths:** You're living proof that "it can be done." You don't rely on luck or talent; you rely on systems and execution—this makes you a spiritual pillar and frame of reference for many people. Your existence sends a message: this matter can be taken seriously and effectively advanced.
 
@@ -659,7 +659,7 @@ You're out, you stay at home, you're very anxious about your appearance, and you
 **相处攻略：** 和她聊她感兴趣的议题，而不是试图给她一个结论。她不需要答案，她需要好的对话伙伴。
     `,
     descriptionEn: `
-☯️ Congratulations! You're the "Zen Cultivator" personality! You walk at your own pace; this calm and wisdom is the realm that countless people pursue! Your heart is like a calm lake—full of the wisdom of life!
+☯️ Congratulations! You're the "Zen Cultivator" personality! You walk at your own pace; this calmness and wisdom is the state that countless people pursue! Your heart is like a calm lake—full of the wisdom of life!
 
 You stay at home, you're in the process of coming out, you care about appearance, but you're also continuously thinking "Why am I doing this, what does this mean, what is this to me"—not questioning, but a continuous philosophical curiosity.
 
@@ -755,7 +755,7 @@ You can manage all aspects of life well—work hard when working, relax fully wh
 **相处攻略：** 和她分享有趣的事情，一起探索新的可能性。不要催她做决定，享受探索的过程就好。
     `,
     descriptionEn: `
-🔍 Congratulations! You're "The Curious Explorer" personality! You're full of curiosity about the world and keep an open mind about new things—this curiosity itself is a precious quality! You're like an explorer, discovering all the possibilities life has to offer.
+🔍 Congratulations! You're the "Curious Explorer" personality! You're full of curiosity about the world and keep an open mind about new things—this curiosity itself is a precious quality! You're like an explorer, discovering all the possibilities life has to offer.
 
 You like learning new things, thinking, and observing—this isn't confusion, it's a passion for life.
 
@@ -781,7 +781,7 @@ const DIMENSIONS = {
   PR: { name: "粉色梦境指数", nameEn: "Pinky Dream Index", desc: "你活在粉色滤镜里还是现实里", low: "现实派", high: "梦幻派" },
   SH: { name: "社交活跃度", nameEn: "Social Activity Level", desc: "你是社牛还是宅神", low: "宅家精灵", high: "社交蝴蝶" },
   AI: { name: "颜值焦虑度", nameEn: "Appearance Anxiety Level", desc: "你对自身外貌有多焦虑", low: "心态平和", high: "颜值焦虑" },
-  EW: { name: "公开度", nameEn: "Expression Level", desc: "你出来了没有", low: "深柜居民", high: "公开出柜" },
+  EW: { name: "公开度", nameEn: "Openness Level", desc: "你出来了没有", low: "深柜居民", high: "公开出柜" },
   CF: { name: "自律指数", nameEn: "Self-Discipline Index", desc: "你是计划派还是随缘党", low: "佛系随缘", high: "严格自律" },
   DK: { name: "社群归属感", nameEn: "Community Belonging Index", desc: "你需要群体还是一个人就够了", low: "独行侠", high: "群体依附" },
   TN: { name: "理性分析度", nameEn: "Theory Nerd Level", desc: "你分析身份还是跟着感觉走", low: "纯靠直觉", high: "理论狂魔" },

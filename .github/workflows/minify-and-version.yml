@@ -22,9 +22,22 @@ permissions:
   contents: write
   actions: write
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
+  cancel-previous-runs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel previous runs
+        uses: styfle/cancel-workflow-action@main
+        with:
+          access_token: ${{ github.token }}
+
   minify:
     runs-on: ubuntu-latest
+    needs: cancel-previous-runs
     steps:
       - name: Checkout repository
         uses: actions/checkout@main
