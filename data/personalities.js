@@ -97,7 +97,7 @@ Your WeChat profile picture is a pink gradient, but the article you post at 3 AM
 
 **How to Get Along:** Don't try to "solve problems" when she's going crazy late at night; just be there with her. She doesn't need answers; she needs a witness.
     `,
-    dimensions: { PR: 92, SH: 76, AI: 100, EW: 29, CF: 56, DK: 55, TN: 23, MB: 92, GL: 71, XZ: 53 }
+    dimensions: { PR: 92, SH: 76, AI: 100, EW: 29, CF: 56, DK: 55, TN: 70, MB: 92, GL: 71, XZ: 53 }
   },
 
   PSWE: {
@@ -193,7 +193,7 @@ You've deconstructed your identity at least three hundred times in your head, ea
 
 **How to Get Along:** Throw her a concrete small problem, not a grand identity question. Big questions will trap her in an endless loop.
     `,
-    dimensions: { PR: 55, SH: 62, AI: 15, EW: 33, CF: 56, DK: 36, TN: 32, MB: 54, GL: 57, XZ: 53 }
+    dimensions: { PR: 55, SH: 62, AI: 15, EW: 33, CF: 56, DK: 36, TN: 65, MB: 54, GL: 57, XZ: 53 }
   },
 
   PHAE: {
@@ -385,7 +385,7 @@ You know. You've always known. But between "knowing" and "admitting" there's a p
 
 **How to Get Along:** Don't push her, don't ask her "what exactly are you." She needs a safe, pressure-free environment that makes her feel it's okay to come out—but that's her decision, not yours.
     `,
-    dimensions: { PR: 50, SH: 10, AI: 15, EW: 10, CF: 6, DK: 18, TN: 68, MB: 0, GL: 21, XZ: 0 }
+    dimensions: { PR: 55, SH: 10, AI: 15, EW: 10, CF: 6, DK: 18, TN: 68, MB: 0, GL: 21, XZ: 0 }
   },
 
   // ==================== R系（现实清醒派）====================
@@ -483,7 +483,7 @@ You know your E2, T, and SHBG curves better than your endocrinologist. You've se
 
 **How to Get Along:** Come to her with questions, not emotional breakdowns—she's like a fish in water with the former, and at a loss with the latter.
     `,
-    dimensions: { PR: 28, SH: 57, AI: 92, EW: 43, CF: 75, DK: 18, TN: 32, MB: 54, GL: 36, XZ: 60 }
+    dimensions: { PR: 28, SH: 57, AI: 92, EW: 43, CF: 75, DK: 18, TN: 75, MB: 54, GL: 36, XZ: 60 }
   },
 
   RSWE: {
@@ -579,7 +579,7 @@ Your research depth on transgender-related topics has surpassed many professiona
 
 **How to Get Along:** Give her a truly challenging problem, and she'll take you seriously. Don't pretend to understand—she can see through it immediately.
     `,
-    dimensions: { PR: 24, SH: 62, AI: 0, EW: 29, CF: 50, DK: 18, TN: 41, MB: 0, GL: 7, XZ: 13 }
+    dimensions: { PR: 24, SH: 62, AI: 0, EW: 29, CF: 50, DK: 18, TN: 80, MB: 0, GL: 7, XZ: 13 }
   },
 
   RHAE: {
@@ -675,7 +675,7 @@ You stay at home, you're in the process of coming out, you care about appearance
 
 **How to Get Along:** Talk with her about topics she's interested in, rather than trying to give her conclusions. She doesn't need answers; she needs good dialogue partners.
     `,
-    dimensions: { PR: 28, SH: 5, AI: 92, EW: 24, CF: 81, DK: 18, TN: 27, MB: 92, GL: 64, XZ: 87 }
+    dimensions: { PR: 28, SH: 5, AI: 92, EW: 24, CF: 81, DK: 18, TN: 55, MB: 92, GL: 64, XZ: 87 }
   },
 
   RHWE: {
