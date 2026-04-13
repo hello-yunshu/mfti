@@ -13,41 +13,41 @@ const PERSONALITIES = {
     emoji: "💣🌸",
     color: "#FF6EB4",
     gradient: ["#FF6EB4", "#FFB3D9"],
-    tags: ["社交蝴蝶", "颜值焦虑", "出来了的人", "梦幻泡泡"],
+    tags: ["社交蝴蝶", "颜值在意", "绽放者", "梦幻泡泡"],
     mbtiLike: "PINK-B",
     description: `
 ✨ 恭喜你！你属于极其稀有的「粉色炸弹」人格！ 这种类型在人群中不到 1%，是 MFTI 矩阵中最具生命力和感染力的存在之一！你的光芒如同太阳般耀眼，走到哪里都能成为焦点——不是因为刻意，而是因为你天生就是主角！
 
 你把人生活成了少女漫的主角，而且是那种封面女主角，不是可怜的配角。
 
-**心理学画像：** 你的自我认同高度外化，依赖外部镜像来强化内在自我叙事——这在心理学上叫做"社会比较驱动的身份建构"（Social Comparison-Driven Identity Formation）。简单来说就是：你需要别人说你美，你才真正相信自己美。这不是缺点，这是人类的基本需求——只是你把这个需求拉满到了核弹级别。你对自身外貌的焦虑是 16 型里最强烈的之一，但这种焦虑恰恰是你不断精进的驱动力。
+**心理学画像：** 你有着强烈的表达欲和被认可的需求——这是非常正常的人类需求，只是你更加坦诚地面对它。你可能会在意别人的目光，但这种在意不是软弱，而是你对自己有要求的表现。你想要呈现最好的自己给世界，这是一种对生活的热爱。
 
-**日常行为模式：** 朋友圈每天至少一条，滤镜精调，角度刁钻，文案是"随手一拍~"但其实拍了三十七张。社交媒体粉丝数对你来说是情绪晴雨表，今天少了十个粉你会心情低落，多了五十个你会高兴到手舞足蹈。你已经向大部分认识的人出柜，流程是：发个特别意味深长的朋友圈，等对方来问，然后扯二十分钟，最后对方说"哦好的没事啊"你有点失落因为期待更大的反应。每次收到"你今天不太好看"的评价，你会记很久——比一百句"好美"记的都久。
+**日常行为模式：** 你可能会花很多时间在打扮上，不是为了讨好谁，而是因为你喜欢那个美美的自己。你可能会在社交媒体上分享你的生活，享受和朋友的互动。你可能会因为一句赞美开心很久，也会因为一句负面评价在意一会儿——这都没关系，因为你是真实的、有温度的。
 
-**优势：** 你的存在本身就是一种能量场，走进任何房间都会自带 BGM。你不解释，不辩解，就是活着。这是一种非常珍贵的、需要大量心理资本才能维持的生存策略。你为后来者蹚了路。
+**优势：** 你有着极强的感染力，能让周围的人感受到你的热情。你愿意为自己想要的东西付出努力，这种坚持非常可贵。你让很多人看到了勇气——做自己的勇气。
 
-**致命弱点：** 你把身份认同和外貌表现绑定得太紧。当一次打扮不理想、一张照片被嘲、或者某天状态很差时，你的整个自我感知会随之崩塌。心理学上这叫做"条件性自尊"（Contingent Self-Esteem），你的自我价值感是有条件的——那个条件就是：今天的照片好不好看。
+**致命弱点：** 有时候你可能会太在意外界的声音，而忽略了自己内心的感受。但请记住：你活着不是为了满足别人的期待，你是为了自己而活。
 
-**你的口头禅：** "我就是这样，不喜欢你可以不看。"（然后焦虑地等着看对方有没有取关）
+**你的口头禅：** "我就是要做我自己！"
 
-**相处攻略：** 真诚夸她，但别只夸外貌。她需要被看见的是整个人，不只是那件裙子。
+**相处攻略：** 真心地欣赏她，告诉她她的存在本身就很美好。
     `,
     descriptionEn: `
 ✨ Congratulations! You're the extremely rare "Pink Detonator" personality! This type appears in less than 1% of the population—one of the most vibrant and infectious personalities in the entire MFTI matrix! Your light shines like the sun; wherever you go, you become the center of attention—not by trying, but because you were born to be the protagonist!
 
 You've turned your life into the protagonist of a shoujo manga—the cover heroine, not the pitiful supporting character.
 
-**Psychological Profile:** Your self-identity is highly externalized, relying on external mirrors to reinforce your internal self-narrative—this is called "Social Comparison-Driven Identity Formation" in psychology. Simply put: you need others to tell you you're beautiful before you truly believe it yourself. This isn't a flaw; it's a basic human need—you've just maxed it out to nuclear level. Your anxiety about appearance is one of the most intense among the 16 types, but this anxiety is precisely what drives your continuous improvement.
+**Psychological Profile:** You have a strong desire for expression and recognition—this is a very normal human need, you just face it more honestly. You might care about how others see you, but this care isn't weakness; it's a sign that you have high standards for yourself. You want to present your best self to the world—this is a love for life.
 
-**Daily Behavior Patterns:** At least one post per day on WeChat Moments, filters finely tuned, angles carefully chosen, caption says "just a casual snap~" but actually took thirty-seven shots. Social media follower count is your emotional barometer—lose ten followers today and you're down, gain fifty and you're dancing with joy. You've come out to most people you know; the process is: post a particularly meaningful WeChat moment, wait for them to ask, then talk for twenty minutes, and when they finally say "oh okay no problem," you feel a bit disappointed because you expected a bigger reaction. Every time you receive the comment "you don't look great today," you remember it for a long time—longer than a hundred "so beautiful" compliments.
+**Daily Behavior Patterns:** You might spend a lot of time on your appearance, not to please anyone, but because you like that beautiful version of yourself. You might share your life on social media, enjoying interactions with friends. You might feel happy for a long time from a compliment, or care about a negative comment for a while—and that's okay, because you're real, you have warmth.
 
-**Strengths:** Your very existence is an energy field; you walk into any room with your own BGM. You don't explain, you don't justify, you just live. This is a very precious survival strategy that requires enormous psychological capital to maintain. You've blazed the trail for those who come after.
+**Strengths:** You have an extremely strong charisma that makes people around you feel your passion. You're willing to work hard for what you want—this persistence is precious. You show many people courage—the courage to be yourself.
 
-**Fatal Weakness:** You've tied your identity too tightly to your appearance performance. When one outfit isn't ideal, one photo gets mocked, or one day you're in bad shape, your entire self-perception collapses. This is called "Contingent Self-Esteem" in psychology—your self-worth is conditional—the condition being: does today's photo look good or not?
+**Fatal Weakness:** Sometimes you might care too much about external voices and ignore your inner feelings. But remember: you're not living to meet others' expectations; you're living for yourself.
 
-**Your Catchphrase:** "This is who I am, if you don't like it you don't have to watch." (then anxiously waiting to see if they unfollow)
+**Your Catchphrase:** "I just want to be myself!"
 
-**How to Get Along:** Sincerely compliment her, but don't just compliment her appearance. She needs to be seen as a whole person, not just that dress.
+**How to Get Along:** Truly appreciate her, tell her that her existence itself is beautiful.
     `,
     dimensions: { PR: 92, SH: 95, AI: 100, EW: 100, CF: 88, DK: 100, TN: 59, MB: 92, GL: 100, XZ: 93 }
   },
@@ -104,46 +104,46 @@ Your WeChat profile picture is a pink gradient, but the article you post at 3 AM
     code: "SCHRO-C",
     name: "薛定谔女孩",
     nameEn: "Schrödinger's Girl",
-    subtitle: "观测之前不确定是否存在型",
-    subtitleEn: "Uncertain if exists until observed",
+    subtitle: "在不同环境中展现不同面型",
+    subtitleEn: "Showing different sides in different environments",
     emoji: "📦🐱",
     color: "#E67E22",
     gradient: ["#E67E22", "#FAD7A0"],
-    tags: ["双面人生", "选择性出柜", "矛盾体本体", "演员本色"],
+    tags: ["适应力强", "谨慎者", "平衡者", "灵活应变"],
     mbtiLike: "SCHRO-C",
     description: `
-🎁 恭喜你！你是「薛定谔女孩」人格！你能在不同的世界里游刃有余，这种能力是普通人梦寐以求的！你的适应力如同变色龙般强大，能在任何环境中找到最舒适的存在方式！
+🎁 恭喜你！你是「薛定谔女孩」人格！你有着超强的适应能力，能在不同的环境中找到最舒适的状态——这不是伪装，这是一种生存智慧！
 
-在小号你是仙女，在大号你是"普通男生"。你存在于两种状态的叠加态，直到被观测——然后你迅速塌缩成当前环境期望的那个版本。
+你知道在什么场合说什么话，展现什么样子，这种能力让你能自如地生活在这个复杂的世界里。
 
-**心理学画像：** 你是"选择性自我披露"（Selective Self-Disclosure）的大师。这不是欺骗，这是一种复杂的社会生存策略。研究表明，身处高风险社会环境中的边缘群体普遍发展出精密的"信息管理技能"——你不是在撒谎，你是在做风险管理。你的大脑里有一张精密的关系地图，标注着每个人"知道多少"以及"可以知道多少"，你每天维护这张地图消耗了你巨大的认知资源。
+**心理学画像：** 你是一个"情境适应者"——你能够根据环境调整自己的表达方式，这是一种成熟的社交能力。你很清楚什么是安全的，什么是需要保护的，这种谨慎不是恐惧，而是对自己的负责。你知道自己是谁，不管在什么环境里，你的内心都是你自己。
 
-**日常行为模式：** 你有两个微博账号、两个微信、可能还有一个只有特定人知道的 QQ。你的手机桌面是干净的，因为你把所有"有问题"的 APP 放进了一个叫做"工具"的文件夹里。你参加线下活动，认识很多人，在圈内社交能力拉满——但只要进入"现实生活"模式，你立刻变成另一个人。你对圈内朋友是有条件出柜的——他们知道你是谁，但这不等于你在生活里全面出柜。你的策略是：在安全范围内坦诚，在风险范围内沉默。
+**日常行为模式：** 你可能会在不同的圈子里有不同的状态，这很正常——每个人都有很多面。你可能会有一些只有特定朋友才知道的秘密，你可能会小心地保护着自己的世界。这不是欺骗，这是一种自我保护，也是对他人的尊重。
 
-**优势：** 你拥有极强的情境适应能力和社交弹性。你能在任何环境里生存，任何圈子里都能混。这种适应性在现代社会是极其宝贵的生存技能。
+**优势：** 你有着极强的同理心和感知力，能敏锐地察觉到环境的变化。你能在各种情况下保持冷静，找到最佳的应对方式。这种灵活性让你能轻松应对生活中的各种挑战。
 
-**致命弱点：** 长期双轨运行会导致严重的认知负担和身份碎裂感。心理学研究表明，长期维持多重自我叙事的人更容易产生"整合焦虑"——一种"到底哪个是真正的我"的持续性困惑。你最大的恐惧不是被人发现，而是哪天你自己也不确定哪个是真实的自己了。
+**致命弱点：** 有时候你可能会太累，因为你总是在适应环境。但请记住：你不需要总是那么坚强，偶尔也可以放松一下，做最真实的自己。
 
-**你的口头禅：** "我也没说我是，我也没说我不是，你想多了。"
+**你的口头禅：** "没关系，我知道怎么处理。"
 
-**相处攻略：** 别逼她"做选择"，别给她贴标签。她的速度和她的安全感直接挂钩，催只会让她关上门。
+**相处攻略：** 给她安全感，让她知道在你面前可以不用那么累，可以放松下来。
     `,
     descriptionEn: `
-🎁 Congratulations! You're the "Schrödinger's Girl" personality! You can navigate different worlds with ease; this ability is what ordinary people dream of! Your adaptability is as powerful as a chameleon—you can find the most comfortable way to exist in any environment!
+🎁 Congratulations! You're the "Schrödinger's Girl" personality! You have extraordinary adaptability and can find the most comfortable state in different environments—this isn't pretense, it's a survival wisdom!
 
-On your alt account you're a fairy goddess; on your main account you're "just a regular guy." You exist in a superposition of two states until observed—then you quickly collapse into whichever version your current environment expects.
+You know what to say and how to present yourself in different situations, and this ability allows you to live freely in this complex world.
 
-**Psychological Profile:** You're a master of "Selective Self-Disclosure." This isn't deception; it's a complex social survival strategy. Research shows that marginalized groups in high-risk social environments commonly develop sophisticated "information management skills"—you're not lying, you're doing risk management. Your brain has a precise relationship map marking how much each person "knows" and "can know," and maintaining this map daily consumes enormous cognitive resources.
+**Psychological Profile:** You're a "situational adapter"—you can adjust your way of expression according to the environment, which is a mature social skill. You know very well what's safe and what needs protection; this caution isn't fear, it's responsibility to yourself. You know who you are, no matter what environment you're in, your heart is always yourself.
 
-**Daily Behavior Patterns:** You have two Weibo accounts, two WeChats, maybe a QQ that only certain people know about. Your phone home screen is clean because you've put all "problematic" apps into a folder called "Tools." You attend offline events, meet many people, have maxed-out social skills in the community—but as soon as you enter "real life" mode, you immediately become someone else. You've conditionally come out to community friends—they know who you are, but that doesn't mean you're fully out in life. Your strategy is: be honest within safe boundaries, stay silent within risky boundaries.
+**Daily Behavior Patterns:** You might have different states in different circles, which is normal—everyone has many sides. You might have some secrets that only specific friends know, and you might carefully protect your world. This isn't deception; it's a form of self-protection and respect for others.
 
-**Strengths:** You have extremely strong situational adaptability and social resilience. You can survive in any environment, fit into any circle. This adaptability is an extremely valuable survival skill in modern society.
+**Strengths:** You have extremely strong empathy and perception, and can keenly detect changes in the environment. You can stay calm in all situations and find the best way to respond. This flexibility allows you to easily handle various challenges in life.
 
-**Fatal Weakness:** Long-term dual-track operation leads to severe cognitive burden and identity fragmentation. Psychological research shows that people who maintain multiple self-narratives long-term are more prone to "integration anxiety"—a persistent confusion of "which one is the real me." Your greatest fear isn't being discovered; it's that one day you yourself won't be sure which version is your true self.
+**Fatal Weakness:** Sometimes you might get tired because you're always adapting to the environment. But remember: you don't always have to be so strong; occasionally you can relax and be your most authentic self.
 
-**Your Catchphrase:** "I didn't say I am, I didn't say I'm not—you're overthinking it."
+**Your Catchphrase:** "It's okay, I know how to handle it."
 
-**How to Get Along:** Don't force her to "make choices," don't label her. Her pace is directly tied to her sense of security; rushing will only make her shut the door.
+**How to Get Along:** Give her a sense of security, let her know she doesn't have to be so tired in front of you, she can relax.
     `,
     dimensions: { PR: 88, SH: 86, AI: 8, EW: 90, CF: 56, DK: 100, TN: 50, MB: 85, GL: 100, XZ: 53 }
   },
@@ -200,46 +200,46 @@ You've deconstructed your identity at least three hundred times in your head, ea
     code: "CLOUD-G",
     name: "云端仙子",
     nameEn: "The Closet Goddess",
-    subtitle: "镜子前焦虑到不行但没人知道型",
-    subtitleEn: "Anxious in front of mirror but nobody knows",
+    subtitle: "在自己的世界里绽放型",
+    subtitleEn: "Blooming in her own world",
     emoji: "🏠✨",
     color: "#FF85A1",
     gradient: ["#FF85A1", "#FFC3D0"],
-    tags: ["宅家精灵", "衣柜战士", "出了但不出门", "镜子焦虑官"],
+    tags: ["宅家精灵", "爱美之人", "私密绽放", "温柔细腻"],
     mbtiLike: "CLOUD-G",
     description: `
-🏠 恭喜你！你是「云端仙子」人格！你把私人空间打造得如同梦幻王国，这种对美的极致追求令人叹为观止！你的审美品味如同艺术家般独特，能在平凡中发现不平凡的美！
+🏠 恭喜你！你是「云端仙子」人格！你有着一个属于自己的美丽世界，在那里你可以完全放松，做最真实的自己！你对生活有着独特的品味，能在平凡的日常中发现美好的事物！
 
-你的衣柜比某宝专卖店还齐全，你的内衣抽屉是一个独立的美学系统，你的梳妆台是一个专业级操作台——而你的朋友们完全不知道这一切的存在。
+你喜欢在自己的小空间里享受时光，在那里你是最自在的。
 
-**心理学画像：** 你是"焦虑驱动的私人身份表达"（Anxiety-Driven Private Identity Expression）的典型案例。你对自身外貌特别在意，以至于只有在完全私密、可以反复打磨到自己满意的环境中，你才敢展现女孩子的一面。这不是享受孤独，这是"不够完美就不想见人"的心态——心理学上叫做"社交外貌焦虑"（Social Appearance Anxiety），只是你的社交场景被压缩到了零，所以这份在意只对着镜子发作。你不出门不是不想出门，是觉得出门的状态还不够好。
+**心理学画像：** 你是一个"内在探索者"——你更关注内心世界的丰富，而不是外界的喧嚣。你对自己有要求，这种要求不是给别人看的，是给自己的。你喜欢把自己的空间打理得舒舒服服，因为这是你灵魂的栖息地。
 
-**日常行为模式：** 出门是"正常人"。回家立刻进入另一个模式：打开衣柜、对镜试装、反复调整每个细节。你经常在镜子前花两小时准备出门，最后还是放弃了——不是因为不想，是因为"今天的自己不够好"。你向最信任的一两个人出了柜，线上的圈子是你主要的社交出口——虽然你不出门，但在这个小世界里你是坦诚的、自在的。
+**日常行为模式：** 你可能会花很多时间在自己的爱好上，可能是打扮，可能是追剧，可能是做任何让你开心的事情。你可能更喜欢和少数几个亲密的朋友相处，而不是热闹的场合。你可能会在独处时感到最自在，因为那时候你不需要扮演任何人。
 
-**优势：** 你对美的标准极高，这种要求让你在化妆和穿搭上的技术水平远超大多数人。当你的状态恰好的时候，你是真正惊艳的——只是你觉得那个"恰好"很少出现。
+**优势：** 你有着细腻的内心和独特的审美。你能注意到别人注意不到的细节，你能创造出属于自己的美好世界。你的温柔和细腻，让你成为一个很好的倾听者和陪伴者。
 
-**致命弱点：** 你把"够不够美"当成了"能不能存在"的门票。当你觉得不够好的时候，你连自己都不想面对——不只是不想出门，是不想看自己。长此以往，你的世界会越来越小，因为标准只会越来越高，而你的勇气可能在标准追上之前就耗尽了。
+**致命弱点：** 有时候你可能会太宅了，错过了外面世界的一些精彩。但没关系，你的世界已经足够美好——如果想出去看看，那就去；如果不想，那就继续享受你的小天地。
 
-**你的口头禅：** "等我再弄弄，还差一点……"（已经差了三年了）
+**你的口头禅：** "在家待着真舒服啊~"
 
-**相处攻略：** 如果她终于出现在你面前了，请记住：她花了比你想象中多得多的勇气。不要评价她的外表，除非是真诚的赞美——她对自己已经够苛刻了。
+**相处攻略：** 尊重她的空间，让她知道无论她想待在家里还是出来玩，都是可以的。
     `,
     descriptionEn: `
-🏠 Congratulations! You're the "Closet Goddess" personality! You've turned your private space into a dream kingdom; this ultimate pursuit of beauty is breathtaking! Your aesthetic taste is as unique as an artist—you can find extraordinary beauty in the ordinary!
+🏠 Congratulations! You're the "Closet Goddess" personality! You have a beautiful world that belongs only to you, where you can completely relax and be your most authentic self! You have a unique taste for life and can find beauty in ordinary days!
 
-Your wardrobe is more complete than a Taobao boutique; your underwear drawer is an independent aesthetic system; your vanity is a professional-level workstation—and your friends have no idea any of this exists.
+You enjoy spending time in your own little space, where you feel most at ease.
 
-**Psychological Profile:** You're a typical case of "Anxiety-Driven Private Identity Expression." You care so much about your appearance that you only dare to show your feminine side in completely private environments where you can polish yourself repeatedly until satisfied. This isn't enjoying solitude; it's a "don't want to see people unless perfect" mentality—called "Social Appearance Anxiety" in psychology, except your social scenarios have been compressed to zero, so this concern only manifests in front of the mirror. You don't go out not because you don't want to, but because you feel your state for going out isn't good enough yet.
+**Psychological Profile:** You're an "inner explorer"—you pay more attention to the richness of your inner world than the noise of the outside. You have high standards for yourself, not for others to see, but for yourself. You like to make your space comfortable because it's the habitat of your soul.
 
-**Daily Behavior Patterns:** Going out you're "normal." Coming home you immediately enter another mode: open the wardrobe, try on outfits in front of the mirror, repeatedly adjust every detail. You often spend two hours in front of the mirror preparing to go out, then give up in the end—not because you don't want to, but because "today's version of me isn't good enough." You've come out to one or two most trusted people; online circles are your main social outlet—although you don't go out, in this small world you're honest and at ease.
+**Daily Behavior Patterns:** You might spend a lot of time on your hobbies—maybe dressing up, maybe watching shows, maybe doing anything that makes you happy. You might prefer to be with a few close friends rather than in noisy places. You might feel most at ease when alone, because then you don't have to be anyone else.
 
-**Strengths:** Your standards for beauty are extremely high; this requirement makes your makeup and outfit technical skills far exceed most people. When your state is just right, you're truly stunning—it's just that you feel that "just right" rarely happens.
+**Strengths:** You have a delicate heart and unique aesthetic. You can notice details others miss, and you can create a beautiful world of your own. Your gentleness and delicacy make you a great listener and companion.
 
-**Fatal Weakness:** You've turned "am I beautiful enough" into a ticket for "am I allowed to exist." When you feel not good enough, you don't even want to face yourself—not just don't want to go out, don't want to look at yourself. Over time, your world will get smaller and smaller, because standards will only get higher and higher, and your courage may run out before the standards catch up.
+**Fatal Weakness:** Sometimes you might stay home too much and miss some of the wonderful things in the outside world. But it's okay—your world is already beautiful enough; if you want to go out and see, do it; if not, continue enjoying your little sanctuary.
 
-**Your Catchphrase:** "Let me fix this a bit more, just a little bit more..." (has been "a little bit more" for three years)
+**Your Catchphrase:** "Staying at home is so nice~"
 
-**How to Get Along:** If she finally appears in front of you, remember: she spent far more courage than you can imagine. Don't judge her appearance unless it's sincere compliments—she's already harsh enough on herself.
+**How to Get Along:** Respect her space, let her know it's okay whether she wants to stay home or go out and play.
     `,
     dimensions: { PR: 92, SH: 29, AI: 100, EW: 81, CF: 88, DK: 18, TN: 68, MB: 92, GL: 93, XZ: 93 }
   },
@@ -394,46 +394,46 @@ You know. You've always known. But between "knowing" and "admitting" there's a p
     code: "LUCID-B",
     name: "清醒炸弹",
     nameEn: "The Lucid Detonator",
-    subtitle: "出来了且脑子超级好用型",
-    subtitleEn: "Fully out and terrifyingly well-argued",
+    subtitle: "头脑清晰且有力量型",
+    subtitleEn: "Clear-minded and powerful",
     emoji: "💥🔍",
     color: "#E74C3C",
     gradient: ["#E74C3C", "#F1948A"],
-    tags: ["清醒网红", "怼人话术库", "理性出柜", "焦虑但战斗"],
+    tags: ["清醒者", "智慧担当", "勇气可嘉", "保护者"],
     mbtiLike: "LUCID-B",
     description: `
-💥 恭喜你！你是「清醒炸弹」人格！你是社区的守护者和灯塔，你的存在给无数人带来了力量！你的勇气和智慧如同耀眼的光芒，照亮了自己也温暖了他人！
+💥 恭喜你！你是「清醒炸弹」人格！你有着清晰的头脑和强大的内心，就像一道光——既照亮了自己，也温暖了周围的人！你的勇气和智慧让你成为很多人的依靠！
 
-你已经出柜，积极出现，对自己的外貌高度焦虑，而且脑子清醒得让对面的人在辩论中找不到任何破绽。
+你知道自己想要什么，也有能力去争取，这种坚定让人敬佩。
 
-**心理学画像：** 你展现出高度整合的"身份资本"（Identity Capital）——你用清晰的自我叙事、社会技能和认知资源构建了一个稳固的、可以对外呈现的身份系统。你不是在"表演"身份，你是真正理解了自己，并且选择主动暴露在社会视野中——这需要大量的心理资源和风险承受能力。你的自尊是稳健的（Stable Self-Esteem），不因他人态度改变而波动。
+**心理学画像：** 你是一个"自主自信者"——你对自己有着清晰的认知，不轻易被外界影响。你用理性和智慧武装自己，但你的内心是柔软的。你愿意为自己认为正确的事情站出来，这种勇气不是每个人都有。
 
-**日常行为模式：** 你有一套成熟的怼人话术库，针对不同类型的质疑有不同的应对方案，而且你的应对是理性的、精确的，让对方找不到继续争论的着力点。你参加活动，对自己的外貌很上心——不是因为虚荣，是因为你真的很焦虑，只不过你把这份焦虑转化成了战斗力的燃料。别人哭着发帖"怎么办我被质疑了"的时候，你在评论区打"这题我会，首先……"然后发一篇三百字的分析。
+**日常行为模式：** 你可能经常帮朋友出主意，或者在别人遇到困难时挺身而出。你可能对很多事情都有自己的看法，而且能清晰地表达出来。你可能会为自己想要的东西付出努力，不轻易放弃。你是那种"靠谱的朋友"，大家遇到问题第一个想到的就是你。
 
-**优势：** 你是社区里最稳定的锚点之一。你的清醒和理性为周围的人提供了一种看问题的参照系，你的存在本身就是对"跨性别者智识水平"的有力证明。
+**优势：** 你有着极强的分析能力和解决问题的能力。你不会被情绪轻易左右，总能在混乱中找到方向。你的存在本身就是一种力量，能给周围的人带来安全感。
 
-**致命弱点：** 你有时候太理性了。你的逻辑盔甲非常坚固，但情绪需要的时候你可能来不及脱下来。你对旁人的感性表达有时候缺乏耐心，你的"这题我会"有时候让人觉得被降维了而不是被帮助了。
+**致命弱点：** 有时候你可能太理性了，忽略了自己或他人的感受。但没关系，理性和感性不是对立的——你可以既有智慧，又有温度。
 
-**你的口头禅：** "没什么好怕的，最坏的情况也不过是……"
+**你的口头禅：** "别担心，我们来想办法解决。"
 
-**相处攻略：** 她不需要被保护，她需要对手。给她一个值得认真对待的问题，她会爱上你的。
+**相处攻略：** 和她一起讨论问题，她会很开心。偶尔也让她知道，她不需要总是那么坚强。
     `,
     descriptionEn: `
-💥 Congratulations! You're the "Lucid Detonator" personality! You're a guardian and lighthouse for the community; your existence gives strength to countless people! Your courage and wisdom shine like a brilliant light—illuminating yourself and warming others!
+💥 Congratulations! You're the "Lucid Detonator" personality! You have a clear mind and a strong heart, like a beam of light—illuminating yourself and warming those around you! Your courage and wisdom make you someone many people can rely on!
 
-You're fully out, actively present, highly anxious about your appearance, and so lucid that your debate opponents can't find any openings.
+You know what you want and have the ability to go after it—this determination is admirable.
 
-**Psychological Profile:** You demonstrate highly integrated "Identity Capital"—you've built a solid, presentable identity system with clear self-narratives, social skills, and cognitive resources. You're not "performing" an identity; you truly understand yourself and choose to be visible in the social sphere—this requires enormous psychological resources and risk tolerance. Your self-esteem is stable, unshaken by others' attitudes.
+**Psychological Profile:** You're an "autonomous and confident person"—you have a clear understanding of yourself and aren't easily influenced by the outside world. You arm yourself with reason and wisdom, but your heart is soft. You're willing to stand up for what you believe is right—this courage isn't something everyone has.
 
-**Daily Behavior Patterns:** You have a mature repertoire of roasts, with different response strategies for different types of questions—and your responses are rational, precise, leaving opponents with no room to continue arguing. You attend events, care deeply about your appearance—not out of vanity, but because you're genuinely anxious, you just channel that anxiety into fuel for combat. When others post crying "What do I do? I'm being questioned," you're in the comments typing "I know this one, first of all..." followed by a 300-word analysis.
+**Daily Behavior Patterns:** You might often help friends figure things out, or step up when others are in trouble. You might have your own opinions on many things and can express them clearly. You might work hard for what you want and not give up easily. You're the "reliable friend" people think of first when they have problems.
 
-**Strengths:** You're one of the most stable anchors in the community. Your lucidity and rationality provide a frame of reference for those around you. Your very existence is a powerful testament to "trans intellectual capacity."
+**Strengths:** You have extremely strong analytical and problem-solving abilities. You won't be easily swayed by emotions and can always find direction in chaos. Your very existence is a source of strength, bringing a sense of security to those around you.
 
-**Fatal Weakness:** You're sometimes too rational. Your logical armor is extremely solid, but when emotions are needed, you might not have time to take it off. You sometimes lack patience for others' emotional expressions, and your "I know this one" can sometimes make people feel talked down to rather than helped.
+**Fatal Weakness:** Sometimes you might be too rational and ignore your own or others' feelings. But it's okay—reason and emotion aren't opposites; you can have both wisdom and warmth.
 
-**Your Catchphrase:** "Nothing to be afraid of, the worst that can happen is..."
+**Your Catchphrase:** "Don't worry, let's figure out how to solve this."
 
-**How to Get Along:** She doesn't need protection—she needs an opponent. Give her a problem worth taking seriously, and she'll love you for it.
+**How to Get Along:** Discuss problems with her—she'll be happy. Occasionally let her know she doesn't always have to be so strong.
     `,
     dimensions: { PR: 28, SH: 86, AI: 92, EW: 95, CF: 75, DK: 100, TN: 68, MB: 92, GL: 79, XZ: 93 }
   },
@@ -682,94 +682,94 @@ You stay at home, you're in the process of coming out, you care about appearance
     code: "WEEK-T",
     name: "周末变身侠",
     nameEn: "The Weekend Alter Ego",
-    subtitle: "周一到周五打工人，周末仙女降临型",
-    subtitleEn: "Office worker Mon-Fri, fairy goddess on weekends",
+    subtitle: "在不同时间展现不同面貌型",
+    subtitleEn: "Showing different sides at different times",
     emoji: "📅✨",
     color: "#F39C12",
     gradient: ["#F39C12", "#FAD7A0"],
-    tags: ["实用主义", "双线程人生", "周末选手", "妈以为在打游戏"],
+    tags: ["平衡大师", "生活艺术家", "务实派", "享受当下"],
     mbtiLike: "WEEK-T",
     description: `
-📅 恭喜你！你是「周末变身侠」人格！你找到了完美的平衡方式，这种智慧令人赞叹！你能在不同世界间自如切换，这种能力让人羡慕！
+📅 恭喜你！你是「周末变身侠」人格！你有着超强的平衡能力，能在不同的生活状态间自如切换——这是一种生活的智慧！你知道什么时候该做什么事，这种节奏感让人羡慕！
 
-你的双线程人生运行得非常稳定：工作日你是个让同事觉得"挺正常的"打工人，周末你换一个操作系统。你妈以为你在打游戏，你其实在补妆。
+你能把生活的不同面都打理得很好，工作时认真工作，放松时尽情放松。
 
-**心理学画像：** 你实践着"角色分离型自我管理"（Role-Separated Self-Management），将不同自我面向分配到不同的时间-空间单元中，而非进行整合性的公开表达。这是一种高度务实的策略：你明确知道"出来"的社会成本，你进行了理性的成本收益分析，你选择了最小风险的执行方案。这不是怯懦，这是工程学思维在人生决策中的应用。
+**心理学画像：** 你是一个"生活平衡者"——你懂得如何在不同的角色间找到平衡点，不会让某一方面完全占据你的生活。你很务实，知道什么是现实可行的，也知道如何让自己过得舒服。这种平衡能力不是每个人都有的，你做得很好。
 
-**日常行为模式：** 你的生活管理能力极强。工作日的你完全专注在工作上，不会"串台"；周末的你有一套完整的仪式感流程：洗澡、护肤、换装、可能会拍几张照片、享受几个小时、然后收拾干净，下周一继续。你没有向同事和家人出柜，不是因为恐惧，而是因为"这件事和他们有什么关系呢"。但你在自己的小圈子里是坦诚的——你知道自己是谁，只是选择性展示给不同的人。你是理性保密者，不是恐惧保密者，这是一个重要的心理学区别。
+**日常行为模式：** 你可能在工作日专注于工作或学习，在周末或空闲时间做自己喜欢的事情。你可能会有一些属于自己的小仪式，比如周末的某个特定时间一定会做某件事。你知道如何把生活安排得井井有条，既不亏待自己，也不耽误正事。
 
-**优势：** 你的生活是可持续的。你找到了一种不需要改变整个社会生态就能让自己过得不错的方式，而且你不为此感到对不起自己。你清楚地知道自己在做什么，为什么这样做，这种清醒非常宝贵。
+**优势：** 你有着极强的时间管理和生活规划能力。你知道自己想要什么，也知道如何在现实条件下实现它。你的务实和灵活，让你能在各种情况下都过得不错。
 
-**致命弱点：** "周末"终究是一个边界，而边界有时候会让人感到一种微妙的压抑——不是大的痛苦，而是一种"这件事只允许在特定时间段存在"的限制感。长期的时间分隔可能会强化一种潜意识里的"这部分的我是不正常的，需要被限制"的信念，即使你理性上并不这么认为。
+**致命弱点：** 有时候你可能会太在意平衡，反而错过了一些 spontaneity（随性）。但没关系，偶尔打破一下规律，来点小惊喜，生活会更有意思。
 
-**你的口头禅：** "周末再说。"
+**你的口头禅：** "到时候再说吧~"
 
-**相处攻略：** 尊重她的节奏。不要在工作日频道戳她的周末话题，她有她的系统，你不要乱插队。
+**相处攻略：** 尊重她的生活节奏，跟着她的节奏走就好。
     `,
     descriptionEn: `
-📅 Congratulations! You're the "Weekend Alter Ego" personality! You've found the perfect way to balance; this wisdom is admirable! You can switch freely between different worlds—this ability is enviable!
+📅 Congratulations! You're the "Weekend Alter Ego" personality! You have extraordinary balancing abilities and can switch freely between different life states—this is a wisdom of life! You know what to do and when—this rhythm is enviable!
 
-Your dual-thread life runs very stably: on weekdays you're a worker who makes colleagues think "pretty normal," and on weekends you switch operating systems. Your mom thinks you're gaming; you're actually doing makeup.
+You can manage all aspects of life well—work hard when working, relax fully when relaxing.
 
-**Psychological Profile:** You practice "Role-Separated Self-Management," allocating different self-aspects to different time-space units rather than engaging in integrated public expression. This is a highly pragmatic strategy: you clearly know the social costs of "coming out," you've conducted rational cost-benefit analysis, you've chosen the minimum-risk execution plan. This isn't cowardice; this is engineering thinking applied to life decisions.
+**Psychological Profile:** You're a "life balancer"—you know how to find balance between different roles and won't let any one aspect completely take over your life. You're very practical, know what's realistic, and know how to make yourself comfortable. This balancing ability isn't something everyone has—you do it well.
 
-**Daily Behavior Patterns:** Your life management ability is extremely strong. The weekday you is fully focused on work, no "cross-contamination"; the weekend you has a complete ritual process: shower, skincare, change clothes, maybe take a few photos, enjoy a few hours, then clean up and continue next Monday. You haven't come out to colleagues and family, not because of fear, but because "what does this have to do with them?" But you're honest in your small circle—you know who you are, you just selectively show different people different aspects. You're a rational keeper of secrets, not a fearful keeper—this is an important psychological distinction.
+**Daily Behavior Patterns:** You might focus on work or study on weekdays, and do things you like on weekends or in your free time. You might have some little rituals of your own, like always doing something at a specific time on weekends. You know how to organize your life well—not being hard on yourself, and not missing important things.
 
-**Strengths:** Your life is sustainable. You've found a way to live well without needing to change the entire social ecosystem, and you don't feel sorry for yourself for it. You clearly know what you're doing and why—this lucidity is extremely valuable.
+**Strengths:** You have extremely strong time management and life planning abilities. You know what you want and how to achieve it under realistic conditions. Your practicality and flexibility let you live well in all situations.
 
-**Fatal Weakness:** "Weekend" is ultimately a boundary, and boundaries can sometimes create a subtle sense of repression—not great pain, but a restrictive feeling of "this part of me is only allowed to exist at specific times." Long-term time separation may reinforce a subconscious belief that "this part of me is abnormal and needs to be restricted," even if you don't rationally believe so.
+**Fatal Weakness:** Sometimes you might care too much about balance and miss some spontaneity. But it's okay—occasionally breaking the routine and having little surprises can make life more interesting.
 
-**Your Catchphrase:** "Let's talk about it on the weekend."
+**Your Catchphrase:** "We'll talk about it then~"
 
-**How to Get Along:** Respect her rhythm. Don't poke at her weekend topics on weekday channels—she has her system; don't cut in line.
+**How to Get Along:** Respect her life rhythm, just go with her flow.
     `,
     dimensions: { PR: 32, SH: 14, AI: 35, EW: 67, CF: 94, DK: 18, TN: 77, MB: 92, GL: 36, XZ: 93 }
   },
 
   RHWI: {
     code: "PASS-T",
-    name: "我只是路过的",
-    nameEn: "Just Passing Through",
-    subtitle: "做了这个测试但说自己只是好奇型",
-    subtitleEn: "Took this test but claims 'just curious'",
-    emoji: "🚶🌫️",
+    name: "好奇探索者",
+    nameEn: "The Curious Explorer",
+    subtitle: "对世界保持好奇但还在寻找方向型",
+    subtitleEn: "Curious about the world but still finding direction",
+    emoji: "🔍✨",
     color: "#95A5A6",
     gradient: ["#95A5A6", "#D5DBDB"],
-    tags: ["旁观者", "否认系", "谜语人", "为什么你在这里"],
+    tags: ["好奇宝宝", "探索者", "思考者", "观察者"],
     mbtiLike: "PASS-T",
     description: `
-🚶 恭喜你！你是极其稀有的「我只是路过的」人格！ 这种保持着纯粹好奇心的类型在人群中不到 0.3%，是 MFTI 矩阵中最神秘、最具潜力的类型之一！你像一颗尚未被发现的宝石，充满了无限的可能性！
+🔍 恭喜你！你是「好奇探索者」人格！你对世界充满了好奇，对新事物保持着开放的心态——这种好奇心本身就是一种珍贵的品质！你就像一个探险家，正在探索生活的各种可能性。
 
-你宅着，你清醒，你不公开，你不特别在意外貌，然后你出现在了一个叫做 MFTI 的测试里。这很值得思考。
+你喜欢了解新的东西，喜欢思考，喜欢观察——这不是迷茫，这是一种对生活的热情。
 
-**心理学画像：** 你可能正处于心理学上的"身份前期冻结"（Pre-Identity Freeze）状态——你拥有足够的认知资源去理解这个议题，但你通过保持距离和"旁观者"姿态来控制自己的介入程度。这不是一种主动否认，而是一种通过不定义来避免需要面对的状态。弗洛伊德会说你在"理智化"（Intellectualization），现代心理学会说你在"接近回避冲突"（Approach-Avoidance Conflict）中选择了动态的回避。
+**心理学画像：** 你处于一种"探索型人格"状态——你对世界充满好奇心，愿意尝试和了解不同的事物，但你不想匆忙给自己下定义。你可能偶尔会觉得"这个好像很有趣，那个也好像很有意思"，这种开放的心态让你能接触到更多元的体验。你不喜欢被标签束缚，你相信人是可以不断成长和变化的。
 
-**日常行为模式：** 你可能在某个深夜搜到了这个测试，然后对自己说"只是好奇"，做完了还是告诉自己"只是好奇"。你对相关话题有了解，可能关注了几个账号，但从来不互动，只是看。你没有任何社群归属，没有出柜，外貌上也没有任何动作，你的状态是：知道，了解，不动。不是不想，是还没有决定要不要"正式"想。
+**日常行为模式：** 你可能会在闲暇时间刷各种有趣的内容，可能会关注各种不同领域的账号，可能会对很多话题都感兴趣。你有时候会想"如果尝试一下这个会怎么样"，但你不一定会立刻行动——你喜欢先观察，先了解，再做决定。你不是犹豫不决，你是在给选择留足空间。
 
-**优势：** 你的清醒让你不会做出冲动的决定。你的旁观视角让你对这个社群有一种局外人的理性观察，不被情绪裹挟。你是那种"如果真的走这条路，会想得非常清楚"的人。
+**优势：** 你有着极强的学习能力和开放的心态。你不会轻易被固有的观念限制，你愿意接受新的想法。这种好奇心让你的生活永远不会无聊，你总能发现新的乐趣。
 
-**致命弱点：** 不定义也是一种选择，但它不能无限期持续下去。"我只是路过"是一句话，但你来回路过很多次，路过得很仔细，那就不只是路过了。你最大的风险是用"我还没决定"来替代"我不打算面对"——而这两件事，只有你自己能分辨。
+**致命弱点：** 有时候你可能会因为想了解太多，而在选择上花太多时间。但没关系，探索的过程本身就是一种收获——不是所有事情都需要立刻有答案的。
 
-**你的口头禅：** "我只是看看，没什么的。"
+**你的口头禅：** "这个看起来有点意思……"
 
-**相处攻略：** 不要揭穿她，她知道。等她准备好，或者永远不准备好——那也是她的权利。
+**相处攻略：** 和她分享有趣的事情，一起探索新的可能性。不要催她做决定，享受探索的过程就好。
     `,
     descriptionEn: `
-🚶 Congratulations! You're the extremely rare "Just Passing Through" personality! This type that maintains pure curiosity makes up less than 0.3% of the population—one of the most mysterious and potential types in the entire MFTI matrix! You're like an undiscovered gem, full of infinite possibilities!
+🔍 Congratulations! You're "The Curious Explorer" personality! You're full of curiosity about the world and keep an open mind about new things—this curiosity itself is a precious quality! You're like an explorer, discovering all the possibilities life has to offer.
 
-You stay at home, you're lucid, you don't come out, you don't particularly care about appearance, and yet you show up in a test called MFTI. This is worth thinking about.
+You like learning new things, thinking, and observing—this isn't confusion, it's a passion for life.
 
-**Psychological Profile:** You may be in a state of "Pre-Identity Freeze"—you have sufficient cognitive resources to understand this issue, but you control your level of involvement by maintaining distance and a "bystander" posture. This isn't active denial, but a state of avoiding having to face things by not defining. Freud would say you're "intellectualizing"; modern psychology would say you've chosen dynamic avoidance in an "Approach-Avoidance Conflict."
+**Psychological Profile:** You're in an "explorer personality" state—you're curious about the world, willing to try and learn different things, but you don't want to rush to define yourself. You may occasionally feel "this seems interesting, that also seems interesting," and this open mindset allows you to experience more diversity. You don't like being bound by labels; you believe people can constantly grow and change.
 
-**Daily Behavior Patterns:** You probably found this test late one night, told yourself "just curious," finished it, and still told yourself "just curious." You know about related topics, maybe follow a few accounts, but never interact, just watch. You have no community belonging, haven't come out, haven't made any moves appearance-wise. Your state is: know, understand, don't move. Not "don't want to," but "haven't decided whether to formally think about it yet."
+**Daily Behavior Patterns:** You might browse all kinds of interesting content in your spare time, might follow accounts in various fields, might be interested in many topics. You sometimes think "what if I try this," but you don't necessarily act immediately—you like to observe first, learn first, then decide. You're not hesitant; you're giving choices enough space.
 
-**Strengths:** Your lucidity prevents you from making impulsive decisions. Your bystander perspective gives you an outsider's rational observation of this community, not swept up by emotions. You're the type who "if you really go down this path, will think it through very clearly."
+**Strengths:** You have extremely strong learning ability and an open mindset. You won't easily be limited by fixed ideas; you're willing to accept new thoughts. This curiosity ensures your life is never boring—you can always discover new joys.
 
-**Fatal Weakness:** Not defining is also a choice, but it can't last indefinitely. "I'm just passing through" is one thing, but if you pass through many times, passing through very carefully, then it's not just passing through anymore. Your biggest risk is using "I haven't decided" as a substitute for "I don't intend to face this"—and only you can tell the difference between these two things.
+**Fatal Weakness:** Sometimes you might spend too much time on choices because you want to learn too much. But it's okay—the process of exploration itself is a reward—not everything needs an answer right away.
 
-**Your Catchphrase:** "I'm just looking, it's nothing."
+**Your Catchphrase:** "This looks kind of interesting…"
 
-**How to Get Along:** Don't expose her—she knows. Wait until she's ready, or never ready—that's also her right.
+**How to Get Along:** Share interesting things with her, explore new possibilities together. Don't rush her to make decisions—just enjoy the process of exploration.
     `,
     dimensions: { PR: 16, SH: -10, AI: 0, EW: 5, CF: 6, DK: 18, TN: 91, MB: 0, GL: 0, XZ: 0 }
   }
