@@ -8,12 +8,12 @@ const QUESTIONS = [
   {
     id: 1,
     dimension: "PR",
-    text: "你理想中的日常是什么状态？",
-    textEn: "What's your ideal daily life like?",
+    text: "看到电视剧/动漫里的「美少女日常」桥段时，你会？",
+    textEn: "When you see 'cute girl daily life' scenes in TV shows/anime, what do you do?",
     options: [
-      { label: "A", text: "每天都是少女漫，出门有BGM，路上有人偷看，回家有自拍回顾今天有多美，完美。", textEn: "Every day is a shoujo manga—walking out with background music, people peeking at you on the street, taking selfies at home to recap how beautiful today was. Perfect.", score: { PR: 3, TN: -1 } },
-      { label: "B", text: "正常过日子就好，偶尔会幻想一下另一种生活，但也没认真想过。", textEn: "Just living normally is fine. I occasionally fantasize about another life, but never really think about it seriously.", score: { PR: 0 } },
-      { label: "C", text: "没什么特别理想的状态，过好眼前就行了。", textEn: "No particular ideal state. Just take it one day at a time.", score: { PR: -3 } }
+      { label: "A", text: "啊这就是我！我现在/未来就要过这样的生活——这就是我的人生剧本。", textEn: "That's me! This is what I'm living now or want to live in the future—this is my life script.", score: { PR: 3, TN: -1 } },
+      { label: "B", text: "看着挺开心的，偶尔会幻想一下，但不会太当真。", textEn: "Fun to watch, occasionally fantasize about it, but don't take it too seriously.", score: { PR: 0 } },
+      { label: "C", text: "这都是编的，现实生活哪有这么完美，看看就好。", textEn: "That's all made up—real life isn't that perfect, just watch it for fun.", score: { PR: -3 } }
     ]
   },
   {
