@@ -49,7 +49,7 @@ You've turned your life into the protagonist of a shoujo manga—the cover heroi
 
 **How to Get Along:** Truly appreciate her, tell her that her existence itself is beautiful.
     `,
-    dimensions: { PR: 92, SH: 95, AI: 100, EW: 100, CF: 88, DK: 100, TN: 59, MB: 92, GL: 100, XZ: 93 }
+    dimensions: { PR: 92, SH: 95, AI: 100, EW: 100, CF: 88, DK: 100, TN: 20, MB: 92, GL: 100, XZ: 93 }
   },
 
   PSAI: {
@@ -97,7 +97,7 @@ Your WeChat profile picture is a pink gradient, but the article you post at 3 AM
 
 **How to Get Along:** Don't try to "solve problems" when she's going crazy late at night; just be there with her. She doesn't need answers; she needs a witness.
     `,
-    dimensions: { PR: 92, SH: 76, AI: 100, EW: 29, CF: 56, DK: 55, TN: 70, MB: 92, GL: 71, XZ: 53 }
+    dimensions: { PR: 92, SH: 76, AI: 100, EW: 22, CF: 45, DK: 55, TN: 75, MB: 80, GL: 32, XZ: 42 }
   },
 
   PSWE: {
@@ -145,7 +145,7 @@ You know what to say and how to present yourself in different situations, and th
 
 **How to Get Along:** Give her a sense of security, let her know she doesn't have to be so tired in front of you, she can relax.
     `,
-    dimensions: { PR: 62, SH: 86, AI: 15, EW: 90, CF: 56, DK: 100, TN: 50, MB: 85, GL: 100, XZ: 53 }
+    dimensions: { PR: 62, SH: 86, AI: 20, EW: 90, CF: 48, DK: 72, TN: 50, MB: 40, GL: 20, XZ: 45 }
   },
 
   PSWI: {
@@ -193,7 +193,7 @@ You've deconstructed your identity at least three hundred times in your head, ea
 
 **How to Get Along:** Throw her a concrete small problem, not a grand identity question. Big questions will trap her in an endless loop.
     `,
-    dimensions: { PR: 60, SH: 62, AI: 15, EW: 33, CF: 56, DK: 36, TN: 65, MB: 54, GL: 57, XZ: 53 }
+    dimensions: { PR: 78, SH: 62, AI: 10, EW: 40, CF: 62, DK: 32, TN: 65, MB: 52, GL: 57, XZ: 65 }
   },
 
   PHAE: {
@@ -241,7 +241,7 @@ You enjoy spending time in your own little space, where you feel most at ease.
 
 **How to Get Along:** Respect her space, let her know it's okay whether she wants to stay home or go out and play.
     `,
-    dimensions: { PR: 92, SH: 29, AI: 100, EW: 81, CF: 88, DK: 18, TN: 68, MB: 92, GL: 93, XZ: 93 }
+    dimensions: { PR: 92, SH: 35, AI: 82, EW: 81, CF: 55, DK: 22, TN: 3, MB: 68, GL: 75, XZ: 42 }
   },
 
   PHAI: {
@@ -289,7 +289,7 @@ You're the type with the highest aesthetic level and lowest social presence in t
 
 **How to Get Along:** Don't disturb her ritual. If she voluntarily speaks to you, that's rarer than winning a Nobel Prize; catch it well.
     `,
-    dimensions: { PR: 80, SH: 5, AI: 100, EW: 29, CF: 88, DK: 18, TN: 18, MB: 92, GL: 86, XZ: 93 }
+    dimensions: { PR: 80, SH: 5, AI: 98, EW: 29, CF: 78, DK: 5, TN: 15, MB: 88, GL: 92, XZ: 65 }
   },
 
   PHWE: {
@@ -337,7 +337,7 @@ Your secret isn't hidden; it's carefully placed in a location only you know, loc
 
 **How to Get Along:** Her secret isn't distrust of you; it's her way of protecting herself. If one day she voluntarily opens the door, that's the greatest gift she gives you.
     `,
-    dimensions: { PR: 60, SH: 24, AI: 20, EW: 62, CF: 88, DK: 18, TN: 68, MB: 92, GL: 71, XZ: 93 }
+    dimensions: { PR: 72, SH: 25, AI: 48, EW: 55, CF: 78, DK: 12, TN: 20, MB: 55, GL: 20, XZ: 40 }
   },
 
   PHWI: {
@@ -385,7 +385,7 @@ You know. You've always known. But between "knowing" and "admitting" there's a p
 
 **How to Get Along:** Don't push her, don't ask her "what exactly are you." She needs a safe, pressure-free environment that makes her feel it's okay to come out—but that's her decision, not yours.
     `,
-    dimensions: { PR: 60, SH: 10, AI: 15, EW: 10, CF: 6, DK: 18, TN: 68, MB: 0, GL: 21, XZ: 0 }
+    dimensions: { PR: 72, SH: 15, AI: 22, EW: 12, CF: 0, DK: 10, TN: 8, MB: 0, GL: 15, XZ: 0 }
   },
 
   // ==================== R系（现实清醒派）====================
@@ -435,7 +435,7 @@ You know what you want and have the ability to go after it—this determination 
 
 **How to Get Along:** Discuss problems with her—she'll be happy. Occasionally let her know she doesn't always have to be so strong.
     `,
-    dimensions: { PR: 28, SH: 86, AI: 92, EW: 95, CF: 75, DK: 100, TN: 68, MB: 92, GL: 79, XZ: 93 }
+    dimensions: { PR: 28, SH: 86, AI: 65, EW: 95, CF: 75, DK: 100, TN: 60, MB: 52, GL: 79, XZ: 70 }
   },
 
   RSAI: {
@@ -483,7 +483,7 @@ You know your E2, T, and SHBG curves better than your endocrinologist. You've se
 
 **How to Get Along:** Come to her with questions, not emotional breakdowns—she's like a fish in water with the former, and at a loss with the latter.
     `,
-    dimensions: { PR: 28, SH: 65, AI: 92, EW: 43, CF: 75, DK: 18, TN: 75, MB: 54, GL: 36, XZ: 60 }
+    dimensions: { PR: 28, SH: 65, AI: 85, EW: 35, CF: 75, DK: 65, TN: 85, MB: 54, GL: 12, XZ: 72 }
   },
 
   RSWE: {
@@ -531,7 +531,7 @@ You've accepted yourself, but you haven't made it the central issue of your life
 
 **How to Get Along:** Don't try to make her excited—she has her own rhythm. Her calmness is real, not indifference.
     `,
-    dimensions: { PR: 28, SH: 62, AI: 35, EW: 67, CF: 6, DK: 100, TN: 73, MB: 54, GL: 0, XZ: 40 }
+    dimensions: { PR: 28, SH: 52, AI: 35, EW: 67, CF: 6, DK: 35, TN: 30, MB: 54, GL: 0, XZ: 40 }
   },
 
   RSWI: {
@@ -579,7 +579,7 @@ Your research depth on transgender-related topics has surpassed many professiona
 
 **How to Get Along:** Give her a truly challenging problem, and she'll take you seriously. Don't pretend to understand—she can see through it immediately.
     `,
-    dimensions: { PR: 24, SH: 65, AI: 0, EW: 29, CF: 50, DK: 18, TN: 80, MB: 0, GL: 7, XZ: 13 }
+    dimensions: { PR: 24, SH: 65, AI: 0, EW: 29, CF: 50, DK: 36, TN: 80, MB: 0, GL: 7, XZ: 35 }
   },
 
   RHAE: {
@@ -627,7 +627,7 @@ You're out, you stay at home, you're very anxious about your appearance, and you
 
 **How to Get Along:** Don't stop her, but occasionally remind her: the process itself is allowed to be enjoyed; you don't have to wait until "meeting the standard."
     `,
-    dimensions: { PR: 28, SH: 19, AI: 92, EW: 76, CF: 88, DK: 18, TN: 77, MB: 92, GL: 71, XZ: 93 }
+    dimensions: { PR: 22, SH: 19, AI: 88, EW: 76, CF: 92, DK: 18, TN: 50, MB: 96, GL: 72, XZ: 93 }
   },
 
   RHAI: {
@@ -675,7 +675,7 @@ You stay at home, you're in the process of coming out, you care about appearance
 
 **How to Get Along:** Talk with her about topics she's interested in, rather than trying to give her conclusions. She doesn't need answers; she needs good dialogue partners.
     `,
-    dimensions: { PR: 28, SH: 5, AI: 92, EW: 24, CF: 81, DK: 18, TN: 55, MB: 92, GL: 64, XZ: 87 }
+    dimensions: { PR: 40, SH: 5, AI: 85, EW: 24, CF: 48, DK: 30, TN: 48, MB: 60, GL: 58, XZ: 25 }
   },
 
   RHWE: {
@@ -723,7 +723,7 @@ You can manage all aspects of life well—work hard when working, relax fully wh
 
 **How to Get Along:** Respect her life rhythm, just go with her flow.
     `,
-    dimensions: { PR: 32, SH: 14, AI: 35, EW: 67, CF: 94, DK: 18, TN: 77, MB: 92, GL: 36, XZ: 93 }
+    dimensions: { PR: 25, SH: 8, AI: 25, EW: 72, CF: 94, DK: 18, TN: 25, MB: 50, GL: 35, XZ: 55 }
   },
 
   RHWI: {
@@ -771,7 +771,7 @@ You like learning new things, thinking, and observing—this isn't confusion, it
 
 **How to Get Along:** Share interesting things with her, explore new possibilities together. Don't rush her to make decisions—just enjoy the process of exploration.
     `,
-    dimensions: { PR: 16, SH: 5, AI: 0, EW: 5, CF: 6, DK: 18, TN: 91, MB: 0, GL: 0, XZ: 0 }
+    dimensions: { PR: 16, SH: 0, AI: 0, EW: 0, CF: 18, DK: 22, TN: 52, MB: 12, GL: 30, XZ: 15 }
   }
 
 };
