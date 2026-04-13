@@ -408,7 +408,7 @@
 #page-result {
   min-height: 100vh;
   background: linear-gradient(160deg, #E8F6FC 0%, #FFF0F7 50%, #E8F6FC 100%);
-  padding: 40px 0 80px;
+  padding: 40px 0 40px;
 }
 
 .result-hero {
