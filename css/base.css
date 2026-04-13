@@ -175,6 +175,10 @@ body {
   flex-wrap: wrap;
 }
 
+#footer-author-label.by-label {
+  margin-right: 4px;
+}
+
 .footer-social {
   display: inline-flex;
   align-items: center;
