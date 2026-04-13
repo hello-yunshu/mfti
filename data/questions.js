@@ -292,12 +292,12 @@ const QUESTIONS = [
   {
     id: 26,
     dimension: "EW",
-    text: "新认识的朋友问你怎么周末总一个人待着，你怎么回？",
-    textEn: "A new friend asks why you always spend weekends alone—how do you respond?",
+    text: "和新认识的朋友聊得很投缘，对方问起你有没有什么不为人知的一面，你怎么回？",
+    textEn: "You're getting along well with a new friend, and they ask if you have a side that not many people know about—how do you respond?",
     options: [
-      { label: "A", text: "直接说因为我是这样的啊，然后顺便科普一下，对方爱听不听。", textEn: "Just say it's because this is who I am, then casually educate them—whether they listen is up to them.", score: { EW: 2 } },
-      { label: "B", text: "含糊带过，说'就是比较宅'，等熟了再说真话。", textEn: "Vague it out with 'just a homebody'—save the real talk for when we're closer.", score: { EW: 0 } },
-      { label: "C", text: "说'就是喜欢待在家'，这件事跟新朋友没什么好聊的。", textEn: "Just say 'I like staying home'—this isn't something to discuss with a new friend.", score: { EW: -2 } }
+      { label: "A", text: "会直接说我这方面的情况，对方愿意听的话也可以多聊一点。", textEn: "Will directly talk about this aspect of myself, and if they're willing to listen, can chat a bit more.", score: { EW: 2 } },
+      { label: "B", text: "先含糊带过，如果对方继续问再考虑说多少，或者等更熟了再说。", textEn: "First be vague about it, and if they keep asking then consider how much to share, or wait until we're closer.", score: { EW: 0 } },
+      { label: "C", text: "不会说，或者目前没有打算和刚认识的人聊这些。", textEn: "Won't say, or currently have no plans to talk about this with someone I just met.", score: { EW: -2 } }
     ]
   },
   {
