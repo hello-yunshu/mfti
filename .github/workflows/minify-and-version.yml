@@ -11,6 +11,11 @@ on:
       - '!**.min.css'
 
   workflow_dispatch:
+    inputs:
+      force_regenerate_all:
+        description: '强制重新生成所有 JS 和 CSS 文件的最小化版本'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -45,14 +50,33 @@ jobs:
             **.min.css
             node_modules/**
 
-      - name: Process files
-        if: steps.changed-files.outputs.any_changed == 'true'
+      - name: Determine files to process
+        id: determine-files
         run: |
-          echo "Changed files: ${{ steps.changed-files.outputs.all_changed_files }}"
-          node scripts/minify-and-version.js ${{ steps.changed-files.outputs.all_changed_files }}
+          if [ "${{ inputs.force_regenerate_all }}" = "true" ]; then
+            echo "Force regenerate all files"
+            # Find all JS and CSS files (excluding min and node_modules)
+            ALL_FILES=$(find . -type f \( -name "*.js" -o -name "*.css" \) -not -path "*/node_modules/*" -not -name "*.min.js" -not -name "*.min.css" | sed 's|^\./||' | tr '\n' ' ')
+            echo "files=$ALL_FILES" >> $GITHUB_OUTPUT
+            echo "has_files=true" >> $GITHUB_OUTPUT
+          else
+            echo "Processing changed files only"
+            echo "files=${{ steps.changed-files.outputs.all_changed_files }}" >> $GITHUB_OUTPUT
+            if [ "${{ steps.changed-files.outputs.any_changed }}" = "true" ]; then
+              echo "has_files=true" >> $GITHUB_OUTPUT
+            else
+              echo "has_files=false" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      - name: Process files
+        if: steps.determine-files.outputs.has_files == 'true'
+        run: |
+          echo "Files to process: ${{ steps.determine-files.outputs.files }}"
+          node scripts/minify-and-version.js ${{ steps.determine-files.outputs.files }}
 
       - name: Commit and push changes
-        if: steps.changed-files.outputs.any_changed == 'true'
+        if: steps.determine-files.outputs.has_files == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
