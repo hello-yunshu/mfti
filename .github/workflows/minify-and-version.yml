@@ -7,6 +7,7 @@ on:
       - '**.js'
       - '**.css'
       - '!node_modules/**'
+      - '!scripts/**'
       - '!**.min.js'
       - '!**.min.css'
 
@@ -49,14 +50,15 @@ jobs:
             **.min.js
             **.min.css
             node_modules/**
+            scripts/**
 
       - name: Determine files to process
         id: determine-files
         run: |
           if [ "${{ inputs.force_regenerate_all }}" = "true" ]; then
             echo "Force regenerate all files"
-            # Find all JS and CSS files (excluding min and node_modules)
-            ALL_FILES=$(find . -type f \( -name "*.js" -o -name "*.css" \) -not -path "*/node_modules/*" -not -name "*.min.js" -not -name "*.min.css" | sed 's|^\./||' | tr '\n' ' ')
+            # Find all JS and CSS files (excluding min, node_modules, and scripts)
+            ALL_FILES=$(find . -type f \( -name "*.js" -o -name "*.css" \) -not -path "*/node_modules/*" -not -path "*/scripts/*" -not -name "*.min.js" -not -name "*.min.css" | sed 's|^\./||' | tr '\n' ' ')
             echo "files=$ALL_FILES" >> $GITHUB_OUTPUT
             echo "has_files=true" >> $GITHUB_OUTPUT
           else
