@@ -377,7 +377,7 @@ const QUESTIONS = [
     options: [
       { label: "A", text: "打扮成最想成为的样子出门，不用再顾虑任何人。", textEn: "Dress up as who I most want to be and go out—no more worrying about anyone.", score: { GL: 2, PR: 1 } },
       { label: "B", text: "大概还是照常过日子，但心里会轻松很多。", textEn: "Probably still live as usual, but feel much more relaxed inside.", score: { GL: 0 } },
-      { label: "C", text: "不一定有变化，我本来就不太在意外界的看法，或者没什么特别需要被接受的事。", textEn: "Might not change. I don't really care about others' opinions anyway, or nothing special needs accepting.", score: { GL: -1, EW: -1 } }
+      { label: "C", text: "不一定有变化，我本来就不太在意外界的看法，或者没什么特别需要被接受的事。", textEn: "Might not change. I don't really care about others' opinions anyway, or nothing special needs accepting.", score: { GL: -1 } }
     ]
   },
   {
@@ -432,7 +432,7 @@ const QUESTIONS = [
     options: [
       { label: "A", text: "满意，我在按计划进行，阶段性成果可见。", textEn: "Satisfied. I'm progressing according to plan—phased results visible.", score: { XZ: 1, CF: 1 } },
       { label: "B", text: "还行，有些地方不满意但接受过程，慢慢来。", textEn: "It's okay. Some areas aren't satisfied but accept the process—take it slow.", score: { XZ: 0 } },
-      { label: "C", text: "模糊，不想太具体地评价，评价了就要行动，行动了就要负责。", textEn: "Vague. Don't want to evaluate too specifically—evaluation means action, action means responsibility.", score: { XZ: -2, EW: -1 } }
+      { label: "C", text: "模糊，不想太具体地评价，评价了就要行动，行动了就要负责。", textEn: "Vague. Don't want to evaluate too specifically—evaluation means action, action means responsibility.", score: { XZ: -2 } }
     ]
   },
   {
@@ -443,7 +443,7 @@ const QUESTIONS = [
     options: [
       { label: "A", text: "我想了解自己是哪种类型，对自我探索很感兴趣。", textEn: "I want to know what type I am—very interested in self-exploration.", score: { PR: 1, TN: 1, EW: 1 } },
       { label: "B", text: "无聊，打发时间，朋友发来的，随便做做。", textEn: "Bored, killing time—friend sent it, just taking it casually.", score: { PR: 0, DK: 0 } },
-      { label: "C", text: "只是好奇点进来的，感觉这些题跟我关系不大。（但你做到最后一题了）", textEn: "Just clicked in out of curiosity—feel these questions don't relate to me much. (But you made it to the last question)", score: { EW: -2, PR: -1 } }
+      { label: "C", text: "只是好奇点进来的，感觉这些题跟我关系不大。（但你做到最后一题了）", textEn: "Just clicked in out of curiosity—feel these questions don't relate to me much. (But you made it to the last question)", score: { EW: -1, PR: -1 } }
     ]
   }
 
