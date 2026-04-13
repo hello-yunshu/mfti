@@ -185,7 +185,7 @@
   border-radius: 50%;
   object-fit: cover;
   margin: 0 auto 16px;
-  border: 4px solid var(--accent);
+  border: 4px solid var(--blue-primary);
 }
 
 .personality-code {
@@ -224,7 +224,7 @@
 }
 
 .personality-tag {
-  background: var(--bg-light);
+  background: #E8F6FC;
   color: var(--text-sub);
   padding: 4px 12px;
   border-radius: 16px;
