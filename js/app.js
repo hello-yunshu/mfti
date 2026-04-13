@@ -157,8 +157,8 @@ const App = (() => {
     }
     
     // 如果在所有人格页面，重新渲染以更新标签
-    const personalitiesGrid = document.getElementById('personalities-grid');
-    if (personalitiesGrid) {
+    const personalitiesPage = document.getElementById('page-all-personalities');
+    if (personalitiesPage && !personalitiesPage.classList.contains('hidden')) {
       renderAllPersonalities();
     }
     
@@ -353,7 +353,7 @@ const App = (() => {
     // 头像图片
     const avatarEl = document.getElementById('result-avatar');
     const avatarUrl = AVATARS[res.typeCode] || '';
-    avatarEl.innerHTML = `<img src="${avatarUrl}?v=1.0.0" alt="${p.name}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">`;
+    avatarEl.innerHTML = `<img src="${avatarUrl}?v=1.0.0" alt="${p.name}" loading="lazy" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">`;
     avatarEl.style.background = 'white';
 
     // 基本信息 - 根据语言切换显示优先级
@@ -583,7 +583,7 @@ const App = (() => {
       const secondaryName = currentLang === 'en' ? p.name : p.nameEn;
       
       card.innerHTML = `
-        <img src="${avatarUrl}?v=1.0.0" alt="${p.name}" class="personality-avatar">
+        <img src="${avatarUrl}?v=1.0.0" alt="${p.name}" loading="lazy" class="personality-avatar">
         <div class="personality-code" style="color: ${p.color}">${p.code}</div>
         <div class="personality-name-zh">${primaryName}</div>
         <div class="personality-name-en">${secondaryName}</div>
