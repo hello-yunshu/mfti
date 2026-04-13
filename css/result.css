@@ -81,6 +81,13 @@
   line-height: 1.7;
 }
 
+.footer-sakura {
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
 /* Toast */
 @keyframes toastIn {
   from { transform: translateX(-50%) translateY(16px); opacity: 0; }

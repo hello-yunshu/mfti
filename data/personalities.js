@@ -9,7 +9,7 @@ const PERSONALITIES = {
     name: "粉色炸弹",
     nameEn: "The Pink Detonator",
     subtitle: "老娘就是要美给你看型",
-    subtitleEn: "I'm here to show you how beautiful I am",
+    subtitleEn: "The type who's here to show you how gorgeous she is",
     emoji: "💣🌸",
     color: "#FF6EB4",
     gradient: ["#FF6EB4", "#FFB3D9"],
@@ -39,13 +39,13 @@ You've turned your life into the protagonist of a shoujo manga—the cover heroi
 
 **Psychological Profile:** You have a strong desire for expression and recognition—this is a very normal human need, you just face it more honestly. You might care about how others see you, but this care isn't weakness; it's a sign that you have high standards for yourself. You want to present your best self to the world—this is a love for life.
 
-**Daily Behavior Patterns:** You might spend a lot of time on your appearance, not to please anyone, but because you like that beautiful version of yourself. You might share your life on social media, enjoying interactions with friends. You might feel happy for a long time from a compliment, or care about a negative comment for a while—and that's okay, because you're real, you have warmth.
+**Daily Behavior Patterns:** You might spend a lot of time dressing up, not to please anyone, but because you like that beautiful version of yourself. You might share your life on social media, enjoying interactions with friends. You might feel happy for a long time from a compliment, or care about a negative comment for a while—and that's okay, because you're real, you're warm.
 
-**Strengths:** You have an extremely strong charisma that makes people around you feel your passion. You're willing to work hard for what you want—this persistence is precious. You show many people courage—the courage to be yourself.
+**Strengths:** You have an extremely strong infectious charm that makes people around you feel your passion. You're willing to work hard for what you want—this persistence is precious. You show many people courage—the courage to be yourself.
 
 **Fatal Weakness:** Sometimes you might care too much about external voices and ignore your inner feelings. But remember: you're not living to meet others' expectations; you're living for yourself.
 
-**Your Catchphrase:** "I just want to be myself!"
+**Your Catchphrase:** "I'm going to be myself!"
 
 **How to Get Along:** Truly appreciate her, tell her that her existence itself is beautiful.
     `,
@@ -95,7 +95,7 @@ Your WeChat profile picture is a pink gradient, but the article you post at 3 AM
 
 **Your Catchphrase:** "Wait, I think we need to break down this concept first..."
 
-**How to Get Along:** Don't try to "solve problems" when she's going crazy late at night; just be there with her. She doesn't need answers; she needs a witness.
+**How to Get Along:** Don't try to "solve problems" when she's spiraling late at night; just be there with her. She doesn't need answers; she needs a witness.
     `,
     dimensions: { PR: 92, SH: 76, AI: 100, EW: 22, CF: 45, DK: 55, TN: 75, MB: 80, GL: 32, XZ: 42 }
   },
@@ -129,11 +129,11 @@ Your WeChat profile picture is a pink gradient, but the article you post at 3 AM
 **相处攻略：** 给她安全感，让她知道在你面前可以不用那么累，可以放松下来。
     `,
     descriptionEn: `
-🎁 Congratulations! You're the "Schrödinger's Girl" personality! You have extraordinary adaptability and can find the most comfortable state in different environments—this isn't pretense, it's a survival wisdom!
+🎁 Congratulations! You're the "Schrödinger's Girl" personality! You have extraordinary adaptability and can find the most comfortable state in different environments—this isn't pretense, it's survival wisdom!
 
 You know what to say and how to present yourself in different situations, and this ability allows you to live freely in this complex world.
 
-**Psychological Profile:** You're a "situational adapter"—you can adjust your way of expression according to the environment, which is a mature social skill. You know very well what's safe and what needs protection; this caution isn't fear, it's responsibility to yourself. You know who you are, no matter what environment you're in, your heart is always yourself.
+**Psychological Profile:** You're a "situational adapter"—you can adjust your way of expression according to the environment, which is a mature social skill. You know very well what's safe and what needs protection; this caution isn't fear, it's responsibility to yourself. You know who you are, no matter what environment you're in, your inner self remains the same.
 
 **Daily Behavior Patterns:** You might have different states in different circles, which is normal—everyone has many sides. You might have some secrets that only specific friends know, and you might carefully protect your world. This isn't deception; it's a form of self-protection and respect for others.
 
@@ -151,7 +151,7 @@ You know what to say and how to present yourself in different situations, and th
   PSWI: {
     code: "QUANT-S",
     name: "量子纠缠少女",
-    nameEn: "The Quantum Entangled Soul",
+    nameEn: "The Quantum Entangled Girl",
     subtitle: "把自我分析做成博士论文型",
     subtitleEn: "Turns self-analysis into a doctoral dissertation",
     emoji: "🔬🌸",
@@ -177,11 +177,11 @@ You know what to say and how to present yourself in different situations, and th
 **相处攻略：** 给她抛一个具体的小问题，而不是宏大的身份问题。大问题会让她陷入死循环。
     `,
     descriptionEn: `
-🔬 Congratulations! You're the "Quantum Entangled Soul" personality! Your inner world is as vast as the universe; this depth is beyond what most people can reach! Your exploration of self is as persistent as a scientist studying the cosmos—this spirit is admirable!
+🔬 Congratulations! You're the "Quantum Entangled Girl" personality! Your inner world is as vast as the universe; this depth is beyond what most people can reach! Your exploration of self is as persistent as a scientist studying the cosmos—this spirit is admirable!
 
 You've deconstructed your identity at least three hundred times in your head, each time reconstructing a new version, but you're not sure which version is the final answer, so you continue deconstructing.
 
-**Psychological Profile:** You demonstrate a high degree of "Metacognitive Hyperactivity"—not just thinking, but thinking about thinking about thinking. Your insight into your own psychological mechanisms far exceeds that of ordinary people, making you appear very clear-headed, but in fact this continuous self-monitoring produces what psychology calls the "Introspection Illusion": the more you analyze, the more you feel you see clearly, but research shows that human self-knowledge is extremely unreliable. Your analyses may be far less accurate than you think.
+**Psychological Profile:** You demonstrate a high degree of "Metacognitive Hyperactivity"—not just thinking, but thinking about thinking about thinking. Your insight into your own psychological mechanisms far exceeds that of ordinary people, making you appear very perceptive, but in fact this continuous self-monitoring produces what psychology calls the "Introspection Illusion": the more you analyze, the more you feel you see clearly, but research shows that human self-knowledge is extremely unreliable. Your analyses may be far less accurate than you think.
 
 **Daily Behavior Patterns:** Your memo app is filled with extensive notes about self-identity; the longest one is six thousand words, written during a sleepless night. You've read "Gender Trouble," "The Second Sex," "Whipping Girl," and after reading you wrote book notes, then wrote notes questioning your book notes. You're not bad socially; you occasionally go out, meet people, but never voluntarily tell anyone about your inner world—not because of distrust, but because you feel you "can't explain it clearly."
 
@@ -287,7 +287,7 @@ You're the type with the highest aesthetic level and lowest social presence in t
 
 **Your Catchphrase:** (says nothing, just looks at the mirror)
 
-**How to Get Along:** Don't disturb her ritual. If she voluntarily speaks to you, that's rarer than winning a Nobel Prize; catch it well.
+**How to Get Along:** Don't disturb her ritual. If she voluntarily speaks to you, that's rarer than winning a Nobel Prize; treasure it.
     `,
     dimensions: { PR: 80, SH: 5, AI: 98, EW: 29, CF: 78, DK: 5, TN: 15, MB: 88, GL: 92, XZ: 65 }
   },
@@ -333,7 +333,7 @@ Your secret isn't hidden; it's carefully placed in a location only you know, loc
 
 **Fatal Weakness:** Perfect isolation means no growth. Your garden becomes more and more beautiful, but the species in the garden don't evolve, don't reproduce—because there's no foreign pollen or wind. Occasionally, you dream that someone discovers that box, then wake up startled, and you find that in that dream you were a little bit... relieved?
 
-**Your Catchphrase:** "This matter doesn't need to be known by everyone."
+**Your Catchphrase:** "Not everyone needs to know about this."
 
 **How to Get Along:** Her secret isn't distrust of you; it's her way of protecting herself. If one day she voluntarily opens the door, that's the greatest gift she gives you.
     `,
@@ -369,7 +369,7 @@ Your secret isn't hidden; it's carefully placed in a location only you know, loc
 **相处攻略：** 不要推她，不要问她"你到底是什么"。她需要的是一个安全的、没有压力的环境，让她觉得走出来是可以的——但那是她的决定，不是你的。
     `,
     descriptionEn: `
-👻 Congratulations! You're the extremely rare "Drifting Ghost" personality! People who maintain this pure possibility make up less than 0.4% of the population—one of the types with the most potential and mysterious color in the entire MFTI matrix! You're like a blank canvas, full of infinite possibilities; this state is extremely precious!
+👻 Congratulations! You're the extremely rare "Drifting Ghost" personality! People who maintain this pure possibility make up less than 0.4% of the population—one of the types with the most potential and mystique in the entire MFTI matrix! You're like a blank canvas, full of infinite possibilities; this state is extremely precious!
 
 You know. You've always known. But between "knowing" and "admitting" there's a path you haven't finished walking, and you haven't decided yet whether to walk it.
 
@@ -587,7 +587,7 @@ Your research depth on transgender-related topics has surpassed many professiona
     name: "钢铁萝莉",
     nameEn: "The Iron Lolita",
     subtitle: "执行力把顺性别女生都整破防了型",
-    subtitleEn: "Execution so strong it makes cis girls feel threatened",
+    subtitleEn: "Execution so strong it makes cis girls' defenses crumble",
     emoji: "⚙️🌸",
     color: "#8E44AD",
     gradient: ["#8E44AD", "#BB8FCE"],
@@ -611,7 +611,7 @@ Your research depth on transgender-related topics has surpassed many professiona
 **相处攻略：** 别拦她，但偶尔提醒她：过程本身也是允许享受的，不一定非要等到"达标"之后。
     `,
     descriptionEn: `
-⚙️ Congratulations! You're the "Iron Lolita" personality! You prove with action that anything is possible; your persistence is an example for countless people! Your girl's heart and iron will are perfectly combined—this power is admirable!
+⚙️ Congratulations! You're the "Iron Lolita" personality! You prove with action that anything is possible; your persistence is an example for countless people! Your girlish heart and iron will are perfectly combined—this power is admirable!
 
 You're out, you stay at home, you're very anxious about your appearance, and your drive stresses everyone out—including cisgender women who have never experienced any identity crisis.
 
@@ -635,7 +635,7 @@ You're out, you stay at home, you're very anxious about your appearance, and you
     name: "佛系修炼者",
     nameEn: "The Zen Cultivator",
     subtitle: "上车了但还在思考开车原理型",
-    subtitleEn: "On the journey but still pondering why driving",
+    subtitleEn: "On the journey but still figuring out how the engine works",
     emoji: "☯️🌱",
     color: "#27AE60",
     gradient: ["#27AE60", "#82E0AA"],
@@ -707,7 +707,7 @@ You stay at home, you're in the process of coming out, you care about appearance
 **相处攻略：** 尊重她的生活节奏，跟着她的节奏走就好。
     `,
     descriptionEn: `
-📅 Congratulations! You're the "Weekend Alter Ego" personality! You have extraordinary balancing abilities and can switch freely between different life states—this is a wisdom of life! You know what to do and when—this rhythm is enviable!
+📅 Congratulations! You're the "Weekend Alter Ego" personality! You have extraordinary balancing abilities and can switch freely between different life states—this is life wisdom! You know what to do and when—this rhythm is enviable!
 
 You can manage all aspects of life well—work hard when working, relax fully when relaxing.
 
@@ -778,14 +778,14 @@ You like learning new things, thinking, and observing—this isn't confusion, it
 
 // 维度说明
 const DIMENSIONS = {
-  PR: { name: "粉色梦境指数", nameEn: "Pinky Dream Index", desc: "你活在粉色滤镜里还是现实里", low: "现实派", high: "梦幻派" },
+  PR: { name: "粉色梦境指数", nameEn: "Pink Dream Index", desc: "你活在粉色滤镜里还是现实里", low: "现实派", high: "梦幻派" },
   SH: { name: "社交活跃度", nameEn: "Social Activity Level", desc: "你是社牛还是宅神", low: "宅家精灵", high: "社交蝴蝶" },
   AI: { name: "颜值焦虑度", nameEn: "Appearance Anxiety Level", desc: "你对自身外貌有多焦虑", low: "心态平和", high: "颜值焦虑" },
   EW: { name: "公开度", nameEn: "Openness Level", desc: "你出来了没有", low: "深柜居民", high: "公开出柜" },
   CF: { name: "自律指数", nameEn: "Self-Discipline Index", desc: "你是计划派还是随缘党", low: "佛系随缘", high: "严格自律" },
   DK: { name: "社群归属感", nameEn: "Community Belonging Index", desc: "你需要群体还是一个人就够了", low: "独行侠", high: "群体依附" },
-  TN: { name: "理性分析度", nameEn: "Theory Nerd Level", desc: "你分析身份还是跟着感觉走", low: "纯靠直觉", high: "理论狂魔" },
-  MB: { name: "物质投入度", nameEn: "Investment Level", desc: "你在这件事上花了多少钱", low: "佛系省钱", high: "钱不是问题" },
+  TN: { name: "理性分析度", nameEn: "Rational Analysis Level", desc: "你分析身份还是跟着感觉走", low: "纯靠直觉", high: "理论狂魔" },
+  MB: { name: "物质投入度", nameEn: "Material Investment Level", desc: "你在这件事上花了多少钱", low: "佛系省钱", high: "钱不是问题" },
   GL: { name: "表达一致性", nameEn: "Expression Consistency", desc: "你每天都在状态还是看心情", low: "看心情派", high: "全天候在线" },
   XZ: { name: "未来规划度", nameEn: "Future Planning Level", desc: "你有长期规划还是走一步看一步", low: "随遇而安", high: "五年计划党" }
 };

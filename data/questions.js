@@ -45,7 +45,7 @@ const QUESTIONS = [
     textEn: "What did you post on your social media recently?",
     options: [
       { label: "A", text: "滤镜+文案+位置打卡，评论区被'好美'淹没，完美结束这一天。", textEn: "Filters + caption + location check-in. Comments flooded with 'so beautiful'. Perfect end to the day.", score: { PR: 3 } },
-      { label: "B", text: "偶尔看看别人的内容，自己不太发相关的东西。", textEn: "Occasionally look at other people's content, don't really post related stuff myself.", score: { PR: 0 } },
+      { label: "B", text: "偶尔看看别人的内容，自己不太发相关的东西。", textEn: "Occasionally look at other people's posts, don't really post related stuff myself.", score: { PR: 0 } },
       { label: "C", text: "我的社交账号和这面完全无关，不会留下任何痕迹。", textEn: "My social media accounts are completely unrelated to this side of me. Won't leave any traces.", score: { PR: -3 } }
     ]
   },
@@ -55,7 +55,7 @@ const QUESTIONS = [
     text: "你的主要社交战场在哪？",
     textEn: "Where is your main social battlefield?",
     options: [
-      { label: "A", text: "线下活动、姐妹饭局、各种见面，认识新朋友让我充电。", textEn: "Offline events, girl dinners, all kinds of meetups. Meeting new people recharges me.", score: { SH: 3 } },
+      { label: "A", text: "线下活动、姐妹饭局、各种见面，认识新朋友让我充电。", textEn: "Offline events, girls' dinners, all kinds of meetups. Meeting new people recharges me.", score: { SH: 3 } },
       { label: "B", text: "社交媒体为主，偶尔线下，线下结束了要花时间恢复元气。", textEn: "Mostly social media, occasionally offline. Need time to recover after offline events.", score: { SH: 0 } },
       { label: "C", text: "我的社交圈是两个固定的、高度精选的好友，其他一概不需要。", textEn: "My social circle is two fixed, highly curated friends. Don't need anything else.", score: { SH: -3 } }
     ]
@@ -100,7 +100,7 @@ const QUESTIONS = [
     id: 9,
     dimension: "AI",
     text: "出门前发现今天状态特别差，你会？",
-    textEn: "Realizing you look especially bad before going out—what do you do?",
+    textEn: "Feeling off before going out—what do you do?",
     options: [
       { label: "A", text: "焦虑到不想出门，或者花一小时补救到勉强能接受，迟到了也无所谓。", textEn: "Too anxious to go out, or spend an hour fixing it until barely acceptable—being late doesn't matter.", score: { AI: 3 } },
       { label: "B", text: "叹口气，随便收拾一下，反正又不是第一天状态不好。", textEn: "Sigh, throw something on—it's not the first day I've looked bad anyway.", score: { AI: 0 } },
@@ -111,7 +111,7 @@ const QUESTIONS = [
     id: 10,
     dimension: "PR",
     text: "你对'少女感'这个词的第一反应是？",
-    textEn: "What's your first reaction to the term 'girlish charm'?",
+    textEn: "What's your first reaction to the term 'girlishness'?",
     options: [
       { label: "A", text: "这就是我的人生追求，越少女越好，谁规定只能年轻才能少女？", textEn: "That's my life goal—the more girlish the better. Who says only young people can be girlish?", score: { PR: 3, TN: -1 } },
       { label: "B", text: "可以理解，但不是我追求的核心，我有更在意的东西。", textEn: "Understandable, but not what I'm focused on. I have more important things to care about.", score: { PR: 0 } },
@@ -181,7 +181,7 @@ const QUESTIONS = [
     options: [
       { label: "A", text: "内心一震然后修炼更猛，我要让你再也说不出这句话。", textEn: "Shocked inside, then work even harder—I'll make sure you never say that again.", score: { AI: 1, PR: 3 } },
       { label: "B", text: "哦，无所谓，本来也不一定像，或者这话跟我关系不大。", textEn: "Oh, whatever. Didn't necessarily look like one anyway, or this doesn't concern me much.", score: { PR: 0 } },
-      { label: "C", text: "这说明对方有刻板印象，我来解释一下……", textEn: "That means they have stereotypes. Let me break it down for them...", score: { PR: -3 } }
+      { label: "C", text: "这说明对方有刻板印象，我来解释一下……", textEn: "That means they have stereotypes. Let me explain...", score: { PR: -3 } }
     ]
   },
 
@@ -348,7 +348,7 @@ const QUESTIONS = [
     id: 31,
     dimension: "CF",
     text: "你对待'维护自己状态'这件事的态度？",
-    textEn: "What's your attitude towards 'maintaining your state'?",
+    textEn: "What's your attitude towards 'maintaining your presentation'?",
     options: [
       { label: "A", text: "长期投入，日复一日，没有假期，效果是积累出来的。", textEn: "Long-term investment, day after day, no days off—results come from accumulation.", score: { CF: 3, GL: 1 } },
       { label: "B", text: "尽量维护，但不会为了它牺牲太多，有比它更重要的事。", textEn: "Try to maintain, but won't sacrifice too much for it—there are more important things.", score: { CF: 0, GL: 0 } },
@@ -386,7 +386,7 @@ const QUESTIONS = [
     text: "对你来说'做自己'最重要的是？",
     textEn: "For you, what's most important about 'being yourself'?",
     options: [
-      { label: "A", text: "活出我内心的样子，不管外界标准，我想美就美，想梦幻就梦幻。", textEn: "Live as my inner self—regardless of external standards. Want to be beautiful, want to be dreamy.", score: { PR: 3 } },
+      { label: "A", text: "活出我内心的样子，不管外界标准，我想美就美，想梦幻就梦幻。", textEn: "Live as my inner self—regardless of external standards. I want to be beautiful, I want to be dreamy.", score: { PR: 3 } },
       { label: "B", text: "在现实和内心之间找到平衡，不必走极端。", textEn: "Find balance between reality and inner self—don't need to go to extremes.", score: { PR: 0 } },
       { label: "C", text: "理性认识自己，不欺骗自己，也不给自己制造不必要的幻想。", textEn: "Know myself rationally—don't deceive myself, don't create unnecessary fantasies.", score: { PR: -3, TN: 1 } }
     ]
@@ -395,7 +395,7 @@ const QUESTIONS = [
     id: 35,
     dimension: "XZ",
     text: "你有没有认真想过五年后你的状态是什么样的？",
-    textEn: "Have you seriously thought about what your state will be like in five years?",
+    textEn: "Have you seriously thought about what your life will look like in five years?",
     options: [
       { label: "A", text: "有，而且有清晰的目标和路径，并定期回顾执行情况。", textEn: "Yes, and have clear goals and paths, regularly review progress.", score: { XZ: 3 } },
       { label: "B", text: "大概想过，但不会太具体，以后的事以后说。", textEn: "Thought about it roughly, but not too specific—future things future me will handle.", score: { XZ: 0 } },
