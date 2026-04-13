@@ -350,11 +350,17 @@ const App = (() => {
     avatarEl.innerHTML = `<img src="${avatarUrl}?v=1.0.0" alt="${p.name}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">`;
     avatarEl.style.background = 'white';
 
-    // 基本信息
+    // 基本信息 - 根据语言切换显示优先级
     document.getElementById('result-code').textContent = p.code;
     document.getElementById('result-code').style.color = p.color;
-    document.getElementById('result-name-zh').textContent = p.name;
-    document.getElementById('result-name-en').textContent = p.nameEn;
+    
+    // 中文模式：中文为主标题，英文为副标题
+    // 英文模式：英文为主标题，中文为副标题
+    const primaryName = currentLang === 'en' ? p.nameEn : p.name;
+    const secondaryName = currentLang === 'en' ? p.name : p.nameEn;
+    
+    document.getElementById('result-name-zh').textContent = primaryName;
+    document.getElementById('result-name-en').textContent = secondaryName;
     
     // 副标题多语言
     document.getElementById('result-subtitle').textContent = getPersonalityText(p, 'subtitle');
@@ -469,13 +475,18 @@ const App = (() => {
       if (typeCode === currentCode) return;
       const p = PERSONALITIES[typeCode];
       if (!p) return;
+      
+      // 根据语言切换显示优先级
+      const primaryName = currentLang === 'en' ? p.nameEn : p.name;
+      const secondaryName = currentLang === 'en' ? p.name : p.nameEn;
+      
       const div = document.createElement('div');
       div.className = 'similar-item';
       div.innerHTML = `
         <span class="similar-emoji">${p.emoji}</span>
         <div class="similar-info">
-          <span class="similar-name">${p.name}</span>
-          <span class="similar-en">${p.nameEn}</span>
+          <span class="similar-name">${primaryName}</span>
+          <span class="similar-en">${secondaryName}</span>
         </div>
         <span class="similar-score" style="color:${p.color}">${score}%</span>
       `;
@@ -556,11 +567,15 @@ const App = (() => {
       // 头像图片
       const avatarUrl = AVATARS[code] || '';
       
+      // 根据语言切换显示优先级
+      const primaryName = currentLang === 'en' ? p.nameEn : p.name;
+      const secondaryName = currentLang === 'en' ? p.name : p.nameEn;
+      
       card.innerHTML = `
         <img src="${avatarUrl}?v=1.0.0" alt="${p.name}" class="personality-avatar">
         <div class="personality-code" style="color: ${p.color}">${p.code}</div>
-        <div class="personality-name-zh">${p.name}</div>
-        <div class="personality-name-en">${p.nameEn}</div>
+        <div class="personality-name-zh">${primaryName}</div>
+        <div class="personality-name-en">${secondaryName}</div>
         <div class="personality-subtitle">${getPersonalityText(p, 'subtitle')}</div>
         <div class="personality-tags">
           ${p.tags.map(tag => {
