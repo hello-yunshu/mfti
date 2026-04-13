@@ -57,9 +57,25 @@ function parseVersion(versionStr) {
 
 function incrementVersion(version) {
   if (!version) return { major: 1, minor: 0, patch: 1 };
+  const newPatch = version.patch + 1;
+  if (newPatch > 10) {
+    const newMinor = version.minor + 1;
+    if (newMinor > 10) {
+      return {
+        major: version.major + 1,
+        minor: 0,
+        patch: 0
+      };
+    }
+    return {
+      major: version.major,
+      minor: newMinor,
+      patch: 0
+    };
+  }
   return {
     ...version,
-    patch: version.patch + 1
+    patch: newPatch
   };
 }
 
