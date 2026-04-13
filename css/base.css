@@ -54,6 +54,7 @@
 html {
   scroll-behavior: smooth;
   touch-action: manipulation;
+  overscroll-behavior-y: contain;
 }
 
 body {
@@ -69,6 +70,15 @@ body {
   color: var(--text-main);
   line-height: 1.7;
   min-height: 100vh;
+}
+
+.page-enter {
+  animation: pageEnter 0.3s ease-out;
+}
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
 }
 
 /* 通用组件 */
