@@ -181,16 +181,19 @@ const App = (() => {
     }
   }
 
-  // 页面切换
   function showPage(id) {
     ['page-landing', 'page-disclaimer', 'page-quiz', 'page-calculating', 'page-result', 'page-all-personalities']
       .forEach(p => {
         const el = document.getElementById(p);
-        if (el) el.classList.add('hidden');
+        if (el) {
+          el.classList.add('hidden');
+          el.classList.remove('page-enter');
+        }
       });
     const target = document.getElementById(id);
     if (target) {
       target.classList.remove('hidden');
+      target.classList.add('page-enter');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
@@ -221,38 +224,41 @@ const App = (() => {
     const q = QUESTIONS[index];
     const total = QUESTIONS.length;
 
-    // 更新进度
     const pct = Math.round((index / total) * 100);
     document.getElementById('progress-fill').style.width = pct + '%';
     document.getElementById('q-counter').textContent = `${index + 1} / ${total}`;
     document.getElementById('q-remain').textContent = `${t('remaining')} ${total - index} ${t('questionsLeft')}`;
 
-    // 渲染题目
     document.getElementById('q-num').textContent = index + 1;
     document.getElementById('q-text').textContent = getQuestionText(q, 'text');
 
-    // 渲染选项
     const optList = document.getElementById('options-list');
-    optList.innerHTML = '';
-    q.options.forEach((opt, i) => {
-      const btn = document.createElement('button');
-      btn.className = 'option-item' + (answers[index] && answers[index].label === opt.label ? ' selected' : '');
-      btn.innerHTML = `
-        <span class="option-label">${opt.label}</span>
-        <span class="option-text">${getQuestionText(opt, 'text')}</span>
-      `;
-      btn.addEventListener('click', () => selectOption(index, opt, btn, optList));
-      optList.appendChild(btn);
-    });
+    const existingBtns = optList.querySelectorAll('.option-item');
+    const opts = q.options;
 
-    // 更新按钮状态
+    if (existingBtns.length === opts.length) {
+      opts.forEach((opt, i) => {
+        const btn = existingBtns[i];
+        const isSelected = answers[index] && answers[index].label === opt.label;
+        btn.className = 'option-item' + (isSelected ? ' selected' : '');
+        btn.querySelector('.option-text').textContent = getQuestionText(opt, 'text');
+        btn.onclick = () => selectOption(index, opt, btn, optList);
+      });
+    } else {
+      optList.innerHTML = '';
+      opts.forEach((opt, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-item' + (answers[index] && answers[index].label === opt.label ? ' selected' : '');
+        btn.innerHTML = `
+          <span class="option-label">${opt.label}</span>
+          <span class="option-text">${getQuestionText(opt, 'text')}</span>
+        `;
+        btn.addEventListener('click', () => selectOption(index, opt, btn, optList));
+        optList.appendChild(btn);
+      });
+    }
+
     updateNavButtons(index);
-
-    // 动画刷新
-    const card = document.getElementById('question-card');
-    card.style.animation = 'none';
-    card.offsetHeight; // reflow
-    card.style.animation = '';
   }
 
   function selectOption(qIndex, opt, btn, list) {
@@ -523,6 +529,11 @@ const App = (() => {
     window.scrollTo({ top: 0 });
   }
 
+  function backToLanding() {
+    showPage('page-landing');
+    window.scrollTo({ top: 0 });
+  }
+
   // 分享
   function shareResult() {
     if (!result) return;
@@ -625,6 +636,7 @@ const App = (() => {
     nextQuestion,
     submitQuiz,
     retake,
+    backToLanding,
     shareResult,
     showAllPersonalities,
     showLanding,
