@@ -13,6 +13,12 @@ const App = (() => {
     return currentLang === 'en' && p[enField] ? p[enField] : p[field];
   }
 
+  // 获取多语言题目数据
+  function getQuestionText(q, field) {
+    const enField = field + 'En';
+    return currentLang === 'en' && q[enField] ? q[enField] : q[field];
+  }
+
   // 设置语言
   function setLanguage(lang) {
     currentLang = lang;
@@ -144,6 +150,12 @@ const App = (() => {
     const backBtn = document.querySelector('.all-personalities-header .btn');
     if (backBtn && t('backBtn')) backBtn.textContent = t('backBtn');
     
+    // 如果在答题页面，重新渲染当前题目以更新语言
+    const quizPage = document.getElementById('page-quiz');
+    if (quizPage && !quizPage.classList.contains('hidden')) {
+      renderQuestion(currentQ);
+    }
+    
     // 如果在所有人格页面，重新渲染以更新标签
     const personalitiesGrid = document.getElementById('personalities-grid');
     if (personalitiesGrid) {
@@ -205,7 +217,7 @@ const App = (() => {
 
     // 渲染题目
     document.getElementById('q-num').textContent = index + 1;
-    document.getElementById('q-text').textContent = q.text;
+    document.getElementById('q-text').textContent = getQuestionText(q, 'text');
 
     // 渲染选项
     const optList = document.getElementById('options-list');
@@ -215,7 +227,7 @@ const App = (() => {
       btn.className = 'option-item' + (answers[index] && answers[index].label === opt.label ? ' selected' : '');
       btn.innerHTML = `
         <span class="option-label">${opt.label}</span>
-        <span class="option-text">${opt.text}</span>
+        <span class="option-text">${getQuestionText(opt, 'text')}</span>
       `;
       btn.addEventListener('click', () => selectOption(index, opt, btn, optList));
       optList.appendChild(btn);
