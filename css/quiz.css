@@ -50,29 +50,35 @@
 /* 花瓣整体微旋转 - 以花蕊为中心 */
 .petal-1 {
   transform-origin: 16px 15.5px;
-  animation: petalSway1 4s ease-in-out infinite;
+  animation: petalSway1 10s ease-in-out infinite;
 }
 
 /* 花瓣纹理跟随花瓣一起动 */
 .petal-veins {
   transform-origin: 16px 15.5px;
-  animation: petalSway1 4s ease-in-out infinite;
+  animation: petalSway1 10s ease-in-out infinite;
 }
 
 /* 花蕊独立微旋转 */
 .stamen {
   transform-origin: 16px 15.5px;
-  animation: stamenWobble 2.5s ease-in-out infinite;
+  animation: stamenWobble 8s ease-in-out infinite;
 }
 
 @keyframes petalSway1 {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(2.5deg); }
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-2.5deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(2.5deg); }
+  100% { transform: rotate(0deg); }
 }
 
 @keyframes stamenWobble {
-  0%, 100% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(3deg) scale(1.04); }
+  0% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-3deg) scale(1.015); }
+  50% { transform: rotate(0deg) scale(1.03); }
+  75% { transform: rotate(3deg) scale(1.015); }
+  100% { transform: rotate(0deg) scale(1); }
 }
 
 /* 飘落花瓣 */
