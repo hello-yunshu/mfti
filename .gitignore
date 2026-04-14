@@ -19,3 +19,6 @@ Thumbs.db
 
 # Workbuddy
 .workbuddy/
+
+# Local simulation scripts
+simulation/
