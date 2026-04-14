@@ -1,3 +1,5 @@
+'use strict';
+
 // MFTI 主应用逻辑
 
 const App = (() => {
@@ -5,7 +7,32 @@ const App = (() => {
   let currentQ = 0;
   let answers = [];
   let result = null;
-  let currentLang = localStorage.getItem('mfti_lang') || 'zh';
+  let currentLang;
+
+  // 安全地获取 localStorage 值
+  function safeGetStorage(key, defaultValue) {
+    try {
+      const value = localStorage.getItem(key);
+      return value !== null ? value : defaultValue;
+    } catch (e) {
+      console.warn('Failed to get from localStorage:', e);
+      return defaultValue;
+    }
+  }
+
+  // 安全地设置 localStorage 值
+  function safeSetStorage(key, value) {
+    try {
+      localStorage.setItem(key, value);
+      return true;
+    } catch (e) {
+      console.warn('Failed to set to localStorage:', e);
+      return false;
+    }
+  }
+
+  // 初始化当前语言
+  currentLang = safeGetStorage('mfti_lang', 'zh');
 
   // 获取多语言人格数据
   function getPersonalityText(p, field) {
@@ -19,10 +46,54 @@ const App = (() => {
     return currentLang === 'en' && q[enField] ? q[enField] : q[field];
   }
 
+  // 获取人格名称（按语言优先级）
+  function getPersonalityNames(p) {
+    return {
+      primary: currentLang === 'en' ? p.nameEn : p.name,
+      secondary: currentLang === 'en' ? p.name : p.nameEn
+    };
+  }
+
+  // 辅助：更新单个元素文本
+  function updateText(selectorOrEl, key) {
+    const el = typeof selectorOrEl === 'string' ? document.querySelector(selectorOrEl) : selectorOrEl;
+    const translated = t(key);
+    if (el && translated) {
+      el.textContent = translated;
+    }
+  }
+
+  // 辅助：更新多个元素文本
+  function updateTexts(selector, keys) {
+    const els = document.querySelectorAll(selector);
+    els.forEach((el, i) => {
+      const translated = t(keys[i]);
+      if (translated) el.textContent = translated;
+    });
+  }
+
+  // 辅助：更新元素 HTML
+  function updateHTML(selectorOrEl, key) {
+    const el = typeof selectorOrEl === 'string' ? document.querySelector(selectorOrEl) : selectorOrEl;
+    const translated = t(key);
+    if (el && translated) {
+      el.innerHTML = translated;
+    }
+  }
+
+  // 辅助：更新多个段落
+  function updateParagraphs(selector, key) {
+    const el = document.querySelector(selector);
+    const texts = t(key);
+    if (el && texts && Array.isArray(texts)) {
+      el.innerHTML = texts.map(p => `<p>${p}</p>`).join('');
+    }
+  }
+
   // 设置语言
   function setLanguage(lang) {
     currentLang = lang;
-    localStorage.setItem('mfti_lang', lang);
+    safeSetStorage('mfti_lang', lang);
     
     // 更新语言切换按钮
     const langBtn = document.getElementById('lang-switch');
@@ -61,120 +132,66 @@ const App = (() => {
 
   // 更新所有文本内容
   function updateAllTexts() {
-    // 只在有翻译时才更新
-    if (typeof TRANSLATIONS === 'undefined' || !TRANSLATIONS[currentLang]) {
-      return;
-    }
+    if (typeof TRANSLATIONS === 'undefined' || !TRANSLATIONS[currentLang]) return;
     
     document.title = t('pageTitle');
     const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute('content', t('metaDescription'));
-    }
+    if (metaDesc) metaDesc.setAttribute('content', t('metaDescription'));
     
     // 更新首页
-    const landingSubtitle = document.querySelector('.landing-subtitle');
-    if (landingSubtitle && t('subtitle')) landingSubtitle.textContent = t('subtitle');
-    
-    const landingDesc = document.querySelector('.landing-desc');
-    if (landingDesc && t('description')) landingDesc.innerHTML = t('description');
-    
-    // 更新统计标签
-    const statLabels = document.querySelectorAll('.stat-label');
-    const statKeys = ['statLabels.0', 'statLabels.1', 'statLabels.2', 'statLabels.3'];
-    statLabels.forEach((el, i) => {
-      const translated = t(statKeys[i]);
-      if (translated) el.textContent = translated;
-    });
-    
-    // 更新按钮
-    const startBtn = document.querySelector('#page-landing .btn-primary');
-    if (startBtn && t('startBtn')) startBtn.textContent = t('startBtn');
-    
-    const showResultBtn = document.getElementById('btn-show-result');
-    if (showResultBtn && t('showResultBtn')) showResultBtn.textContent = t('showResultBtn');
-    
-    const disclaimerNote = document.querySelector('#page-landing p[style*="font-size:12px"]');
-    if (disclaimerNote && t('disclaimerNote')) disclaimerNote.textContent = t('disclaimerNote');
+    updateText('.landing-subtitle', 'subtitle');
+    updateHTML('.landing-desc', 'description');
+    updateTexts('.stat-label', ['statLabels.0', 'statLabels.1', 'statLabels.2', 'statLabels.3']);
+    updateText('#page-landing .btn-primary', 'startBtn');
+    updateText('#btn-show-result', 'showResultBtn');
+    updateText('#page-landing p[style*="font-size:12px"]', 'disclaimerNote');
     
     // 更新免责声明
-    const modalTitle = document.querySelector('.modal-title');
-    if (modalTitle && t('disclaimerTitle')) modalTitle.textContent = t('disclaimerTitle');
-    
-    const disclaimerText = document.querySelector('.disclaimer-text');
-    if (disclaimerText) {
-      const texts = t('disclaimerText');
-      if (texts && Array.isArray(texts)) {
-        disclaimerText.innerHTML = texts.map(p => `<p>${p}</p>`).join('');
-      }
-    }
-    
-    const disagreeBtn = document.querySelector('.modal-actions .btn-secondary');
-    if (disagreeBtn && t('disagreeBtn')) disagreeBtn.textContent = t('disagreeBtn');
-    
-    const agreeBtn = document.querySelector('.modal-actions .btn-primary');
-    if (agreeBtn && t('agreeBtn')) agreeBtn.textContent = t('agreeBtn');
+    updateText('.modal-title', 'disclaimerTitle');
+    updateParagraphs('.disclaimer-text', 'disclaimerText');
+    updateText('.modal-actions .btn-secondary', 'disagreeBtn');
+    updateText('.modal-actions .btn-primary', 'agreeBtn');
     
     // 更新测试页按钮
-    const btnPrev = document.getElementById('btn-prev');
-    if (btnPrev && t('prevBtn')) btnPrev.textContent = t('prevBtn');
-    
-    const btnNext = document.getElementById('btn-next');
-    if (btnNext && t('nextBtn')) btnNext.textContent = t('nextBtn');
-    
-    const btnSubmit = document.getElementById('btn-submit');
-    if (btnSubmit && t('submitBtn')) btnSubmit.textContent = t('submitBtn');
+    updateText('#btn-prev', 'prevBtn');
+    updateText('#btn-next', 'nextBtn');
+    updateText('#btn-submit', 'submitBtn');
     
     // 更新计算页面
-    const calcSubtext = document.querySelector('.calc-subtext');
-    if (calcSubtext && t('calcSubtext')) calcSubtext.textContent = t('calcSubtext');
+    updateText('.calc-subtext', 'calcSubtext');
+    // 初始化计算文本为第一个翻译
+    const calcEl = document.getElementById('calc-text');
+    const calcTexts = t('calcTexts');
+    if (calcEl && calcTexts && calcTexts.length > 0) {
+      calcEl.textContent = calcTexts[0];
+    }
     
     // 更新结果页
-    const shareBtn = document.querySelector('.result-actions .btn-primary');
-    if (shareBtn && t('shareBtn')) shareBtn.textContent = t('shareBtn');
-    
+    updateText('.result-actions .btn-primary', 'shareBtn');
     const retakeBtns = document.querySelectorAll('.result-actions .btn-secondary');
-    if (retakeBtns[0] && t('retakeBtn')) retakeBtns[0].textContent = t('retakeBtn');
-    if (retakeBtns[1] && t('allPersonalitiesBtn')) retakeBtns[1].textContent = t('allPersonalitiesBtn');
-    
-    const footerNote = document.querySelector('.result-footer-note');
-    if (footerNote && t('footerNote')) footerNote.innerHTML = t('footerNote');
+    if (retakeBtns[0]) updateText(retakeBtns[0], 'retakeBtn');
+    if (retakeBtns[1]) updateText(retakeBtns[1], 'allPersonalitiesBtn');
+    updateHTML('.result-footer-note', 'footerNote');
     
     // 更新所有人格页面
-    const allPersTitle = document.querySelector('.all-personalities-header h1');
-    if (allPersTitle && t('allPersonalitiesTitle')) allPersTitle.textContent = t('allPersonalitiesTitle');
+    updateText('.all-personalities-header h1', 'allPersonalitiesTitle');
+    updateText('.all-personalities-header .subtitle', 'allPersonalitiesSubtitle');
+    updateText('.all-personalities-header .btn', 'backBtn');
     
-    const allPersSubtitle = document.querySelector('.all-personalities-header .subtitle');
-    if (allPersSubtitle && t('allPersonalitiesSubtitle')) allPersSubtitle.textContent = t('allPersonalitiesSubtitle');
-    
-    const backBtn = document.querySelector('.all-personalities-header .btn');
-    if (backBtn && t('backBtn')) backBtn.textContent = t('backBtn');
-    
-    // 如果在答题页面，重新渲染当前题目以更新语言
+    // 条件性重新渲染
     const quizPage = document.getElementById('page-quiz');
-    if (quizPage && !quizPage.classList.contains('hidden')) {
-      renderQuestion(currentQ);
-    }
+    if (quizPage && !quizPage.classList.contains('hidden')) renderQuestion(currentQ);
     
-    // 如果在所有人格页面，重新渲染以更新标签
     const personalitiesPage = document.getElementById('page-all-personalities');
-    if (personalitiesPage && !personalitiesPage.classList.contains('hidden')) {
-      renderAllPersonalities();
-    }
+    if (personalitiesPage && !personalitiesPage.classList.contains('hidden')) renderAllPersonalities();
     
     // 更新页脚
     const footerAuthorLabel = document.getElementById('footer-author-label');
     if (footerAuthorLabel && t('footerAuthor')) {
       footerAuthorLabel.textContent = t('footerAuthor');
-      // 英文时添加间距
-      if (t('footerAuthor') === 'By ') {
-        footerAuthorLabel.classList.add('by-label');
-      } else {
-        footerAuthorLabel.classList.remove('by-label');
-      }
+      footerAuthorLabel.classList.toggle('by-label', t('footerAuthor') === 'By ');
     }
     
-    // 如果在结果页面，重新渲染以更新标签
     const resultPage = document.getElementById('page-result');
     if (resultPage && result && !resultPage.classList.contains('hidden')) {
       renderResult(result);
@@ -224,15 +241,29 @@ const App = (() => {
     const q = QUESTIONS[index];
     const total = QUESTIONS.length;
 
-    const pct = Math.round((index / total) * 100);
-    document.getElementById('progress-fill').style.width = pct + '%';
-    document.getElementById('q-counter').textContent = `${index + 1} / ${total}`;
-    document.getElementById('q-remain').textContent = `${t('remaining')} ${total - index} ${t('questionsLeft')}`;
+    const pct = Math.round(((index + 1) / total) * 100);
+    const progressFill = document.getElementById('progress-fill');
+    if (progressFill) progressFill.style.width = pct + '%';
+    
+    const qCounter = document.getElementById('q-counter');
+    if (qCounter) qCounter.textContent = `${index + 1} / ${total}`;
+    
+    const qRemain = document.getElementById('q-remain');
+    if (qRemain) {
+      const remaining = t('remaining') || '还剩';
+      const questionsLeft = t('questionsLeft') || '题';
+      qRemain.textContent = `${remaining} ${total - index} ${questionsLeft}`;
+    }
 
-    document.getElementById('q-num').textContent = index + 1;
-    document.getElementById('q-text').textContent = getQuestionText(q, 'text');
+    const qNum = document.getElementById('q-num');
+    if (qNum) qNum.textContent = index + 1;
+    
+    const qText = document.getElementById('q-text');
+    if (qText) qText.textContent = getQuestionText(q, 'text');
 
     const optList = document.getElementById('options-list');
+    if (!optList) return;
+    
     const existingBtns = optList.querySelectorAll('.option-item');
     const opts = q.options;
 
@@ -241,7 +272,8 @@ const App = (() => {
         const btn = existingBtns[i];
         const isSelected = answers[index] && answers[index].label === opt.label;
         btn.className = 'option-item' + (isSelected ? ' selected' : '');
-        btn.querySelector('.option-text').textContent = getQuestionText(opt, 'text');
+        const optionText = btn.querySelector('.option-text');
+        if (optionText) optionText.textContent = getQuestionText(opt, 'text');
         btn.onclick = () => selectOption(index, opt, btn, optList);
       });
     } else {
@@ -281,18 +313,16 @@ const App = (() => {
     const btnPrev = document.getElementById('btn-prev');
     const btnNext = document.getElementById('btn-next');
     const btnSubmit = document.getElementById('btn-submit');
+    const isLast = index === QUESTIONS.length - 1;
+    const hasAnswer = !!answers[index];
 
     btnPrev.style.visibility = index === 0 ? 'hidden' : 'visible';
+    btnNext.classList.toggle('hidden', isLast);
+    btnSubmit.classList.toggle('hidden', !isLast || !hasAnswer);
 
-    if (index === QUESTIONS.length - 1) {
-      btnNext.classList.add('hidden');
-      if (answers[index]) btnSubmit.classList.remove('hidden');
-      else btnSubmit.classList.add('hidden');
-    } else {
-      btnNext.classList.remove('hidden');
-      btnSubmit.classList.add('hidden');
-      btnNext.disabled = !answers[index];
-      btnNext.style.opacity = answers[index] ? '1' : '0.5';
+    if (!isLast) {
+      btnNext.disabled = !hasAnswer;
+      btnNext.style.opacity = hasAnswer ? '1' : '0.5';
     }
   }
 
@@ -320,26 +350,27 @@ const App = (() => {
       const first = answers.findIndex(a => a === null);
       currentQ = first;
       renderQuestion(first);
-      showToast(t('unansweredToast').replace('{count}', unanswered));
+      const toastMsg = t('unansweredToast');
+      showToast(toastMsg ? toastMsg.replace('{count}', unanswered) : `还有 ${unanswered} 道题没有作答哦 👀`);
       return;
     }
 
     showPage('page-calculating');
     
     // 模拟计算时间（假装很厉害）
-    const calcTexts = t('calcTexts');
+    const calcTexts = t('calcTexts') || ['正在分析...', '请稍候...'];
     let calcIdx = 0;
     const calcEl = document.getElementById('calc-text');
-    const interval = setInterval(() => {
+    const interval = calcEl ? setInterval(() => {
       calcEl.textContent = calcTexts[calcIdx % calcTexts.length];
       calcIdx++;
-    }, 600);
+    }, 600) : null;
 
     setTimeout(() => {
-      clearInterval(interval);
+      if (interval) clearInterval(interval);
       result = MFTIEngine.calculate(answers);
       // 保存结果到localStorage
-      localStorage.setItem('mfti_result', JSON.stringify(result));
+      safeSetStorage('mfti_result', JSON.stringify(result));
       renderResult(result);
       showPage('page-result');
     }, 3200);
@@ -349,6 +380,7 @@ const App = (() => {
   function renderResult(res) {
     const p = res.personality;
     const norm = res.normalized;
+    const names = getPersonalityNames(p);
 
     // 头像图片
     const avatarEl = document.getElementById('result-avatar');
@@ -356,19 +388,11 @@ const App = (() => {
     avatarEl.innerHTML = `<img src="${avatarUrl}?v=1.0.0" alt="${p.name}" loading="lazy" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">`;
     avatarEl.style.background = 'white';
 
-    // 基本信息 - 根据语言切换显示优先级
+    // 基本信息
     document.getElementById('result-code').textContent = p.code;
     document.getElementById('result-code').style.color = p.color;
-    
-    // 中文模式：中文为主标题，英文为副标题
-    // 英文模式：英文为主标题，中文为副标题
-    const primaryName = currentLang === 'en' ? p.nameEn : p.name;
-    const secondaryName = currentLang === 'en' ? p.name : p.nameEn;
-    
-    document.getElementById('result-name-zh').textContent = primaryName;
-    document.getElementById('result-name-en').textContent = secondaryName;
-    
-    // 副标题多语言
+    document.getElementById('result-name-zh').textContent = names.primary;
+    document.getElementById('result-name-en').textContent = names.secondary;
     document.getElementById('result-subtitle').textContent = getPersonalityText(p, 'subtitle');
 
     // 标签
@@ -418,29 +442,17 @@ const App = (() => {
 
   // 获取多语言维度标签
   function getTranslatedDimLabel(key, score) {
-    let labelKey;
-    if (score > 70) {
-      labelKey = 'high';
-    } else if (score < 30) {
-      labelKey = 'low';
-    } else {
-      labelKey = 'balanced';
-    }
+    const labelKey = score > 70 ? 'high' : score < 30 ? 'low' : 'balanced';
     const translated = t(`dimensions.${key}.${labelKey}`);
     return translated || MFTIEngine.getDimLabel(key, score);
   }
 
   // 获取翻译后的人格标签
   function getTranslatedTag(tag) {
-    // 中文时返回原标签，英文时查找翻译
-    if (currentLang === 'zh') {
-      return tag;
-    }
-    // 在翻译数据中查找标签对应的英文
-    if (typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS.zh && TRANSLATIONS.zh.tags && TRANSLATIONS.zh.tags[tag]) {
-      return TRANSLATIONS.zh.tags[tag];
-    }
-    return tag;
+    if (currentLang === 'zh') return tag;
+    if (typeof TRANSLATIONS === 'undefined' || !TRANSLATIONS.zh || !TRANSLATIONS.zh.tags) return tag;
+    // 先精确匹配，没有则尝试去空格匹配
+    return TRANSLATIONS.zh.tags[tag] || TRANSLATIONS.zh.tags[tag.replace(/\s+/g, '')] || tag;
   }
 
   function renderDimensions(norm) {
@@ -481,18 +493,15 @@ const App = (() => {
       if (typeCode === currentCode) return;
       const p = PERSONALITIES[typeCode];
       if (!p) return;
-      
-      // 根据语言切换显示优先级
-      const primaryName = currentLang === 'en' ? p.nameEn : p.name;
-      const secondaryName = currentLang === 'en' ? p.name : p.nameEn;
-      
+
+      const names = getPersonalityNames(p);
       const div = document.createElement('div');
       div.className = 'similar-item';
       div.innerHTML = `
         <span class="similar-emoji">${p.emoji}</span>
         <div class="similar-info">
-          <span class="similar-name">${primaryName}</span>
-          <span class="similar-en">${secondaryName}</span>
+          <span class="similar-name">${names.primary}</span>
+          <span class="similar-en">${names.secondary}</span>
         </div>
         <span class="similar-score" style="color:${p.color}">${score}%</span>
       `;
@@ -543,18 +552,44 @@ const App = (() => {
       .replace('{emoji}', p.emoji)
       .replace('{subtitle}', subtitle);
     if (navigator.share) {
-      navigator.share({ title: currentLang === 'en' ? 'MFTI My Test Result' : 'MFTI 我的测试结果', text }).catch(() => copyText(text));
+      const shareTitle = t('shareTitle') || (currentLang === 'en' ? 'MFTI My Test Result' : 'MFTI 我的测试结果');
+      navigator.share({ title: shareTitle, text }).catch(() => copyText(text));
     } else {
       copyText(text);
     }
   }
 
   function copyText(text) {
-    navigator.clipboard.writeText(text).then(() => {
-      showToast(t('copiedToast'));
-    }).catch(() => {
-      showToast(t('copyFailedToast'));
-    });
+    const successMsg = t('copiedToast') || '结果已复制到剪贴板 📋';
+    const failMsg = t('copyFailedToast') || '请手动截图分享哦~';
+    
+    // 优先使用现代 Clipboard API
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text)
+        .then(() => showToast(successMsg))
+        .catch(() => fallbackCopy(text, successMsg, failMsg));
+    } else {
+      fallbackCopy(text, successMsg, failMsg);
+    }
+  }
+
+  // 旧浏览器备用复制方法
+  function fallbackCopy(text, successMsg, failMsg) {
+    try {
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-9999px';
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      const successful = document.execCommand('copy');
+      document.body.removeChild(textArea);
+      showToast(successful ? successMsg : failMsg);
+    } catch (e) {
+      console.warn('Failed to copy text:', e);
+      showToast(failMsg);
+    }
   }
 
   // 显示所有人格
@@ -570,28 +605,21 @@ const App = (() => {
     Object.entries(PERSONALITIES).forEach(([code, p]) => {
       const card = document.createElement('div');
       card.className = 'personality-card';
-      
-      // 头像图片
+
       const avatarUrl = AVATARS[code] || '';
-      
-      // 根据语言切换显示优先级
-      const primaryName = currentLang === 'en' ? p.nameEn : p.name;
-      const secondaryName = currentLang === 'en' ? p.name : p.nameEn;
-      
+      const names = getPersonalityNames(p);
+
       card.innerHTML = `
         <img src="${avatarUrl}?v=1.0.0" alt="${p.name}" loading="lazy" class="personality-avatar">
         <div class="personality-code" style="color: ${p.color}">${p.code}</div>
-        <div class="personality-name-zh">${primaryName}</div>
-        <div class="personality-name-en">${secondaryName}</div>
+        <div class="personality-name-zh">${names.primary}</div>
+        <div class="personality-name-en">${names.secondary}</div>
         <div class="personality-subtitle">${getPersonalityText(p, 'subtitle')}</div>
         <div class="personality-tags">
-          ${p.tags.map(tag => {
-            const translatedTag = getTranslatedTag(tag);
-            return `<span class="personality-tag">${translatedTag}</span>`;
-          }).join('')}
+          ${p.tags.map(tag => `<span class="personality-tag">${getTranslatedTag(tag)}</span>`).join('')}
         </div>
       `;
-      
+
       grid.appendChild(card);
     });
   }
@@ -612,7 +640,7 @@ const App = (() => {
   function showLanding() {
     showPage('page-landing');
     // 检查是否有保存的结果
-    const savedResult = localStorage.getItem('mfti_result');
+    const savedResult = safeGetStorage('mfti_result', null);
     const resultBtn = document.getElementById('btn-show-result');
     if (savedResult && resultBtn) {
       resultBtn.classList.remove('hidden');
@@ -624,16 +652,25 @@ const App = (() => {
 
   // 查看上次结果
   function showSavedResult() {
-    const savedResult = localStorage.getItem('mfti_result');
-    if (savedResult) {
-      result = JSON.parse(savedResult);
-      // 从 PERSONALITIES 中重新获取完整的人格数据（包含英文翻译）
-      if (result.typeCode && PERSONALITIES[result.typeCode]) {
-        result.personality = PERSONALITIES[result.typeCode];
+    try {
+      const savedResult = safeGetStorage('mfti_result', null);
+      if (savedResult) {
+        result = JSON.parse(savedResult);
+        // 从 PERSONALITIES 中重新获取完整的人格数据（包含英文翻译）
+        if (result && result.typeCode && PERSONALITIES[result.typeCode]) {
+          result.personality = PERSONALITIES[result.typeCode];
+          renderResult(result);
+          showPage('page-result');
+        }
       }
-      renderResult(result);
-      showPage('page-result');
+    } catch (e) {
+      console.warn('Failed to load saved result:', e);
     }
+  }
+
+  // 获取当前语言
+  function getCurrentLanguage() {
+    return currentLang;
   }
 
   // 公开 API
@@ -651,7 +688,8 @@ const App = (() => {
     showLanding,
     showSavedResult,
     toggleLanguage,
-    setLanguage
+    setLanguage,
+    getCurrentLanguage
   };
 })();
 
@@ -663,9 +701,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // 等待一下，确保所有脚本都加载完成
   setTimeout(() => {
-    // 初始化语言
-    const savedLang = localStorage.getItem('mfti_lang') || 'zh';
-    App.setLanguage(savedLang);
+    // 初始化语言 - 这里不需要重新获取，App内部已经初始化过了
+    // 但为了确保一致性，我们还是调用一下 setLanguage
+    App.setLanguage(App.getCurrentLanguage ? App.getCurrentLanguage() : 'zh');
     
     // 绑定语言切换按钮
     const langBtn = document.getElementById('lang-switch');
@@ -679,28 +717,33 @@ document.addEventListener('DOMContentLoaded', () => {
 function createSakuraPetals() {
   const container = document.getElementById('sakura-petals');
   if (!container) return;
-  
+
+  // 生成连续旋转角度
+  function generateRotations() {
+    const start = Math.random() * 360;
+    const dir = Math.random() > 0.5 ? 1 : -1;
+    const rotations = [];
+    let current = start;
+    for (let i = 0; i < 5; i++) {
+      current += dir * (180 + Math.random() * 360);
+      rotations.push(current);
+    }
+    return rotations;
+  }
+
   const petalCount = 22;
   for (let i = 0; i < petalCount; i++) {
     const petal = document.createElement('div');
     petal.className = 'sakura-petal';
-    
-    // 随机参数
+
     const left = Math.random() * 100;
     const size = 6 + Math.random() * 16;
     const duration = 8 + Math.random() * 10;
     const delay = Math.random() * 15;
     const driftX = (Math.random() - 0.5) * 150;
-    
-    // 连续旋转，每个阶段递增或递减
-    const startRotate = Math.random() * 360;
-    const rotateDirection = Math.random() > 0.5 ? 1 : -1; // 随机选择旋转方向
-    const rotate1 = startRotate + rotateDirection * (180 + Math.random() * 360);
-    const rotate2 = rotate1 + rotateDirection * (180 + Math.random() * 360);
-    const rotate3 = rotate2 + rotateDirection * (180 + Math.random() * 360);
-    const rotate4 = rotate3 + rotateDirection * (180 + Math.random() * 360);
-    const rotate5 = rotate4 + rotateDirection * (180 + Math.random() * 360);
-    
+    const [r1, r2, r3, r4, r5] = generateRotations();
+    const blur = Math.random() > 0.75 ? 0.8 + Math.random() * 0.8 : 0;
+
     petal.style.cssText = `
       left: ${left}%;
       width: ${size}px;
@@ -708,12 +751,12 @@ function createSakuraPetals() {
       animation-duration: ${duration}s;
       animation-delay: ${delay}s;
       --drift-x: ${driftX}px;
-      --rotate1: ${rotate1}deg;
-      --rotate2: ${rotate2}deg;
-      --rotate3: ${rotate3}deg;
-      --rotate4: ${rotate4}deg;
-      --rotate5: ${rotate5}deg;
-      filter: blur(${Math.random() > 0.75 ? 0.8 + Math.random() * 0.8 : 0}px);
+      --rotate1: ${r1}deg;
+      --rotate2: ${r2}deg;
+      --rotate3: ${r3}deg;
+      --rotate4: ${r4}deg;
+      --rotate5: ${r5}deg;
+      filter: blur(${blur}px);
     `;
     container.appendChild(petal);
   }
