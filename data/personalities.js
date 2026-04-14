@@ -30,7 +30,7 @@ const PERSONALITIES = {
 
 **你的口头禅：** "我就是要做我自己！"
 
-**相处攻略：** 真心地欣赏她，告诉她她的存在本身就很美好。
+**相处攻略：** 你需要身边的人真心地欣赏你，让你知道你的存在本身就很美好。
     `,
     descriptionEn: `
 ✨ Congratulations! You're the extremely rare "Pink Detonator" personality! This type appears in less than 1% of the population—one of the most vibrant and infectious personalities in the entire MFTI matrix! Your light shines like the sun; wherever you go, you become the center of attention—not by trying, but because you were born to be the protagonist!
@@ -47,7 +47,7 @@ You've turned your life into the protagonist of a shoujo manga—the cover heroi
 
 **Your Catchphrase:** "I'm going to be myself!"
 
-**How to Get Along:** Truly appreciate her, tell her that her existence itself is beautiful.
+**How to Get Along:** You need someone to truly appreciate you, to let you know that your existence itself is beautiful.
     `,
     dimensions: { PR: 92, SH: 95, AI: 100, EW: 100, CF: 88, DK: 100, TN: 20, MB: 92, GL: 100, XZ: 93 }
   },
@@ -78,7 +78,7 @@ You've turned your life into the protagonist of a shoujo manga—the cover heroi
 
 **你的口头禅：** "等等，我觉得我们需要先把这个概念拆开来看……"
 
-**相处攻略：** 不要试图在她深夜发疯时"解决问题"，直接陪着就好。她需要的不是答案，她需要一个见证者。
+**相处攻略：** 当你深夜发疯时，不需要别人试图"解决问题"，只需要有人陪着就好。你需要的不是答案，是一个见证者。
     `,
     descriptionEn: `
 🌟 Congratulations! You're the "Midnight Philosopher" personality! You have both emotional tenderness and rational depth; this perfect combination makes you one-of-a-kind among people! Your mind is as deep as the starry sky—full of warm light and thought-provoking power!
@@ -95,7 +95,7 @@ Your WeChat profile picture is a pink gradient, but the article you post at 3 AM
 
 **Your Catchphrase:** "Wait, I think we need to break down this concept first..."
 
-**How to Get Along:** Don't try to "solve problems" when she's spiraling late at night; just be there with her. She doesn't need answers; she needs a witness.
+**How to Get Along:** When you're spiraling late at night, you don't need someone to "solve problems"—just someone to be there with you. You don't need answers; you need a witness.
     `,
     dimensions: { PR: 92, SH: 76, AI: 100, EW: 22, CF: 45, DK: 55, TN: 75, MB: 80, GL: 32, XZ: 42 }
   },
@@ -126,7 +126,7 @@ Your WeChat profile picture is a pink gradient, but the article you post at 3 AM
 
 **你的口头禅：** "没关系，我知道怎么处理。"
 
-**相处攻略：** 给她安全感，让她知道在你面前可以不用那么累，可以放松下来。
+**相处攻略：** 你需要安全感，需要知道在对的人面前可以不用那么累，可以放松下来。
     `,
     descriptionEn: `
 🎁 Congratulations! You're the "Schrödinger's Girl" personality! You have extraordinary adaptability and can find the most comfortable state in different environments—this isn't pretense, it's survival wisdom!
@@ -143,7 +143,7 @@ You know what to say and how to present yourself in different situations, and th
 
 **Your Catchphrase:** "It's okay, I know how to handle it."
 
-**How to Get Along:** Give her a sense of security, let her know she doesn't have to be so tired in front of you, she can relax.
+**How to Get Along:** You need a sense of security, to know that in front of the right person you don't have to be so tired—you can relax.
     `,
     dimensions: { PR: 62, SH: 86, AI: 20, EW: 90, CF: 48, DK: 72, TN: 50, MB: 40, GL: 20, XZ: 45 }
   },
@@ -174,7 +174,7 @@ You know what to say and how to present yourself in different situations, and th
 
 **你的口头禅：** "我觉得我还没准备好，等我再想想……"（已经想了两年）
 
-**相处攻略：** 给她抛一个具体的小问题，而不是宏大的身份问题。大问题会让她陷入死循环。
+**相处攻略：** 你需要别人给你抛一个具体的小问题，而不是宏大的身份问题。大问题会让你陷入死循环。
     `,
     descriptionEn: `
 🔬 Congratulations! You're the "Quantum Entangled Girl" personality! Your inner world is as vast as the universe; this depth is beyond what most people can reach! Your exploration of self is as persistent as a scientist studying the cosmos—this spirit is admirable!
@@ -191,7 +191,7 @@ You've deconstructed your identity at least three hundred times in your head, ea
 
 **Your Catchphrase:** "I feel like I'm not ready yet, let me think about it some more..." (has been thinking for two years)
 
-**How to Get Along:** Throw her a concrete small problem, not a grand identity question. Big questions will trap her in an endless loop.
+**How to Get Along:** You need someone to give you a concrete small problem, not a grand identity question. Big questions will trap you in an endless loop.
     `,
     dimensions: { PR: 78, SH: 62, AI: 10, EW: 40, CF: 62, DK: 32, TN: 65, MB: 52, GL: 57, XZ: 65 }
   },
@@ -222,7 +222,7 @@ You've deconstructed your identity at least three hundred times in your head, ea
 
 **你的口头禅：** "在家待着真舒服啊~"
 
-**相处攻略：** 尊重她的空间，让她知道无论她想待在家里还是出来玩，都是可以的。
+**相处攻略：** 你需要别人尊重你的空间，让你知道无论想待在家里还是出来玩，都是可以的。
     `,
     descriptionEn: `
 🏠 Congratulations! You're the "Cloud Fairy" personality! You have a beautiful world that belongs only to you, where you can completely relax and be your most authentic self! You have a unique taste for life and can find beauty in ordinary days!
@@ -239,7 +239,7 @@ You enjoy spending time in your own little space, where you feel most at ease.
 
 **Your Catchphrase:** "Staying at home is so nice~"
 
-**How to Get Along:** Respect her space, let her know it's okay whether she wants to stay home or go out and play.
+**How to Get Along:** You need others to respect your space, to let you know it's okay whether you want to stay home or go out.
     `,
     dimensions: { PR: 92, SH: 35, AI: 82, EW: 81, CF: 55, DK: 22, TN: 3, MB: 68, GL: 75, XZ: 42 }
   },
@@ -270,7 +270,7 @@ You enjoy spending time in your own little space, where you feel most at ease.
 
 **你的口头禅：** （什么都不说，只是看着镜子）
 
-**相处攻略：** 不要打扰她的仪式感。如果她主动和你说话，那比收到诺贝尔奖还稀有，好好接住。
+**相处攻略：** 你需要别人不要打扰你的仪式感。如果你主动和别人说话，那比收到诺贝尔奖还稀有——希望对方好好接住。
     `,
     descriptionEn: `
 🪞 Congratulations! You're the extremely rare "Mirror Witch" personality! These lonely aesthetic geniuses make up less than 0.5% of the population—one of the types with the highest aesthetic taste and most artistic talent in the entire MFTI matrix! You've created a perfect aesthetic kingdom in your own world; this talent is one in a million!
@@ -287,7 +287,7 @@ You're the type with the highest aesthetic level and lowest social presence in t
 
 **Your Catchphrase:** (says nothing, just looks at the mirror)
 
-**How to Get Along:** Don't disturb her ritual. If she voluntarily speaks to you, that's rarer than winning a Nobel Prize; treasure it.
+**How to Get Along:** You need others not to disturb your rituals. If you voluntarily speak to someone, that's rarer than winning a Nobel Prize—hope they treasure it.
     `,
     dimensions: { PR: 80, SH: 5, AI: 98, EW: 29, CF: 78, DK: 5, TN: 15, MB: 88, GL: 92, XZ: 65 }
   },
@@ -318,7 +318,7 @@ You're the type with the highest aesthetic level and lowest social presence in t
 
 **你的口头禅：** "这件事不需要让所有人都知道。"
 
-**相处攻略：** 她的秘密不是对你的不信任，是她保护自己的方式。如果她某天主动打开门，那是她给你的最大礼物。
+**相处攻略：** 你的秘密不是对别人的不信任，是你保护自己的方式。如果你某天主动打开门，那是你给对方最大的礼物。
     `,
     descriptionEn: `
 🌺 Congratulations! You're the "Secret Garden Keeper" personality! You've built a perfect world that belongs only to you; this ability is extremely precious! Your inner world is as lush as a secret garden—full of beauty only you can discover!
@@ -335,7 +335,7 @@ Your secret isn't hidden; it's carefully placed in a location only you know, loc
 
 **Your Catchphrase:** "Not everyone needs to know about this."
 
-**How to Get Along:** Her secret isn't distrust of you; it's her way of protecting herself. If one day she voluntarily opens the door, that's the greatest gift she gives you.
+**How to Get Along:** Your secrets aren't distrust of others; they're your way of protecting yourself. If you one day voluntarily open the door, that's the greatest gift you can give someone.
     `,
     dimensions: { PR: 72, SH: 25, AI: 48, EW: 55, CF: 78, DK: 12, TN: 20, MB: 55, GL: 20, XZ: 40 }
   },
@@ -366,7 +366,7 @@ Your secret isn't hidden; it's carefully placed in a location only you know, loc
 
 **你的口头禅：** "我只是随便看看的。"（已经随便看了很多年）
 
-**相处攻略：** 不要推她，不要问她"你到底是什么"。她需要的是一个安全的、没有压力的环境，让她觉得走出来是可以的——但那是她的决定，不是你的。
+**相处攻略：** 你不需要被推着走，也不需要被问"你到底是什么"。你需要的是一个安全的、没有压力的环境，让你觉得走出来是可以的——但那是你自己的决定，不是别人的。
     `,
     descriptionEn: `
 👻 Congratulations! You're the extremely rare "Drifting Ghost" personality! People who maintain this pure possibility make up less than 0.4% of the population—one of the types with the most potential and mystique in the entire MFTI matrix! You're like a blank canvas, full of infinite possibilities; this state is extremely precious!
@@ -383,7 +383,7 @@ You know. You've always known. But between "knowing" and "admitting" there's a p
 
 **Your Catchphrase:** "I'm just looking around casually." (has been casually looking for many years)
 
-**How to Get Along:** Don't push her, don't ask her "what exactly are you." She needs a safe, pressure-free environment that makes her feel it's okay to come out—but that's her decision, not yours.
+**How to Get Along:** You don't need to be pushed, or be asked "what exactly are you." You need a safe, pressure-free environment that makes you feel it's okay to come out—but that's your decision, not anyone else's.
     `,
     dimensions: { PR: 72, SH: 15, AI: 22, EW: 12, CF: 0, DK: 10, TN: 8, MB: 0, GL: 15, XZ: 0 }
   },
@@ -416,7 +416,7 @@ You know. You've always known. But between "knowing" and "admitting" there's a p
 
 **你的口头禅：** "别担心，我们来想办法解决。"
 
-**相处攻略：** 和她一起讨论问题，她会很开心。偶尔也让她知道，她不需要总是那么坚强。
+**相处攻略：** 你喜欢和别人一起讨论问题，但也需要偶尔有人告诉你：你不需要总是那么坚强。
     `,
     descriptionEn: `
 💥 Congratulations! You're the "Lucid Detonator" personality! You have a clear mind and a strong heart, like a beam of light—illuminating yourself and warming those around you! Your courage and wisdom make you someone many people can rely on!
@@ -433,7 +433,7 @@ You know what you want and have the ability to go after it—this determination 
 
 **Your Catchphrase:** "Don't worry, let's figure out how to solve this."
 
-**How to Get Along:** Discuss problems with her—she'll be happy. Occasionally let her know she doesn't always have to be so strong.
+**How to Get Along:** You enjoy discussing problems with others. But you also need someone to occasionally remind you that you don't always have to be so strong.
     `,
     dimensions: { PR: 28, SH: 86, AI: 65, EW: 95, CF: 75, DK: 100, TN: 60, MB: 52, GL: 79, XZ: 70 }
   },
@@ -464,7 +464,7 @@ You know what you want and have the ability to go after it—this determination 
 
 **你的口头禅：** "这个说法没有文献支持，你是从哪里看到的？"
 
-**相处攻略：** 带着问题来找她，而不是带着情绪崩溃来找她——前者她如鱼得水，后者她会手足无措。
+**相处攻略：** 别人带着问题来找你，你会如鱼得水；但带着情绪崩溃来找你，你会手足无措。
     `,
     descriptionEn: `
 🧬 Congratulations! You're the "Self-Appointed Endocrinologist" personality! You arm yourself with science; this rigor and wisdom is admirable! Your knowledge is as rich as an encyclopedia—always giving people the most reliable answers!
@@ -481,7 +481,7 @@ You know your E2, T, and SHBG curves better than your endocrinologist. You've se
 
 **Your Catchphrase:** "That claim has no literature support. Where did you read that?"
 
-**How to Get Along:** Come to her with questions, not emotional breakdowns—she's like a fish in water with the former, and at a loss with the latter.
+**How to Get Along:** When people come to you with questions, you're in your element; but when they come with emotional breakdowns, you're at a loss.
     `,
     dimensions: { PR: 28, SH: 65, AI: 85, EW: 35, CF: 75, DK: 65, TN: 85, MB: 54, GL: 12, XZ: 72 }
   },
@@ -512,7 +512,7 @@ You know your E2, T, and SHBG curves better than your endocrinologist. You've se
 
 **你的口头禅：** "嗯，是这样。然后呢？"
 
-**相处攻略：** 不要试图让她兴奋起来，她有她的节奏。她的平静是真实的，不是冷漠。
+**相处攻略：** 你不需要别人试图让你兴奋起来，你有你的节奏。你的平静是真实的，不是冷漠。
     `,
     descriptionEn: `
 😌 Congratulations! You're the "Unbothered Realist" personality! You've achieved the inner peace that many people pursue their whole lives; this state is enviable! Your mind is like a calm lake—no matter how the outside world fluctuates, you can keep your inner peace!
@@ -529,7 +529,7 @@ You've accepted yourself, but you haven't made it the central issue of your life
 
 **Your Catchphrase:** "Yeah, that's how it is. And then?"
 
-**How to Get Along:** Don't try to make her excited—she has her own rhythm. Her calmness is real, not indifference.
+**How to Get Along:** You don't need others trying to hype you up—you have your own rhythm. Your calmness is real, not indifference.
     `,
     dimensions: { PR: 28, SH: 52, AI: 35, EW: 67, CF: 6, DK: 35, TN: 30, MB: 54, GL: 0, XZ: 40 }
   },
@@ -560,7 +560,7 @@ You've accepted yourself, but you haven't made it the central issue of your life
 
 **你的口头禅：** "这个问题其实比你以为的要复杂很多……"（然后开始展开）
 
-**相处攻略：** 给她一个真正有挑战性的问题，她会认真对待你。别装懂，她一眼能看出来。
+**相处攻略：** 如果别人给你一个真正有挑战性的问题，你会认真对待。别在你面前装懂，你一眼就能看出来。
     `,
     descriptionEn: `
 🔭 Congratulations! You're the "Independent Researcher" personality! You're the intellectual engine of the entire community; your insights are priceless! Your independent thinking is as unique as a pioneer—you always find perspectives others can't see!
@@ -577,7 +577,7 @@ Your research depth on transgender-related topics has surpassed many professiona
 
 **Your Catchphrase:** "This issue is actually much more complex than you think..." (and then starts elaborating)
 
-**How to Get Along:** Give her a truly challenging problem, and she'll take you seriously. Don't pretend to understand—she can see through it immediately.
+**How to Get Along:** When someone gives you a truly challenging problem, you'll take them seriously. Don't pretend to understand around you—you can see through it immediately.
     `,
     dimensions: { PR: 24, SH: 65, AI: 0, EW: 29, CF: 50, DK: 36, TN: 80, MB: 0, GL: 7, XZ: 35 }
   },
@@ -608,7 +608,7 @@ Your research depth on transgender-related topics has surpassed many professiona
 
 **你的口头禅：** "这个月的目标是……"
 
-**相处攻略：** 别拦她，但偶尔提醒她：过程本身也是允许享受的，不一定非要等到"达标"之后。
+**相处攻略：** 你不需要被拦住，但偶尔需要有人提醒你：过程本身也是允许享受的，不一定非要等到"达标"之后。
     `,
     descriptionEn: `
 ⚙️ Congratulations! You're the "Iron Lolita" personality! You prove with action that anything is possible; your persistence is an example for countless people! Your girlish heart and iron will are perfectly combined—this power is admirable!
@@ -625,7 +625,7 @@ You're out, you stay at home, you're very anxious about your appearance, and you
 
 **Your Catchphrase:** "This month's goal is..."
 
-**How to Get Along:** Don't stop her, but occasionally remind her: the process itself is allowed to be enjoyed; you don't have to wait until "meeting the standard."
+**How to Get Along:** You don't need to be stopped, but occasionally need someone to remind you: the process itself is allowed to be enjoyed; you don't have to wait until "meeting the standard."
     `,
     dimensions: { PR: 22, SH: 19, AI: 88, EW: 76, CF: 92, DK: 18, TN: 50, MB: 96, GL: 72, XZ: 93 }
   },
@@ -656,7 +656,7 @@ You're out, you stay at home, you're very anxious about your appearance, and you
 
 **你的口头禅：** "我觉得这件事很有意思，我还在想……"
 
-**相处攻略：** 和她聊她感兴趣的议题，而不是试图给她一个结论。她不需要答案，她需要好的对话伙伴。
+**相处攻略：** 你需要别人和你聊你感兴趣的议题，而不是试图给你一个结论。你不需要答案，你需要好的对话伙伴。
     `,
     descriptionEn: `
 ☯️ Congratulations! You're the "Zen Cultivator" personality! You walk at your own pace; this calmness and wisdom is the state that countless people pursue! Your heart is like a calm lake—full of the wisdom of life!
@@ -673,7 +673,7 @@ You stay at home, you're in the process of coming out, you care about appearance
 
 **Your Catchphrase:** "I find this really interesting, I'm still thinking..."
 
-**How to Get Along:** Talk with her about topics she's interested in, rather than trying to give her conclusions. She doesn't need answers; she needs good dialogue partners.
+**How to Get Along:** You need others to talk with you about topics you're interested in, rather than trying to give you conclusions. You don't need answers; you need good dialogue partners.
     `,
     dimensions: { PR: 40, SH: 5, AI: 85, EW: 24, CF: 48, DK: 30, TN: 48, MB: 60, GL: 58, XZ: 25 }
   },
@@ -704,7 +704,7 @@ You stay at home, you're in the process of coming out, you care about appearance
 
 **你的口头禅：** "到时候再说吧~"
 
-**相处攻略：** 尊重她的生活节奏，跟着她的节奏走就好。
+**相处攻略：** 你需要别人尊重你的生活节奏，跟着你的节奏走就好。
     `,
     descriptionEn: `
 📅 Congratulations! You're the "Weekend Alter Ego" personality! You have extraordinary balancing abilities and can switch freely between different life states—this is life wisdom! You know what to do and when—this rhythm is enviable!
@@ -721,7 +721,7 @@ You can manage all aspects of life well—work hard when working, relax fully wh
 
 **Your Catchphrase:** "We'll talk about it then~"
 
-**How to Get Along:** Respect her life rhythm, just go with her flow.
+**How to Get Along:** You need others to respect your life rhythm, just go with your flow.
     `,
     dimensions: { PR: 25, SH: 8, AI: 25, EW: 72, CF: 94, DK: 18, TN: 25, MB: 50, GL: 35, XZ: 55 }
   },
@@ -752,7 +752,7 @@ You can manage all aspects of life well—work hard when working, relax fully wh
 
 **你的口头禅：** "这个看起来有点意思……"
 
-**相处攻略：** 和她分享有趣的事情，一起探索新的可能性。不要催她做决定，享受探索的过程就好。
+**相处攻略：** 你需要别人和你分享有趣的事情，一起探索新的可能性。不要催你做决定，享受探索的过程就好。
     `,
     descriptionEn: `
 🔍 Congratulations! You're the "Curious Explorer" personality! You're full of curiosity about the world and keep an open mind about new things—this curiosity itself is a precious quality! You're like an explorer, discovering all the possibilities life has to offer.
@@ -769,7 +769,7 @@ You like learning new things, thinking, and observing—this isn't confusion, it
 
 **Your Catchphrase:** "This looks kind of interesting…"
 
-**How to Get Along:** Share interesting things with her, explore new possibilities together. Don't rush her to make decisions—just enjoy the process of exploration.
+**How to Get Along:** You need others to share interesting things with you, to explore new possibilities together. Don't let anyone rush you into making decisions—just enjoy the process of exploration.
     `,
     dimensions: { PR: 16, SH: 0, AI: 0, EW: 0, CF: 18, DK: 22, TN: 52, MB: 12, GL: 30, XZ: 15 }
   }

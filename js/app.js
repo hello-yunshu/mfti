@@ -692,13 +692,14 @@ function createSakuraPetals() {
     const delay = Math.random() * 15;
     const driftX = (Math.random() - 0.5) * 150;
     
-    // 连续旋转，每个阶段递增
+    // 连续旋转，每个阶段递增或递减
     const startRotate = Math.random() * 360;
-    const rotate1 = startRotate + 180 + Math.random() * 360;
-    const rotate2 = rotate1 + 180 + Math.random() * 360;
-    const rotate3 = rotate2 + 180 + Math.random() * 360;
-    const rotate4 = rotate3 + 180 + Math.random() * 360;
-    const rotate5 = rotate4 + 180 + Math.random() * 360;
+    const rotateDirection = Math.random() > 0.5 ? 1 : -1; // 随机选择旋转方向
+    const rotate1 = startRotate + rotateDirection * (180 + Math.random() * 360);
+    const rotate2 = rotate1 + rotateDirection * (180 + Math.random() * 360);
+    const rotate3 = rotate2 + rotateDirection * (180 + Math.random() * 360);
+    const rotate4 = rotate3 + rotateDirection * (180 + Math.random() * 360);
+    const rotate5 = rotate4 + rotateDirection * (180 + Math.random() * 360);
     
     petal.style.cssText = `
       left: ${left}%;
