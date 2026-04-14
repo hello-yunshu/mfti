@@ -66,7 +66,7 @@ You've turned your life into the protagonist of a shoujo manga—the cover heroi
     description: `
 🌟 恭喜你！你是「深夜哲学家」人格！你既有感性的温柔，又有理性的深度，这种完美的结合让你成为人群中独一无二的存在！你的思想如同星空般深邃，既有温暖的光芒，又有引人深思的力量！
 
-你的微信头像是粉色渐变，但你凌晨三点发的文章是《萨特论他者凝视与跨性别身份认同的交叉性分析》。
+你的社交软件头像是粉色渐变，但你凌晨三点发的文章是《萨特论他者凝视与跨性别身份认同的交叉性分析》。
 
 **心理学画像：** 你同时运行着两套自我系统：一套是面向世界的社交人格，活泼、可爱、充满能量；另一套是深夜独处时的内省人格，质疑一切、分析一切、对自身存在充满焦虑性好奇。心理学称这种双轨并行为"自我复杂性"（Self-Complexity），高自我复杂性的人抗压能力更强，但也更难"关机"——你的大脑根本不知道怎么停止运转。
 
@@ -83,7 +83,7 @@ You've turned your life into the protagonist of a shoujo manga—the cover heroi
     descriptionEn: `
 🌟 Congratulations! You're the "Night Philosopher" personality! You have both emotional tenderness and rational depth; this perfect combination makes you one-of-a-kind among people! Your mind is as deep as the starry sky—full of warm light and thought-provoking power!
 
-Your WeChat profile picture is a pink gradient, but the article you post at 3 AM is "Sartre on the Gaze of the Other and Its Intersectionality with Transgender Identity."
+Your social media profile picture is a pink gradient, but the article you post at 3 AM is "Sartre on the Gaze of the Other and Its Intersectionality with Transgender Identity."
 
 **Psychological Profile:** You run two self-systems simultaneously: one is a social persona facing the world—lively, cute, full of energy; the other is an introspective persona when alone late at night—questioning everything, analyzing everything, filled with anxious curiosity about your own existence. Psychology calls this dual-track operation "Self-Complexity." People with high self-complexity have stronger stress resistance, but also find it harder to "shut down"—your brain simply doesn't know how to stop running.
 
