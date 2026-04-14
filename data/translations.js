@@ -153,7 +153,7 @@ const TRANSLATIONS = {
     metaDescription: "MFTI — A playful 'femboy' personality test. 39 questions, 10 dimensions, find out what type you are.",
     subtitle: "Male to Female Type Indicator",
     description: "A playful 'femboy' personality test, just for fun.<br>39 questions, 10 dimensions.<br>Find out what type you are.",
-    statLabels: ["Personality Types", "Questions", "Dimensions", "Minutes to Complete"],
+    statLabels: ["Types", "Questions", "Dims", "Mins"],
     startBtn: "Start Test →",
     showResultBtn: "View Previous Result",
     disclaimerNote: "Read and agree to disclaimer before starting",
