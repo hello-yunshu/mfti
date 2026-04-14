@@ -7,7 +7,7 @@ const PERSONALITIES = {
   PSAE: {
     code: "PINK-B",
     name: "粉色炸弹",
-    nameEn: "The Pink Detonator",
+    nameEn: "Pink Bomb",
     subtitle: "老娘就是要美给你看型",
     subtitleEn: "The type who's here to show you how gorgeous she is",
     emoji: "💣🌸",
@@ -33,7 +33,7 @@ const PERSONALITIES = {
 **相处攻略：** 你需要身边的人真心地欣赏你，让你知道你的存在本身就很美好。
     `,
     descriptionEn: `
-✨ Congratulations! You're the extremely rare "Pink Detonator" personality! This type appears in less than 1% of the population—one of the most vibrant and infectious personalities in the entire MFTI matrix! Your light shines like the sun; wherever you go, you become the center of attention—not by trying, but because you were born to be the protagonist!
+✨ Congratulations! You're the extremely rare "Pink Bomb" personality! This type appears in less than 1% of the population—one of the most vibrant and infectious personalities in the entire MFTI matrix! Your light shines like the sun; wherever you go, you become the center of attention—not by trying, but because you were born to be the protagonist!
 
 You've turned your life into the protagonist of a shoujo manga—the cover heroine, not the pitiful supporting character.
 
@@ -55,7 +55,7 @@ You've turned your life into the protagonist of a shoujo manga—the cover heroi
   PSAI: {
     code: "PHIL-Q",
     name: "深夜哲学家",
-    nameEn: "The Midnight Philosopher",
+    nameEn: "Night Philosopher",
     subtitle: "表面 social 实际存在主义危机型",
     subtitleEn: "Social on surface, existential crisis underneath",
     emoji: "🌙📚",
@@ -81,7 +81,7 @@ You've turned your life into the protagonist of a shoujo manga—the cover heroi
 **相处攻略：** 当你深夜发疯时，不需要别人试图"解决问题"，只需要有人陪着就好。你需要的不是答案，是一个见证者。
     `,
     descriptionEn: `
-🌟 Congratulations! You're the "Midnight Philosopher" personality! You have both emotional tenderness and rational depth; this perfect combination makes you one-of-a-kind among people! Your mind is as deep as the starry sky—full of warm light and thought-provoking power!
+🌟 Congratulations! You're the "Night Philosopher" personality! You have both emotional tenderness and rational depth; this perfect combination makes you one-of-a-kind among people! Your mind is as deep as the starry sky—full of warm light and thought-provoking power!
 
 Your WeChat profile picture is a pink gradient, but the article you post at 3 AM is "Sartre on the Gaze of the Other and Its Intersectionality with Transgender Identity."
 
@@ -151,7 +151,7 @@ You know what to say and how to present yourself in different situations, and th
   PSWI: {
     code: "QUANT-S",
     name: "量子纠缠少女",
-    nameEn: "The Quantum Entangled Girl",
+    nameEn: "Quantum Girl",
     subtitle: "把自我分析做成博士论文型",
     subtitleEn: "Turns self-analysis into a doctoral dissertation",
     emoji: "🔬🌸",
@@ -177,7 +177,7 @@ You know what to say and how to present yourself in different situations, and th
 **相处攻略：** 你需要别人给你抛一个具体的小问题，而不是宏大的身份问题。大问题会让你陷入死循环。
     `,
     descriptionEn: `
-🔬 Congratulations! You're the "Quantum Entangled Girl" personality! Your inner world is as vast as the universe; this depth is beyond what most people can reach! Your exploration of self is as persistent as a scientist studying the cosmos—this spirit is admirable!
+🔬 Congratulations! You're the "Quantum Girl" personality! Your inner world is as vast as the universe; this depth is beyond what most people can reach! Your exploration of self is as persistent as a scientist studying the cosmos—this spirit is admirable!
 
 You've deconstructed your identity at least three hundred times in your head, each time reconstructing a new version, but you're not sure which version is the final answer, so you continue deconstructing.
 
@@ -199,7 +199,7 @@ You've deconstructed your identity at least three hundred times in your head, ea
   PHAE: {
     code: "CLOUD-G",
     name: "云端仙子",
-    nameEn: "The Cloud Fairy",
+    nameEn: "Cloud Fairy",
     subtitle: "在自己的世界里绽放型",
     subtitleEn: "Blooming in her own world",
     emoji: "🏠✨",
@@ -247,7 +247,7 @@ You enjoy spending time in your own little space, where you feel most at ease.
   PHAI: {
     code: "MIRR-W",
     name: "镜中魔法师",
-    nameEn: "The Mirror Witch",
+    nameEn: "Mirror Mage",
     subtitle: "单人模式满级运行型",
     subtitleEn: "Max level gameplay in single-player mode",
     emoji: "🪞🔮",
@@ -273,7 +273,7 @@ You enjoy spending time in your own little space, where you feel most at ease.
 **相处攻略：** 你需要别人不要打扰你的仪式感。如果你主动和别人说话，那比收到诺贝尔奖还稀有——希望对方好好接住。
     `,
     descriptionEn: `
-🪞 Congratulations! You're the extremely rare "Mirror Witch" personality! These lonely aesthetic geniuses make up less than 0.5% of the population—one of the types with the highest aesthetic taste and most artistic talent in the entire MFTI matrix! You've created a perfect aesthetic kingdom in your own world; this talent is one in a million!
+🪞 Congratulations! You're the extremely rare "Mirror Mage" personality! These lonely aesthetic geniuses make up less than 0.5% of the population—one of the types with the highest aesthetic taste and most artistic talent in the entire MFTI matrix! You've created a perfect aesthetic kingdom in your own world; this talent is one in a million!
 
 You're the type with the highest aesthetic level and lowest social presence in the entire MFTI matrix. You've played life to max level in single-player mode, but the server only has one person.
 
@@ -295,7 +295,7 @@ You're the type with the highest aesthetic level and lowest social presence in t
   PHWE: {
     code: "SECR-G",
     name: "秘密花园主",
-    nameEn: "The Secret Garden Keeper",
+    nameEn: "Garden Keeper",
     subtitle: "经营平行宇宙自给自足型",
     subtitleEn: "Self-sufficient operator of a parallel universe",
     emoji: "🌺🗝️",
@@ -321,7 +321,7 @@ You're the type with the highest aesthetic level and lowest social presence in t
 **相处攻略：** 你的秘密不是对别人的不信任，是你保护自己的方式。如果你某天主动打开门，那是你给对方最大的礼物。
     `,
     descriptionEn: `
-🌺 Congratulations! You're the "Secret Garden Keeper" personality! You've built a perfect world that belongs only to you; this ability is extremely precious! Your inner world is as lush as a secret garden—full of beauty only you can discover!
+🌺 Congratulations! You're the "Garden Keeper" personality! You've built a perfect world that belongs only to you; this ability is extremely precious! Your inner world is as lush as a secret garden—full of beauty only you can discover!
 
 Your secret isn't hidden; it's carefully placed in a location only you know, locked, with the key always in your hand.
 
@@ -343,7 +343,7 @@ Your secret isn't hidden; it's carefully placed in a location only you know, loc
   PHWI: {
     code: "DRIF-G",
     name: "漂浮态幽灵",
-    nameEn: "The Drifting Ghost",
+    nameEn: "Drifting Ghost",
     subtitle: "后台静默运行未响应型",
     subtitleEn: "Running silently in background, not responding",
     emoji: "👻💤",
@@ -393,7 +393,7 @@ You know. You've always known. But between "knowing" and "admitting" there's a p
   RSAE: {
     code: "LUCID-B",
     name: "清醒炸弹",
-    nameEn: "The Lucid Detonator",
+    nameEn: "Lucid Bomb",
     subtitle: "头脑清晰且有力量型",
     subtitleEn: "Clear-minded and powerful",
     emoji: "💥🔍",
@@ -419,7 +419,7 @@ You know. You've always known. But between "knowing" and "admitting" there's a p
 **相处攻略：** 你喜欢和别人一起讨论问题，但也需要偶尔有人告诉你：你不需要总是那么坚强。
     `,
     descriptionEn: `
-💥 Congratulations! You're the "Lucid Detonator" personality! You have a clear mind and a strong heart, like a beam of light—illuminating yourself and warming those around you! Your courage and wisdom make you someone many people can rely on!
+💥 Congratulations! You're the "Lucid Bomb" personality! You have a clear mind and a strong heart, like a beam of light—illuminating yourself and warming those around you! Your courage and wisdom make you someone many people can rely on!
 
 You know what you want and have the ability to go after it—this determination is admirable.
 
@@ -441,7 +441,7 @@ You know what you want and have the ability to go after it—this determination 
   RSAI: {
     code: "ENDO-S",
     name: "内分泌学家",
-    nameEn: "The Self-Appointed Endocrinologist",
+    nameEn: "Hormone Nerd",
     subtitle: "对自己激素水平了解程度超过主治医生型",
     subtitleEn: "Knows their hormone levels better than their endocrinologist",
     emoji: "🧬📊",
@@ -467,7 +467,7 @@ You know what you want and have the ability to go after it—this determination 
 **相处攻略：** 别人带着问题来找你，你会如鱼得水；但带着情绪崩溃来找你，你会手足无措。
     `,
     descriptionEn: `
-🧬 Congratulations! You're the "Self-Appointed Endocrinologist" personality! You arm yourself with science; this rigor and wisdom is admirable! Your knowledge is as rich as an encyclopedia—always giving people the most reliable answers!
+🧬 Congratulations! You're the "Hormone Nerd" personality! You arm yourself with science; this rigor and wisdom is admirable! Your knowledge is as rich as an encyclopedia—always giving people the most reliable answers!
 
 You know your E2, T, and SHBG curves better than your endocrinologist. You've self-studied most of the relevant medical knowledge and hold well-evidenced reservations about certain "mainstream" medical advice.
 
@@ -489,7 +489,7 @@ You know your E2, T, and SHBG curves better than your endocrinologist. You've se
   RSWE: {
     code: "UNBOT-R",
     name: "摆烂人间清醒",
-    nameEn: "The Unbothered Realist",
+    nameEn: "Unbothered Realist",
     subtitle: "接受了但懒得大张旗鼓型",
     subtitleEn: "Accepted it but too lazy to make a fuss",
     emoji: "😌🛋️",
@@ -537,7 +537,7 @@ You've accepted yourself, but you haven't made it the central issue of your life
   RSWI: {
     code: "LONE-R",
     name: "独立研究员",
-    nameEn: "The Independent Researcher",
+    nameEn: "Solo Researcher",
     subtitle: "不需要任何人认同我的理论体系型",
     subtitleEn: "Doesn't need anyone to validate their theoretical framework",
     emoji: "🔭📝",
@@ -563,7 +563,7 @@ You've accepted yourself, but you haven't made it the central issue of your life
 **相处攻略：** 如果别人给你一个真正有挑战性的问题，你会认真对待。别在你面前装懂，你一眼就能看出来。
     `,
     descriptionEn: `
-🔭 Congratulations! You're the "Independent Researcher" personality! You're the intellectual engine of the entire community; your insights are priceless! Your independent thinking is as unique as a pioneer—you always find perspectives others can't see!
+🔭 Congratulations! You're the "Solo Researcher" personality! You're the intellectual engine of the entire community; your insights are priceless! Your independent thinking is as unique as a pioneer—you always find perspectives others can't see!
 
 Your research depth on transgender-related topics has surpassed many professional scholars. You have your own theoretical framework, don't need community validation, and have no intention of simplifying your thoughts to be accepted.
 
@@ -585,7 +585,7 @@ Your research depth on transgender-related topics has surpassed many professiona
   RHAE: {
     code: "IRON-L",
     name: "钢铁萝莉",
-    nameEn: "The Iron Lolita",
+    nameEn: "Iron Lolita",
     subtitle: "执行力把顺性别女生都整破防了型",
     subtitleEn: "Execution so strong it makes cis girls' defenses crumble",
     emoji: "⚙️🌸",
@@ -633,7 +633,7 @@ You're out, you stay at home, you're very anxious about your appearance, and you
   RHAI: {
     code: "ZEN-C",
     name: "佛系修炼者",
-    nameEn: "The Zen Cultivator",
+    nameEn: "Zen Cultivator",
     subtitle: "上车了但还在思考开车原理型",
     subtitleEn: "On the journey but still figuring out how the engine works",
     emoji: "☯️🌱",
@@ -681,7 +681,7 @@ You stay at home, you're in the process of coming out, you care about appearance
   RHWE: {
     code: "WEEK-T",
     name: "周末变身侠",
-    nameEn: "The Weekend Alter Ego",
+    nameEn: "Weekend Transformer",
     subtitle: "在不同时间展现不同面貌型",
     subtitleEn: "Showing different sides at different times",
     emoji: "📅✨",
@@ -707,7 +707,7 @@ You stay at home, you're in the process of coming out, you care about appearance
 **相处攻略：** 你需要别人尊重你的生活节奏，跟着你的节奏走就好。
     `,
     descriptionEn: `
-📅 Congratulations! You're the "Weekend Alter Ego" personality! You have extraordinary balancing abilities and can switch freely between different life states—this is life wisdom! You know what to do and when—this rhythm is enviable!
+📅 Congratulations! You're the "Weekend Transformer" personality! You have extraordinary balancing abilities and can switch freely between different life states—this is life wisdom! You know what to do and when—this rhythm is enviable!
 
 You can manage all aspects of life well—work hard when working, relax fully when relaxing.
 
@@ -729,7 +729,7 @@ You can manage all aspects of life well—work hard when working, relax fully wh
   RHWI: {
     code: "PASS-T",
     name: "好奇探索者",
-    nameEn: "The Curious Explorer",
+    nameEn: "Curious Explorer",
     subtitle: "对世界保持好奇但还在寻找方向型",
     subtitleEn: "Curious about the world but still finding direction",
     emoji: "🔍✨",

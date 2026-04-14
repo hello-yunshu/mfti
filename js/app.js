@@ -213,6 +213,13 @@ const App = (() => {
       target.classList.add('page-enter');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    
+    // 控制樱花动画
+    if (id === 'page-landing') {
+      resumeSakuraAnimation();
+    } else {
+      pauseSakuraAnimation();
+    }
   }
 
   // 免责声明
@@ -713,6 +720,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 100);
 });
 
+let sakuraPetals = [];
+let sakuraAnimationPaused = false;
+
 // 生成飘落花瓣粒子
 function createSakuraPetals() {
   const container = document.getElementById('sakura-petals');
@@ -731,7 +741,7 @@ function createSakuraPetals() {
     return rotations;
   }
 
-  const petalCount = 22;
+  const petalCount = 18;
   for (let i = 0; i < petalCount; i++) {
     const petal = document.createElement('div');
     petal.className = 'sakura-petal';
@@ -759,5 +769,24 @@ function createSakuraPetals() {
       filter: blur(${blur}px);
     `;
     container.appendChild(petal);
+    sakuraPetals.push(petal);
   }
+}
+
+// 暂停樱花动画
+function pauseSakuraAnimation() {
+  if (sakuraAnimationPaused) return;
+  sakuraPetals.forEach(petal => {
+    petal.style.animationPlayState = 'paused';
+  });
+  sakuraAnimationPaused = true;
+}
+
+// 恢复樱花动画
+function resumeSakuraAnimation() {
+  if (!sakuraAnimationPaused) return;
+  sakuraPetals.forEach(petal => {
+    petal.style.animationPlayState = 'running';
+  });
+  sakuraAnimationPaused = false;
 }
