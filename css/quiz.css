@@ -33,6 +33,7 @@
     drop-shadow(0 0 30px rgba(255,140,185,0.3))
     drop-shadow(0 0 50px rgba(255,120,170,0.15));
   animation: float 3s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* Landing页面内容在花瓣之上 */
@@ -51,18 +52,21 @@
 .petal-1 {
   transform-origin: 16px 15.5px;
   animation: petalSway1 10s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* 花瓣纹理跟随花瓣一起动 */
 .petal-veins {
   transform-origin: 16px 15.5px;
   animation: petalSway1 10s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* 花蕊独立微旋转 */
 .stamen {
   transform-origin: 16px 15.5px;
   animation: stamenWobble 8s ease-in-out infinite;
+  will-change: transform;
 }
 
 @keyframes petalSway1 {
@@ -100,6 +104,9 @@
   animation-name: petalFall;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 @keyframes petalFall {
