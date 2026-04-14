@@ -6,7 +6,10 @@
     "minify": "node scripts/minify-and-version.js"
   },
   "dependencies": {
-    "terser": "^5.44.0",
-    "clean-css": "^5.3.3"
+    "clean-css": "^5.3.3",
+    "terser": "^5.44.0"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2"
   }
 }

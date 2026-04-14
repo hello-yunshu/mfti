@@ -521,11 +521,13 @@ const App = (() => {
     result = null;
     showPage('page-landing');
     window.scrollTo({ top: 0 });
+    restartSakuraAnimation();
   }
 
   function backToLanding() {
     showPage('page-landing');
     window.scrollTo({ top: 0 });
+    restartSakuraAnimation();
   }
 
   // 分享
@@ -594,6 +596,18 @@ const App = (() => {
     });
   }
 
+  // 重新启动大樱花动画
+  function restartSakuraAnimation() {
+    const logo = document.querySelector('.landing-logo');
+    if (!logo) return;
+    
+    // 强制重绘以重新启动动画
+    const parent = logo.parentNode;
+    const nextSibling = logo.nextSibling;
+    parent.removeChild(logo);
+    parent.insertBefore(logo, nextSibling);
+  }
+
   // 显示首页
   function showLanding() {
     showPage('page-landing');
@@ -605,6 +619,7 @@ const App = (() => {
     } else if (resultBtn) {
       resultBtn.classList.add('hidden');
     }
+    restartSakuraAnimation();
   }
 
   // 查看上次结果
