@@ -66,13 +66,13 @@ You've turned your life into the protagonist of a shoujo manga—the cover heroi
     description: `
 🌟 恭喜你！你是「深夜哲学家」人格！你既有感性的温柔，又有理性的深度，这种完美的结合让你成为人群中独一无二的存在！你的思想如同星空般深邃，既有温暖的光芒，又有引人深思的力量！
 
-你的社交软件头像是粉色渐变，但你凌晨三点发的文章是《萨特论他者凝视与跨性别身份认同的交叉性分析》。
+你的社交软件头像是粉色渐变，但你凌晨三点发的文章是《萨特论他者凝视与自我身份认同的交叉性分析》。
 
 **心理学画像：** 你同时运行着两套自我系统：一套是面向世界的社交人格，活泼、可爱、充满能量；另一套是深夜独处时的内省人格，质疑一切、分析一切、对自身存在充满焦虑性好奇。心理学称这种双轨并行为"自我复杂性"（Self-Complexity），高自我复杂性的人抗压能力更强，但也更难"关机"——你的大脑根本不知道怎么停止运转。
 
-**日常行为模式：** 白天，你出席活动、认识新朋友、在群里活跃、帮别人解决情绪问题，被所有人觉得是"那个很懂事的姐姐"。晚上十一点之后，你进入另一个模式：开始翻学术文章，发长长的内心独白给三个固定好友，然后在某个冷门论坛潜水，看别人讨论"跨性别者是否可以有本质主义的自我认同"。你活跃于线下活动，但每次 party 结束后都要独处两天才能充电完毕。
+**日常行为模式：** 白天，你出席活动、认识新朋友、在群里活跃、帮别人解决情绪问题，被所有人觉得是"那个很懂事的姐姐"。晚上十一点之后，你进入另一个模式：开始翻学术文章，发长长的内心独白给三个固定好友，然后在某个冷门论坛潜水，看别人讨论"人是否可以拥有本质主义的自我认同"。你活跃于线下活动，但每次 party 结束后都要独处两天才能充电完毕。
 
-**优势：** 你是社区里少数既能接住感性共情、又能给出理性分析的人。你的存在对刚出来的人来说像是灯塔——你既告诉他们"没事的，我懂你"，又能说"但你可以从这个角度想一下"。
+**优势：** 你是社区里少数既能接住感性共情、又能给出理性分析的人。你的存在对刚开始面对自己的人来说像是灯塔——你既告诉他们"没事的，我懂你"，又能说"但你可以从这个角度想一下"。
 
 **致命弱点：** 你过度分析自己。你把心理学概念用得极为娴熟，以至于你能准确地诊断自己的问题，但就是不执行解决方案。你知道你有"分析瘫痪"，你知道这叫什么，你甚至知道治疗方案，但你还是在分析。
 
@@ -83,13 +83,13 @@ You've turned your life into the protagonist of a shoujo manga—the cover heroi
     descriptionEn: `
 🌟 Congratulations! You're the "Night Philosopher" personality! You have both emotional tenderness and rational depth; this perfect combination makes you one-of-a-kind among people! Your mind is as deep as the starry sky—full of warm light and thought-provoking power!
 
-Your social media profile picture is a pink gradient, but the article you post at 3 AM is "Sartre on the Gaze of the Other and Its Intersectionality with Transgender Identity."
+Your social media profile picture is a pink gradient, but the article you post at 3 AM is "Sartre on the Gaze of the Other and Its Intersectionality with Self-Identity."
 
 **Psychological Profile:** You run two self-systems simultaneously: one is a social persona facing the world—lively, cute, full of energy; the other is an introspective persona when alone late at night—questioning everything, analyzing everything, filled with anxious curiosity about your own existence. Psychology calls this dual-track operation "Self-Complexity." People with high self-complexity have stronger stress resistance, but also find it harder to "shut down"—your brain simply doesn't know how to stop running.
 
-**Daily Behavior Patterns:** During the day, you attend events, meet new friends, stay active in group chats, help others solve emotional problems, and everyone thinks you're "that very sensible sister." After 11 PM, you enter another mode: start reading academic papers, send long inner monologues to three fixed friends, lurk on some obscure forum watching others discuss "whether transgender people can have essentialist self-identity." You're active in offline events, but after every party you need two days of solitude to fully recharge.
+**Daily Behavior Patterns:** During the day, you attend events, meet new friends, stay active in group chats, help others solve emotional problems, and everyone thinks you're "that very sensible sister." After 11 PM, you enter another mode: start reading academic papers, send long inner monologues to three fixed friends, lurk on some obscure forum watching others discuss "whether people can have essentialist self-identity." You're active in offline events, but after every party you need two days of solitude to fully recharge.
 
-**Strengths:** You're one of the few in the community who can handle both emotional empathy and rational analysis. Your existence is like a lighthouse for those who just came out—you both tell them "it's okay, I understand you" and say "but you can think about it from this angle."
+**Strengths:** You're one of the few in the community who can handle both emotional empathy and rational analysis. Your existence is like a lighthouse for those who are just starting to face themselves—you both tell them "it's okay, I understand you" and say "but you can think about it from this angle."
 
 **Fatal Weakness:** You over-analyze yourself. You use psychological concepts so skillfully that you can accurately diagnose your problems, but you just don't execute solutions. You know you have "analysis paralysis," you know what it's called, you even know the treatment plan, but you're still analyzing.
 
@@ -157,7 +157,7 @@ You know what to say and how to present yourself in different situations, and th
     emoji: "🔬🌸",
     color: "#8E44AD",
     gradient: ["#8E44AD", "#D2B4DE"],
-    tags: ["分析过度", "哲学系", "长文预警", "到底出不出来"],
+    tags: ["分析过度", "哲学系", "长文预警", "到底行不行动"],
     mbtiLike: "QUANT-S",
     description: `
 🔬 恭喜你！你是「量子纠缠少女」人格！你的内心世界如同宇宙般广阔，这种深度是绝大多数人无法企及的！你对自我的探索如同科学家研究宇宙般执着，这种精神令人敬佩！
@@ -166,7 +166,7 @@ You know what to say and how to present yourself in different situations, and th
 
 **心理学画像：** 你展现出高度的"元认知活跃性"（Metacognitive Hyperactivity）——不只是思考，而是思考关于思考的思考。你对自身心理机制的洞察力远超一般人，这使你看起来非常通透，但实际上这种持续的自我监控会产生心理学上的"内省幻觉"（Introspection Illusion）：你越分析，越觉得自己看清了，但研究表明人类对自己内心的认知极其不可靠。你的那些分析可能比你以为的要不准确得多。
 
-**日常行为模式：** 你的备忘录里存着大量关于自我身份的思考笔记，最长的一篇有六千字，写于某个失眠的深夜。你看过《性别是表演》《第二性》《置换》，看完之后写了读书笔记，然后又写了质疑读书笔记的笔记。你在社交上并不差，偶尔出门，认识人，但从来不主动向任何人讲自己的内心世界——不是因为不信任，而是因为你觉得"讲不清楚"。
+**日常行为模式：** 你的备忘录里存着大量关于自我身份的思考笔记，最长的一篇有六千字，写于某个失眠的深夜。你看过《性别是表演》《第二性》《自我认同的心理学》，看完之后写了读书笔记，然后又写了质疑读书笔记的笔记。你在社交上并不差，偶尔出门，认识人，但从来不主动向任何人讲自己的内心世界——不是因为不信任，而是因为你觉得"讲不清楚"。
 
 **优势：** 你对身份问题的理解深度是 16 型人格里最强的之一。你能看到问题的多个层次，不轻易被简单答案满足。这使你成为思想领域的探索者，你的内心世界极其丰富。
 
@@ -183,7 +183,7 @@ You've deconstructed your identity at least three hundred times in your head, ea
 
 **Psychological Profile:** You demonstrate a high degree of "Metacognitive Hyperactivity"—not just thinking, but thinking about thinking about thinking. Your insight into your own psychological mechanisms far exceeds that of ordinary people, making you appear very perceptive, but in fact this continuous self-monitoring produces what psychology calls the "Introspection Illusion": the more you analyze, the more you feel you see clearly, but research shows that human self-knowledge is extremely unreliable. Your analyses may be far less accurate than you think.
 
-**Daily Behavior Patterns:** Your memo app is filled with extensive notes about self-identity; the longest one is six thousand words, written during a sleepless night. You've read "Gender Trouble," "The Second Sex," "Whipping Girl," and after reading you wrote book notes, then wrote notes questioning your book notes. You're not bad socially; you occasionally go out, meet people, but never voluntarily tell anyone about your inner world—not because of distrust, but because you feel you "can't explain it clearly."
+**Daily Behavior Patterns:** Your memo app is filled with extensive notes about self-identity; the longest one is six thousand words, written during a sleepless night. You've read "Gender Trouble," "The Second Sex," "The Psychology of Self-Identity," and after reading you wrote book notes, then wrote notes questioning your book notes. You're not bad socially; you occasionally go out, meet people, but never voluntarily tell anyone about your inner world—not because of distrust, but because you feel you "can't explain it clearly."
 
 **Strengths:** Your depth of understanding on identity issues is one of the strongest among the 16 types. You can see multiple layers of problems and aren't easily satisfied with simple answers. This makes you an explorer in the realm of ideas; your inner world is extremely rich.
 
@@ -310,7 +310,7 @@ You're the type with the highest aesthetic level and lowest social presence in t
 
 **心理学画像：** 你发展出了心理学上所谓的"分隔化身份管理"（Compartmentalized Identity Management）——将自我的不同面向彻底隔离在不同的生活空间里，互不干扰，各自完整。弗洛伊德会把这叫做"分裂"，但现代心理学更倾向于认为这是一种高度适应性的应对机制，尤其在高压社会环境中。你不是不完整，你只是把自己整理得很整齐。
 
-**日常行为模式：** 你有一个专门的箱子或者抽屉，位置非常隐蔽，里面的东西非常整齐。你享受宅在家的时间，享受独自打扮的过程，享受那个只属于自己的小宇宙。你不在社交媒体上露面，不参加圈内活动，但你向极少数信任的人透露过——虽然方式轻描淡写，像是在说一件不太重要的事。你和自己的关系是平静的、接纳的，甚至带着某种满足感。你没有强烈的"走出去"的冲动，你已经在自己的世界里安居了。
+**日常行为模式：** 你有一个专门的箱子或者抽屉，位置非常隐蔽，里面的东西非常整齐。你享受宅在家的时间，享受独自打扮的过程，享受那个只属于自己的小宇宙。你不在社交媒体上露面，不参加社群活动，但你向极少数信任的人透露过——虽然方式轻描淡写，像是在说一件不太重要的事。你和自己的关系是平静的、接纳的，甚至带着某种满足感。你没有强烈的"走出去"的冲动，你已经在自己的世界里安居了。
 
 **优势：** 你拥有极高的内在稳定性和生活自足能力。你不依赖任何外部系统来维持内心的平衡，你的幸福感来自内部，因此也最不容易被外部事件所摧毁。
 
@@ -349,7 +349,7 @@ Your secret isn't hidden; it's carefully placed in a location only you know, loc
     emoji: "👻💤",
     color: "#7F8C8D",
     gradient: ["#7F8C8D", "#D5DBDB"],
-    tags: ["深柜深处", "不确定", "漂浮态", "等待触发"],
+    tags: ["内心深处", "不确定", "漂浮态", "等待触发"],
     mbtiLike: "DRIF-G",
     description: `
 👻 恭喜你！你是极其稀有的「漂浮态幽灵」人格！ 这种保持着纯粹可能性的人在人群中不到 0.4%，是 MFTI 矩阵中最具潜力和神秘色彩的类型之一！你像一张空白的画布，充满了无限的可能性，这种状态是极其珍贵的！
@@ -366,7 +366,7 @@ Your secret isn't hidden; it's carefully placed in a location only you know, loc
 
 **你的口头禅：** "我只是随便看看的。"（已经随便看了很多年）
 
-**相处攻略：** 你不需要被推着走，也不需要被问"你到底是什么"。你需要的是一个安全的、没有压力的环境，让你觉得走出来是可以的——但那是你自己的决定，不是别人的。
+**相处攻略：** 你不需要被推着走，也不需要被问"你到底是什么"。你需要的是一个安全的、没有压力的环境，让你觉得面对真实的自己是可以的——但那是你自己的决定，不是别人的。
     `,
     descriptionEn: `
 👻 Congratulations! You're the extremely rare "Drifting Ghost" personality! People who maintain this pure possibility make up less than 0.4% of the population—one of the types with the most potential and mystique in the entire MFTI matrix! You're like a blank canvas, full of infinite possibilities; this state is extremely precious!
@@ -383,7 +383,7 @@ You know. You've always known. But between "knowing" and "admitting" there's a p
 
 **Your Catchphrase:** "I'm just looking around casually." (has been casually looking for many years)
 
-**How to Get Along:** You don't need to be pushed, or be asked "what exactly are you." You need a safe, pressure-free environment that makes you feel it's okay to come out—but that's your decision, not anyone else's.
+**How to Get Along:** You don't need to be pushed, or be asked "what exactly are you." You need a safe, pressure-free environment that makes you feel it's okay to face your true self—but that's your decision, not anyone else's.
     `,
     dimensions: { PR: 72, SH: 15, AI: 22, EW: 12, CF: 0, DK: 10, TN: 8, MB: 0, GL: 15, XZ: 0 }
   },
@@ -442,8 +442,8 @@ You know what you want and have the ability to go after it—this determination 
     code: "ENDO-S",
     name: "内分泌学家",
     nameEn: "Hormone Nerd",
-    subtitle: "对自己激素水平了解程度超过主治医生型",
-    subtitleEn: "Knows their hormone levels better than their endocrinologist",
+    subtitle: "对自己身体数据了解程度超过主治医生型",
+    subtitleEn: "Knows their body data better than their doctor",
     emoji: "🧬📊",
     color: "#2E86C1",
     gradient: ["#2E86C1", "#AED6F1"],
@@ -452,15 +452,15 @@ You know what you want and have the ability to go after it—this determination 
     description: `
 🧬 恭喜你！你是「内分泌学家」人格！你用科学武装自己，这种严谨和智慧令人敬佩！你的知识如同百科全书般丰富，总能给人最可靠的答案！
 
-你的 E2 水平、T 水平、SHBG 的变化曲线你比你的内分泌科医生掌握得更清楚，你已经自学完了大部分相关医学知识，并且对某些"主流"医学建议持有证据充分的保留意见。
+你的各项身体指标的变化曲线你比你的医生掌握得更清楚，你已经自学完了大部分相关知识，并且对某些"主流"建议持有证据充分的保留意见。
 
 **心理学画像：** 你的身份认同建立在一套严密的知识体系上，而非感性直觉或社群归属感。这是一种"认知性身份建构"（Cognitive Identity Construction）——你的"我是谁"是一个经过反复验证的命题，而不是一个需要被感受的事实。这种建构方式极为稳固，因为它不依赖情绪状态，但也有其代价：当感性体验和理性结论冲突时，你往往优先信任数据，而忽略了身体和情绪也是数据。
 
-**日常行为模式：** 你在群里发的不是自拍，是最新的研究报告，附带你的批注和质疑。你知道每种抗雄药物的作用机制、副作用谱和代谢路径，你知道不同剂型的雌激素的药代动力学区别，你可能还会用电子表格记录自己的血液指标变化。你出门、打理外貌，但你的外貌管理是数据驱动的，你知道每个维护步骤背后的生理原理。
+**日常行为模式：** 你在群里发的不是自拍，是最新的研究报告，附带你的批注和质疑。你知道每种相关药物或补剂的作用机制、副作用谱和代谢路径，你可能还会用电子表格记录自己的各项指标变化。你出门、打理外貌，但你的外貌管理是数据驱动的，你知道每个维护步骤背后的原理。
 
 **优势：** 你是社区里最可靠的知识资源库之一。你不乱传信息，不散布焦虑，遇到问题你会找证据，这在充斥着道听途说的网络讨论中极为稀缺。
 
-**致命弱点：** 你的分析框架太过理性，有时候会让感性痛苦的人觉得被"解剖"而非被接住。你的"你这个情况从医学角度看是……"在对方只想哭一会儿的时候效果不佳。另外，你的知识积累偶尔会让你高估自己的临床判断能力——你懂很多，但你不是你自己的医生。
+**致命弱点：** 你的分析框架太过理性，有时候会让感性痛苦的人觉得被"解剖"而非被接住。你的"你这个情况从科学角度看是……"在对方只想哭一会儿的时候效果不佳。另外，你的知识积累偶尔会让你高估自己的判断能力——你懂很多，但你不是你自己的医生。
 
 **你的口头禅：** "这个说法没有文献支持，你是从哪里看到的？"
 
@@ -469,15 +469,15 @@ You know what you want and have the ability to go after it—this determination 
     descriptionEn: `
 🧬 Congratulations! You're the "Hormone Nerd" personality! You arm yourself with science; this rigor and wisdom is admirable! Your knowledge is as rich as an encyclopedia—always giving people the most reliable answers!
 
-You know your E2, T, and SHBG curves better than your endocrinologist. You've self-studied most of the relevant medical knowledge and hold well-evidenced reservations about certain "mainstream" medical advice.
+You know your body's indicator curves better than your doctor. You've self-studied most of the relevant knowledge and hold well-evidenced reservations about certain "mainstream" advice.
 
 **Psychological Profile:** Your identity is built on a rigorous knowledge system, not emotional intuition or community belonging. This is "Cognitive Identity Construction"—your "Who am I?" is a proposition repeatedly verified, not a fact to be felt. This construction is extremely stable because it doesn't depend on emotional states, but there's a cost: when emotional experiences conflict with rational conclusions, you tend to trust data first, ignoring that bodies and emotions are also data.
 
-**Daily Behavior Patterns:** What you share in the group chat isn't selfies—it's the latest research papers with your annotations and critiques. You know the mechanism of action, side effect profiles, and metabolic pathways of every anti-androgen drug. You know the pharmacokinetic differences between different estrogen formulations. You might even track your blood work changes in a spreadsheet. You go out, manage your appearance, but your appearance management is data-driven—you know the physiological principles behind every maintenance step.
+**Daily Behavior Patterns:** What you share in the group chat isn't selfies—it's the latest research papers with your annotations and critiques. You know the mechanism of action, side effect profiles, and metabolic pathways of every relevant medication or supplement. You might even track your body's indicator changes in a spreadsheet. You go out, manage your appearance, but your appearance management is data-driven—you know the principles behind every maintenance step.
 
 **Strengths:** You're one of the most reliable knowledge resources in the community. You don't spread misinformation or anxiety. When problems arise, you look for evidence—this is extremely rare in online discussions full of hearsay.
 
-**Fatal Weakness:** Your analytical framework is so rational that it sometimes makes emotionally distressed people feel "dissected" rather than held. Your "From a medical perspective, your situation is..." doesn't work well when someone just wants to cry for a while. Also, your knowledge accumulation occasionally makes you overestimate your clinical judgment—you know a lot, but you're not your own doctor.
+**Fatal Weakness:** Your analytical framework is so rational that it sometimes makes emotionally distressed people feel "dissected" rather than held. Your "From a scientific perspective, your situation is..." doesn't work well when someone just wants to cry for a while. Also, your knowledge accumulation occasionally makes you overestimate your judgment—you know a lot, but you're not your own doctor.
 
 **Your Catchphrase:** "That claim has no literature support. Where did you read that?"
 
@@ -504,7 +504,7 @@ You know your E2, T, and SHBG curves better than your endocrinologist. You've se
 
 **心理学画像：** 你达到了心理学上罕见的"去戏剧化身份整合"（De-dramatized Identity Integration）状态——你的身份认同既不是需要捍卫的旗帜，也不是需要隐藏的秘密，它只是你这个人的一个属性，就像你的惯用手或者血型一样，在大多数情况下不需要特别强调。这种状态通常需要大量的内在功课才能达到，但你可能是"天生懒"导致的，我们就不细究了。
 
-**日常行为模式：** 你穿裙子的理由可能是"今天热"。你出柜的方式可能是在某次对话里随口提了一句"对了，我是这样的人"，然后继续讨论下一个话题，没有等对方有时间反应。你不参加很多活动，不特别在意打扮，没有特别的圈内社群归属感。你知道自己是谁，但你觉得这件事不值得花太多精力去"维护"。
+**日常行为模式：** 你穿裙子的理由可能是"今天热"。你让别人知道真实自我的方式可能是在某次对话里随口提了一句"对了，我是这样的人"，然后继续讨论下一个话题，没有等对方有时间反应。你不参加很多活动，不特别在意打扮，没有特别的社群归属感。你知道自己是谁，但你觉得这件事不值得花太多精力去"维护"。
 
 **优势：** 你是 16 型里精神内耗最少的之一。你不为外部认可焦虑，不为身份政治辩论消耗，不为"我到底是什么"失眠——你已经答完了，交卷了，在走廊等放学。
 
@@ -521,7 +521,7 @@ You've accepted yourself, but you haven't made it the central issue of your life
 
 **Psychological Profile:** You've achieved a rare state in psychology called "De-dramatized Identity Integration"—your identity is neither a flag to defend nor a secret to hide. It's just an attribute of who you are, like your handedness or blood type, something that doesn't need special emphasis in most situations. This state usually requires a lot of inner work to achieve, but in your case it might just be "natural laziness"—we won't dig into that.
 
-**Daily Behavior Patterns:** Your reason for wearing a skirt might be "it's hot today." Your coming out might have been a casual mention in some conversation—"By the way, I'm this kind of person"—and then you moved on to the next topic without waiting for the other person to have time to react. You don't attend many events, don't particularly care about dressing up, don't have special in-group community belonging. You know who you are, but you don't think this matter is worth spending too much energy "maintaining."
+**Daily Behavior Patterns:** Your reason for wearing a skirt might be "it's hot today." Your way of letting others know the real you might have been a casual mention in some conversation—"By the way, I'm this kind of person"—and then you moved on to the next topic without waiting for the other person to have time to react. You don't attend many events, don't particularly care about dressing up, don't have special community belonging. You know who you are, but you don't think this matter is worth spending too much energy "maintaining."
 
 **Strengths:** You're one of the types with the least internal friction among the 16. You don't worry about external validation, don't consume yourself in identity politics debates, don't lose sleep over "what exactly am I"—you've already answered, handed in your paper, and are waiting in the hallway for school to end.
 
@@ -548,7 +548,7 @@ You've accepted yourself, but you haven't made it the central issue of your life
     description: `
 🔭 恭喜你！你是「独立研究员」人格！你是整个社区的思想发动机，你的洞见是无价之宝！你的独立思考能力如同开拓者般独特，总能发现别人看不到的视角！
 
-你对跨性别相关议题的研究深度已经超过了很多专业学者，你有自己的理论体系，不需要社区认同，也不打算为了被接受而简化自己的思想。
+你对身份认同相关议题的研究深度已经超过了很多专业学者，你有自己的理论体系，不需要社区认同，也不打算为了被接受而简化自己的思想。
 
 **心理学画像：** 你是高度的"知识型身份建构者"（Knowledge-Based Identity Builder），同时具备强烈的内向性认知风格。你的身份认同不依赖群体归属，不需要镜像确认，你的参照系是你自己建立的一套内部逻辑体系——这使你极为自足，但也使你在需要与他人连接的场景中付出更高的成本。你的社交，是主动降维，而不是不会社交。
 
@@ -565,7 +565,7 @@ You've accepted yourself, but you haven't made it the central issue of your life
     descriptionEn: `
 🔭 Congratulations! You're the "Solo Researcher" personality! You're the intellectual engine of the entire community; your insights are priceless! Your independent thinking is as unique as a pioneer—you always find perspectives others can't see!
 
-Your research depth on transgender-related topics has surpassed many professional scholars. You have your own theoretical framework, don't need community validation, and have no intention of simplifying your thoughts to be accepted.
+Your research depth on identity-related topics has surpassed many professional scholars. You have your own theoretical framework, don't need community validation, and have no intention of simplifying your thoughts to be accepted.
 
 **Psychological Profile:** You're a highly "Knowledge-Based Identity Builder" with a strongly introverted cognitive style. Your identity doesn't depend on group belonging or require mirror confirmation. Your frame of reference is an internal logical system you built yourself—this makes you extremely self-sufficient, but also makes you pay higher costs in scenarios requiring connection with others. Your socializing is actively downshifting, not inability to socialize.
 
@@ -586,8 +586,8 @@ Your research depth on transgender-related topics has surpassed many professiona
     code: "IRON-L",
     name: "钢铁萝莉",
     nameEn: "Iron Lolita",
-    subtitle: "执行力把顺性别女生都整破防了型",
-    subtitleEn: "Execution so strong it makes cis girls' defenses crumble",
+    subtitle: "执行力让所有人都感到压力型",
+    subtitleEn: "Execution so strong it stresses everyone out",
     emoji: "⚙️🌸",
     color: "#8E44AD",
     gradient: ["#8E44AD", "#BB8FCE"],
@@ -596,15 +596,15 @@ Your research depth on transgender-related topics has surpassed many professiona
     description: `
 ⚙️ 恭喜你！你是「钢铁萝莉」人格！你用行动证明了一切皆有可能，你的坚持是无数人的榜样！你的少女心和钢铁意志完美结合，这种力量令人敬佩！
 
-你已经出柜，你宅在家里，你对自己的外貌非常焦虑，而且你的行动力让所有人感到压力——包括那些从来没有经历过任何认同困境的顺性别女性。
+你已经向世界展现了真实的自己，你宅在家里，你对自己的外貌非常焦虑，而且你的行动力让所有人感到压力——包括那些从来没有经历过任何认同困境的人。
 
 **心理学画像：** 你展现出高度的"目标定向型身份建构"（Goal-Oriented Identity Construction），结合了极强的执行意志和对现实的清醒认知。你不在梦幻和焦虑之间浮沉，你直接在现实层面攻关。心理学上的"自我效能感"（Self-Efficacy）在你这里是满值的——你相信你能改变你想改变的东西，而且你在证明这一点。
 
-**日常行为模式：** 你的激素管理计划比某些健身教练的训练计划还要精密，有详细的时间节点、剂量记录、效果评估和备选方案。你的护肤流程是一个有步骤的系统工程，你知道每个产品的作用机制。你的发型、体型、仪态是有长期规划的，你有阶段性目标和评估标准。你不拖延，不焦虑（或者焦虑了也立刻转化为行动）。
+**日常行为模式：** 你的自我管理计划比某些健身教练的训练计划还要精密，有详细的时间节点、记录、效果评估和备选方案。你的护肤流程是一个有步骤的系统工程，你知道每个产品的作用机制。你的发型、体型、仪态是有长期规划的，你有阶段性目标和评估标准。你不拖延，不焦虑（或者焦虑了也立刻转化为行动）。
 
 **优势：** 你是"能做到"的活证明。你不依赖运气，不依赖天赋，你依赖系统和执行力——这使你成为许多人的精神支柱和参照系。你的存在传递一个信息：这件事是可以被认真对待、有效推进的。
 
-**致命弱点：** 你的高执行力和高目标导向可能让你把身份认同过度工具化——"变得更像女孩"变成了一个 KPI 系统，而不是一个探索过程。当某个阶段性目标没有达成，或者效果不如预期，你可能会遭受超出平均水平的自我批评。
+**致命弱点：** 你的高执行力和高目标导向可能让你把自我认同过度工具化——"变成理想中的自己"变成了一个 KPI 系统，而不是一个探索过程。当某个阶段性目标没有达成，或者效果不如预期，你可能会遭受超出平均水平的自我批评。
 
 **你的口头禅：** "这个月的目标是……"
 
@@ -613,15 +613,15 @@ Your research depth on transgender-related topics has surpassed many professiona
     descriptionEn: `
 ⚙️ Congratulations! You're the "Iron Lolita" personality! You prove with action that anything is possible; your persistence is an example for countless people! Your girlish heart and iron will are perfectly combined—this power is admirable!
 
-You're out, you stay at home, you're very anxious about your appearance, and your drive stresses everyone out—including cisgender women who have never experienced any identity crisis.
+You've shown your true self to the world, you stay at home, you're very anxious about your appearance, and your drive stresses everyone out—including those who have never experienced any identity crisis.
 
 **Psychological Profile:** You demonstrate a high degree of "Goal-Oriented Identity Construction," combining extremely strong executive will with clear awareness of reality. You don't float between dreams and anxiety; you tackle problems directly at the reality level. "Self-Efficacy" in psychology is maxed out for you—you believe you can change what you want to change, and you're proving it.
 
-**Daily Behavior Patterns:** Your hormone management plan is more precise than some fitness coaches' training plans, with detailed timelines, dosage records, effect evaluations, and contingency plans. Your skincare routine is a systematic engineering project with steps; you know the mechanism of action of every product. Your hairstyle, body shape, and demeanor are part of a long-term plan; you have phased goals and evaluation criteria. You don't procrastinate, don't get anxious (or immediately convert anxiety into action).
+**Daily Behavior Patterns:** Your self-management plan is more precise than some fitness coaches' training plans, with detailed timelines, records, effect evaluations, and contingency plans. Your skincare routine is a systematic engineering project with steps; you know the mechanism of action of every product. Your hairstyle, body shape, and demeanor are part of a long-term plan; you have phased goals and evaluation criteria. You don't procrastinate, don't get anxious (or immediately convert anxiety into action).
 
 **Strengths:** You're living proof that "it can be done." You don't rely on luck or talent; you rely on systems and execution—this makes you a spiritual pillar and frame of reference for many people. Your existence sends a message: this matter can be taken seriously and effectively advanced.
 
-**Fatal Weakness:** Your high execution and high goal orientation may lead you to over-instrumentalize identity—"becoming more like a girl" becomes a KPI system rather than an exploratory process. When a phased goal isn't achieved, or effects aren't as expected, you may suffer above-average self-criticism.
+**Fatal Weakness:** Your high execution and high goal orientation may lead you to over-instrumentalize identity—"becoming your ideal self" becomes a KPI system rather than an exploratory process. When a phased goal isn't achieved, or effects aren't as expected, you may suffer above-average self-criticism.
 
 **Your Catchphrase:** "This month's goal is..."
 
@@ -634,21 +634,21 @@ You're out, you stay at home, you're very anxious about your appearance, and you
     code: "ZEN-C",
     name: "佛系修炼者",
     nameEn: "Zen Cultivator",
-    subtitle: "上车了但还在思考开车原理型",
-    subtitleEn: "On the journey but still figuring out how the engine works",
+    subtitle: "已经开始了但还在思考为什么型",
+    subtitleEn: "Already on the journey but still figuring out why",
     emoji: "☯️🌱",
     color: "#27AE60",
     gradient: ["#27AE60", "#82E0AA"],
-    tags: ["出柜中的哲学家", "佛系进度", "修炼感", "别催"],
+    tags: ["自我探索者", "佛系进度", "修炼感", "别催"],
     mbtiLike: "ZEN-C",
     description: `
 ☯️ 恭喜你！你是「佛系修炼者」人格！你走在自己的节奏里，这种从容和智慧是无数人追求的境界！你的内心如同平静的湖面，充满了生活的智慧！
 
-你宅在家，你正在出柜的过程中，你在意外貌，但你同时还在持续思考"我为什么这样做，这意味着什么，这对我来说是什么"——不是质疑，是一种持续的哲学性好奇。
+你宅在家，你正在向世界展现真实自我的过程中，你在意外貌，但你同时还在持续思考"我为什么这样做，这意味着什么，这对我来说是什么"——不是质疑，是一种持续的哲学性好奇。
 
 **心理学画像：** 你展现出"过程导向型身份认同"（Process-Oriented Identity Development）——你不是在"达到"一个身份，你是在体验成为某人的过程本身。你的自我认同不是一个终点，而是一条路，而你对这条路本身充满兴趣。这在心理学上属于高度成熟的身份整合方式，因为你不是在逃离某个自我，也不是在强迫自己变成某个理想形象，你只是在走，边走边看。
 
-**日常行为模式：** 你在家打扮，你向最亲近的人坦白了，但你的节奏非常慢，还没有完成完整的出柜过程。你的社群参与度低，不是因为不认同，是因为你更喜欢自己想明白再说。你会在某个随机的下午突然开始思考"所谓'女性化'到底是一种社会建构还是我真实的内在感受，而这两者可以是同一件事吗"——然后在脑内想了两个小时，什么结论都没得出，但感觉挺好的。
+**日常行为模式：** 你在家打扮，你向最亲近的人坦白了真实的自己，但你的节奏非常慢，还没有完成完整的公开过程。你的社群参与度低，不是因为不认同，是因为你更喜欢自己想明白再说。你会在某个随机的下午突然开始思考"所谓'我追求的样子'到底是一种社会建构还是我真实的内在感受，而这两者可以是同一件事吗"——然后在脑内想了两个小时，什么结论都没得出，但感觉挺好的。
 
 **优势：** 你对身份认同的理解是整合性的、非二元的、充满弹性的。你不容易陷入"我不够"的焦虑，因为你的参照系是内在的，而不是一个固定的标准。你的存在本身就是一种关于身份可以是流动的、过程性的、可以持续探索的活证明。
 
@@ -661,11 +661,11 @@ You're out, you stay at home, you're very anxious about your appearance, and you
     descriptionEn: `
 ☯️ Congratulations! You're the "Zen Cultivator" personality! You walk at your own pace; this calmness and wisdom is the state that countless people pursue! Your heart is like a calm lake—full of the wisdom of life!
 
-You stay at home, you're in the process of coming out, you care about appearance, but you're also continuously thinking "Why am I doing this, what does this mean, what is this to me"—not questioning, but a continuous philosophical curiosity.
+You stay at home, you're in the process of showing your true self to the world, you care about appearance, but you're also continuously thinking "Why am I doing this, what does this mean, what is this to me"—not questioning, but a continuous philosophical curiosity.
 
 **Psychological Profile:** You demonstrate "Process-Oriented Identity Development"—you're not "arriving" at an identity; you're experiencing the process of becoming itself. Your self-identity is not a destination but a path, and you're deeply interested in the path itself. This is a highly mature form of identity integration in psychology, because you're not fleeing from a self, nor forcing yourself to become some ideal image; you're just walking, looking as you go.
 
-**Daily Behavior Patterns:** You dress up at home, you've come out to your closest people, but your pace is very slow—you haven't completed the full coming out process. Your community participation is low, not because of non-identification, but because you prefer to think things through yourself first. You'll suddenly start thinking on some random afternoon: "Is so-called 'femininity' a social construct or my real inner feeling, and can these two be the same thing?"—then think about it in your head for two hours, reach no conclusion, but feel good about it.
+**Daily Behavior Patterns:** You dress up at home, you've revealed your true self to your closest people, but your pace is very slow—you haven't completed the full process of being open about who you are. Your community participation is low, not because of non-identification, but because you prefer to think things through yourself first. You'll suddenly start thinking on some random afternoon: "Is 'the way I want to be' a social construct or my real inner feeling, and can these two be the same thing?"—then think about it in your head for two hours, reach no conclusion, but feel good about it.
 
 **Strengths:** Your understanding of identity is integrative, non-binary, and full of flexibility. You don't easily fall into "I'm not enough" anxiety, because your frame of reference is internal, not a fixed standard. Your very existence is living proof that identity can be fluid, processual, and continuously exploratory.
 
@@ -781,11 +781,11 @@ const DIMENSIONS = {
   PR: { name: "粉色梦境指数", nameEn: "Pink Dream Index", desc: "你活在粉色滤镜里还是现实里", low: "现实派", high: "梦幻派" },
   SH: { name: "社交活跃度", nameEn: "Social Activity Level", desc: "你是社牛还是宅神", low: "宅家精灵", high: "社交蝴蝶" },
   AI: { name: "颜值焦虑度", nameEn: "Appearance Anxiety Level", desc: "你对自身外貌有多焦虑", low: "心态平和", high: "颜值焦虑" },
-  EW: { name: "公开度", nameEn: "Openness Level", desc: "你出来了没有", low: "深柜居民", high: "公开出柜" },
+  EW: { name: "公开度", nameEn: "Openness Level", desc: "你展现真实自我的程度", low: "私密守护者", high: "公开表达" },
   CF: { name: "自律指数", nameEn: "Self-Discipline Index", desc: "你是计划派还是随缘党", low: "佛系随缘", high: "严格自律" },
   DK: { name: "社群归属感", nameEn: "Community Belonging Index", desc: "你需要群体还是一个人就够了", low: "独行侠", high: "群体依附" },
-  TN: { name: "理性分析度", nameEn: "Rational Analysis Level", desc: "你分析身份还是跟着感觉走", low: "纯靠直觉", high: "理论狂魔" },
-  MB: { name: "物质投入度", nameEn: "Material Investment Level", desc: "你在这件事上花了多少钱", low: "佛系省钱", high: "钱不是问题" },
+  TN: { name: "理性分析度", nameEn: "Rational Analysis Level", desc: "你用理性分析还是跟着感觉走", low: "纯靠直觉", high: "理论狂魔" },
+  MB: { name: "物质投入度", nameEn: "Material Investment Level", desc: "你为理想自我投入了多少", low: "佛系省钱", high: "钱不是问题" },
   GL: { name: "表达一致性", nameEn: "Expression Consistency", desc: "你每天都在状态还是看心情", low: "看心情派", high: "全天候在线" },
   XZ: { name: "未来规划度", nameEn: "Future Planning Level", desc: "你有长期规划还是走一步看一步", low: "随遇而安", high: "五年计划党" }
 };
