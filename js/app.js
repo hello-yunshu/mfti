@@ -259,7 +259,7 @@ const App = (() => {
     if (qRemain) {
       const remaining = t('remaining') || '还剩';
       const questionsLeft = t('questionsLeft') || '题';
-      qRemain.textContent = `${remaining} ${total - index} ${questionsLeft}`;
+      qRemain.textContent = `${remaining} ${total - (index + 1)} ${questionsLeft}`;
     }
 
     const qNum = document.getElementById('q-num');
