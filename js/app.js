@@ -748,8 +748,8 @@ function createSakuraPetals() {
 
     const left = Math.random() * 100;
     const size = 6 + Math.random() * 16;
-    const duration = 8 + Math.random() * 10;
-    const delay = Math.random() * 15;
+    const duration = 10 + Math.random() * 14;
+    const delay = Math.random() * 18;
     const driftX = (Math.random() - 0.5) * 150;
     const [r1, r2, r3, r4, r5] = generateRotations();
     const blur = Math.random() > 0.75 ? 0.8 + Math.random() * 0.8 : 0;
@@ -773,20 +773,32 @@ function createSakuraPetals() {
   }
 }
 
-// 暂停樱花动画
+// 暂停樱花动画（包括飘落花瓣和大樱花logo）
 function pauseSakuraAnimation() {
   if (sakuraAnimationPaused) return;
   sakuraPetals.forEach(petal => {
     petal.style.animationPlayState = 'paused';
   });
+  const logo = document.querySelector('.landing-logo');
+  if (logo) logo.style.animationPlayState = 'paused';
+  const svgPetals = document.querySelectorAll('.petal-1, .petal-veins, .stamen');
+  svgPetals.forEach(el => {
+    el.style.animationPlayState = 'paused';
+  });
   sakuraAnimationPaused = true;
 }
 
-// 恢复樱花动画
+// 恢复樱花动画（包括飘落花瓣和大樱花logo）
 function resumeSakuraAnimation() {
   if (!sakuraAnimationPaused) return;
   sakuraPetals.forEach(petal => {
     petal.style.animationPlayState = 'running';
+  });
+  const logo = document.querySelector('.landing-logo');
+  if (logo) logo.style.animationPlayState = 'running';
+  const svgPetals = document.querySelectorAll('.petal-1, .petal-veins, .stamen');
+  svgPetals.forEach(el => {
+    el.style.animationPlayState = 'running';
   });
   sakuraAnimationPaused = false;
 }
