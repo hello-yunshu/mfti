@@ -1,5 +1,10 @@
-// MFTI 题库 - 39道题，10个维度
-// 题目顺序：日常篇→认同篇→深入篇→未来篇
+// MFTI 题库 - 39 道题，四个篇章
+// 计分键：
+//   核心轴：IM 想象浓度 / SO 社交电量 / AN 分析倾向 / PL 计划节奏
+//   辅助画像：AE 审美投入 / CU 好奇探索 / EX 表达欲 / RT 仪式感 / HU 幽默值 / MO 情绪浓度
+// 所有选项都使用同一套与语言无关的 score 结构，因此切换语言不会改变结果。
+
+const QUESTION_SET_VERSION = "2026-11-v2";
 
 const QUESTIONS = [
 
@@ -7,448 +12,485 @@ const QUESTIONS = [
 
   {
     id: 1,
-    dimension: "PR",
-    text: "看到电视剧/动漫里的「美少女日常」桥段时，你会？",
-    textEn: "When you see 'cute girl daily life' scenes in TV shows/anime, what do you do?",
+    chapter: "daily",
+    dimension: "IM",
+    text: "看到动漫或剧里的「可爱日常」桥段时，你会？",
+    textEn: "When you see a 'cute everyday life' scene in an anime or show, what do you do?",
     options: [
-      { label: "A", text: "啊这就是我！我现在/未来就要过这样的生活——这就是我的人生剧本。", textEn: "That's me! This is what I'm living now or want to live in the future—this is my life script.", score: { PR: 3, TN: -1 } },
-      { label: "B", text: "看着挺开心的，偶尔会幻想一下，但不会太当真。", textEn: "Fun to watch, occasionally fantasize about it, but don't take it too seriously.", score: { PR: 0 } },
-      { label: "C", text: "这都是编的，现实生活哪有这么完美，看看就好。", textEn: "That's all made up—real life isn't that perfect, just watch it for fun.", score: { PR: -3 } }
+      { label: "A", text: "会代入，还会研究她们房间的布置和配色，想把那种氛围搬进自己的生活。", textEn: "I imagine myself in it, study the room setup and colors, and want to bring that atmosphere into my own life.", score: { IM: 2, AE: 1 } },
+      { label: "B", text: "画面好看就多看两眼，剧情合理才继续追。", textEn: "I enjoy the visuals for a moment, and keep watching only if the story holds up.", score: { IM: 0 } },
+      { label: "C", text: "先吐槽设定不合理，好看不能当饭吃。", textEn: "I poke at the unrealistic setup first—pretty visuals alone don't carry a story.", score: { IM: -2, AN: 1, HU: 1 } }
     ]
   },
   {
     id: 2,
-    dimension: "SH",
-    text: "群里说要聚会，你去吗？",
-    textEn: "The group chat says there's a gathering—are you going?",
+    chapter: "daily",
+    dimension: "SO",
+    text: "朋友临时组局，说就差你了，你？",
+    textEn: "Friends throw together a last-minute meetup and say they're just missing you. What do you do?",
     options: [
-      { label: "A", text: "去！提前一周选好造型，活动当天第一个到，最后一个走，拍了三百张照片。", textEn: "Yes! Pick out an outfit a week in advance, first to arrive and last to leave on the day, took 300 photos.", score: { SH: 3 } },
-      { label: "B", text: "看心情，可能去，可能到门口了掉头，看当天精神状态。", textEn: "Depends on my mood. Might go, might turn around at the door. Depends on how I feel that day.", score: { SH: 0 } },
-      { label: "C", text: "不去，在家更舒服，出门还要收拾，算了。", textEn: "No. Staying home is more comfortable. Going out requires getting ready anyway. Never mind.", score: { SH: -3 } }
+      { label: "A", text: "已经在换衣服了，人多才热闹。", textEn: "I'm already changing—the more people, the better.", score: { SO: 2, EX: 1 } },
+      { label: "B", text: "看是谁组织的、都有谁，再决定。", textEn: "Depends on who organized it and who's going.", score: { SO: 0 } },
+      { label: "C", text: "更想按原计划待着，下次一定。", textEn: "I'd rather stick with my original plan. Next time for sure.", score: { SO: -2, PL: 1 } }
     ]
   },
   {
     id: 3,
-    dimension: "CF",
-    text: "你有护肤/保养/健康管理流程吗？",
-    textEn: "Do you have a skincare/maintenance/health routine?",
+    chapter: "daily",
+    dimension: "PL",
+    text: "你有护肤、整理或健康管理的固定流程吗？",
+    textEn: "Do you have a fixed routine for skincare, tidying up, or health?",
     options: [
-      { label: "A", text: "有，而且每个步骤都有依据和时间节点，不能乱，乱了效果打折。", textEn: "Yes, and every step has reasoning and timing. Can't mess it up—if you do, the effectiveness drops.", score: { CF: 3, MB: 1 } },
-      { label: "B", text: "大概有，但有时候懒得做全套，看心情。", textEn: "Sort of, but sometimes I'm too lazy to do the whole thing. Depends on my mood.", score: { CF: 0 } },
-      { label: "C", text: "没有固定流程，今天心情好就多做几步，心情差就简单处理。", textEn: "No fixed routine. If I'm in a good mood I do more steps, if I'm in a bad mood I keep it simple.", score: { CF: -3, MB: -1 } }
+      { label: "A", text: "有一套固定顺序，打乱了会重新来。", textEn: "Yes—a fixed order. If it gets disrupted, I start over.", score: { PL: 2, AE: 1, RT: 1 } },
+      { label: "B", text: "大概有，但看当天心情。", textEn: "Sort of, but it depends on my mood that day.", score: { PL: 0 } },
+      { label: "C", text: "能省就省，舒服最重要。", textEn: "I keep it minimal—comfort matters most.", score: { PL: -2, AE: -1 } }
     ]
   },
   {
     id: 4,
-    dimension: "PR",
-    text: "你朋友圈最近发的是什么？",
-    textEn: "What did you post on your social media recently?",
+    chapter: "daily",
+    dimension: "EX",
+    text: "发一条生活动态时，你通常会？",
+    textEn: "When you post something about your life, what do you usually do?",
     options: [
-      { label: "A", text: "滤镜+文案+位置打卡，评论区被'好美'淹没，完美结束这一天。", textEn: "Filters + caption + location check-in. Comments flooded with 'so beautiful'. Perfect end to the day.", score: { PR: 3 } },
-      { label: "B", text: "偶尔看看别人的内容，自己不太发相关的东西。", textEn: "Occasionally look at other people's posts, don't really post related stuff myself.", score: { PR: 0 } },
-      { label: "C", text: "我的社交账号和这面完全无关，不会留下任何痕迹。", textEn: "My social media accounts are completely unrelated to this side of me. Won't leave any traces.", score: { PR: -3 } }
+      { label: "A", text: "认真排版、配文、挑封面，发出去要像个作品。", textEn: "Lay it out carefully, write a caption, pick a cover—it should look like a piece of work.", score: { EX: 2, IM: 1, AE: 1 } },
+      { label: "B", text: "偶尔发，随手记录，不折腾。", textEn: "I post occasionally, just a casual record—no fuss.", score: { EX: 0 } },
+      { label: "C", text: "更爱看别人发，自己几乎不发。", textEn: "I'd rather watch what others post; I rarely post myself.", score: { EX: -2, CU: 1 } }
     ]
   },
   {
     id: 5,
-    dimension: "SH",
-    text: "你的主要社交战场在哪？",
-    textEn: "Where is your main social battlefield?",
+    chapter: "daily",
+    dimension: "SO",
+    text: "哪种场合最让你觉得「充电」？",
+    textEn: "Which setting recharges you most?",
     options: [
-      { label: "A", text: "线下活动、姐妹饭局、各种见面，认识新朋友让我充电。", textEn: "Offline events, girls' dinners, all kinds of meetups. Meeting new people recharges me.", score: { SH: 3 } },
-      { label: "B", text: "社交媒体为主，偶尔线下，线下结束了要花时间恢复元气。", textEn: "Mostly social media, occasionally offline. Need time to recover after offline events.", score: { SH: 0 } },
-      { label: "C", text: "我的社交圈是两个固定的、高度精选的好友，其他一概不需要。", textEn: "My social circle is two fixed, highly curated friends. Don't need anything else.", score: { SH: -3 } }
+      { label: "A", text: "一大群人热热闹闹，回家还在回味。", textEn: "A big, lively group—I'm still replaying it on the way home.", score: { SO: 2, EX: 1 } },
+      { label: "B", text: "三五个熟人刚好，太多会累。", textEn: "Three or four familiar faces is just right; too many gets tiring.", score: { SO: 0 } },
+      { label: "C", text: "一个人待着最充电，社交是耗电项。", textEn: "Time alone recharges me—socializing drains the battery.", score: { SO: -2 } }
     ]
   },
   {
     id: 6,
-    dimension: "AI",
-    text: "看到照片里自己的脸，你的第一反应是？",
-    textEn: "Seeing your face in a photo, what's your first reaction?",
+    chapter: "daily",
+    dimension: "AE",
+    text: "看到照片里的自己，你的第一反应通常是？",
+    textEn: "When you see a photo of yourself, what's your first reaction?",
     options: [
-      { label: "A", text: "立刻找角度问题、光线问题、修图问题——不是我长得不行，是这镜头不行。", textEn: "Immediately find issues with angle, lighting, editing—it's not that I look bad, it's that the camera is bad.", score: { AI: 3 } },
-      { label: "B", text: "还行吧，有好有坏，不特别在意。", textEn: "It's okay. Some good, some bad. Don't really care that much.", score: { AI: 0 } },
-      { label: "C", text: "无所谓，长什么样不是我能控制的，也不打算花精力在这上面。", textEn: "Whatever. How I look isn't something I can control, and I'm not going to spend energy on it.", score: { AI: -3 } }
+      { label: "A", text: "会研究角度、光线、构图，想着下次怎么拍得更好。", textEn: "I study the angle, lighting, and framing, and think about how to shoot it better next time.", score: { AE: 2, AN: 1 } },
+      { label: "B", text: "还行就看，不好看就划走。", textEn: "If it's okay I'll look; if not, I scroll past.", score: { AE: 0 } },
+      { label: "C", text: "不太在意，照片能看清人就行。", textEn: "I don't care much—as long as you can tell it's me.", score: { AE: -2 } }
     ]
   },
   {
     id: 7,
-    dimension: "MB",
-    text: "你的衣柜里有多少女孩子的衣服/东西？",
-    textEn: "How many girl clothes/things do you have in your closet?",
+    chapter: "daily",
+    dimension: "AE",
+    text: "你的衣橱或收藏是怎么组织的？",
+    textEn: "How do you organize your closet or collection?",
     options: [
-      { label: "A", text: "一整个区域都是，分类整理，比我的其他衣服还整齐。", textEn: "An entire section is dedicated to it, organized by category—neater than my other clothes.", score: { MB: 3 } },
-      { label: "B", text: "有几件，放在不起眼的角落，偶尔看看。", textEn: "Have a few pieces, kept in an inconspicuous corner. Look at them occasionally.", score: { MB: 0 } },
-      { label: "C", text: "几乎没有，或者目前没有在这上面投入的打算。", textEn: "Almost none, or currently no plans to invest in this.", score: { MB: -3 } }
+      { label: "A", text: "按风格和场合分好区，还会定期整理搭配。", textEn: "Sorted by style and occasion, and I regularly rework outfits.", score: { AE: 2, IM: 1, PL: 1 } },
+      { label: "B", text: "有几件特别喜欢的，其他够穿就行。", textEn: "A few favorites, and the rest just needs to be wearable.", score: { AE: 0 } },
+      { label: "C", text: "实用为主，能穿就行。", textEn: "Practical first—if it works, it works.", score: { AE: -2 } }
     ]
   },
   {
     id: 8,
-    dimension: "SH",
-    text: "周末下午突然有人组局，说就差你了，你？",
-    textEn: "Someone's putting together a last-minute weekend gathering and says they're just missing you—what do you do?",
+    chapter: "daily",
+    dimension: "PL",
+    text: "周末突然空出一整天，你会？",
+    textEn: "A whole weekend day suddenly opens up. What do you do?",
     options: [
-      { label: "A", text: "已经在换衣服了，地址发来，我马上到！", textEn: "Already changing clothes—send me the address, I'm on my way!", score: { SH: 3 } },
-      { label: "B", text: "看是什么局，有认识的人就去，全是生面孔就算了。", textEn: "Depends on what kind of gathering—if I know people there I'll go, all strangers then never mind.", score: { SH: 0 } },
-      { label: "C", text: "谢谢邀请，但我周末的安排就是没有安排，下次一定——永远没有下次。", textEn: "Thanks for the invite, but my weekend plan is having no plans—next time for sure. And there's never a next time.", score: { SH: -3 } }
+      { label: "A", text: "立刻列一个想做的事清单，按顺序打卡。", textEn: "Immediately make a list of things I want to do and work through it.", score: { PL: 2, RT: 1 } },
+      { label: "B", text: "先睡到自然醒，再决定干嘛。", textEn: "Sleep in first, then decide.", score: { PL: 0 } },
+      { label: "C", text: "什么都不安排，走到哪算哪。", textEn: "Plan nothing—see where the day takes me.", score: { PL: -2, CU: 1 } }
     ]
   },
-
-  // ===== 认同篇 =====
-
   {
     id: 9,
-    dimension: "AI",
-    text: "出门前发现今天状态特别差，你会？",
-    textEn: "Feeling off before going out—what do you do?",
+    chapter: "daily",
+    dimension: "AN",
+    text: "有人评价你的外表或穿搭，你会？",
+    textEn: "Someone comments on your looks or outfit. What do you do?",
     options: [
-      { label: "A", text: "焦虑到不想出门，或者花一小时补救到勉强能接受，迟到了也无所谓。", textEn: "Too anxious to go out, or spend an hour fixing it until barely acceptable—being late doesn't matter.", score: { AI: 3 } },
-      { label: "B", text: "叹口气，随便收拾一下，反正又不是第一天状态不好。", textEn: "Sigh, throw something on—it's not the first day I've looked bad anyway.", score: { AI: 0 } },
-      { label: "C", text: "什么状态差？我不存在'状态差'这个概念，出门就是出门。", textEn: "What do you mean 'looking bad'? That concept doesn't exist for me. Going out is just going out.", score: { AI: -3 } }
+      { label: "A", text: "会琢磨对方为什么这么说，甚至复盘一下。", textEn: "I wonder why they said it and even replay it in my head.", score: { AN: 2, MO: 1 } },
+      { label: "B", text: "听过就算，合不合理自己判断。", textEn: "I hear it and move on—I judge for myself whether it's fair.", score: { AN: 0 } },
+      { label: "C", text: "觉得这种评价挺没意思，换个话题。", textEn: "I find that kind of comment pointless and change the subject.", score: { AN: -1, MO: -1, HU: 1 } }
     ]
   },
+
+  // ===== 偏好篇 =====
+
   {
     id: 10,
-    dimension: "PR",
-    text: "你对'少女感'这个词的第一反应是？",
-    textEn: "What's your first reaction to the term 'girlishness'?",
+    chapter: "taste",
+    dimension: "IM",
+    text: "对「梦幻感」这个词，你的第一反应是？",
+    textEn: "What's your first reaction to the word 'whimsical'?",
     options: [
-      { label: "A", text: "这就是我的人生追求，越少女越好，谁规定只能年轻才能少女？", textEn: "That's my life goal—the more girlish the better. Who says only young people can be girlish?", score: { PR: 3, TN: -1 } },
-      { label: "B", text: "可以理解，但不是我追求的核心，我有更在意的东西。", textEn: "Understandable, but not what I'm focused on. I have more important things to care about.", score: { PR: 0 } },
-      { label: "C", text: "不太有感觉，我更关注实际的事情，或者这个概念和我关联不大。", textEn: "Don't really feel it. I care more about practical things, or this concept doesn't relate to me much.", score: { PR: -3 } }
+      { label: "A", text: "很吃这一套，会主动把这种感觉放进生活里。", textEn: "I'm into it and actively bring that feeling into my life.", score: { IM: 2, AE: 1 } },
+      { label: "B", text: "看作品和场合，好看就欣赏，不代入。", textEn: "It depends on the work and the setting—I can appreciate it without stepping into it.", score: { IM: 0 } },
+      { label: "C", text: "不是我的审美，我更偏爱别的风格。", textEn: "It's not my taste—I prefer other styles.", score: { IM: -2, CU: 1 } }
     ]
   },
   {
     id: 11,
-    dimension: "TN",
-    text: "你是怎么确认自己内心真实想法的？",
-    textEn: "How do you confirm your true inner feelings?",
+    chapter: "taste",
+    dimension: "AN",
+    text: "当你需要确认一个想法时，你更倾向？",
+    textEn: "When you need to be sure about an idea, what do you lean on?",
     options: [
-      { label: "A", text: "就是一种感觉，某天突然清楚了，没有想太多。", textEn: "It's just a feeling. One day it suddenly became clear. Didn't think too much about it.", score: { TN: -3 } },
-      { label: "B", text: "一开始是感觉，后来也查了一些资料，两者结合。", textEn: "Started with a feeling, then looked up some info later—combining both.", score: { TN: 0 } },
-      { label: "C", text: "看了很多书、做了很多分析、对比了各种说法，最后才确定——或者我目前还没想清楚。", textEn: "Read many books, did lots of analysis, compared various perspectives before deciding—or I still haven't figured it out.", score: { TN: 3 } }
+      { label: "A", text: "先收集信息、列利弊，再下结论。", textEn: "Gather information, list pros and cons, then decide.", score: { AN: 2, PL: 1 } },
+      { label: "B", text: "感觉和信息各占一半。", textEn: "Half feeling, half information.", score: { AN: 0 } },
+      { label: "C", text: "先凭直觉走，走不通再调整。", textEn: "Follow my gut first, adjust if it doesn't work.", score: { AN: -2, PL: -1 } }
     ]
   },
   {
     id: 12,
-    dimension: "AI",
-    text: "你手机相册里，关于'自己好看的样子'的照片有多少？",
-    textEn: "How many photos of 'yourself looking good' are in your phone gallery?",
+    chapter: "taste",
+    dimension: "AE",
+    text: "你的手机相册更接近哪种状态？",
+    textEn: "Which describes your phone gallery better?",
     options: [
-      { label: "A", text: "一个专属相册，按穿搭和妆容分类，不好看的当场删，只留能见人的。", textEn: "A dedicated album, categorized by outfit and makeup—bad ones deleted on the spot, only the presentable ones stay.", score: { AI: 3 } },
-      { label: "B", text: "有一些，但大部分是风景和截图，自拍不是主角。", textEn: "Some, but mostly landscapes and screenshots—selfies aren't the main feature.", score: { AI: 0 } },
-      { label: "C", text: "几乎没有，我不太拍自己，或者手机里都是别的乱七八糟的东西。", textEn: "Almost none—I don't really take pictures of myself, or my phone is full of random other stuff.", score: { AI: -3 } }
+      { label: "A", text: "有专门分类的相册，会挑出满意的照片。", textEn: "I have categorized albums and pick out the shots I'm happy with.", score: { AE: 2, EX: 1 } },
+      { label: "B", text: "随手拍，几乎不整理。", textEn: "I snap things casually and almost never organize.", score: { AE: 0 } },
+      { label: "C", text: "很少拍自己，更爱拍风景和东西。", textEn: "I rarely photograph myself—I prefer landscapes and objects.", score: { AE: -2, CU: 1 } }
     ]
   },
   {
     id: 13,
-    dimension: "SH",
-    text: "一个人在家待了一周，你感觉怎么样？",
-    textEn: "Stayed home alone for a week—how do you feel?",
+    chapter: "taste",
+    dimension: "SO",
+    text: "一个人在家待了一周，你感觉？",
+    textEn: "After a week alone at home, how do you feel?",
     options: [
-      { label: "A", text: "快憋死了，赶紧找人出去，哪怕只是逛超市也行。", textEn: "Almost suffocating. Need to find someone to go out with immediately—even just grocery shopping is fine.", score: { SH: 3 } },
-      { label: "B", text: "还好，但开始觉得有点空，偶尔刷刷群聊看看动态。", textEn: "It's okay, but starting to feel a bit empty. Occasionally check group chats for updates.", score: { SH: 0 } },
-      { label: "C", text: "这才叫生活，关掉消息提醒，人均打扰降到零，天堂了。", textEn: "This is what life is about. Turn off notifications, zero interruptions—heaven.", score: { SH: -3 } }
+      { label: "A", text: "第三天就开始找人说话。", textEn: "By day three I'm already looking for someone to talk to.", score: { SO: 2, EX: 1 } },
+      { label: "B", text: "一半独处一半社交，刚好。", textEn: "Half alone, half social—that's about right.", score: { SO: 0 } },
+      { label: "C", text: "非常享受，最好别有人打扰。", textEn: "I love it—ideally nobody interrupts.", score: { SO: -2 } }
     ]
   },
   {
     id: 14,
-    dimension: "AI",
-    text: "你觉得'颜值'这件事对你的影响有多大？",
-    textEn: "How much do you think 'appearance' affects you?",
+    chapter: "taste",
+    dimension: "EX",
+    text: "有人夸你「很有品味」，你会？",
+    textEn: "Someone says you have great taste. What do you do?",
     options: [
-      { label: "A", text: "非常大，我经常觉得自己不够好，别人的评价会直接改变我一天的心情。", textEn: "A lot. I often feel I'm not good enough. Other people's opinions can directly change my mood for the day.", score: { AI: 3 } },
-      { label: "B", text: "有一些影响，但不是决定性的，我可以靠别的东西撑住自信。", textEn: "Some effect, but not decisive. I can rely on other things to maintain my confidence.", score: { AI: 0 } },
-      { label: "C", text: "几乎没影响，我对自己的认知不建立在外表上，或者已经过了在意的阶段了。", textEn: "Almost no effect. My self-perception isn't based on appearance, or I've already passed the stage of caring.", score: { AI: -3 } }
+      { label: "A", text: "很开心，顺势聊起自己喜欢的风格。", textEn: "I'm happy and happily start talking about the styles I like.", score: { EX: 2, SO: 1 } },
+      { label: "B", text: "说声谢谢，心里暗爽一下。", textEn: "Say thanks and quietly enjoy it.", score: { EX: 0 } },
+      { label: "C", text: "有点不知道怎么接，转移话题。", textEn: "I'm not sure how to respond and change the subject.", score: { EX: -2 } }
     ]
   },
   {
     id: 15,
-    dimension: "CF",
-    text: "你有没有为'变成自己想要的样子'设立过具体的时间计划？",
-    textEn: "Have you set specific timelines for 'becoming who you want to be'?",
+    chapter: "taste",
+    dimension: "PL",
+    text: "给自己定一个目标时，你通常会？",
+    textEn: "When you set a goal for yourself, what do you usually do?",
     options: [
-      { label: "A", text: "有，详细的计划表，每个阶段该做什么都写好了。", textEn: "Yes, detailed plan—what to do at each stage is all written down.", score: { CF: 3, XZ: 1 } },
-      { label: "B", text: "有大概的方向，但不那么具体，比较灵活。", textEn: "Have a general direction, but not too specific—pretty flexible.", score: { CF: 0, XZ: 0 } },
-      { label: "C", text: "没有，不喜欢给自己设框架，顺其自然吧。", textEn: "No. Don't like putting myself in boxes. Let it happen naturally.", score: { CF: -3, XZ: -1 } }
+      { label: "A", text: "写下来，拆成阶段，定期回看。", textEn: "Write it down, break it into stages, and review regularly.", score: { PL: 2, AN: 1 } },
+      { label: "B", text: "有方向，但保留调整空间。", textEn: "I have a direction but leave room to adjust.", score: { PL: 0 } },
+      { label: "C", text: "不喜欢框架，走一步看一步。", textEn: "I don't like frameworks—one step at a time.", score: { PL: -2, CU: 1 } }
     ]
   },
   {
     id: 16,
-    dimension: "PR",
-    text: "别人说『你看起来不像女孩子』，你的第一反应是？",
-    textEn: "Someone says 'You don't look like a girl'—what's your first reaction?",
+    chapter: "taste",
+    dimension: "AN",
+    text: "有人说「你看起来不像会喜欢这种东西的人」，你会？",
+    textEn: "Someone says, 'You don't look like the type who'd like this.' What do you do?",
     options: [
-      { label: "A", text: "内心一震然后修炼更猛，我要让你再也说不出这句话。", textEn: "Shocked inside, then work even harder—I'll make sure you never say that again.", score: { AI: 1, PR: 3 } },
-      { label: "B", text: "哦，无所谓，本来也不一定像，或者这话跟我关系不大。", textEn: "Oh, whatever. Didn't necessarily look like one anyway, or this doesn't concern me much.", score: { PR: 0 } },
-      { label: "C", text: "这说明对方有刻板印象，我来解释一下……", textEn: "That means they have stereotypes. Let me explain...", score: { PR: -3 } }
+      { label: "A", text: "会认真讨论这句话背后的刻板印象。", textEn: "I'll seriously discuss the stereotype behind that comment.", score: { AN: 2, EX: 1 } },
+      { label: "B", text: "笑一笑，看对方是不是在开玩笑。", textEn: "Smile and see whether they're joking.", score: { AN: 0 } },
+      { label: "C", text: "懒得接，直接换话题。", textEn: "Not worth engaging—I change the subject.", score: { AN: -2, EX: -1 } }
+    ]
+  },
+  {
+    id: 17,
+    chapter: "taste",
+    dimension: "SO",
+    text: "一个人去一家从没去过的咖啡店，你会？",
+    textEn: "Going alone to a coffee shop you've never tried—what do you do?",
+    options: [
+      { label: "A", text: "坐吧台，和店员聊两句，顺便探探店。", textEn: "Sit at the bar, chat with the staff, and explore the place.", score: { SO: 2, CU: 1 } },
+      { label: "B", text: "找个角落，戴上耳机，各干各的。", textEn: "Find a corner, put on headphones, and do my own thing.", score: { SO: 0 } },
+      { label: "C", text: "不太想一个人去，宁愿换个熟悉的地方。", textEn: "I'd rather not go alone—I'd pick somewhere familiar.", score: { SO: -2, CU: -1 } }
+    ]
+  },
+  {
+    id: 18,
+    chapter: "taste",
+    dimension: "AN",
+    text: "别人说「别想太多，跟着感觉走就好」，你觉得？",
+    textEn: "Someone says, 'Don't overthink it, just go with your feelings.' What do you think?",
+    options: [
+      { label: "A", text: "认同，感觉往往比分析更准。", textEn: "I agree—feelings are often more accurate than analysis.", score: { AN: -2 } },
+      { label: "B", text: "两者都需要，看事情大小。", textEn: "Both matter, depending on how big the decision is.", score: { AN: 0 } },
+      { label: "C", text: "感觉是线索，但还是想验证一下。", textEn: "Feelings are clues, but I still want to verify them.", score: { AN: 2, PL: 1 } }
+    ]
+  },
+  {
+    id: 19,
+    chapter: "taste",
+    dimension: "AE",
+    text: "布置自己的房间或工位时，你会？",
+    textEn: "When setting up your room or desk, what do you do?",
+    options: [
+      { label: "A", text: "认真搭配颜色和摆件，弄成自己喜欢的样子。", textEn: "Carefully match colors and objects until it feels like mine.", score: { AE: 2, RT: 2, IM: 1 } },
+      { label: "B", text: "舒服整洁就行，不太讲究风格。", textEn: "Comfortable and tidy is enough—style isn't a priority.", score: { AE: 0 } },
+      { label: "C", text: "能住就行，装饰是额外负担。", textEn: "As long as it's livable—decorating is extra work.", score: { AE: -2, RT: -2 } }
     ]
   },
 
   // ===== 关系篇 =====
 
   {
-    id: 17,
-    dimension: "SH",
-    text: "一个人去一家从没去过的咖啡店，你会？",
-    textEn: "Going to a new coffee shop alone—what do you do?",
-    options: [
-      { label: "A", text: "直接去，坐吧台，跟咖啡师聊两句，说不定能认识新朋友。", textEn: "Just go, sit at the bar, chat with the barista—might make new friends.", score: { SH: 3 } },
-      { label: "B", text: "可以去，但会选角落的位子，戴上耳机，享受独处但不排斥环境。", textEn: "Can go, but will pick a corner seat, put on headphones—enjoy solitude but don't reject the environment.", score: { SH: 0 } },
-      { label: "C", text: "不会一个人去，那种场合让我不太自在，更习惯在自己的空间里待着。", textEn: "Won't go alone. That kind of place makes me uncomfortable. More used to staying in my own space.", score: { SH: -3 } }
-    ]
-  },
-  {
-    id: 18,
-    dimension: "TN",
-    text: "别人说『你想太多了，跟着感觉走就好』，你觉得？",
-    textEn: "Someone says 'You think too much, just go with your feelings'—what do you think?",
-    options: [
-      { label: "A", text: "有道理，感觉才是真实的，想太多只会让人更乱。", textEn: "Makes sense. Feelings are real. Thinking too much just confuses people more.", score: { TN: -3 } },
-      { label: "B", text: "感觉和分析都需要，不矛盾。", textEn: "Both feelings and analysis are needed. No contradiction.", score: { TN: 0 } },
-      { label: "C", text: "感觉是一种信息，但未经检验的信息不可靠，我需要验证。", textEn: "Feelings are information, but untested information isn't reliable. I need verification.", score: { TN: 3 } }
-    ]
-  },
-  {
-    id: 19,
-    dimension: "EW",
-    text: "你身边重要的人（家人/伴侣/挚友）了解真实的你吗？",
-    textEn: "Do the important people in your life (family/partner/close friends) know the real you?",
-    options: [
-      { label: "A", text: "了解，而且他们的反应比我预期的要……复杂，但总之已经说了。", textEn: "Yes, and their reactions were... more complicated than I expected, but I've told them anyway.", score: { EW: 3 } },
-      { label: "B", text: "部分人了解，或者暂时和他们没有关系，这是我自己的事。", textEn: "Some know, or it's not related to them right now—this is my own business.", score: { EW: 0 } },
-      { label: "C", text: "没有人了解，或者目前没有打算告诉别人。", textEn: "No one knows, or I currently have no plans to tell anyone.", score: { EW: -3 } }
-    ]
-  },
-  {
     id: 20,
-    dimension: "DK",
-    text: "你需要找到和你一样的'姐妹'吗？",
-    textEn: "Do you need to find 'sisters' like you?",
+    chapter: "social",
+    dimension: "SO",
+    text: "遇到和你兴趣相同的人，你会？",
+    textEn: "When you meet someone with the same interests, what do you do?",
     options: [
-      { label: "A", text: "非常需要，姐妹是我的情感充电站，没有她们我会枯萎。", textEn: "Very much needed. Sisters are my emotional charging station—I'd wither without them.", score: { DK: 3 } },
-      { label: "B", text: "有更好，没有也可以活，但确实有帮助。", textEn: "Better to have, can live without, but it definitely helps.", score: { DK: 0 } },
-      { label: "C", text: "不需要，我自己就能搞定一切，或者目前没这个需求。", textEn: "Don't need. I can handle everything myself, or currently no need for this.", score: { DK: -3 } }
+      { label: "A", text: "很需要，和同好聊天能回血。", textEn: "I need that—talking with fellow fans recharges me.", score: { SO: 2, EX: 1 } },
+      { label: "B", text: "有更好，没有也能自己玩。", textEn: "Nice to have; I can also enjoy it on my own.", score: { SO: 0 } },
+      { label: "C", text: "自己玩更自在，不太主动找组织。", textEn: "I'm more comfortable on my own and don't seek out groups.", score: { SO: -2 } }
     ]
   },
   {
     id: 21,
-    dimension: "MB",
-    text: "你愿意为'变成自己想成为的样子'花多少钱？",
-    textEn: "How much are you willing to spend to 'become who you want to be'?",
+    chapter: "social",
+    dimension: "AE",
+    text: "为喜欢的事情分配预算时，你通常？",
+    textEn: "When budgeting for something you love, what do you usually do?",
     options: [
-      { label: "A", text: "不设上限，这是优先级最高的投入，钱是可以再赚的。", textEn: "No limit. This is the highest priority investment—money can be earned again.", score: { MB: 3 } },
-      { label: "B", text: "在预算范围内尽量多投入，但会做取舍。", textEn: "Invest as much as possible within budget, but will make trade-offs.", score: { MB: 0 } },
-      { label: "C", text: "能省则省，或者目前没什么需要大笔投入的。", textEn: "Save as much as possible, or currently nothing needs big investment.", score: { MB: -3 } }
+      { label: "A", text: "会专门留一笔预算，提前想好买什么。", textEn: "I set aside a budget and plan what to get.", score: { AE: 2, PL: 1 } },
+      { label: "B", text: "看情况，遇到特别喜欢的才下手。", textEn: "Depends—I buy when something really catches me.", score: { AE: 0 } },
+      { label: "C", text: "更愿意把钱花在别的地方。", textEn: "I'd rather spend the money elsewhere.", score: { AE: -2 } }
     ]
   },
   {
     id: 22,
-    dimension: "EW",
-    text: "在工作或学校里，你展现女孩子一面的程度是？",
-    textEn: "At work or school, how much do you show your feminine side?",
+    chapter: "social",
+    dimension: "EX",
+    text: "在工作或学校里，你会怎么处理自己的兴趣？",
+    textEn: "At work or school, how do you handle your personal interests?",
     options: [
-      { label: "A", text: "完全展现，同事/同学都知道，我就是我。", textEn: "Fully show it. Colleagues/classmates all know—I am who I am.", score: { EW: 3, GL: 1 } },
-      { label: "B", text: "看情况，部分圈子知道，部分保持低调。", textEn: "Depends. Some circles know, some keep low profile.", score: { EW: 0 } },
-      { label: "C", text: "完全不展现，或者目前没有什么需要展现的。", textEn: "Don't show it at all, or currently nothing needs to be shown.", score: { EW: -3, GL: -1 } }
+      { label: "A", text: "大方分享，别人问就聊。", textEn: "Share openly—if someone asks, I'll talk about it.", score: { EX: 2, SO: 1 } },
+      { label: "B", text: "分场合，熟人面前会说。", textEn: "Depends on the setting; I'll mention it around people I know.", score: { EX: 0 } },
+      { label: "C", text: "工作和兴趣分开，保持低调。", textEn: "Keep work and interests separate—stay low-key.", score: { EX: -2, PL: 1 } }
     ]
   },
   {
     id: 23,
-    dimension: "DK",
-    text: "有人在群里说了一件让你觉得理解错了的事，你会？",
-    textEn: "Someone says something in a group chat that you think is misunderstood—what do you do?",
+    chapter: "social",
+    dimension: "AN",
+    text: "群聊里有人说了和你不同的观点，你会？",
+    textEn: "Someone in a group chat shares a view different from yours. What do you do?",
     options: [
-      { label: "A", text: "发消息纠正，然后参与讨论，我喜欢这种交流。", textEn: "Send a message to correct it, then join the discussion—I like this kind of exchange.", score: { DK: 1, SH: 1 } },
-      { label: "B", text: "看了看，觉得也许有道理，不想卷入讨论，退出了。", textEn: "Read it, think maybe they have a point, don't want to get involved, exit.", score: { DK: 0 } },
-      { label: "C", text: "发了一篇两千字的分析文章，然后等着看有没有人能看完。", textEn: "Post a 2000-word analysis, then wait to see if anyone finishes reading it.", score: { DK: -1, TN: 1 } }
+      { label: "A", text: "加入讨论，把自己的理由讲清楚。", textEn: "Join in and explain my reasoning.", score: { AN: 2, EX: 1 } },
+      { label: "B", text: "看看就好，不急着站队。", textEn: "Just read—no rush to pick a side.", score: { AN: 0 } },
+      { label: "C", text: "直接划走，不想把时间花在这。", textEn: "Scroll past—not worth my time.", score: { AN: -2, EX: -1 } }
     ]
   },
   {
     id: 24,
-    dimension: "EW",
-    text: "如果有人在公开场合问你『你是男生还是女生』，你怎么回应？",
-    textEn: "If someone asks you 'Are you a boy or a girl?' in public—how do you respond?",
+    chapter: "social",
+    dimension: "AN",
+    text: "有人问了一个你不想回答的私人问题，你会？",
+    textEn: "Someone asks a personal question you'd rather not answer. What do you do?",
     options: [
-      { label: "A", text: "直接说我是女生，这有什么需要回避的。", textEn: "Directly say I'm a girl—nothing to hide here.", score: { EW: 3 } },
-      { label: "B", text: "看情况，有时候直说，有时候打哈哈过去。", textEn: "Depends. Sometimes say it directly, sometimes joke it off.", score: { EW: 0 } },
-      { label: "C", text: "反问他：你为什么需要知道这个？然后保持微笑。", textEn: "Ask back: Why do you need to know that? Then keep smiling.", score: { EW: -3 } }
+      { label: "A", text: "直接说这个不想聊，换个话题。", textEn: "Say directly that I'd rather not discuss it and change the subject.", score: { AN: 1, EX: 1 } },
+      { label: "B", text: "含糊带过，看对方反应。", textEn: "Give a vague answer and see how they react.", score: { AN: 0 } },
+      { label: "C", text: "顺着聊两句，再自然转开。", textEn: "Chat briefly, then steer away naturally.", score: { AN: 0, EX: 1 } }
     ]
   },
-
-  // ===== 深入篇 =====
-
   {
     id: 25,
-    dimension: "EW",
-    text: "你的社交媒体账号，和你'这一面'的关系是？",
-    textEn: "What's the relationship between your social media accounts and 'this side' of you?",
+    chapter: "social",
+    dimension: "EX",
+    text: "你的社交媒体使用方式更接近？",
+    textEn: "Which best describes how you use social media?",
     options: [
-      { label: "A", text: "就是同一个账号，我就是我，没什么好藏的。", textEn: "Same account—I am who I am, nothing to hide here.", score: { EW: 3, GL: 1 } },
-      { label: "B", text: "有单独的账号，但也算是半公开的，不是特别怕被发现。", textEn: "Have a separate account, but it's semi-public—not particularly afraid of being found out.", score: { EW: 0 } },
-      { label: "C", text: "严格隔离，或者我不在社交媒体上展示任何相关的部分。", textEn: "Strictly separated, or I don't show any related parts on social media.", score: { EW: -3, GL: -1 } }
+      { label: "A", text: "主号什么都发，生活就是公开的。", textEn: "One main account—I post whatever, my life is public.", score: { EX: 2, SO: 1 } },
+      { label: "B", text: "分账号，不同圈子看不同内容。", textEn: "Separate accounts—different circles see different things.", score: { EX: 0 } },
+      { label: "C", text: "基本只看不发，当观众挺舒服。", textEn: "Mostly watch, rarely post—being an audience is comfortable.", score: { EX: -2 } }
     ]
   },
   {
     id: 26,
-    dimension: "EW",
-    text: "和新认识的朋友聊得很投缘，对方问起你有没有什么不为人知的一面，你怎么回？",
-    textEn: "You're getting along well with a new friend, and they ask if you have a side that not many people know about—how do you respond?",
+    chapter: "social",
+    dimension: "EX",
+    text: "新认识的朋友问你平时喜欢什么，你会？",
+    textEn: "A new friend asks what you're into. What do you do?",
     options: [
-      { label: "A", text: "会直接说我这方面的情况，对方愿意听的话也可以多聊一点。", textEn: "Will directly talk about this aspect of myself, and if they're willing to listen, can chat a bit more.", score: { EW: 3 } },
-      { label: "B", text: "先含糊带过，如果对方继续问再考虑说多少，或者等更熟了再说。", textEn: "First be vague about it, and if they keep asking then consider how much to share, or wait until we're closer.", score: { EW: 0 } },
-      { label: "C", text: "不会说，或者目前没有打算和刚认识的人聊这些。", textEn: "Won't say, or currently have no plans to talk about this with someone I just met.", score: { EW: -3 } }
+      { label: "A", text: "热情安利，能聊半小时。", textEn: "Enthusiastically recommend things—I could talk for half an hour.", score: { EX: 2, SO: 1 } },
+      { label: "B", text: "简单说两句，看对方感不感兴趣。", textEn: "Mention a couple of things and see if they're interested.", score: { EX: 0 } },
+      { label: "C", text: "先反问对方，听听再说。", textEn: "Ask them first and listen before sharing.", score: { EX: -1, AN: 1 } }
     ]
   },
   {
     id: 27,
-    dimension: "DK",
-    text: "遇到困难的时候，你第一步是？",
-    textEn: "When facing difficulties, what's your first step?",
+    chapter: "social",
+    dimension: "AN",
+    text: "遇到一个棘手的难题，你第一步是？",
+    textEn: "When you hit a tricky problem, what's your first step?",
     options: [
-      { label: "A", text: "发给几个信任的朋友，寻求支持，群策群力。", textEn: "Send to a few trusted friends, seek support, brainstorm together.", score: { DK: 3, SH: 1 } },
-      { label: "B", text: "先自己想，想不通了再问，不到最后不求人。", textEn: "Think by myself first, ask if can't figure it out—don't ask for help unless last resort.", score: { DK: 0 } },
-      { label: "C", text: "查资料、找文献、自己研究，我就是自己的专家。", textEn: "Look up information, find literature, research by myself—I'm my own expert.", score: { DK: -3, TN: 1 } }
+      { label: "A", text: "先自己查资料、做功课。", textEn: "Research it and do my homework first.", score: { AN: 2, PL: 1 } },
+      { label: "B", text: "先问朋友，边聊边想。", textEn: "Ask a friend and think it through while talking.", score: { AN: 0 } },
+      { label: "C", text: "找人一起想办法，人多思路多。", textEn: "Get people together—more heads, more ideas.", score: { AN: -1, SO: 2 } }
     ]
   },
   {
     id: 28,
-    dimension: "TN",
-    text: "你有没有研究过关于跨性别相关的学术文章或心理学资料？",
-    textEn: "Have you researched academic articles or psychological materials about transgender topics?",
+    chapter: "social",
+    dimension: "CU",
+    text: "刷到一个完全陌生领域的资料，你会？",
+    textEn: "You come across material from a completely unfamiliar field. What do you do?",
     options: [
-      { label: "A", text: "没有，自己的感觉和经验就够了，不需要学术背书。", textEn: "No. My own feelings and experience are enough—don't need academic validation.", score: { TN: -3 } },
-      { label: "B", text: "看过一些科普文章，没到学术文献的程度。", textEn: "Read some popular science articles, not to the level of academic literature.", score: { TN: 0 } },
-      { label: "C", text: "深入研究过，有收藏夹和笔记，还能引用具体文献。", textEn: "Research thoroughly. Have bookmarks and notes, can cite specific literature.", score: { TN: 3 } }
+      { label: "A", text: "立刻点进去，顺着链接越看越远。", textEn: "Click in immediately and follow the links down a rabbit hole.", score: { CU: 2, AN: 1 } },
+      { label: "B", text: "先收藏，有空再看。", textEn: "Save it for later.", score: { CU: 0 } },
+      { label: "C", text: "不太感兴趣，除非跟当前的事有关。", textEn: "Not very interested unless it's relevant to what I'm doing.", score: { CU: -2 } }
     ]
   },
   {
     id: 29,
-    dimension: "AI",
-    text: "出门前照镜子，你通常会？",
-    textEn: "Looking in the mirror before going out—what do you usually do?",
+    chapter: "social",
+    dimension: "RT",
+    text: "出门前，你有固定的「小仪式」吗？",
+    textEn: "Do you have a fixed little ritual before going out?",
     options: [
-      { label: "A", text: "反复确认每个细节，头发、妆容、穿搭，有一处不满意就浑身不自在，改到满意为止。", textEn: "Check every detail repeatedly—hair, makeup, outfit. One imperfection makes me uncomfortable, fix it until satisfied.", score: { AI: 3 } },
-      { label: "B", text: "大概看一眼，差不多就行，又不是去选美。", textEn: "Quick glance—good enough, it's not a beauty pageant.", score: { AI: 0 } },
-      { label: "C", text: "照镜子？出门前看一眼确认没把衣服穿反就行了。", textEn: "Mirror? Just check my clothes aren't inside out and I'm good.", score: { AI: -3 } }
-    ]
-  },
-  {
-    id: 30,
-    dimension: "GL",
-    text: "你以女孩子状态生活的频率是？",
-    textEn: "How often do you live as your feminine self?",
-    options: [
-      { label: "A", text: "每天，这不是特殊模式，这就是我的正常生活。", textEn: "Every day. This isn't a special mode—this is my normal life.", score: { GL: 3 } },
-      { label: "B", text: "有机会就是，没机会就等，不强求。", textEn: "When there's opportunity yes, no opportunity wait—don't force it.", score: { GL: 0 } },
-      { label: "C", text: "很少或者没有，目前还没有这样的生活状态。", textEn: "Rarely or never—don't have this lifestyle yet.", score: { GL: -3 } }
-    ]
-  },
-  {
-    id: 31,
-    dimension: "CF",
-    text: "你对待'维护自己状态'这件事的态度？",
-    textEn: "What's your attitude towards 'maintaining your presentation'?",
-    options: [
-      { label: "A", text: "长期投入，日复一日，没有假期，效果是积累出来的。", textEn: "Long-term investment, day after day, no days off—results come from accumulation.", score: { CF: 3, GL: 1 } },
-      { label: "B", text: "尽量维护，但不会为了它牺牲太多，有比它更重要的事。", textEn: "Try to maintain, but won't sacrifice too much for it—there are more important things.", score: { CF: 0, GL: 0 } },
-      { label: "C", text: "什么时候想起来什么时候弄，这件事不需要变成负担。", textEn: "Do it when I think of it—this doesn't need to become a burden.", score: { CF: -3, GL: -1 } }
-    ]
-  },
-  {
-    id: 32,
-    dimension: "GL",
-    text: "一整个月都没机会做自己理想中的样子，你会？",
-    textEn: "A whole month without chance to be your ideal self—what do you do?",
-    options: [
-      { label: "A", text: "非常难受，我会感到心里空空的。", textEn: "Very uncomfortable. I feel empty inside.", score: { GL: 3 } },
-      { label: "B", text: "有点难受，但还能接受，等有机会再说。", textEn: "A bit uncomfortable, but can accept it—wait for opportunity.", score: { GL: 0 } },
-      { label: "C", text: "没什么，我心里知道我是谁，不需要靠外在表达。", textEn: "It's fine. I know who I am inside—don't need external expression.", score: { GL: -3 } }
+      { label: "A", text: "有，不做完这套流程就出不了门。", textEn: "Yes—I can't leave until I've finished the routine.", score: { RT: 2, AE: 1, PL: 1 } },
+      { label: "B", text: "看时间，充裕就慢慢来。", textEn: "Depends on time—if I have it, I take it slow.", score: { RT: 0 } },
+      { label: "C", text: "没什么仪式，拿上东西就走。", textEn: "No ritual—grab my things and go.", score: { RT: -2, PL: -1 } }
     ]
   },
 
   // ===== 未来篇 =====
 
   {
-    id: 33,
-    dimension: "GL",
-    text: "如果明天全世界都接受你了，你第一件事做什么？",
-    textEn: "If the whole world accepts you tomorrow—what do you do first?",
+    id: 30,
+    chapter: "future",
+    dimension: "AE",
+    text: "日常出门时，你会花多少心思在搭配上？",
+    textEn: "On a normal day out, how much thought do you put into your outfit?",
     options: [
-      { label: "A", text: "打扮成最想成为的样子出门，不用再顾虑任何人。", textEn: "Dress up as who I most want to be and go out—no more worrying about anyone.", score: { GL: 3, PR: 1 } },
-      { label: "B", text: "大概还是照常过日子，但心里会轻松很多。", textEn: "Probably still live as usual, but feel much more relaxed inside.", score: { GL: 0 } },
-      { label: "C", text: "不一定有变化，我本来就不太在意外界的看法，或者没什么特别需要被接受的事。", textEn: "Might not change. I don't really care about others' opinions anyway, or nothing special needs accepting.", score: { GL: -1 } }
+      { label: "A", text: "每天都会认真想穿什么、怎么搭。", textEn: "Every day I think carefully about what to wear and how to combine it.", score: { AE: 2, RT: 1, IM: 1 } },
+      { label: "B", text: "看场合，重要日子会认真。", textEn: "Depends on the occasion—I make an effort for important days.", score: { AE: 0 } },
+      { label: "C", text: "舒服优先，搭配不是重点。", textEn: "Comfort first—matching isn't the priority.", score: { AE: -2 } }
+    ]
+  },
+  {
+    id: 31,
+    chapter: "future",
+    dimension: "PL",
+    text: "对待一个长期爱好，你通常？",
+    textEn: "How do you usually handle a long-term hobby?",
+    options: [
+      { label: "A", text: "有固定的投入节奏，会记录进展。", textEn: "I keep a steady rhythm and track my progress.", score: { PL: 2, CU: 1, RT: 1 } },
+      { label: "B", text: "想起来就做，忙了就停。", textEn: "I do it when I remember and pause when busy.", score: { PL: 0 } },
+      { label: "C", text: "兴趣换得快，很少长期投入一项。", textEn: "My interests rotate quickly—I rarely stick with one for long.", score: { PL: -2, CU: 1 } }
+    ]
+  },
+  {
+    id: 32,
+    chapter: "future",
+    dimension: "MO",
+    text: "整整一个月没时间做自己喜欢的事，你会？",
+    textEn: "If you had no time for what you love for a whole month, how would you feel?",
+    options: [
+      { label: "A", text: "会明显低落，感觉生活少了点什么。", textEn: "Noticeably down—something would feel missing.", score: { MO: 2, IM: 1 } },
+      { label: "B", text: "有点想念，但能等。", textEn: "I'd miss it a bit, but I can wait.", score: { MO: 0 } },
+      { label: "C", text: "还好，忙别的也能过得不错。", textEn: "Fine—I can enjoy other things too.", score: { MO: -2, AN: 1 } }
+    ]
+  },
+  {
+    id: 33,
+    chapter: "future",
+    dimension: "EX",
+    text: "如果外界的评价突然都消失了，你会？",
+    textEn: "If outside opinions suddenly disappeared, what would you do?",
+    options: [
+      { label: "A", text: "会更敢表达，想尝试一直没试的风格。", textEn: "I'd express myself more freely and try styles I've held back on.", score: { EX: 2, IM: 1 } },
+      { label: "B", text: "生活大概照旧，只是心里轻松点。", textEn: "Life would mostly stay the same—just lighter inside.", score: { EX: 0 } },
+      { label: "C", text: "本来就不太看外界，影响不大。", textEn: "I don't pay much attention to outside opinions anyway.", score: { EX: -1, AN: 1 } }
     ]
   },
   {
     id: 34,
-    dimension: "PR",
-    text: "对你来说'做自己'最重要的是？",
-    textEn: "For you, what's most important about 'being yourself'?",
+    chapter: "future",
+    dimension: "IM",
+    text: "对你来说，「做自己」最重要的是？",
+    textEn: "For you, what matters most about 'being yourself'?",
     options: [
-      { label: "A", text: "活出我内心的样子，不管外界标准，我想美就美，想梦幻就梦幻。", textEn: "Live as my inner self—regardless of external standards. I want to be beautiful, I want to be dreamy.", score: { PR: 3 } },
-      { label: "B", text: "在现实和内心之间找到平衡，不必走极端。", textEn: "Find balance between reality and inner self—don't need to go to extremes.", score: { PR: 0 } },
-      { label: "C", text: "理性认识自己，不欺骗自己，也不给自己制造不必要的幻想。", textEn: "Know myself rationally—don't deceive myself, don't create unnecessary fantasies.", score: { PR: -3, TN: 1 } }
+      { label: "A", text: "跟着内心审美走，喜欢什么就靠近什么。", textEn: "Follow my inner sense of beauty—move toward what I love.", score: { IM: 2, AE: 1 } },
+      { label: "B", text: "在现实和内心之间找平衡。", textEn: "Find a balance between reality and inner self.", score: { IM: 0 } },
+      { label: "C", text: "先看清现实条件，再做选择。", textEn: "Understand the real constraints first, then choose.", score: { IM: -2, AN: 1 } }
     ]
   },
   {
     id: 35,
-    dimension: "XZ",
-    text: "你有没有认真想过五年后你的状态是什么样的？",
-    textEn: "Have you seriously thought about what your life will look like in five years?",
+    chapter: "future",
+    dimension: "PL",
+    text: "你有没有认真想过五年后的自己？",
+    textEn: "Have you seriously thought about who you'll be in five years?",
     options: [
-      { label: "A", text: "有，而且有清晰的目标和路径，并定期回顾执行情况。", textEn: "Yes, and have clear goals and paths, regularly review progress.", score: { XZ: 3 } },
-      { label: "B", text: "大概想过，但不会太具体，以后的事以后说。", textEn: "Thought about it roughly, but not too specific—future things future me will handle.", score: { XZ: 0 } },
-      { label: "C", text: "没有，未来是不确定的，计划没有变化快，我不做这种规划。", textEn: "No. Future is uncertain, plans can't keep up with change—I don't make this kind of plans.", score: { XZ: -3 } }
+      { label: "A", text: "有清晰目标，也知道大概怎么走。", textEn: "Yes—clear goals and a rough sense of the path.", score: { PL: 2, AN: 1 } },
+      { label: "B", text: "大概想过，但不写死。", textEn: "Roughly, but I don't lock it in.", score: { PL: 0 } },
+      { label: "C", text: "不爱做长期计划，留点未知才有意思。", textEn: "I don't like long-term plans—a little uncertainty is fun.", score: { PL: -2, CU: 1 } }
     ]
   },
   {
     id: 36,
-    dimension: "MB",
-    text: "最近一次在'变美/变女孩子'这件事上的最大单笔消费是多少？",
-    textEn: "What was your biggest single purchase recently for 'becoming more beautiful/becoming a girl'?",
+    chapter: "future",
+    dimension: "AE",
+    text: "遇到真正喜欢的东西，你通常会？",
+    textEn: "When you find something you truly love, what do you usually do?",
     options: [
-      { label: "A", text: "几千块以上，这算正常，不算什么特别的。", textEn: "Over a few thousand yuan—this is normal, nothing special.", score: { MB: 3 } },
-      { label: "B", text: "几百块，有计划有节制，偶尔超一点。", textEn: "A few hundred yuan—planned and controlled, occasionally go over a bit.", score: { MB: 0 } },
-      { label: "C", text: "没有这方面的消费，或者目前不在这上面花钱。", textEn: "No purchases in this area, or currently not spending money on this.", score: { MB: -3 } }
+      { label: "A", text: "会为它单独留预算，觉得值。", textEn: "Set aside a budget for it—it's worth it.", score: { AE: 2, PL: 1 } },
+      { label: "B", text: "量力而行，偶尔奖励自己。", textEn: "Spend within my means and reward myself occasionally.", score: { AE: 0 } },
+      { label: "C", text: "更愿意把钱花在体验或别的地方。", textEn: "I'd rather spend on experiences or other things.", score: { AE: -2, CU: 1 } }
     ]
   },
   {
     id: 37,
-    dimension: "XZ",
-    text: "关于身体改变（吃糖、手术等），你的态度是？",
-    textEn: "Regarding physical changes (HRT, surgery, etc.)—what's your attitude?",
+    chapter: "future",
+    dimension: "PL",
+    text: "想长期改变一种生活方式（比如作息、运动、兴趣），你会？",
+    textEn: "If you wanted to change a long-term habit (sleep, exercise, a hobby), what would you do?",
     options: [
-      { label: "A", text: "已经在进行/有计划，每个步骤都查好了资料、定好了时间。", textEn: "Already in progress/have plans—researched every step and set timelines.", score: { XZ: 3 } },
-      { label: "B", text: "考虑过，但还没决定，还在收集信息。", textEn: "Thought about it, but haven't decided—still gathering information.", score: { XZ: 0 } },
-      { label: "C", text: "不考虑，或者这不是我目前需要面对的问题。", textEn: "Not considering, or this isn't something I need to face right now.", score: { XZ: -3 } }
+      { label: "A", text: "查资料、定计划，按阶段执行。", textEn: "Research it, make a plan, and follow it in stages.", score: { PL: 2, AN: 1 } },
+      { label: "B", text: "边做边调整，不追求完美方案。", textEn: "Start and adjust as I go—no perfect plan needed.", score: { PL: 0 } },
+      { label: "C", text: "顺其自然，不太想给自己上强度。", textEn: "Let it happen naturally—I don't want to push myself too hard.", score: { PL: -2 } }
     ]
   },
   {
     id: 38,
-    dimension: "XZ",
-    text: "你对'现在的自己'的整体态度是？",
-    textEn: "What's your overall attitude towards 'your current self'?",
+    chapter: "future",
+    dimension: "MO",
+    text: "你对「现在的自己」的整体态度是？",
+    textEn: "What's your overall attitude toward your current self?",
     options: [
-      { label: "A", text: "满意，我在按计划进行，阶段性成果可见。", textEn: "Satisfied. I'm progressing according to plan—phased results visible.", score: { XZ: 1 } },
-      { label: "B", text: "还行，有些地方不满意但接受过程，慢慢来。", textEn: "It's okay. Some areas aren't satisfied but accept the process—take it slow.", score: { XZ: 0 } },
-      { label: "C", text: "模糊，不想太具体地评价，评价了就要行动，行动了就要负责。", textEn: "Vague. Don't want to evaluate too specifically—once you evaluate, you must act; once you act, you must take responsibility.", score: { XZ: -3 } }
+      { label: "A", text: "挺满意，能看到自己一步步的变化。", textEn: "Pretty satisfied—I can see how I've changed step by step.", score: { MO: 1, PL: 1 } },
+      { label: "B", text: "有满意也有想改的，慢慢来。", textEn: "Some things I like, some I want to change—taking it slow.", score: { MO: 0 } },
+      { label: "C", text: "不太想现在评价，先过着再说。", textEn: "I'd rather not evaluate it right now—just live for a while.", score: { MO: 0, AN: -1 } }
     ]
   },
   {
     id: 39,
-    dimension: "PR",
-    text: "最后一题：你做这个测试的原因是？",
-    textEn: "Last question: Why are you taking this test?",
+    chapter: "future",
+    dimension: "HU",
+    nonScoring: true,
+    text: "最后一题：你为什么点进这个测试？",
+    textEn: "Last question: why did you click into this quiz?",
     options: [
-      { label: "A", text: "我想了解自己是哪种类型，对自我探索很感兴趣。", textEn: "I want to know what type I am—very interested in self-exploration.", score: { EW: 1, PR: 1 } },
-      { label: "B", text: "无聊，打发时间，朋友发来的，随便做做。", textEn: "Bored, killing time—friend sent it, just taking it casually.", score: { DK: 0, PR: 0 } },
-      { label: "C", text: "只是好奇点进来的，感觉这些题跟我关系不大。（但你做到最后一题了）", textEn: "Just clicked in out of curiosity—feel these questions don't relate to me much. (But you made it to the last question)", score: { EW: -1, PR: -1 } }
+      { label: "A", text: "想看看自己像哪种角色，图一乐。", textEn: "I wanted to see which character I resemble—just for fun.", score: {} },
+      { label: "B", text: "朋友发来的，随便做做。", textEn: "A friend sent it—I'm doing it casually.", score: {} },
+      { label: "C", text: "好奇点进来，看看这玩意到底准不准。", textEn: "Curiosity brought me here—let's see how accurate it is.", score: {} }
     ]
   }
 
 ];
 
-if (typeof module !== 'undefined') {
-  module.exports = { QUESTIONS };
+if (typeof module !== "undefined") {
+  module.exports = { QUESTIONS, QUESTION_SET_VERSION };
 }
