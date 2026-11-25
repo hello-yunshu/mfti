@@ -1,17 +1,15 @@
 {
   "name": "mfti",
-  "version": "2.0.0",
-  "private": true,
-  "description": "MFTI - a lighthearted, fictional-character personality quiz",
-  "license": "GPL-3.0",
+  "version": "1.0.0",
+  "description": "MFTI - Male to Female Type Indicator",
   "scripts": {
-    "test": "node --test tests/*.test.js",
-    "check": "node --check data/questions.js && node --check data/personalities.js && node --check data/translations.js && node --check data/avatars.js && node --check js/engine.js && node --check js/app.js && node --check scripts/minify-and-version.js && node --test tests/*.test.js",
-    "build": "node scripts/minify-and-version.js --all",
-    "verify": "npm run check && npm run build && git diff --exit-code -- index.html data js css"
+    "minify": "node scripts/minify-and-version.js"
   },
   "dependencies": {
     "clean-css": "^5.3.3",
     "terser": "^5.44.0"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2"
   }
 }

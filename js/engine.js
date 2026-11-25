@@ -1,220 +1,142 @@
-// MFTI 计算引擎（确定性、纯前端、可单测）
-//
-// 分类只用四个核心轴：
-//   IM 想象浓度  -> 第 1 位 P(想象) / R(务实)
-//   SO 社交电量  -> 第 2 位 S(社交) / H(独处)
-//   AN 分析倾向  -> 第 3 位 A(分析) / W(直觉)
-//   PL 计划节奏  -> 第 4 位 E(计划) / I(即兴)
-//
-// 其余六个维度只用于结果页画像，不参与分型。
+// MFTI 计算引擎
 
 const MFTIEngine = (() => {
 
-  const SCHEMA_VERSION = 2;
-  const SCORING_VERSION = "2.0.0";
+  // 初始化分数容器
+  function initScores() {
+    return { PR: 0, SH: 0, AI: 0, EW: 0, CF: 0, DK: 0, TN: 0, MB: 0, GL: 0, XZ: 0 };
+  }
 
-  const CORE_AXES = [
-    { key: "IM", high: "P", low: "R" },
-    { key: "SO", high: "S", low: "H" },
-    { key: "AN", high: "A", low: "W" },
-    { key: "PL", high: "E", low: "I" }
-  ];
-
-  const AUX_KEYS = ["AE", "CU", "EX", "RT", "HU", "MO"];
-  const DIM_KEYS = [...CORE_AXES.map(a => a.key), ...AUX_KEYS];
-
-  // 全 B 等均衡答案的判定阈值（核心轴与 50 的最大差值）
-  const BALANCED_THRESHOLD = 8;
-  // 与第二接近角色差距小于该值时，提示「两边都像」
-  const BOUNDARY_THRESHOLD = 12;
-
-  function emptyScores() {
-    const scores = {};
-    DIM_KEYS.forEach(k => { scores[k] = 0; });
+  // 累加用户答案分数
+  function calcRawScores(answers) {
+    const scores = initScores();
+    answers.forEach(answer => {
+      if (!answer || !answer.score) return;
+      Object.entries(answer.score).forEach(([dim, val]) => {
+        if (scores[dim] !== undefined) scores[dim] += val;
+      });
+    });
     return scores;
   }
 
-  function toNumber(value) {
-    const n = Number(value);
-    return Number.isFinite(n) ? n : 0;
-  }
+  // 每个维度的实际分数范围（基于题目分析）
+  // key: [min, max] — 用于更精确的归一化
+  const DIM_RANGES = {
+    PR: [-16, 17],  SH: [-15, 17],  AI: [-15, 16],  EW: [-16, 16],
+    CF: [-9, 9],    DK: [-7, 7],    TN: [-11, 12],  MB: [-10, 10],
+    GL: [-10, 12],  XZ: [-10, 8]
+  };
 
-  // 累加答案分数，并同时计算「已作答题目」的可达范围。
-  // 未作答 / 不适用 / 未知题目不会贡献负分，也不会把范围算进去。
-  function calcScores(answers, questions) {
-    const raw = emptyScores();
-    const min = emptyScores();
-    const max = emptyScores();
-    const list = Array.isArray(answers) ? answers : [];
-    let answered = 0;
-
-    list.forEach((answer, index) => {
-      const question = questions[index];
-      if (!question || !Array.isArray(question.options) || !answer) return;
-      if (!answer.score || typeof answer.score !== "object") return;
-      answered += 1;
-
-      DIM_KEYS.forEach(key => {
-        if (Object.prototype.hasOwnProperty.call(answer.score, key)) {
-          raw[key] += toNumber(answer.score[key]);
-        }
-
-        let low = Infinity;
-        let high = -Infinity;
-        question.options.forEach(option => {
-          const value = option && option.score ? toNumber(option.score[key]) : 0;
-          if (value < low) low = value;
-          if (value > high) high = value;
-        });
-        if (Number.isFinite(low)) min[key] += low;
-        if (Number.isFinite(high)) max[key] += high;
-      });
-    });
-
-    return { raw, min, max, answered };
-  }
-
-  // 按实际可达范围归一化到 0-100。
-  // 中间选项在所有核心轴上计 0 分，因此以 0 为中性基线：
-  // 正向得分映射到 50-100，负向得分映射到 0-50，避免不对称选项把「中间」推偏。
-  function normalizeScores(raw, min, max) {
+  // 归一化到 0-100（使用每个维度的实际范围线性映射）
+  function normalizeScores(rawScores) {
     const normalized = {};
-    DIM_KEYS.forEach(key => {
-      const low = toNumber(min[key]);
-      const high = toNumber(max[key]);
-      const value = toNumber(raw[key]);
-      const positiveRange = Math.max(0, high);
-      const negativeRange = Math.min(0, low);
-
-      if (value >= 0) {
-        normalized[key] = positiveRange > 0
-          ? Math.round(50 + (Math.min(value, positiveRange) / positiveRange) * 50)
-          : 50;
-      } else {
-        normalized[key] = negativeRange < 0
-          ? Math.round(50 - (Math.min(Math.abs(value), Math.abs(negativeRange)) / Math.abs(negativeRange)) * 50)
-          : 50;
-      }
-      normalized[key] = Math.max(0, Math.min(100, normalized[key]));
+    Object.entries(rawScores).forEach(([dim, val]) => {
+      const [min, max] = DIM_RANGES[dim] || [-8, 8];
+      const range = Math.max(max - min, 1);
+      // 线性映射 min→0, max→100
+      const norm = ((val - min) / range) * 100;
+      normalized[dim] = Math.max(0, Math.min(100, Math.round(norm)));
     });
     return normalized;
   }
 
-  // 只根据核心轴生成四字母代码
+  // 根据分数得出4字母类型
+  // 编码规则: P/R(PR) + S/H(SH) + A/W(AI) + E/I(EW)
+  // A=颜值焦虑(AI>=50) W=心态平和(AI<50) E=有出柜行为(EW>=50) I=未出柜(EW<50)
   function getTypeCode(normalized) {
-    return CORE_AXES
-      .map(axis => (toNumber(normalized[axis.key]) >= 50 ? axis.high : axis.low))
-      .join("");
+    const p = normalized.PR >= 50 ? 'P' : 'R';
+    const s = normalized.SH >= 50 ? 'S' : 'H';
+    const a = normalized.AI >= 50 ? 'A' : 'W';
+    const e = normalized.EW >= 50 ? 'E' : 'I';
+    return `${p}${s}${a}${e}`;
   }
 
-  // 角色模板距离：核心轴权重 1，辅助画像权重 0.35
-  function personalityDistance(normalized, personality) {
-    const template = personality && personality.dimensions ? personality.dimensions : {};
-    let distance = 0;
-    CORE_AXES.forEach(axis => {
-      distance += Math.abs(toNumber(normalized[axis.key]) - toNumber(template[axis.key]));
-    });
-    AUX_KEYS.forEach(key => {
-      distance += Math.abs(toNumber(normalized[key]) - toNumber(template[key])) * 0.35;
-    });
-    return distance;
-  }
-
-  function rankPersonalities(normalized, personalities) {
-    return Object.entries(personalities || {})
-      .map(([typeCode, personality]) => ({
-        typeCode,
-        personality,
-        distance: personalityDistance(normalized, personality)
-      }))
-      .sort((a, b) => {
-        if (a.distance !== b.distance) return a.distance - b.distance;
-        return a.typeCode.localeCompare(b.typeCode);
-      });
-  }
-
-  function isBalanced(normalized) {
-    return CORE_AXES.every(axis => Math.abs(toNumber(normalized[axis.key]) - 50) <= BALANCED_THRESHOLD);
-  }
-
-  // 主入口
-  // answers: 与 QUESTIONS 同序的选项对象数组（可为 null）
-  // options: { questions, personalities, questionSetVersion }
-  function calculate(answers, options = {}) {
-    const questions = options.questions || (typeof QUESTIONS !== "undefined" ? QUESTIONS : []);
-    const personalities = options.personalities || (typeof PERSONALITIES !== "undefined" ? PERSONALITIES : {});
-    const questionSetVersion = options.questionSetVersion
-      || (typeof QUESTION_SET_VERSION !== "undefined" ? QUESTION_SET_VERSION : "unknown");
-
-    const { raw, min, max, answered } = calcScores(answers, questions);
-    const normalized = normalizeScores(raw, min, max);
-    const balanced = isBalanced(normalized);
-    const ranked = rankPersonalities(normalized, personalities);
-
-    const letters = getTypeCode(normalized);
-    let chosen = balanced ? ranked[0] : null;
-
-    if (!chosen) {
-      const exact = personalities[letters];
-      if (exact) {
-        chosen = { typeCode: letters, personality: exact, distance: personalityDistance(normalized, exact) };
-      } else {
-        chosen = ranked[0] || null;
-      }
+  // 计算4字母编码差异
+  function calcLetterDiff(code1, code2) {
+    let diff = 0;
+    for (let i = 0; i < 4; i++) {
+      if (code1[i] !== code2[i]) diff++;
     }
+    return diff;
+  }
 
-    const others = ranked.filter(item => !chosen || item.typeCode !== chosen.typeCode);
-    const topMatches = others.slice(0, 3).map(item => ({
-      typeCode: item.typeCode,
-      distance: Math.round(item.distance)
-    }));
+  // 相似度得分（4字母编码优先 + 维度距离微调）
+  // 核心思路：4字母编码决定人格大类，相似度排序必须先尊重编码差异
+  // 基础分按字母差异分层：差0→100, 差1→80, 差2→60, 差3→40, 差4→20
+  // 核心维度(PR/SH/AI/EW)距离用于同层排序，辅助维度微调
+  function getSimilarityScore(userCode, userNorm, targetCode, personality) {
+    const pDims = personality.dimensions;
+    const coreKeys = ['PR', 'SH', 'AI', 'EW'];
+    const auxKeys = ['CF', 'DK', 'TN', 'MB', 'GL', 'XZ'];
 
-    const isBoundary = Boolean(
-      chosen && others.length && Math.abs(others[0].distance - chosen.distance) <= BOUNDARY_THRESHOLD
-    );
+    // 计算字母差异
+    const letterDiff = calcLetterDiff(userCode, targetCode);
+
+    // 基础分：按字母差异分层
+    const baseScore = 100 - letterDiff * 20;
+
+    // 核心维度微调（同层内排序，最多扣14分）
+    let coreDiff = 0;
+    coreKeys.forEach(k => {
+      if (userNorm[k] !== undefined && pDims[k] !== undefined) {
+        coreDiff += Math.abs(userNorm[k] - pDims[k]);
+      }
+    });
+    const corePenalty = (coreDiff / 400) * 14;
+
+    // 辅助维度微调（最多扣6分）
+    let auxDiff = 0;
+    let auxCount = 0;
+    auxKeys.forEach(k => {
+      if (userNorm[k] !== undefined && pDims[k] !== undefined) {
+        auxDiff += Math.abs(userNorm[k] - pDims[k]);
+        auxCount++;
+      }
+    });
+    const auxAvg = auxCount > 0 ? auxDiff / auxCount : 0;
+    const auxPenalty = (auxAvg / 100) * 6;
+
+    return Math.round(Math.max(0, Math.min(100, baseScore - corePenalty - auxPenalty)));
+  }
+
+  // 计算结果
+  function calculate(answers) {
+    const raw = calcRawScores(answers);
+    const normalized = normalizeScores(raw);
+    const typeCode = getTypeCode(normalized);
+    
+    // 找出匹配人格
+    const personality = PERSONALITIES[typeCode];
+    
+    // 计算与所有类型的接近度（用于展示）
+    const similarities = {};
+    Object.entries(PERSONALITIES).forEach(([targetCode, p]) => {
+      similarities[targetCode] = getSimilarityScore(typeCode, normalized, targetCode, p);
+    });
+    
+    // 排序找出最接近的几个（包括当前人格）
+    const sorted = Object.entries(similarities)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 4);
 
     return {
-      schemaVersion: SCHEMA_VERSION,
-      scoringVersion: SCORING_VERSION,
-      questionSetVersion,
-      typeCode: chosen ? chosen.typeCode : letters,
-      personality: chosen ? chosen.personality : null,
+      typeCode,
+      personality: personality || PERSONALITIES['RHWI'], // fallback
       normalized,
       raw,
-      ranges: { min, max },
-      answeredCount: answered,
-      totalQuestions: Array.isArray(questions) ? questions.length : 0,
-      isBalanced: balanced,
-      isBoundary,
-      topMatches
+      similarities,
+      topMatches: sorted
     };
   }
 
+  // 维度标签
   function getDimLabel(dim, score) {
-    const definition = DIMENSIONS[dim];
-    if (!definition) return "";
-    if (score > 65) return definition.high;
-    if (score < 35) return definition.low;
-    return "均衡型";
+    const d = DIMENSIONS[dim];
+    if (!d) return '';
+    if (score > 70) return d.high;
+    if (score < 30) return d.low;
+    return '均衡型';
   }
 
-  return {
-    SCHEMA_VERSION,
-    SCORING_VERSION,
-    CORE_AXES,
-    AUX_KEYS,
-    DIM_KEYS,
-    calculate,
-    getDimLabel,
-    getTypeCode,
-    normalizeScores,
-    calcScores,
-    rankPersonalities,
-    personalityDistance,
-    isBalanced
-  };
+  return { calculate, getDimLabel, normalizeScores, getTypeCode };
 })();
-
-if (typeof module !== "undefined") {
-  module.exports = { MFTIEngine };
-}

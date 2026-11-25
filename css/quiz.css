@@ -303,10 +303,6 @@
   gap: 4px;
   font-size: 20px;
   font-weight: 900;
-  font-family: inherit;
-  padding: 0;
-  border: 0;
-  cursor: pointer;
   background: linear-gradient(135deg, var(--blue-primary), var(--pink-primary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -606,44 +602,6 @@
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 32px;
-}
-
-/* 均衡 / 边界提示 */
-.result-note {
-  max-width: 640px;
-  margin: 0 auto 20px;
-  padding: 12px 18px;
-  border: 1px dashed var(--border);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.72);
-  color: var(--text-sub);
-  font-size: 13px;
-  line-height: 1.7;
-  text-align: center;
-}
-
-.dimensions-hint {
-  margin: -8px 0 18px;
-  color: var(--text-sub);
-  font-size: 12px;
-  line-height: 1.6;
-  opacity: 0.85;
-}
-
-/* 键盘焦点可见 */
-button:focus-visible,
-a:focus-visible {
-  outline: 2px solid var(--pink-primary);
-  outline-offset: 3px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .sakura-petal { display: none; }
-  .landing-logo,
-  .petal-1,
-  .petal-veins,
-  .stamen { animation: none !important; }
-  .dim-bar-fill { transition: none; }
 }
 
 /* 加载动画 */

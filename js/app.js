@@ -1,256 +1,234 @@
-"use strict";
+'use strict';
 
 // MFTI 主应用逻辑
-// 结果默认只保存在当前会话内存中；用户明确点击「保存到本机」后才写入 localStorage。
 
 const App = (() => {
-
-  const STORAGE_RESULT_KEY = "mfti_result";
-  const STORAGE_LANG_KEY = "mfti_lang";
-  const CURRENT_SCHEMA = 2;
-  const AUTO_ADVANCE_MS = 320;
 
   let currentQ = 0;
   let answers = [];
   let result = null;
-  let resultSaved = false;
   let currentLang;
-  let advanceTimer = null;
-  let lastFocusedElement = null;
-  let toastTimer = null;
 
-  // ---------- 存储 ----------
-
+  // 安全地获取 localStorage 值
   function safeGetStorage(key, defaultValue) {
     try {
       const value = localStorage.getItem(key);
       return value !== null ? value : defaultValue;
     } catch (e) {
-      console.warn("Failed to read localStorage:", e);
+      console.warn('Failed to get from localStorage:', e);
       return defaultValue;
     }
   }
 
+  // 安全地设置 localStorage 值
   function safeSetStorage(key, value) {
     try {
       localStorage.setItem(key, value);
       return true;
     } catch (e) {
-      console.warn("Failed to write localStorage:", e);
+      console.warn('Failed to set to localStorage:', e);
       return false;
     }
   }
 
-  function safeRemoveStorage(key) {
-    try {
-      localStorage.removeItem(key);
-      return true;
-    } catch (e) {
-      console.warn("Failed to remove localStorage:", e);
-      return false;
-    }
-  }
+  // 初始化当前语言
+  currentLang = safeGetStorage('mfti_lang', 'zh');
 
-  currentLang = safeGetStorage(STORAGE_LANG_KEY, "zh");
-
-  // ---------- 语言 ----------
-
+  // 获取多语言人格数据
   function getPersonalityText(p, field) {
-    const enField = field + "En";
-    return currentLang === "en" && p[enField] ? p[enField] : p[field];
+    const enField = field + 'En';
+    return currentLang === 'en' && p[enField] ? p[enField] : p[field];
   }
 
+  // 获取多语言题目数据
   function getQuestionText(q, field) {
-    const enField = field + "En";
-    return currentLang === "en" && q[enField] ? q[enField] : q[field];
+    const enField = field + 'En';
+    return currentLang === 'en' && q[enField] ? q[enField] : q[field];
   }
 
+  // 获取人格名称（按语言优先级）
   function getPersonalityNames(p) {
     return {
-      primary: currentLang === "en" ? p.nameEn : p.name,
-      secondary: currentLang === "en" ? p.name : p.nameEn
+      primary: currentLang === 'en' ? p.nameEn : p.name,
+      secondary: currentLang === 'en' ? p.name : p.nameEn
     };
   }
 
-  function getPersonalityTags(p) {
-    if (currentLang === "en" && Array.isArray(p.tagsEn) && p.tagsEn.length === p.tags.length) {
-      return p.tagsEn;
-    }
-    return p.tags;
-  }
-
-  function t(key) {
-    if (typeof TRANSLATIONS === "undefined" || !TRANSLATIONS[currentLang]) return "";
-    const keys = key.split(".");
-    let value = TRANSLATIONS[currentLang];
-    for (const k of keys) {
-      if (value && value[k] !== undefined) {
-        value = value[k];
-      } else {
-        return "";
-      }
-    }
-    return value;
-  }
-
+  // 辅助：更新单个元素文本
   function updateText(selectorOrEl, key) {
-    const el = typeof selectorOrEl === "string" ? document.querySelector(selectorOrEl) : selectorOrEl;
+    const el = typeof selectorOrEl === 'string' ? document.querySelector(selectorOrEl) : selectorOrEl;
     const translated = t(key);
-    if (el && translated) el.textContent = translated;
+    if (el && translated) {
+      el.textContent = translated;
+    }
   }
 
+  // 辅助：更新多个元素文本
   function updateTexts(selector, keys) {
-    document.querySelectorAll(selector).forEach((el, i) => {
+    const els = document.querySelectorAll(selector);
+    els.forEach((el, i) => {
       const translated = t(keys[i]);
       if (translated) el.textContent = translated;
     });
   }
 
+  // 辅助：更新元素 HTML
   function updateHTML(selectorOrEl, key) {
-    const el = typeof selectorOrEl === "string" ? document.querySelector(selectorOrEl) : selectorOrEl;
+    const el = typeof selectorOrEl === 'string' ? document.querySelector(selectorOrEl) : selectorOrEl;
     const translated = t(key);
-    if (el && translated) el.innerHTML = translated;
+    if (el && translated) {
+      el.innerHTML = translated;
+    }
   }
 
+  // 辅助：更新多个段落
   function updateParagraphs(selector, key) {
     const el = document.querySelector(selector);
     const texts = t(key);
-    if (el && Array.isArray(texts)) {
-      el.innerHTML = texts.map(p => `<p>${p}</p>`).join("");
+    if (el && texts && Array.isArray(texts)) {
+      el.innerHTML = texts.map(p => `<p>${p}</p>`).join('');
     }
   }
 
+  // 设置语言
   function setLanguage(lang) {
     currentLang = lang;
-    safeSetStorage(STORAGE_LANG_KEY, lang);
-    document.documentElement.lang = lang === "en" ? "en" : "zh-CN";
-
-    const langBtn = document.getElementById("lang-switch");
+    safeSetStorage('mfti_lang', lang);
+    
+    // 更新语言切换按钮
+    const langBtn = document.getElementById('lang-switch');
     if (langBtn) {
-      langBtn.textContent = lang === "zh" ? "🌐 English" : "🌐 中文";
-      langBtn.setAttribute("aria-label", lang === "zh" ? "Switch to English" : "切换到中文");
+      langBtn.textContent = lang === 'zh' ? '🌐 English' : '🌐 中文';
     }
-
-    if (typeof TRANSLATIONS !== "undefined") updateAllTexts();
+    
+    // 只有在 TRANSLATIONS 可用时才更新其他内容
+    if (typeof TRANSLATIONS !== 'undefined') {
+      updateAllTexts();
+    }
   }
 
+  // 切换语言
   function toggleLanguage() {
-    clearAdvanceTimer();
-    setLanguage(currentLang === "zh" ? "en" : "zh");
+    setLanguage(currentLang === 'zh' ? 'en' : 'zh');
   }
 
-  function updateAllTexts() {
-    if (typeof TRANSLATIONS === "undefined" || !TRANSLATIONS[currentLang]) return;
-
-    document.title = t("pageTitle");
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute("content", t("metaDescription"));
-
-    updateText(".landing-subtitle", "subtitle");
-    updateHTML(".landing-desc", "description");
-    updateTexts(".stat-label", ["statLabels.0", "statLabels.1", "statLabels.2", "statLabels.3"]);
-    updateText("#btn-start", "startBtn");
-    updateText("#btn-show-result", "showResultBtn");
-    updateText(".landing-note", "disclaimerNote");
-
-    updateText(".modal-title", "disclaimerTitle");
-    updateParagraphs(".disclaimer-text", "disclaimerText");
-    updateText(".modal-actions .btn-secondary", "disagreeBtn");
-    updateText(".modal-actions .btn-primary", "agreeBtn");
-
-    updateText("#btn-prev", "prevBtn");
-    updateText("#btn-next", "nextBtn");
-    updateText("#btn-submit", "submitBtn");
-
-    const quizBrand = document.querySelector(".quiz-brand");
-    if (quizBrand && t("backHomeAria")) quizBrand.setAttribute("aria-label", t("backHomeAria"));
-    const progressWrap = document.getElementById("progress-wrap");
-    if (progressWrap && t("progressAria")) progressWrap.setAttribute("aria-label", t("progressAria"));
-
-    updateText("#btn-share", "shareBtn");
-    updateText("#btn-copy", "copyBtn");
-    updateText("#btn-save", "saveBtn");
-    updateText("#btn-retake", "retakeBtn");
-    updateText("#btn-delete-result", "deleteResultBtn");
-    updateText("#btn-delete-result-page", "deleteResultBtn");
-    updateText("#btn-all-personalities", "allPersonalitiesBtn");
-    updateHTML(".result-footer-note", "footerNote");
-
-    updateText(".all-personalities-header h1", "allPersonalitiesTitle");
-    updateText(".all-personalities-header .subtitle", "allPersonalitiesSubtitle");
-    updateText(".all-personalities-header .btn", "backBtn");
-
-    const quizPage = document.getElementById("page-quiz");
-    if (quizPage && !quizPage.classList.contains("hidden")) renderQuestion(currentQ);
-
-    const personalitiesPage = document.getElementById("page-all-personalities");
-    if (personalitiesPage && !personalitiesPage.classList.contains("hidden")) renderAllPersonalities();
-
-    const footerAuthorLabel = document.getElementById("footer-author-label");
-    if (footerAuthorLabel && t("footerAuthor")) {
-      footerAuthorLabel.textContent = t("footerAuthor");
-      footerAuthorLabel.classList.toggle("by-label", t("footerAuthor") === "By ");
+  // 获取当前语言的翻译
+  function t(key) {
+    // 如果 TRANSLATIONS 还未加载，返回空字符串或默认值
+    if (typeof TRANSLATIONS === 'undefined' || !TRANSLATIONS[currentLang]) {
+      return '';
     }
+    const keys = key.split('.');
+    let value = TRANSLATIONS[currentLang];
+    for (const k of keys) {
+      if (value && value[k] !== undefined) {
+        value = value[k];
+      } else {
+        return '';
+      }
+    }
+    return value;
+  }
 
-    const resultPage = document.getElementById("page-result");
-    if (resultPage && result && !resultPage.classList.contains("hidden")) {
+  // 更新所有文本内容
+  function updateAllTexts() {
+    if (typeof TRANSLATIONS === 'undefined' || !TRANSLATIONS[currentLang]) return;
+    
+    document.title = t('pageTitle');
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', t('metaDescription'));
+    
+    // 更新首页
+    updateText('.landing-subtitle', 'subtitle');
+    updateHTML('.landing-desc', 'description');
+    updateTexts('.stat-label', ['statLabels.0', 'statLabels.1', 'statLabels.2', 'statLabels.3']);
+    updateText('#page-landing .btn-primary', 'startBtn');
+    updateText('#btn-show-result', 'showResultBtn');
+    updateText('#page-landing p[style*="font-size:12px"]', 'disclaimerNote');
+    
+    // 更新免责声明
+    updateText('.modal-title', 'disclaimerTitle');
+    updateParagraphs('.disclaimer-text', 'disclaimerText');
+    updateText('.modal-actions .btn-secondary', 'disagreeBtn');
+    updateText('.modal-actions .btn-primary', 'agreeBtn');
+    
+    // 更新测试页按钮
+    updateText('#btn-prev', 'prevBtn');
+    updateText('#btn-next', 'nextBtn');
+    updateText('#btn-submit', 'submitBtn');
+    
+    // 更新计算页面
+    updateText('.calc-subtext', 'calcSubtext');
+    // 初始化计算文本为第一个翻译
+    const calcEl = document.getElementById('calc-text');
+    const calcTexts = t('calcTexts');
+    if (calcEl && calcTexts && calcTexts.length > 0) {
+      calcEl.textContent = calcTexts[0];
+    }
+    
+    // 更新结果页
+    updateText('.result-actions .btn-primary', 'shareBtn');
+    const retakeBtns = document.querySelectorAll('.result-actions .btn-secondary');
+    if (retakeBtns[0]) updateText(retakeBtns[0], 'retakeBtn');
+    if (retakeBtns[1]) updateText(retakeBtns[1], 'allPersonalitiesBtn');
+    updateHTML('.result-footer-note', 'footerNote');
+    
+    // 更新所有人格页面
+    updateText('.all-personalities-header h1', 'allPersonalitiesTitle');
+    updateText('.all-personalities-header .subtitle', 'allPersonalitiesSubtitle');
+    updateText('.all-personalities-header .btn', 'backBtn');
+    
+    // 条件性重新渲染
+    const quizPage = document.getElementById('page-quiz');
+    if (quizPage && !quizPage.classList.contains('hidden')) renderQuestion(currentQ);
+    
+    const personalitiesPage = document.getElementById('page-all-personalities');
+    if (personalitiesPage && !personalitiesPage.classList.contains('hidden')) renderAllPersonalities();
+    
+    // 更新页脚
+    const footerAuthorLabel = document.getElementById('footer-author-label');
+    if (footerAuthorLabel && t('footerAuthor')) {
+      footerAuthorLabel.textContent = t('footerAuthor');
+      footerAuthorLabel.classList.toggle('by-label', t('footerAuthor') === 'By ');
+    }
+    
+    const resultPage = document.getElementById('page-result');
+    if (resultPage && result && !resultPage.classList.contains('hidden')) {
       renderResult(result);
     }
-
-    updateLandingButtons();
   }
-
-  function scrollToTop() {
-    const reduce = typeof prefersReducedMotion === "function" && prefersReducedMotion();
-    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
-  }
-
-  // ---------- 页面切换 ----------
 
   function showPage(id) {
-    ["page-landing", "page-quiz", "page-result", "page-all-personalities"].forEach(p => {
-      const el = document.getElementById(p);
-      if (el) {
-        el.classList.add("hidden");
-        el.classList.remove("page-enter");
-      }
-    });
+    ['page-landing', 'page-disclaimer', 'page-quiz', 'page-calculating', 'page-result', 'page-all-personalities']
+      .forEach(p => {
+        const el = document.getElementById(p);
+        if (el) {
+          el.classList.add('hidden');
+          el.classList.remove('page-enter');
+        }
+      });
     const target = document.getElementById(id);
     if (target) {
-      target.classList.remove("hidden");
-      target.classList.add("page-enter");
-      scrollToTop();
+      target.classList.remove('hidden');
+      target.classList.add('page-enter');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-
-    if (id === "page-landing") {
+    
+    // 控制樱花动画
+    if (id === 'page-landing') {
       resumeSakuraAnimation();
     } else {
       pauseSakuraAnimation();
     }
   }
 
-  // ---------- 免责声明弹窗 ----------
-
-  function getModal() {
-    return document.getElementById("modal-disclaimer");
-  }
-
+  // 免责声明
   function showDisclaimer() {
-    const modal = getModal();
-    if (!modal) return;
-    lastFocusedElement = document.activeElement;
-    modal.classList.remove("hidden");
-    const firstButton = modal.querySelector(".modal-actions .btn-secondary");
-    if (firstButton) firstButton.focus();
+    document.getElementById('modal-disclaimer').classList.remove('hidden');
   }
 
   function hideDisclaimer() {
-    const modal = getModal();
-    if (!modal) return;
-    modal.classList.add("hidden");
-    if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
-      lastFocusedElement.focus();
-    }
+    document.getElementById('modal-disclaimer').classList.add('hidden');
   }
 
   function agreeAndStart() {
@@ -258,191 +236,104 @@ const App = (() => {
     startQuiz();
   }
 
-  // ---------- 答题流程 ----------
-  function clearAdvanceTimer() {
-    if (advanceTimer !== null) {
-      clearTimeout(advanceTimer);
-      advanceTimer = null;
-    }
-  }
-
+  // 测试流程
   function startQuiz() {
-    clearAdvanceTimer();
     currentQ = 0;
     answers = new Array(QUESTIONS.length).fill(null);
-    showPage("page-quiz");
+    showPage('page-quiz');
     renderQuestion(0);
-    const firstOption = document.querySelector("#options-list .option-item");
-    if (firstOption) firstOption.focus({ preventScroll: true });
-  }
-
-  function getAnsweredCount() {
-    return answers.filter(a => a !== null).length;
   }
 
   function renderQuestion(index) {
     const q = QUESTIONS[index];
-    if (!q) return;
     const total = QUESTIONS.length;
-    const answeredCount = getAnsweredCount();
 
-    const progressFill = document.getElementById("progress-fill");
-    if (progressFill) {
-      progressFill.style.width = Math.round((answeredCount / total) * 100) + "%";
-      progressFill.setAttribute("aria-valuenow", String(answeredCount));
-      progressFill.setAttribute("aria-valuemax", String(total));
-    }
-
-    const qCounter = document.getElementById("q-counter");
+    const pct = Math.round(((index + 1) / total) * 100);
+    const progressFill = document.getElementById('progress-fill');
+    if (progressFill) progressFill.style.width = pct + '%';
+    
+    const qCounter = document.getElementById('q-counter');
     if (qCounter) qCounter.textContent = `${index + 1} / ${total}`;
-
-    const qRemain = document.getElementById("q-remain");
+    
+    const qRemain = document.getElementById('q-remain');
     if (qRemain) {
-      const remaining = t("remaining") || "还剩";
-      const questionsLeft = t("questionsLeft") || "题";
-      qRemain.textContent = `${remaining} ${total - answeredCount} ${questionsLeft}`;
+      const remaining = t('remaining') || '还剩';
+      const questionsLeft = t('questionsLeft') || '题';
+      qRemain.textContent = `${remaining} ${total - (index + 1)} ${questionsLeft}`;
     }
 
-    const qNum = document.getElementById("q-num");
+    const qNum = document.getElementById('q-num');
     if (qNum) qNum.textContent = index + 1;
+    
+    const qText = document.getElementById('q-text');
+    if (qText) qText.textContent = getQuestionText(q, 'text');
 
-    const qText = document.getElementById("q-text");
-    if (qText) qText.textContent = getQuestionText(q, "text");
-
-    const optList = document.getElementById("options-list");
+    const optList = document.getElementById('options-list');
     if (!optList) return;
-
-    const existingBtns = optList.querySelectorAll(".option-item");
+    
+    const existingBtns = optList.querySelectorAll('.option-item');
     const opts = q.options;
 
     if (existingBtns.length === opts.length) {
       opts.forEach((opt, i) => {
         const btn = existingBtns[i];
-        const isSelected = Boolean(answers[index] && answers[index].label === opt.label);
-        btn.className = "option-item" + (isSelected ? " selected" : "");
-        btn.setAttribute("aria-checked", String(isSelected));
-        const optionText = btn.querySelector(".option-text");
-        if (optionText) optionText.textContent = getQuestionText(opt, "text");
+        const isSelected = answers[index] && answers[index].label === opt.label;
+        btn.className = 'option-item' + (isSelected ? ' selected' : '');
+        const optionText = btn.querySelector('.option-text');
+        if (optionText) optionText.textContent = getQuestionText(opt, 'text');
         btn.onclick = () => selectOption(index, opt, btn, optList);
       });
     } else {
-      optList.innerHTML = "";
-      opts.forEach(opt => {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "option-item" + (answers[index] && answers[index].label === opt.label ? " selected" : "");
-        btn.setAttribute("role", "radio");
-        btn.setAttribute("aria-checked", String(Boolean(answers[index] && answers[index].label === opt.label)));
-
-        const label = document.createElement("span");
-        label.className = "option-label";
-        label.textContent = opt.label;
-
-        const text = document.createElement("span");
-        text.className = "option-text";
-        text.textContent = getQuestionText(opt, "text");
-
-        btn.appendChild(label);
-        btn.appendChild(text);
-        btn.addEventListener("click", () => selectOption(index, opt, btn, optList));
+      optList.innerHTML = '';
+      opts.forEach((opt, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-item' + (answers[index] && answers[index].label === opt.label ? ' selected' : '');
+        btn.innerHTML = `
+          <span class="option-label">${opt.label}</span>
+          <span class="option-text">${getQuestionText(opt, 'text')}</span>
+        `;
+        btn.addEventListener('click', () => selectOption(index, opt, btn, optList));
         optList.appendChild(btn);
       });
-    }
-
-    optList.setAttribute("role", "radiogroup");
-    optList.setAttribute("aria-label", getQuestionText(q, "text"));
-
-    if (!optList.dataset.keyboardReady) {
-      optList.dataset.keyboardReady = "true";
-      optList.addEventListener("keydown", handleOptionKeydown);
     }
 
     updateNavButtons(index);
   }
 
-  // 方向键在选项间移动焦点，空格／回车沿用按钮原生行为完成选择
-  function handleOptionKeydown(event) {
-    const isArrow = event.key === "ArrowDown" || event.key === "ArrowRight"
-      || event.key === "ArrowUp" || event.key === "ArrowLeft";
-    if (!isArrow && event.key !== "Home" && event.key !== "End") return;
-
-    const options = Array.from(event.currentTarget.querySelectorAll(".option-item"));
-    const currentIndex = options.indexOf(document.activeElement);
-    if (currentIndex === -1) return;
-
-    let nextIndex;
-    if (event.key === "Home") nextIndex = 0;
-    else if (event.key === "End") nextIndex = options.length - 1;
-    else if (event.key === "ArrowDown" || event.key === "ArrowRight") nextIndex = (currentIndex + 1) % options.length;
-    else nextIndex = (currentIndex - 1 + options.length) % options.length;
-
-    event.preventDefault();
-    options[nextIndex].focus();
-  }
-
   function selectOption(qIndex, opt, btn, list) {
-    // 防止题目已经切换后仍被旧闭包选中
-    if (qIndex !== currentQ) return;
-
-    list.querySelectorAll(".option-item").forEach(b => {
-      b.classList.remove("selected");
-      b.setAttribute("aria-checked", "false");
-    });
-    btn.classList.add("selected");
-    btn.setAttribute("aria-checked", "true");
+    // 清除其他选中
+    list.querySelectorAll('.option-item').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
     answers[qIndex] = opt;
-
     updateNavButtons(qIndex);
-    updateProgressOnly();
 
-    clearAdvanceTimer();
+    // 自动前进（300ms后）
     if (qIndex < QUESTIONS.length - 1) {
-      advanceTimer = setTimeout(() => {
-        advanceTimer = null;
-        // 双重校验：期间没有切题、没有切换语言、该题仍有答案
-        if (currentQ === qIndex && answers[qIndex]) nextQuestion();
-      }, AUTO_ADVANCE_MS);
-    }
-  }
-
-  function updateProgressOnly() {
-    const total = QUESTIONS.length;
-    const answeredCount = getAnsweredCount();
-    const progressFill = document.getElementById("progress-fill");
-    if (progressFill) {
-      progressFill.style.width = Math.round((answeredCount / total) * 100) + "%";
-      progressFill.setAttribute("aria-valuenow", String(answeredCount));
-    }
-    const qRemain = document.getElementById("q-remain");
-    if (qRemain) {
-      const remaining = t("remaining") || "还剩";
-      const questionsLeft = t("questionsLeft") || "题";
-      qRemain.textContent = `${remaining} ${total - answeredCount} ${questionsLeft}`;
+      setTimeout(() => nextQuestion(), 380);
+    } else {
+      document.getElementById('btn-submit').classList.remove('hidden');
+      document.getElementById('btn-next').classList.add('hidden');
     }
   }
 
   function updateNavButtons(index) {
-    const btnPrev = document.getElementById("btn-prev");
-    const btnNext = document.getElementById("btn-next");
-    const btnSubmit = document.getElementById("btn-submit");
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+    const btnSubmit = document.getElementById('btn-submit');
     const isLast = index === QUESTIONS.length - 1;
-    const hasAnswer = Boolean(answers[index]);
+    const hasAnswer = !!answers[index];
 
-    if (btnPrev) btnPrev.style.visibility = index === 0 ? "hidden" : "visible";
-    if (btnNext) {
-      btnNext.classList.toggle("hidden", isLast);
+    btnPrev.style.visibility = index === 0 ? 'hidden' : 'visible';
+    btnNext.classList.toggle('hidden', isLast);
+    btnSubmit.classList.toggle('hidden', !isLast || !hasAnswer);
+
+    if (!isLast) {
       btnNext.disabled = !hasAnswer;
-      btnNext.style.opacity = hasAnswer ? "1" : "0.5";
-    }
-    if (btnSubmit) {
-      btnSubmit.classList.toggle("hidden", !isLast);
-      btnSubmit.disabled = !hasAnswer;
-      btnSubmit.style.opacity = hasAnswer ? "1" : "0.5";
+      btnNext.style.opacity = hasAnswer ? '1' : '0.5';
     }
   }
 
   function prevQuestion() {
-    clearAdvanceTimer();
     if (currentQ > 0) {
       currentQ--;
       renderQuestion(currentQ);
@@ -450,7 +341,6 @@ const App = (() => {
   }
 
   function nextQuestion() {
-    clearAdvanceTimer();
     if (!answers[currentQ]) return;
     if (currentQ < QUESTIONS.length - 1) {
       currentQ++;
@@ -458,366 +348,229 @@ const App = (() => {
     }
   }
 
-  // ---------- 提交与结果 ----------
-
+  // 提交计算
   function submitQuiz() {
-    clearAdvanceTimer();
+    // 检查是否全部回答
     const unanswered = answers.filter(a => a === null).length;
     if (unanswered > 0) {
+      // 跳转到第一道未答的题
       const first = answers.findIndex(a => a === null);
       currentQ = first;
       renderQuestion(first);
-      const toastMsg = t("unansweredToast");
-      showToast(toastMsg ? toastMsg.replace("{count}", unanswered) : `还有 ${unanswered} 道题没有作答哦 👀`);
+      const toastMsg = t('unansweredToast');
+      showToast(toastMsg ? toastMsg.replace('{count}', unanswered) : `还有 ${unanswered} 道题没有作答哦 👀`);
       return;
     }
 
-    result = MFTIEngine.calculate(answers, {
-      questions: QUESTIONS,
-      personalities: PERSONALITIES,
-      questionSetVersion: typeof QUESTION_SET_VERSION !== "undefined" ? QUESTION_SET_VERSION : "unknown"
-    });
-    resultSaved = false;
+    showPage('page-calculating');
+    
+    // 模拟计算时间（假装很厉害）
+    const calcTexts = t('calcTexts') || ['正在分析...', '请稍候...'];
+    let calcIdx = 0;
+    const calcEl = document.getElementById('calc-text');
+    const interval = calcEl ? setInterval(() => {
+      calcEl.textContent = calcTexts[calcIdx % calcTexts.length];
+      calcIdx++;
+    }, 600) : null;
 
-    renderResult(result);
-    showPage("page-result");
-    focusResult();
+    setTimeout(() => {
+      if (interval) clearInterval(interval);
+      result = MFTIEngine.calculate(answers);
+      // 保存结果到localStorage
+      safeSetStorage('mfti_result', JSON.stringify(result));
+      renderResult(result);
+      showPage('page-result');
+    }, 3200);
   }
 
-  function focusResult() {
-    const codeEl = document.getElementById("result-code");
-    if (!codeEl) return;
-    codeEl.setAttribute("tabindex", "-1");
-    codeEl.focus({ preventScroll: true });
-  }
-
+  // 渲染结果
   function renderResult(res) {
-    if (!res || !res.personality) return;
     const p = res.personality;
     const norm = res.normalized;
     const names = getPersonalityNames(p);
 
-    const avatarEl = document.getElementById("result-avatar");
-    if (avatarEl) {
-      const avatarUrl = AVATARS[res.typeCode] || "";
-      avatarEl.innerHTML = "";
-      if (avatarUrl) {
-        const img = document.createElement("img");
-        img.src = avatarUrl;
-        img.alt = names.primary;
-        img.loading = "lazy";
-        img.style.cssText = "width:100%;height:100%;border-radius:50%;object-fit:cover;";
-        avatarEl.appendChild(img);
-      }
-      avatarEl.style.background = "white";
-    }
+    // 头像图片
+    const avatarEl = document.getElementById('result-avatar');
+    const avatarUrl = AVATARS[res.typeCode] || '';
+    avatarEl.innerHTML = `<img src="${avatarUrl}?v=1.0.0" alt="${p.name}" loading="lazy" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">`;
+    avatarEl.style.background = 'white';
 
-    const codeEl = document.getElementById("result-code");
-    if (codeEl) {
-      codeEl.textContent = p.code;
-      codeEl.style.color = p.color;
-    }
-    const nameZh = document.getElementById("result-name-zh");
-    if (nameZh) nameZh.textContent = names.primary;
-    const nameEn = document.getElementById("result-name-en");
-    if (nameEn) nameEn.textContent = names.secondary;
-    const subtitle = document.getElementById("result-subtitle");
-    if (subtitle) subtitle.textContent = getPersonalityText(p, "subtitle");
+    // 基本信息
+    document.getElementById('result-code').textContent = p.code;
+    document.getElementById('result-code').style.color = p.color;
+    document.getElementById('result-name-zh').textContent = names.primary;
+    document.getElementById('result-name-en').textContent = names.secondary;
+    document.getElementById('result-subtitle').textContent = getPersonalityText(p, 'subtitle');
 
-    const tagsEl = document.getElementById("result-tags");
-    if (tagsEl) {
-      tagsEl.innerHTML = "";
-      getPersonalityTags(p).forEach(tag => {
-        const span = document.createElement("span");
-        span.className = "tag";
-        span.textContent = tag;
-        tagsEl.appendChild(span);
-      });
-    }
+    // 标签
+    const tagsEl = document.getElementById('result-tags');
+    tagsEl.innerHTML = p.tags.map(t => {
+      const translatedTag = getTranslatedTag(t);
+      return `<span class="tag">${translatedTag}</span>`;
+    }).join('');
 
-    const descEl = document.getElementById("result-desc");
-    if (descEl) descEl.innerHTML = formatDesc(getPersonalityText(p, "description"));
+    // 人格描述多语言（支持简单markdown: **粗体** 和换行）
+    const descEl = document.getElementById('result-desc');
+    descEl.innerHTML = formatDesc(getPersonalityText(p, 'description'));
 
-    const descTitle = document.querySelector(".result-desc-card h3");
-    if (descTitle) descTitle.textContent = t("portraitTitle");
+    // 更新描述标题
+    const descTitle = document.querySelector('.result-desc-card h3');
+    if (descTitle) descTitle.textContent = t('portraitTitle');
 
-    const dimTitle = document.querySelector(".dimensions-card h3");
-    if (dimTitle) dimTitle.textContent = t("dimensionsTitle");
-    updateText(".dimensions-hint", "dimensionsHint");
+    // 维度得分标题
+    const dimTitle = document.querySelector('.dimensions-card h3');
+    if (dimTitle) dimTitle.textContent = t('dimensionsTitle');
 
-    const similarTitle = document.querySelector(".similar-section h3");
-    if (similarTitle) similarTitle.textContent = t("similarTitle");
+    // 相近人格标题
+    const similarTitle = document.querySelector('.similar-section h3');
+    if (similarTitle) similarTitle.textContent = t('similarTitle');
 
-    renderResultNote(res);
+    // 维度得分
     renderDimensions(norm);
+
+    // 相近人格
     renderSimilar(res.topMatches, res.typeCode);
-    updateSaveButton();
-  }
-
-  function renderResultNote(res) {
-    const noteEl = document.getElementById("result-note");
-    if (!noteEl) return;
-
-    const parts = [];
-    if (res.isBalanced) {
-      const text = t("balancedNote");
-      if (text) parts.push(text);
-    } else if (res.isBoundary) {
-      const text = t("boundaryNote");
-      if (text) parts.push(text);
-    }
-    if (parts.length) {
-      noteEl.textContent = parts.join(" ");
-      noteEl.classList.remove("hidden");
-    } else {
-      noteEl.textContent = "";
-      noteEl.classList.add("hidden");
-    }
   }
 
   function formatDesc(text) {
-    if (!text) return "";
     return text
       .trim()
-      .split("\n")
+      .split('\n')
       .map(line => {
         line = line.trim();
-        if (!line) return "";
-        line = line.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+        if (!line) return '';
+        // **粗体**
+        line = line.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
         return `<p>${line}</p>`;
       })
       .filter(l => l)
-      .join("");
+      .join('');
   }
 
+  // 获取多语言维度标签
   function getTranslatedDimLabel(key, score) {
-    const labelKey = score > 65 ? "high" : score < 35 ? "low" : "balanced";
+    const labelKey = score > 70 ? 'high' : score < 30 ? 'low' : 'balanced';
     const translated = t(`dimensions.${key}.${labelKey}`);
     return translated || MFTIEngine.getDimLabel(key, score);
   }
 
+  // 获取翻译后的人格标签
+  function getTranslatedTag(tag) {
+    if (currentLang === 'zh') return tag;
+    if (typeof TRANSLATIONS === 'undefined' || !TRANSLATIONS.zh || !TRANSLATIONS.zh.tags) return tag;
+    // 先精确匹配，没有则尝试去空格匹配
+    return TRANSLATIONS.zh.tags[tag] || TRANSLATIONS.zh.tags[tag.replace(/\s+/g, '')] || tag;
+  }
+
   function renderDimensions(norm) {
-    const container = document.getElementById("dimensions-list");
-    if (!container) return;
-    container.innerHTML = "";
+    const container = document.getElementById('dimensions-list');
+    container.innerHTML = '';
 
-    Object.entries(DIMENSIONS).forEach(([key]) => {
-      const rawValue = norm[key];
-      const score = Number.isFinite(Number(rawValue)) ? Math.round(Number(rawValue)) : 50;
+    Object.entries(DIMENSIONS).forEach(([key, dim]) => {
+      const score = norm[key] || 50;
       const label = getTranslatedDimLabel(key, score);
-      const dimName = t(`dimensions.${key}.name`) || key;
-      const row = document.createElement("div");
-      row.className = "dimension-row";
-
-      const labelEl = document.createElement("span");
-      labelEl.className = "dim-label";
-      labelEl.textContent = dimName;
-
-      const barWrap = document.createElement("div");
-      barWrap.className = "dim-bar-wrap";
-      const barFill = document.createElement("div");
-      barFill.className = "dim-bar-fill";
-      barFill.style.width = "0%";
-      barFill.dataset.target = String(score);
-      barWrap.appendChild(barFill);
-
-      const scoreEl = document.createElement("span");
-      scoreEl.className = "dim-score";
-      scoreEl.textContent = String(score);
-
-      const descEl = document.createElement("span");
-      descEl.className = "dim-desc";
-      descEl.textContent = label;
-
-      row.appendChild(labelEl);
-      row.appendChild(barWrap);
-      row.appendChild(scoreEl);
-      row.appendChild(descEl);
+      const dimName = t(`dimensions.${key}.name`);
+      const row = document.createElement('div');
+      row.className = 'dimension-row';
+      row.innerHTML = `
+        <span class="dim-label">${dimName}</span>
+        <div class="dim-bar-wrap">
+          <div class="dim-bar-fill" style="width: 0%" data-target="${score}"></div>
+        </div>
+        <span class="dim-score">${score}</span>
+        <span class="dim-desc">${label}</span>
+      `;
       container.appendChild(row);
     });
 
+    // 动画加载进度条
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        container.querySelectorAll(".dim-bar-fill").forEach(bar => {
-          bar.style.width = bar.dataset.target + "%";
+        container.querySelectorAll('.dim-bar-fill').forEach(bar => {
+          bar.style.width = bar.dataset.target + '%';
         });
       });
     });
   }
 
   function renderSimilar(topMatches, currentCode) {
-    const container = document.getElementById("similar-list");
-    if (!container) return;
-    container.innerHTML = "";
-
-    (topMatches || []).forEach(match => {
-      const typeCode = match.typeCode || match[0];
-      if (!typeCode || typeCode === currentCode) return;
+    const container = document.getElementById('similar-list');
+    container.innerHTML = '';
+    topMatches.forEach(([typeCode, score]) => {
+      if (typeCode === currentCode) return;
       const p = PERSONALITIES[typeCode];
       if (!p) return;
 
       const names = getPersonalityNames(p);
-      const div = document.createElement("div");
-      div.className = "similar-item";
-
-      const emoji = document.createElement("span");
-      emoji.className = "similar-emoji";
-      emoji.textContent = p.emoji;
-
-      const info = document.createElement("div");
-      info.className = "similar-info";
-      const name = document.createElement("span");
-      name.className = "similar-name";
-      name.textContent = names.primary;
-      const en = document.createElement("span");
-      en.className = "similar-en";
-      en.textContent = names.secondary;
-      info.appendChild(name);
-      info.appendChild(en);
-
-      div.appendChild(emoji);
-      div.appendChild(info);
+      const div = document.createElement('div');
+      div.className = 'similar-item';
+      div.innerHTML = `
+        <span class="similar-emoji">${p.emoji}</span>
+        <div class="similar-info">
+          <span class="similar-name">${names.primary}</span>
+          <span class="similar-en">${names.secondary}</span>
+        </div>
+        <span class="similar-score" style="color:${p.color}">${score}%</span>
+      `;
       container.appendChild(div);
     });
   }
 
-  // ---------- Toast ----------
-
+  // Toast 提示
   function showToast(msg) {
-    let toast = document.getElementById("toast");
+    let toast = document.getElementById('toast');
     if (!toast) {
-      toast = document.createElement("div");
-      toast.id = "toast";
-      toast.setAttribute("role", "status");
-      toast.setAttribute("aria-live", "polite");
+      toast = document.createElement('div');
+      toast.id = 'toast';
       document.body.appendChild(toast);
     }
     toast.textContent = msg;
-    toast.style.display = "block";
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => { toast.style.display = "none"; }, 3200);
+    toast.style.display = 'block';
+    clearTimeout(toast._timer);
+    toast._timer = setTimeout(() => { toast.style.display = 'none'; }, 3000);
   }
 
-  // ---------- 保存 / 删除 ----------
-
-  function buildSavedPayload(res) {
-    return {
-      schemaVersion: CURRENT_SCHEMA,
-      scoringVersion: res.scoringVersion,
-      questionSetVersion: res.questionSetVersion,
-      typeCode: res.typeCode,
-      normalized: res.normalized,
-      savedAt: new Date().toISOString(),
-      lang: currentLang
-    };
-  }
-
-  function saveResult() {
-    if (!result) return;
-    const ok = safeSetStorage(STORAGE_RESULT_KEY, JSON.stringify(buildSavedPayload(result)));
-    if (ok) resultSaved = true;
-    showToast(ok ? (t("savedToast") || "已保存到本机") : (t("saveFailedToast") || "无法保存，浏览器存储不可用"));
-    updateLandingButtons();
-    updateSaveButton();
-  }
-
-  function deleteSavedResult() {
-    const ok = safeRemoveStorage(STORAGE_RESULT_KEY);
-    if (ok) resultSaved = false;
-    showToast(ok ? (t("deletedToast") || "已删除本机保存的结果") : (t("deleteFailedToast") || "删除失败"));
-    updateLandingButtons();
-    updateSaveButton();
-  }
-
-  function updateSaveButton() {
-    const saveBtn = document.getElementById("btn-save");
-    if (!saveBtn) return;
-    const isSaved = Boolean(result && resultSaved);
-    saveBtn.disabled = isSaved;
-    saveBtn.textContent = isSaved ? (t("savedBtn") || "已保存到本机") : (t("saveBtn") || "保存到本机");
-  }
-
-  function hasAnySavedData() {
-    return Boolean(safeGetStorage(STORAGE_RESULT_KEY, null));
-  }
-
-  function updateLandingButtons() {
-    const resultBtn = document.getElementById("btn-show-result");
-    if (resultBtn) resultBtn.classList.toggle("hidden", !hasAnySavedData());
-
-    const deleteBtn = document.getElementById("btn-delete-result");
-    if (deleteBtn) deleteBtn.classList.toggle("hidden", !hasAnySavedData());
-  }
-
-  // ---------- 重新测试 / 返回 ----------
-
+  // 重新测试
   function retake() {
-    clearAdvanceTimer();
     currentQ = 0;
     answers = new Array(QUESTIONS.length).fill(null);
     result = null;
-    resultSaved = false;
-    showPage("page-landing");
-    resumeSakuraAnimation();
-    updateLandingButtons();
+    showPage('page-landing');
+    window.scrollTo({ top: 0 });
+    restartSakuraAnimation();
   }
 
   function backToLanding() {
-    clearAdvanceTimer();
-    showPage("page-landing");
-    resumeSakuraAnimation();
-    updateLandingButtons();
+    showPage('page-landing');
+    window.scrollTo({ top: 0 });
+    restartSakuraAnimation();
   }
 
-  // ---------- 分享 ----------
-
-  function buildShareText() {
-    if (!result) return "";
-    const p = result.personality;
-    const name = getPersonalityText(p, "name");
-    const subtitle = getPersonalityText(p, "subtitle");
-    return (t("shareText") || "")
-      .replace("{name}", name)
-      .replace("{code}", p.code)
-      .replace("{emoji}", p.emoji)
-      .replace("{subtitle}", subtitle);
-  }
-
+  // 分享
   function shareResult() {
-    const text = buildShareText();
-    if (!text) return;
-
-    if (!navigator.share) {
-      showToast(t("shareUnavailable") || "当前浏览器不支持系统分享，可以点击「复制结果」");
-      return;
+    if (!result) return;
+    const p = result.personality;
+    // 人格名称和副标题多语言
+    const name = getPersonalityText(p, 'name');
+    const subtitle = getPersonalityText(p, 'subtitle');
+    const text = t('shareText')
+      .replace('{name}', name)
+      .replace('{code}', p.code)
+      .replace('{emoji}', p.emoji)
+      .replace('{subtitle}', subtitle);
+    if (navigator.share) {
+      const shareTitle = t('shareTitle') || (currentLang === 'en' ? 'MFTI My Test Result' : 'MFTI 我的测试结果');
+      navigator.share({ title: shareTitle, text }).catch(() => copyText(text));
+    } else {
+      copyText(text);
     }
-
-    const shareTitle = t("shareTitle") || (currentLang === "en" ? "MFTI Result" : "MFTI 测试结果");
-    try {
-      const sharePromise = navigator.share({ title: shareTitle, text });
-      if (sharePromise && typeof sharePromise.catch === "function") {
-        sharePromise.catch(error => {
-          // 用户主动取消：不复制、不打扰
-          if (error && error.name === "AbortError") return;
-          showToast(t("shareFailed") || "分享没有完成，可以点击「复制结果」手动分享");
-        });
-      }
-    } catch (error) {
-      showToast(t("shareFailed") || "分享没有完成，可以点击「复制结果」手动分享");
-    }
-  }
-
-  // 只有用户明确点击「复制结果」才写入剪贴板
-  function copyResult() {
-    const text = buildShareText();
-    if (!text) return;
-    copyText(text);
   }
 
   function copyText(text) {
-    const successMsg = t("copiedToast") || "结果已复制到剪贴板 📋";
-    const failMsg = t("copyFailedToast") || "复制失败，请手动选择文本";
-
+    const successMsg = t('copiedToast') || '结果已复制到剪贴板 📋';
+    const failMsg = t('copyFailedToast') || '请手动截图分享哦~';
+    
+    // 优先使用现代 Clipboard API
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text)
         .then(() => showToast(successMsg))
@@ -827,152 +580,107 @@ const App = (() => {
     }
   }
 
+  // 旧浏览器备用复制方法
   function fallbackCopy(text, successMsg, failMsg) {
     try {
-      const textArea = document.createElement("textarea");
+      const textArea = document.createElement('textarea');
       textArea.value = text;
-      textArea.setAttribute("readonly", "");
-      textArea.style.position = "fixed";
-      textArea.style.left = "-9999px";
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-9999px';
       document.body.appendChild(textArea);
+      textArea.focus();
       textArea.select();
-      const successful = document.execCommand("copy");
+      const successful = document.execCommand('copy');
       document.body.removeChild(textArea);
       showToast(successful ? successMsg : failMsg);
     } catch (e) {
-      console.warn("Failed to copy text:", e);
+      console.warn('Failed to copy text:', e);
       showToast(failMsg);
     }
   }
 
-  // ---------- 展示所有人格 ----------
-
+  // 显示所有人格
   function showAllPersonalities() {
-    showPage("page-all-personalities");
+    showPage('page-all-personalities');
     renderAllPersonalities();
   }
 
   function renderAllPersonalities() {
-    const grid = document.getElementById("personalities-grid");
-    if (!grid) return;
-    grid.innerHTML = "";
+    const grid = document.getElementById('personalities-grid');
+    grid.innerHTML = '';
 
     Object.entries(PERSONALITIES).forEach(([code, p]) => {
-      const card = document.createElement("div");
-      card.className = "personality-card";
+      const card = document.createElement('div');
+      card.className = 'personality-card';
 
-      const avatarUrl = AVATARS[code] || "";
+      const avatarUrl = AVATARS[code] || '';
       const names = getPersonalityNames(p);
 
-      if (avatarUrl) {
-        const img = document.createElement("img");
-        img.src = avatarUrl;
-        img.alt = names.primary;
-        img.loading = "lazy";
-        img.className = "personality-avatar";
-        card.appendChild(img);
-      }
-
-      const codeEl = document.createElement("div");
-      codeEl.className = "personality-code";
-      codeEl.style.color = p.color;
-      codeEl.textContent = p.code;
-      card.appendChild(codeEl);
-
-      const nameZh = document.createElement("div");
-      nameZh.className = "personality-name-zh";
-      nameZh.textContent = names.primary;
-      card.appendChild(nameZh);
-
-      const nameEn = document.createElement("div");
-      nameEn.className = "personality-name-en";
-      nameEn.textContent = names.secondary;
-      card.appendChild(nameEn);
-
-      const subtitle = document.createElement("div");
-      subtitle.className = "personality-subtitle";
-      subtitle.textContent = getPersonalityText(p, "subtitle");
-      card.appendChild(subtitle);
-
-      const tags = document.createElement("div");
-      tags.className = "personality-tags";
-      getPersonalityTags(p).forEach(tag => {
-        const span = document.createElement("span");
-        span.className = "personality-tag";
-        span.textContent = tag;
-        tags.appendChild(span);
-      });
-      card.appendChild(tags);
+      card.innerHTML = `
+        <img src="${avatarUrl}?v=1.0.0" alt="${p.name}" loading="lazy" class="personality-avatar">
+        <div class="personality-code" style="color: ${p.color}">${p.code}</div>
+        <div class="personality-name-zh">${names.primary}</div>
+        <div class="personality-name-en">${names.secondary}</div>
+        <div class="personality-subtitle">${getPersonalityText(p, 'subtitle')}</div>
+        <div class="personality-tags">
+          ${p.tags.map(tag => `<span class="personality-tag">${getTranslatedTag(tag)}</span>`).join('')}
+        </div>
+      `;
 
       grid.appendChild(card);
     });
   }
 
-  // ---------- 首页 ----------
+  // 重新启动大樱花动画
+  function restartSakuraAnimation() {
+    const logo = document.querySelector('.landing-logo');
+    if (!logo) return;
+    
+    // 强制重绘以重新启动动画
+    const parent = logo.parentNode;
+    const nextSibling = logo.nextSibling;
+    parent.removeChild(logo);
+    parent.insertBefore(logo, nextSibling);
+  }
 
+  // 显示首页
   function showLanding() {
-    showPage("page-landing");
-    updateLandingButtons();
+    showPage('page-landing');
+    // 检查是否有保存的结果
+    const savedResult = safeGetStorage('mfti_result', null);
+    const resultBtn = document.getElementById('btn-show-result');
+    if (savedResult && resultBtn) {
+      resultBtn.classList.remove('hidden');
+    } else if (resultBtn) {
+      resultBtn.classList.add('hidden');
+    }
     restartSakuraAnimation();
   }
 
+  // 查看上次结果
   function showSavedResult() {
-    const saved = safeGetStorage(STORAGE_RESULT_KEY, null);
-    if (!saved) return;
-
-    let parsed;
     try {
-      parsed = JSON.parse(saved);
+      const savedResult = safeGetStorage('mfti_result', null);
+      if (savedResult) {
+        result = JSON.parse(savedResult);
+        // 从 PERSONALITIES 中重新获取完整的人格数据（包含英文翻译）
+        if (result && result.typeCode && PERSONALITIES[result.typeCode]) {
+          result.personality = PERSONALITIES[result.typeCode];
+          renderResult(result);
+          showPage('page-result');
+        }
+      }
     } catch (e) {
-      console.warn("Failed to parse saved result:", e);
-      showToast(t("brokenSavedToast") || "本机保存的结果已损坏，可以删除后重新测试");
-      return;
+      console.warn('Failed to load saved result:', e);
     }
-
-    if (!parsed || parsed.schemaVersion !== CURRENT_SCHEMA) {
-      showToast(t("legacySavedToast") || "检测到旧版结果，新版算法已不适用，请删除后重新测试");
-      return;
-    }
-
-    const personality = parsed.typeCode ? PERSONALITIES[parsed.typeCode] : null;
-    const hasAllDimensions = parsed.normalized
-      && typeof parsed.normalized === "object"
-      && MFTIEngine.DIM_KEYS.every(key => Number.isFinite(Number(parsed.normalized[key])));
-    if (!personality || !hasAllDimensions) {
-      showToast(t("brokenSavedToast") || "本机保存的结果已损坏，可以删除后重新测试");
-      return;
-    }
-
-    // 用保存的画像分数重建展示数据；不把旧版或损坏数据直接当新版结果。
-    const ranked = MFTIEngine.rankPersonalities(parsed.normalized, PERSONALITIES)
-      .filter(item => item.typeCode !== parsed.typeCode)
-      .slice(0, 3)
-      .map(item => ({ typeCode: item.typeCode, distance: Math.round(item.distance) }));
-
-    result = {
-      schemaVersion: CURRENT_SCHEMA,
-      scoringVersion: parsed.scoringVersion || MFTIEngine.SCORING_VERSION,
-      questionSetVersion: parsed.questionSetVersion || "unknown",
-      typeCode: parsed.typeCode,
-      personality,
-      normalized: parsed.normalized,
-      topMatches: ranked,
-      isBalanced: MFTIEngine.isBalanced(parsed.normalized),
-      isBoundary: false
-    };
-    resultSaved = true;
-
-    renderResult(result);
-    showPage("page-result");
-    focusResult();
   }
 
+  // 获取当前语言
   function getCurrentLanguage() {
     return currentLang;
   }
 
-  // ---------- 公开 API ----------
-
+  // 公开 API
   return {
     showDisclaimer,
     hideDisclaimer,
@@ -983,9 +691,6 @@ const App = (() => {
     retake,
     backToLanding,
     shareResult,
-    copyResult,
-    saveResult,
-    deleteSavedResult,
     showAllPersonalities,
     showLanding,
     showSavedResult,
@@ -995,21 +700,35 @@ const App = (() => {
   };
 })();
 
-// ---------- 樱花粒子 ----------
+// 页面加载时初始化
+document.addEventListener('DOMContentLoaded', () => {
+  // 先显示首页
+  App.showLanding();
+  createSakuraPetals();
+  
+  // 等待一下，确保所有脚本都加载完成
+  setTimeout(() => {
+    // 初始化语言 - 这里不需要重新获取，App内部已经初始化过了
+    // 但为了确保一致性，我们还是调用一下 setLanguage
+    App.setLanguage(App.getCurrentLanguage ? App.getCurrentLanguage() : 'zh');
+    
+    // 绑定语言切换按钮
+    const langBtn = document.getElementById('lang-switch');
+    if (langBtn) {
+      langBtn.addEventListener('click', () => App.toggleLanguage());
+    }
+  }, 100);
+});
 
 let sakuraPetals = [];
 let sakuraAnimationPaused = false;
 
-function prefersReducedMotion() {
-  return typeof window !== "undefined"
-    && window.matchMedia
-    && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
-
+// 生成飘落花瓣粒子
 function createSakuraPetals() {
-  const container = document.getElementById("sakura-petals");
+  const container = document.getElementById('sakura-petals');
   if (!container) return;
 
+  // 生成连续旋转角度
   function generateRotations() {
     const start = Math.random() * 360;
     const dir = Math.random() > 0.5 ? 1 : -1;
@@ -1022,10 +741,10 @@ function createSakuraPetals() {
     return rotations;
   }
 
-  const petalCount = prefersReducedMotion() ? 0 : 18;
+  const petalCount = 18;
   for (let i = 0; i < petalCount; i++) {
-    const petal = document.createElement("div");
-    petal.className = "sakura-petal";
+    const petal = document.createElement('div');
+    petal.className = 'sakura-petal';
 
     const left = Math.random() * 100;
     const size = 6 + Math.random() * 16;
@@ -1054,70 +773,32 @@ function createSakuraPetals() {
   }
 }
 
+// 暂停樱花动画（包括飘落花瓣和大樱花logo）
 function pauseSakuraAnimation() {
   if (sakuraAnimationPaused) return;
-  sakuraPetals.forEach(petal => { petal.style.animationPlayState = "paused"; });
-  const logo = document.querySelector(".landing-logo");
-  if (logo) logo.style.animationPlayState = "paused";
-  document.querySelectorAll(".petal-1, .petal-veins, .stamen").forEach(el => {
-    el.style.animationPlayState = "paused";
+  sakuraPetals.forEach(petal => {
+    petal.style.animationPlayState = 'paused';
+  });
+  const logo = document.querySelector('.landing-logo');
+  if (logo) logo.style.animationPlayState = 'paused';
+  const svgPetals = document.querySelectorAll('.petal-1, .petal-veins, .stamen');
+  svgPetals.forEach(el => {
+    el.style.animationPlayState = 'paused';
   });
   sakuraAnimationPaused = true;
 }
 
+// 恢复樱花动画（包括飘落花瓣和大樱花logo）
 function resumeSakuraAnimation() {
   if (!sakuraAnimationPaused) return;
-  sakuraPetals.forEach(petal => { petal.style.animationPlayState = "running"; });
-  const logo = document.querySelector(".landing-logo");
-  if (logo) logo.style.animationPlayState = "running";
-  document.querySelectorAll(".petal-1, .petal-veins, .stamen").forEach(el => {
-    el.style.animationPlayState = "running";
+  sakuraPetals.forEach(petal => {
+    petal.style.animationPlayState = 'running';
+  });
+  const logo = document.querySelector('.landing-logo');
+  if (logo) logo.style.animationPlayState = 'running';
+  const svgPetals = document.querySelectorAll('.petal-1, .petal-veins, .stamen');
+  svgPetals.forEach(el => {
+    el.style.animationPlayState = 'running';
   });
   sakuraAnimationPaused = false;
 }
-
-function restartSakuraAnimation() {
-  const logo = document.querySelector(".landing-logo");
-  if (!logo) return;
-  const parent = logo.parentNode;
-  const nextSibling = logo.nextSibling;
-  parent.removeChild(logo);
-  parent.insertBefore(logo, nextSibling);
-}
-
-// ---------- 初始化 ----------
-
-document.addEventListener("DOMContentLoaded", () => {
-  App.showLanding();
-  createSakuraPetals();
-
-  setTimeout(() => {
-    App.setLanguage(App.getCurrentLanguage ? App.getCurrentLanguage() : "zh");
-
-    const langBtn = document.getElementById("lang-switch");
-    if (langBtn) langBtn.addEventListener("click", () => App.toggleLanguage());
-
-    const modal = document.getElementById("modal-disclaimer");
-    if (modal) modal.addEventListener("keydown", (event) => {
-      const activeModal = document.getElementById("modal-disclaimer");
-      if (!activeModal || activeModal.classList.contains("hidden")) return;
-      if (event.key === "Escape") {
-        event.preventDefault();
-        App.hideDisclaimer();
-        return;
-      }
-      if (event.key !== "Tab") return;
-      const focusable = Array.from(activeModal.querySelectorAll("button:not([disabled])"));
-      if (!focusable.length) return;
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    });
-  }, 50);
-});

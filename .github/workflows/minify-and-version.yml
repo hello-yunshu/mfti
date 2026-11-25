@@ -1,0 +1,117 @@
+name: Minify and Version Assets
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - '**.js'
+      - '**.css'
+      - '!node_modules/**'
+      - '!scripts/**'
+      - '!**.min.js'
+      - '!**.min.css'
+
+  workflow_dispatch:
+    inputs:
+      force_regenerate_all:
+        description: '强制重新生成所有 JS 和 CSS 文件的最小化版本'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  cancel-previous-runs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel previous runs
+        uses: styfle/cancel-workflow-action@d07a454dad7609a92316b57b23c9ccfd4f59af66 # main @ 2026-11-05
+        with:
+          access_token: ${{ github.token }}
+
+  minify:
+    runs-on: ubuntu-latest
+    needs: cancel-previous-runs
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a # main @ 2026-11-05
+        with:
+          fetch-depth: 2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@101b3474143230c3562bd21f0b3c3f8254784571 # main @ 2026-11-05
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@1254cca6ac8b9c3047ba83a11b20c9dd8d9b0572 # main @ 2026-11-05
+        with:
+          files: |
+            **.js
+            **.css
+          files_ignore: |
+            **.min.js
+            **.min.css
+            node_modules/**
+            scripts/**
+
+      - name: Determine files to process
+        id: determine-files
+        run: |
+          if [ "${{ inputs.force_regenerate_all }}" = "true" ]; then
+            echo "Force regenerate all files"
+            # Find all JS and CSS files (excluding min, node_modules, and scripts)
+            ALL_FILES=$(find . -type f \( -name "*.js" -o -name "*.css" \) -not -path "*/node_modules/*" -not -path "*/scripts/*" -not -name "*.min.js" -not -name "*.min.css" | sed 's|^\./||' | tr '\n' ' ')
+            echo "files=$ALL_FILES" >> $GITHUB_OUTPUT
+            echo "has_files=true" >> $GITHUB_OUTPUT
+          else
+            echo "Processing changed files only"
+            echo "files=${{ steps.changed-files.outputs.all_changed_files }}" >> $GITHUB_OUTPUT
+            if [ "${{ steps.changed-files.outputs.any_changed }}" = "true" ]; then
+              echo "has_files=true" >> $GITHUB_OUTPUT
+            else
+              echo "has_files=false" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      - name: Process files
+        if: steps.determine-files.outputs.has_files == 'true'
+        run: |
+          echo "Files to process: ${{ steps.determine-files.outputs.files }}"
+          if [ "${{ inputs.force_regenerate_all }}" = "true" ]; then
+            node scripts/minify-and-version.js ${{ steps.determine-files.outputs.files }} --no-version
+          else
+            node scripts/minify-and-version.js ${{ steps.determine-files.outputs.files }}
+          fi
+
+      - name: Commit and push changes
+        if: steps.determine-files.outputs.has_files == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "chore: minify assets and update versions [skip ci]"
+          git push
+
+  cleanup-old-runs:
+    runs-on: ubuntu-latest
+    needs: minify
+    if: always()
+    steps:
+      - name: Cleanup old workflow runs
+        uses: Mattraks/delete-workflow-runs@0cf693bc9909e5e867ee8f27b813224ba862939c # main @ 2026-11-05
+        with:
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          retain_days: 7
+          keep_minimum_runs: 5

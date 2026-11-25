@@ -2,15 +2,15 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="MFTI 是一个轻松的人格小测：39 道题，从审美偏好、社交能量、思考方式和行动节奏四个核心轴，匹配 16 种虚构角色。纯属娱乐，不构成心理或医学诊断。">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="description" content="MFTI — 一个「男娘」人格测试，纯属娱乐。39道题目，10个维度评分，测出你是哪种生物。">
   <link rel="icon" href="favicon.ico?v=1.0.2">
-  <title>MFTI — 轻松人格测试</title>
+  <title>MFTI — 「男娘」人格测试</title>
 
   <!-- 样式 -->
-  <link rel="stylesheet" href="css/base.min.css?v=04e35dca8b">
-  <link rel="stylesheet" href="css/quiz.min.css?v=cf386bf274">
-  <link rel="stylesheet" href="css/result.min.css?v=a83561d9d9">
+  <link rel="stylesheet" href="css/base.min.css?v=1.0.7">
+  <link rel="stylesheet" href="css/quiz.min.css?v=1.1.0">
+  <link rel="stylesheet" href="css/result.min.css?v=1.0.5">
 
   <style>
     /* 使用系统字体栈，无需加载外部字体 */
@@ -19,17 +19,17 @@
 </head>
 <body>
 
-<!-- 全局语言切换 -->
-<div style="position: fixed; top: 16px; right: 16px; z-index: 300;">
-  <button class="btn btn-ghost" id="lang-switch" style="font-size: 14px; padding: 8px 16px;">
-    🌐 English
-  </button>
-</div>
-
 <!-- ============================================================
      PAGE 1: 封面页
      ============================================================ -->
 <div id="page-landing">
+  <!-- 语言切换按钮 -->
+  <div style="position: absolute; top: 20px; right: 20px; z-index: 100;">
+    <button class="btn btn-ghost" id="lang-switch" style="font-size: 14px; padding: 8px 16px;">
+      🌐 English
+    </button>
+  </div>
+  
   <div class="landing-logo">
     <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="sakura-svg">
       <!-- 花瓣1 (右上) -->
@@ -80,18 +80,18 @@
   <!-- 飘落花瓣粒子 -->
   <div class="sakura-petals" id="sakura-petals"></div>
   <h1 class="landing-title">MFTI</h1>
-  <p class="landing-subtitle">Mildly Fun Type Indicator</p>
+  <p class="landing-subtitle">Male to Female Type Indicator</p>
 
   <p class="landing-desc">
-    一份认真不到哪里去的人格小测。<br>
-    39 道题，四个核心轴，十个画像维度。<br>
-    匹配 16 种虚构角色，图一乐就好。
+    一个「男娘」人格测试，纯属娱乐。<br>
+    39道题目，10个维度评分。<br>
+    测出你是哪种生物。
   </p>
 
   <div class="landing-stats">
     <div class="stat-item">
       <span class="stat-num">16</span>
-      <span class="stat-label">虚构角色</span>
+      <span class="stat-label">人格类型</span>
     </div>
     <div class="stat-item">
       <span class="stat-num">39</span>
@@ -102,12 +102,12 @@
       <span class="stat-label">个维度</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num">~4</span>
+      <span class="stat-num">~5</span>
       <span class="stat-label">分钟完成</span>
     </div>
   </div>
 
-  <button class="btn btn-primary" id="btn-start" onclick="App.showDisclaimer()" style="font-size:18px;padding:18px 48px;">
+  <button class="btn btn-primary" onclick="App.showDisclaimer()" style="font-size:18px;padding:18px 48px;">
     开始测试 →
   </button>
 
@@ -115,12 +115,8 @@
     查看上次结果
   </button>
 
-  <button id="btn-delete-result" class="btn btn-ghost hidden" onclick="App.deleteSavedResult()" style="font-size:13px;padding:8px 18px;margin-top:4px;">
-    删除本机结果
-  </button>
-
-  <p class="landing-note" style="font-size:12px;color:var(--text-sub);margin-top:20px;opacity:0.75;">
-    点击前需阅读并同意免责声明 · 答案与结果默认只保存在当前页面
+  <p style="font-size:12px;color:var(--text-sub);margin-top:20px;opacity:0.6;">
+    点击前需阅读并同意免责声明
   </p>
 </div>
 
@@ -128,17 +124,17 @@
 <!-- ============================================================
      免责声明弹窗
      ============================================================ -->
-<div id="modal-disclaimer" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+<div id="modal-disclaimer" class="modal-overlay hidden">
   <div class="modal-box">
-    <span class="modal-emoji" aria-hidden="true">⚠️🎀</span>
-    <h2 class="modal-title" id="modal-title">在进入测试前，请先看完这段话</h2>
+    <span class="modal-emoji">⚠️🎀</span>
+    <h2 class="modal-title">在进入测试前，请先看完这段话</h2>
 
     <div class="disclaimer-text">
-      <p>🎭 <strong>这是一个虚构角色人格小测，纯属娱乐，不构成心理、医学或任何专业诊断。</strong></p>
-      <p>🧩 结果描述的是你在<strong>审美偏好、社交能量、思考方式和行动节奏</strong>上的倾向，不是对你这个人的定义，也不代表能力高低。</p>
-      <p>🌈 测试不会根据性别、性向、身体状态或关系状态推断你是谁。所有角色都是平等的虚构设定，没有「正常」与「不正常」之分。</p>
-      <p>🔒 你的答案和结果默认只保存在当前浏览器会话里，不会自动上传。只有你主动点击「保存到本机」时，才会写入本地存储；随时可以删除。</p>
-      <p>🎯 如果你最近情绪不太好，做测试可能并不能帮上忙。和信任的人聊聊，或联系专业支持，会比再做一遍测试更有用。</p>
+      <p>🎭 <strong>本测试纯属娱乐，整活性质，请不要认真。</strong></p>
+      <p>😂 测试内容包含大量夸张描述、辛辣嘲讽和无厘头选项，如果你容易被冒犯，建议关掉这个页面去看点正经的东西。</p>
+      <p>🔬 虽然题目设计参考了若干心理学框架，但我们不是心理学家，你也不需要因为测试结果对自己做任何定义。</p>
+      <p>🌈 测试结果不代表任何价值判断，所有人格类型都是平等的，包括那些听起来在被嘲讽的类型——我们在嘲讽的是人类共有的荒谬，不是针对任何个体。</p>
+      <p>🎯 如果测试结果让你感到困惑或情绪波动，这可能是因为你需要和真正的心理咨询师聊聊，而不是再做一遍测试。</p>
       <p>💫 <strong>总之：轻松做，别当真，笑一笑，往前走。</strong></p>
     </div>
 
@@ -159,22 +155,22 @@
     <!-- 顶部导航 -->
     <div class="quiz-header">
       <div class="quiz-nav">
-        <button type="button" class="quiz-brand" onclick="App.backToLanding()" aria-label="返回首页">
+        <span class="quiz-brand" onclick="App.backToLanding()" style="cursor:pointer;">
           <img src="images/sakura.svg?v=1.0.2" alt="" class="quiz-brand-icon">
           MFTI
-        </button>
-        <span class="quiz-counter" id="q-counter" aria-live="polite">1 / 39</span>
+        </span>
+        <span class="quiz-counter" id="q-counter">1 / 39</span>
       </div>
-      <div class="progress-bar-wrap" id="progress-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="39" aria-valuenow="0" aria-label="答题进度">
+      <div class="progress-bar-wrap">
         <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
       </div>
     </div>
 
     <!-- 题目卡片 -->
     <div class="question-card" id="question-card">
-      <div class="question-num" id="q-num" aria-hidden="true">1</div>
-      <p class="question-text" id="q-text" aria-live="polite">题目加载中...</p>
-      <div class="options-list" id="options-list" role="radiogroup" aria-label="请选择一个答案"></div>
+      <div class="question-num" id="q-num">1</div>
+      <p class="question-text" id="q-text">题目加载中...</p>
+      <div class="options-list" id="options-list"></div>
     </div>
 
     <!-- 底部导航 -->
@@ -198,25 +194,32 @@
 
 
 <!-- ============================================================
-     PAGE 3: 结果页
+     PAGE 3: 计算中
+     ============================================================ -->
+<div id="page-calculating" class="hidden">
+  <div class="calc-spinner"></div>
+  <p class="calc-text" id="calc-text">正在分析您的心理画像...</p>
+  <p class="calc-subtext">AI正在努力研究你这个复杂个体...</p>
+</div>
+
+
+<!-- ============================================================
+     PAGE 4: 结果页
      ============================================================ -->
 <div id="page-result" class="hidden">
   <div class="container">
 
     <!-- 英雄区 -->
     <div class="result-hero">
-      <div class="result-avatar" id="result-avatar" aria-hidden="true">🌸</div>
+      <div class="result-avatar" id="result-avatar">🌸</div>
 
-      <div class="result-code" id="result-code">PINK-B</div>
+      <div class="result-code" id="result-code">PSAE</div>
       <div class="result-name-zh" id="result-name-zh">粉色炸弹</div>
-      <div class="result-name-en" id="result-name-en">Pink Bomb</div>
+      <div class="result-name-en" id="result-name-en">The Pink Detonator</div>
       <div class="result-hero-divider"></div>
-      <div class="result-subtitle" id="result-subtitle">热闹、明亮、自带 BGM 型</div>
+      <div class="result-subtitle" id="result-subtitle">副标题</div>
       <div class="result-tags" id="result-tags"></div>
     </div>
-
-    <!-- 均衡 / 边界提示 -->
-    <p class="result-note hidden" id="result-note" role="status"></p>
 
     <!-- 人格描述 -->
     <div class="result-desc-card">
@@ -226,42 +229,32 @@
 
     <!-- 维度得分 -->
     <div class="dimensions-card">
-      <h3>📊 你的十维画像</h3>
-      <p class="dimensions-hint">前 4 条是核心轴，决定你的角色；后 6 条只用于丰富画像，不参与分型。</p>
+      <h3>📊 你的十维度评分</h3>
       <div id="dimensions-list"></div>
     </div>
 
-    <!-- 相近人格（只做排序，不显示伪精确百分比） -->
+    <!-- 相近人格 -->
     <div class="card similar-section" style="margin-bottom:28px;">
-      <h3>🔮 你可能也会喜欢的角色</h3>
+      <h3>🔮 你与以下类型也有相似之处</h3>
       <div class="similar-list" id="similar-list"></div>
     </div>
 
     <!-- 操作按钮 -->
     <div class="result-actions">
-      <button class="btn btn-primary" id="btn-share" onclick="App.shareResult()">
+      <button class="btn btn-primary" onclick="App.shareResult()">
         📤 分享结果
       </button>
-      <button class="btn btn-secondary" id="btn-copy" onclick="App.copyResult()">
-        📋 复制结果
-      </button>
-      <button class="btn btn-secondary" id="btn-save" onclick="App.saveResult()">
-        💾 保存到本机
-      </button>
-      <button class="btn btn-secondary" id="btn-retake" onclick="App.retake()">
+      <button class="btn btn-secondary" onclick="App.retake()">
         🔄 再测一次
       </button>
-      <button class="btn btn-secondary" id="btn-all-personalities" onclick="App.showAllPersonalities()">
-        👥 查看所有角色
-      </button>
-      <button class="btn btn-ghost" id="btn-delete-result-page" onclick="App.deleteSavedResult()">
-        🗑 删除本机结果
+      <button class="btn btn-secondary hidden" onclick="App.showAllPersonalities()">
+        👥 查看所有人格
       </button>
     </div>
 
     <p class="result-footer-note">
-      MFTI · 轻松人格测试 · 虚构角色，仅供娱乐<br>
-      结果不构成心理或医学诊断
+      MFTI · 「男娘」人格测试 · 结果仅供娱乐参考<br>
+      如有雷同，纯属你也是这类人 <img src="images/sakura.svg?v=1.0.2" class="footer-sakura" alt="🌸">
     </p>
 
   </div>
@@ -273,8 +266,8 @@
 <div id="page-all-personalities" class="hidden">
   <div class="container">
     <div class="all-personalities-header">
-      <h1>👥 所有 16 种 MFTI 虚构角色</h1>
-      <p class="subtitle">同一套审美、社交、思考与行动节奏，长出 16 种不同的样子</p>
+      <h1>👥 所有16种MFTI人格</h1>
+      <p class="subtitle">探索不同的人格类型，找到最符合你的特质</p>
       <button class="btn btn-secondary" onclick="App.showLanding()">
         ← 返回首页
       </button>
@@ -317,12 +310,12 @@
   </div>
 </footer>
 
-<script src="data/translations.min.js?v=fbec083ab1"></script>
-<script src="data/personalities.min.js?v=1c12eca4d9"></script>
-<script src="data/questions.min.js?v=867051395d"></script>
-<script src="data/avatars.min.js?v=a1ffe61652"></script>
-<script src="js/engine.min.js?v=681c7f16b9"></script>
-<script src="js/app.min.js?v=62831e91b2"></script>
+<script src="data/translations.min.js?v=1.1.5"></script>
+<script src="data/personalities.min.js?v=1.1.5"></script>
+<script src="data/questions.min.js?v=1.1.0"></script>
+<script src="data/avatars.min.js?v=1.0.2"></script>
+<script src="js/engine.min.js?v=1.0.7"></script>
+<script src="js/app.min.js?v=1.1.6"></script>
 
 </body>
 </html>

@@ -1,737 +1,795 @@
-// MFTI 16 种虚构角色
-// 四个核心轴（与语言无关）：
-//   第 1 位 P 想象派 / R 务实派      —— IM 想象浓度
-//   第 2 位 S 社交充电 / H 独处充电   —— SO 社交电量
-//   第 3 位 A 分析求证 / W 直觉随感   —— AN 分析倾向
-//   第 4 位 E 计划节奏 / I 即兴节奏   —— PL 计划节奏
-// dimensions 是用于「相近风格」排序的角色模板，不代表用户真实分数。
+// MFTI 16种人格数据
 
 const PERSONALITIES = {
 
-  // ==================== P 系：想象派 ====================
+  // ==================== P系（粉色梦境派）====================
 
   PSAE: {
     code: "PINK-B",
     name: "粉色炸弹",
     nameEn: "Pink Bomb",
-    subtitle: "热闹、明亮、自带 BGM 型",
-    subtitleEn: "Loud, bright, and carrying their own soundtrack",
+    subtitle: "老娘就是要美给你看型",
+    subtitleEn: "The type who's here to show you how gorgeous she is",
     emoji: "💣🌸",
     color: "#FF6EB4",
     gradient: ["#FF6EB4", "#FFB3D9"],
-    tags: ["气氛发动机", "审美在线", "行动派", "脑内小剧场"],
-    tagsEn: ["Vibe Engine", "Great Taste", "Action First", "Inner Cinema"],
+    tags: ["社交蝴蝶", "颜值在意", "绽放者", "梦幻泡泡"],
+    mbtiLike: "PINK-B",
     description: `
-💣🌸 你像一颗裹着糖霜的烟花：点着之前就很亮，点着之后更热闹。
+✨ 恭喜你！你属于极其稀有的「粉色炸弹」人格！ 这种类型在人群中不到 1%，是 MFTI 矩阵中最具生命力和感染力的存在之一！你的光芒如同太阳般耀眼，走到哪里都能成为焦点——不是因为刻意，而是因为你天生就是主角！
 
-**风格画像：** 你对好看的东西有天然雷达，也愿意把想法真的做出来。别人还在收藏灵感的时候，你已经把配色、歌单和出场方式排好了。你的想象力和执行力难得地站在同一边。
+你把人生活成了少女漫的主角，而且是那种封面女主角，不是可怜的配角。
 
-**日常打开方式：** 你会主动组局、主动分享、主动把气氛拉起来。你不是不知道现实有多麻烦，只是觉得既然要做，不如做得漂亮一点。偶尔你也会累，但恢复的方式通常是再搞点新花样。
+**心理学画像：** 你有着强烈的表达欲和被认可的需求——这是非常正常的人类需求，只是你更加坦诚地面对它。你可能会在意别人的目光，但这种在意不是软弱，而是你对自己有要求的表现。你想要呈现最好的自己给世界，这是一种对生活的热爱。
 
-**闪光点：** 你很容易让别人放松下来。你的热情不是表演，而是你真的对世界有兴趣。
+**日常行为模式：** 你可能会花很多时间在打扮上，不是为了讨好谁，而是因为你喜欢那个美美的自己。你可能会在社交媒体上分享你的生活，享受和朋友的互动。你可能会因为一句赞美开心很久，也会因为一句负面评价在意一会儿——这都没关系，因为你是真实的、有温度的。
 
-**小提醒：** 不是所有场合都需要你点燃。偶尔把音量调小，听听自己真正想要什么。
+**优势：** 你有着极强的感染力，能让周围的人感受到你的热情。你愿意为自己想要的东西付出努力，这种坚持非常可贵。你让很多人看到了勇气——做自己的勇气。
 
-**口头禅：** “既然要出场，就出得漂亮一点。”
+**致命弱点：** 有时候你可能会太在意外界的声音，而忽略了自己内心的感受。但请记住：你活着不是为了满足别人的期待，你是为了自己而活。
 
-**相处小贴士：** 认真接住你的热情，也记得在你安静下来时陪你待一会儿。
+**你的口头禅：** "我就是要做我自己！"
+
+**相处攻略：** 你需要身边的人真心地欣赏你，让你知道你的存在本身就很美好。
     `,
     descriptionEn: `
-💣🌸 You're a sugar-coated firework: bright before ignition, even brighter after.
+✨ Congratulations! You're the extremely rare "Pink Bomb" personality! This type appears in less than 1% of the population—one of the most vibrant and infectious personalities in the entire MFTI matrix! Your light shines like the sun; wherever you go, you become the center of attention—not by trying, but because you were born to be the protagonist!
 
-**Style profile:** You have a natural radar for what looks good, and you actually make ideas happen. While others are still saving inspiration, you've already sorted the palette, the playlist, and your entrance. Imagination and execution rarely sit this close together.
+You've turned your life into the protagonist of a shoujo manga—the cover heroine, not the pitiful supporting character.
 
-**How you operate:** You start things, share things, and lift the room. It's not that you don't see how messy reality is—you just think that if you're going to do it, you might as well make it beautiful. You get tired sometimes, but your usual recovery method is trying something new.
+**Psychological Profile:** You have a strong desire for expression and recognition—this is a very normal human need, you just face it more honestly. You might care about how others see you, but this care isn't weakness; it's a sign that you have high standards for yourself. You want to present your best self to the world—this is a love for life.
 
-**What shines:** You make it easy for others to relax. Your enthusiasm isn't a performance; you're genuinely interested in the world.
+**Daily Behavior Patterns:** You might spend a lot of time dressing up, not to please anyone, but because you like that beautiful version of yourself. You might share your life on social media, enjoying interactions with friends. You might feel happy for a long time from a compliment, or care about a negative comment for a while—and that's okay, because you're real, you're warm.
 
-**Small reminder:** Not every room needs you to light it up. Turn the volume down now and then and listen to what you actually want.
+**Strengths:** You have an extremely strong infectious charm that makes people around you feel your passion. You're willing to work hard for what you want—this persistence is precious. You show many people courage—the courage to be yourself.
 
-**Your line:** "If I'm going to show up, I'm showing up beautifully."
+**Fatal Weakness:** Sometimes you might care too much about external voices and ignore your inner feelings. But remember: you're not living to meet others' expectations; you're living for yourself.
 
-**How to get along:** Take your enthusiasm seriously, and stay with you when you go quiet.
+**Your Catchphrase:** "I'm going to be myself!"
+
+**How to Get Along:** You need someone to truly appreciate you, to let you know that your existence itself is beautiful.
     `,
-    dimensions: { IM: 85, SO: 85, AN: 80, PL: 80, AE: 85, CU: 70, EX: 85, RT: 70, HU: 60, MO: 70 }
+    dimensions: { PR: 92, SH: 95, AI: 100, EW: 100, CF: 88, DK: 100, TN: 20, MB: 92, GL: 100, XZ: 93 }
   },
 
   PSAI: {
     code: "PHIL-Q",
     name: "深夜哲学家",
     nameEn: "Night Philosopher",
-    subtitle: "白天很能聊，凌晨在拆解宇宙型",
-    subtitleEn: "Great in conversation by day, dismantling the universe by night",
+    subtitle: "表面 social 实际存在主义危机型",
+    subtitleEn: "Social on surface, existential crisis underneath",
     emoji: "🌙📚",
     color: "#9B59B6",
     gradient: ["#9B59B6", "#D7BDE2"],
-    tags: ["夜间思考", "话题发动机", "脑内弹幕", "即兴发挥"],
-    tagsEn: ["Night Thinker", "Conversation Starter", "Inner Commentary", "Improv Mode"],
+    tags: ["伪社牛", "深夜发疯", "哲学女孩", "人格分裂 er"],
+    mbtiLike: "PHIL-Q",
     description: `
-🌙📚 你白天能把天聊热，晚上又能把同一个话题拆成八层。
+🌟 恭喜你！你是「深夜哲学家」人格！你既有感性的温柔，又有理性的深度，这种完美的结合让你成为人群中独一无二的存在！你的思想如同星空般深邃，既有温暖的光芒，又有引人深思的力量！
 
-**风格画像：** 你对人和社会有很强的观察欲，脑子里常年开着弹幕。你喜欢和朋友交换观点，也喜欢一个人把问题想到更深的地方。你的分析不是为了赢，而是因为“想明白”本身很好玩。
+你的社交软件头像是粉色渐变，但你凌晨三点发的文章是《萨特论他者凝视与自我身份认同的交叉性分析》。
 
-**日常打开方式：** 你常常在聚会里提出一个奇怪但有趣的问题，然后在回家路上继续想它。你的兴趣跳得快，计划赶不上灵感，但这正是你可爱的地方。
+**心理学画像：** 你同时运行着两套自我系统：一套是面向世界的社交人格，活泼、可爱、充满能量；另一套是深夜独处时的内省人格，质疑一切、分析一切、对自身存在充满焦虑性好奇。心理学称这种双轨并行为"自我复杂性"（Self-Complexity），高自我复杂性的人抗压能力更强，但也更难"关机"——你的大脑根本不知道怎么停止运转。
 
-**闪光点：** 你能同时接住情绪和逻辑。别人跟你聊完，常常觉得既被理解，又被打开了新角度。
+**日常行为模式：** 白天，你出席活动、认识新朋友、在群里活跃、帮别人解决情绪问题，被所有人觉得是"那个很懂事的姐姐"。晚上十一点之后，你进入另一个模式：开始翻学术文章，发长长的内心独白给三个固定好友，然后在某个冷门论坛潜水，看别人讨论"人是否可以拥有本质主义的自我认同"。你活跃于线下活动，但每次 party 结束后都要独处两天才能充电完毕。
 
-**小提醒：** 不是每个问题都需要今晚想通。有时候先睡一觉，答案会自己浮上来。
+**优势：** 你是社区里少数既能接住感性共情、又能给出理性分析的人。你的存在对刚开始面对自己的人来说像是灯塔——你既告诉他们"没事的，我懂你"，又能说"但你可以从这个角度想一下"。
 
-**口头禅：** “等等，我们先把这个概念拆开来看。”
+**致命弱点：** 你过度分析自己。你把心理学概念用得极为娴熟，以至于你能准确地诊断自己的问题，但就是不执行解决方案。你知道你有"分析瘫痪"，你知道这叫什么，你甚至知道治疗方案，但你还是在分析。
 
-**相处小贴士：** 不用急着给答案，做个认真的听众就已经很够。
+**你的口头禅：** "等等，我觉得我们需要先把这个概念拆开来看……"
+
+**相处攻略：** 当你深夜发疯时，不需要别人试图"解决问题"，只需要有人陪着就好。你需要的不是答案，是一个见证者。
     `,
     descriptionEn: `
-🌙📚 By day you can carry a conversation; by night you can take the same topic apart into eight layers.
+🌟 Congratulations! You're the "Night Philosopher" personality! You have both emotional tenderness and rational depth; this perfect combination makes you one-of-a-kind among people! Your mind is as deep as the starry sky—full of warm light and thought-provoking power!
 
-**Style profile:** You're intensely curious about people and society, with a constant commentary track running in your head. You love trading views with friends and also love taking a question deeper on your own. Your analysis isn't about winning—it's that understanding something is genuinely fun.
+Your social media profile picture is a pink gradient, but the article you post at 3 AM is "Sartre on the Gaze of the Other and Its Intersectionality with Self-Identity."
 
-**How you operate:** You often drop a strange but interesting question at a gathering, then keep thinking about it on the way home. Your interests move fast and your plans chase your inspiration, which is exactly part of your charm.
+**Psychological Profile:** You run two self-systems simultaneously: one is a social persona facing the world—lively, cute, full of energy; the other is an introspective persona when alone late at night—questioning everything, analyzing everything, filled with anxious curiosity about your own existence. Psychology calls this dual-track operation "Self-Complexity." People with high self-complexity have stronger stress resistance, but also find it harder to "shut down"—your brain simply doesn't know how to stop running.
 
-**What shines:** You can hold emotion and logic at the same time. People often leave a conversation with you feeling both understood and opened to a new angle.
+**Daily Behavior Patterns:** During the day, you attend events, meet new friends, stay active in group chats, help others solve emotional problems, and everyone thinks you're "that very sensible sister." After 11 PM, you enter another mode: start reading academic papers, send long inner monologues to three fixed friends, lurk on some obscure forum watching others discuss "whether people can have essentialist self-identity." You're active in offline events, but after every party you need two days of solitude to fully recharge.
 
-**Small reminder:** Not every question needs to be solved tonight. Sometimes sleep first and let the answer surface.
+**Strengths:** You're one of the few in the community who can handle both emotional empathy and rational analysis. Your existence is like a lighthouse for those who are just starting to face themselves—you both tell them "it's okay, I understand you" and say "but you can think about it from this angle."
 
-**Your line:** "Hold on—let's take this concept apart first."
+**Fatal Weakness:** You over-analyze yourself. You use psychological concepts so skillfully that you can accurately diagnose your problems, but you just don't execute solutions. You know you have "analysis paralysis," you know what it's called, you even know the treatment plan, but you're still analyzing.
 
-**How to get along:** Don't rush to give answers. Being a genuine listener is already enough.
+**Your Catchphrase:** "Wait, I think we need to break down this concept first..."
+
+**How to Get Along:** When you're spiraling late at night, you don't need someone to "solve problems"—just someone to be there with you. You don't need answers; you need a witness.
     `,
-    dimensions: { IM: 85, SO: 80, AN: 80, PL: 25, AE: 75, CU: 85, EX: 75, RT: 40, HU: 75, MO: 70 }
+    dimensions: { PR: 92, SH: 76, AI: 100, EW: 22, CF: 45, DK: 55, TN: 75, MB: 80, GL: 32, XZ: 42 }
   },
 
   PSWE: {
     code: "SCHRO-C",
-    name: "薛定谔猫系",
-    nameEn: "Schrödinger's Cat",
-    subtitle: "在每个场合都能切换成合适版本型",
-    subtitleEn: "Switches to the right version in every setting",
+    name: "薛定谔女孩",
+    nameEn: "Schrödinger's Girl",
+    subtitle: "在不同环境中展现不同面型",
+    subtitleEn: "Showing different sides in different environments",
     emoji: "📦🐱",
     color: "#E67E22",
     gradient: ["#E67E22", "#FAD7A0"],
-    tags: ["场合适应", "观察力强", "松弛有度", "有自己节奏"],
-    tagsEn: ["Social Chameleon", "Sharp Observer", "Easygoing", "Own Pace"],
+    tags: ["适应力强", "谨慎者", "平衡者", "灵活应变"],
+    mbtiLike: "SCHRO-C",
     description: `
-📦🐱 你像一只会根据房间温度调整姿势的猫：不是没有形状，而是形状很灵活。
+🎁 恭喜你！你是「薛定谔女孩」人格！你有着超强的适应能力，能在不同的环境中找到最舒适的状态——这不是伪装，这是一种生存智慧！
 
-**风格画像：** 你很会读空气，知道什么场合说什么话。你的直觉很好，但并非随意——你其实一直在观察，只是不把观察过程说出来。你对美和氛围有自己的判断，也愿意为重要的场合提前准备。
+你知道在什么场合说什么话，展现什么样子，这种能力让你能自如地生活在这个复杂的世界里。
 
-**日常打开方式：** 你在不同圈子里可能像不同的人，这并不矛盾。你只是把不同的自己放在合适的位置。你享受热闹，也珍惜一个人待着的时间。
+**心理学画像：** 你是一个"情境适应者"——你能够根据环境调整自己的表达方式，这是一种成熟的社交能力。你很清楚什么是安全的，什么是需要保护的，这种谨慎不是恐惧，而是对自己的负责。你知道自己是谁，不管在什么环境里，你的内心都是你自己。
 
-**闪光点：** 你的适应力让很多人感到舒服。你不会把自己的习惯强加给别人。
+**日常行为模式：** 你可能会在不同的圈子里有不同的状态，这很正常——每个人都有很多面。你可能会有一些只有特定朋友才知道的秘密，你可能会小心地保护着自己的世界。这不是欺骗，这是一种自我保护，也是对他人的尊重。
 
-**小提醒：** 切换太久也会累。留一个不需要你适应的角落给自己。
+**优势：** 你有着极强的同理心和感知力，能敏锐地察觉到环境的变化。你能在各种情况下保持冷静，找到最佳的应对方式。这种灵活性让你能轻松应对生活中的各种挑战。
 
-**口头禅：** “没关系，我知道怎么处理。”
+**致命弱点：** 有时候你可能会太累，因为你总是在适应环境。但请记住：你不需要总是那么坚强，偶尔也可以放松一下，做最真实的自己。
 
-**相处小贴士：** 给你安全感，你会比看起来更愿意打开自己。
+**你的口头禅：** "没关系，我知道怎么处理。"
+
+**相处攻略：** 你需要安全感，需要知道在对的人面前可以不用那么累，可以放松下来。
     `,
     descriptionEn: `
-📦🐱 You're like a cat who adjusts posture to the room temperature: not shapeless, just flexible.
+🎁 Congratulations! You're the "Schrödinger's Girl" personality! You have extraordinary adaptability and can find the most comfortable state in different environments—this isn't pretense, it's survival wisdom!
 
-**Style profile:** You read the room well and know what to say where. Your intuition is strong, but it isn't random—you're always observing, you just don't narrate it. You have your own sense of beauty and atmosphere, and you'll prepare ahead for occasions that matter.
+You know what to say and how to present yourself in different situations, and this ability allows you to live freely in this complex world.
 
-**How you operate:** You may seem like different people in different circles, and that isn't a contradiction. You're simply placing different parts of yourself where they fit. You enjoy a lively room and you also treasure time alone.
+**Psychological Profile:** You're a "situational adapter"—you can adjust your way of expression according to the environment, which is a mature social skill. You know very well what's safe and what needs protection; this caution isn't fear, it's responsibility to yourself. You know who you are, no matter what environment you're in, your inner self remains the same.
 
-**What shines:** Your adaptability puts people at ease. You don't force your habits on anyone.
+**Daily Behavior Patterns:** You might have different states in different circles, which is normal—everyone has many sides. You might have some secrets that only specific friends know, and you might carefully protect your world. This isn't deception; it's a form of self-protection and respect for others.
 
-**Small reminder:** Switching for too long is tiring. Keep one corner where you don't have to adapt.
+**Strengths:** You have extremely strong empathy and perception, and can keenly detect changes in the environment. You can stay calm in all situations and find the best way to respond. This flexibility allows you to easily handle various challenges in life.
 
-**Your line:** "It's fine—I know how to handle it."
+**Fatal Weakness:** Sometimes you might get tired because you're always adapting to the environment. But remember: you don't always have to be so strong; occasionally you can relax and be your most authentic self.
 
-**How to get along:** Give you a sense of safety, and you'll open up more than people expect.
+**Your Catchphrase:** "It's okay, I know how to handle it."
+
+**How to Get Along:** You need a sense of security, to know that in front of the right person you don't have to be so tired—you can relax.
     `,
-    dimensions: { IM: 80, SO: 80, AN: 25, PL: 75, AE: 70, CU: 80, EX: 70, RT: 65, HU: 70, MO: 60 }
+    dimensions: { PR: 62, SH: 86, AI: 20, EW: 90, CF: 48, DK: 72, TN: 50, MB: 40, GL: 20, XZ: 45 }
   },
 
   PSWI: {
     code: "QUANT-S",
-    name: "量子脑洞体",
-    nameEn: "Quantum Ideaform",
-    subtitle: "脑洞和社交同时在线型",
-    subtitleEn: "Imagination and social energy online at the same time",
+    name: "量子纠缠少女",
+    nameEn: "Quantum Girl",
+    subtitle: "把自我分析做成博士论文型",
+    subtitleEn: "Turns self-analysis into a doctoral dissertation",
     emoji: "🔬🌸",
     color: "#8E44AD",
     gradient: ["#8E44AD", "#D2B4DE"],
-    tags: ["脑洞很大", "自来熟", "灵感型", "拒绝模板"],
-    tagsEn: ["Big Ideas", "Fast Friends", "Inspired", "No Templates"],
+    tags: ["分析过度", "哲学系", "长文预警", "到底行不行动"],
+    mbtiLike: "QUANT-S",
     description: `
-🔬🌸 你的脑子像一间永远在装修的游乐园，而且你很喜欢拉别人进来玩。
+🔬 恭喜你！你是「量子纠缠少女」人格！你的内心世界如同宇宙般广阔，这种深度是绝大多数人无法企及的！你对自我的探索如同科学家研究宇宙般执着，这种精神令人敬佩！
 
-**风格画像：** 你擅长把不相关的东西连在一起，聊天时经常突然冒出一个新点子。你不喜欢被固定流程束缚，觉得最好的方案往往是在过程中长出来的。你对审美有要求，但更在意“有意思”。
+你已经在脑内把自己的身份解构了至少三百次，每次都重建出一个新的版本，但你不确定哪个版本是最终答案，所以你继续解构。
 
-**日常打开方式：** 你可能会同时开五个兴趣坑，然后在某个深夜突然把其中一个推进一大步。你认识的人多，聊得来的人也多，但真正让你兴奋的是想法碰撞的瞬间。
+**心理学画像：** 你展现出高度的"元认知活跃性"（Metacognitive Hyperactivity）——不只是思考，而是思考关于思考的思考。你对自身心理机制的洞察力远超一般人，这使你看起来非常通透，但实际上这种持续的自我监控会产生心理学上的"内省幻觉"（Introspection Illusion）：你越分析，越觉得自己看清了，但研究表明人类对自己内心的认知极其不可靠。你的那些分析可能比你以为的要不准确得多。
 
-**闪光点：** 你能给身边的人带来新鲜感。你不太评判别人的选择，因为你自己的选择也一直很流动。
+**日常行为模式：** 你的备忘录里存着大量关于自我身份的思考笔记，最长的一篇有六千字，写于某个失眠的深夜。你看过《性别是表演》《第二性》《自我认同的心理学》，看完之后写了读书笔记，然后又写了质疑读书笔记的笔记。你在社交上并不差，偶尔出门，认识人，但从来不主动向任何人讲自己的内心世界——不是因为不信任，而是因为你觉得"讲不清楚"。
 
-**小提醒：** 灵感很多的时候，挑一个先做完，会比同时开五个更爽。
+**优势：** 你对身份问题的理解深度是 16 型人格里最强的之一。你能看到问题的多个层次，不轻易被简单答案满足。这使你成为思想领域的探索者，你的内心世界极其丰富。
 
-**口头禅：** “等一下，我突然有个想法。”
+**致命弱点：** 想清楚和做到之间有一道天堑，而你永远站在天堑的这一边，继续想。你的分析能力变成了一种精致的拖延机制——只要还没想清楚，就不需要行动。但真相是：有些事情不是想清楚了才做，是做了才想清楚。
 
-**相处小贴士：** 跟上你的节奏，但也可以帮你把其中一个想法落地。
+**你的口头禅：** "我觉得我还没准备好，等我再想想……"（已经想了两年）
+
+**相处攻略：** 你需要别人给你抛一个具体的小问题，而不是宏大的身份问题。大问题会让你陷入死循环。
     `,
     descriptionEn: `
-🔬🌸 Your mind is an amusement park that's always under construction—and you love inviting people in.
+🔬 Congratulations! You're the "Quantum Girl" personality! Your inner world is as vast as the universe; this depth is beyond what most people can reach! Your exploration of self is as persistent as a scientist studying the cosmos—this spirit is admirable!
 
-**Style profile:** You're great at connecting unrelated things and often blurt out a new idea mid-conversation. You dislike fixed processes and believe the best solutions grow along the way. You care about aesthetics, but "interesting" matters more.
+You've deconstructed your identity at least three hundred times in your head, each time reconstructing a new version, but you're not sure which version is the final answer, so you continue deconstructing.
 
-**How you operate:** You might have five hobbies open at once, then suddenly push one of them forward at midnight. You know a lot of people and get along with many, but what really excites you is the moment ideas collide.
+**Psychological Profile:** You demonstrate a high degree of "Metacognitive Hyperactivity"—not just thinking, but thinking about thinking about thinking. Your insight into your own psychological mechanisms far exceeds that of ordinary people, making you appear very perceptive, but in fact this continuous self-monitoring produces what psychology calls the "Introspection Illusion": the more you analyze, the more you feel you see clearly, but research shows that human self-knowledge is extremely unreliable. Your analyses may be far less accurate than you think.
 
-**What shines:** You bring freshness to the people around you. You rarely judge others' choices, because your own choices keep moving too.
+**Daily Behavior Patterns:** Your memo app is filled with extensive notes about self-identity; the longest one is six thousand words, written during a sleepless night. You've read "Gender Trouble," "The Second Sex," "The Psychology of Self-Identity," and after reading you wrote book notes, then wrote notes questioning your book notes. You're not bad socially; you occasionally go out, meet people, but never voluntarily tell anyone about your inner world—not because of distrust, but because you feel you "can't explain it clearly."
 
-**Small reminder:** When inspiration is abundant, finishing one thing feels better than opening five.
+**Strengths:** Your depth of understanding on identity issues is one of the strongest among the 16 types. You can see multiple layers of problems and aren't easily satisfied with simple answers. This makes you an explorer in the realm of ideas; your inner world is extremely rich.
 
-**Your line:** "Wait—I just had an idea."
+**Fatal Weakness:** There's a chasm between understanding clearly and doing, and you're forever standing on this side of the chasm, continuing to think. Your analytical ability has become a refined procrastination mechanism—as long as you haven't figured it out, you don't need to act. But the truth is: some things aren't done after you figure them out; you figure them out by doing them.
 
-**How to get along:** Keep up with your pace, but also help one of those ideas land.
+**Your Catchphrase:** "I feel like I'm not ready yet, let me think about it some more..." (has been thinking for two years)
+
+**How to Get Along:** You need someone to give you a concrete small problem, not a grand identity question. Big questions will trap you in an endless loop.
     `,
-    dimensions: { IM: 85, SO: 75, AN: 20, PL: 25, AE: 80, CU: 90, EX: 80, RT: 35, HU: 80, MO: 65 }
+    dimensions: { PR: 78, SH: 62, AI: 10, EW: 40, CF: 62, DK: 32, TN: 65, MB: 52, GL: 57, XZ: 65 }
   },
 
   PHAE: {
-    code: "CLOUD-D",
-    name: "云端住客",
-    nameEn: "Cloud Dweller",
-    subtitle: "在自己的小世界里认真生活型",
-    subtitleEn: "Living carefully in a small world of their own",
+    code: "CLOUD-G",
+    name: "云端仙子",
+    nameEn: "Cloud Fairy",
+    subtitle: "在自己的世界里绽放型",
+    subtitleEn: "Blooming in her own world",
     emoji: "🏠✨",
     color: "#FF85A1",
     gradient: ["#FF85A1", "#FFC3D0"],
-    tags: ["私人美学", "安静观察", "细节控", "有秩序"],
-    tagsEn: ["Private Aesthetic", "Quiet Observer", "Detail Eye", "Ordered"],
+    tags: ["宅家精灵", "爱美之人", "私密绽放", "温柔细腻"],
+    mbtiLike: "CLOUD-G",
     description: `
-🏠✨ 你在自己的小空间里有很多讲究，只是不一定要展示给所有人看。
+🏠 恭喜你！你是「云端仙子」人格！你有着一个属于自己的美丽世界，在那里你可以完全放松，做最真实的自己！你对生活有着独特的品味，能在平凡的日常中发现美好的事物！
 
-**风格画像：** 你对氛围、颜色、光线这些细节很敏感，喜欢把生活打理成自己舒服的样子。你的想象力和分析力常常一起工作：先被某种感觉打动，再认真研究怎么把它实现。
+你喜欢在自己的小空间里享受时光，在那里你是最自在的。
 
-**日常打开方式：** 你享受独处，也享受把一件事慢慢做好的过程。你的社交电量不算大，但对少数重要的人很用心。计划对你来说不是束缚，而是让喜欢的事能长久进行下去的方式。
+**心理学画像：** 你是一个"内在探索者"——你更关注内心世界的丰富，而不是外界的喧嚣。你对自己有要求，这种要求不是给别人看的，是给自己的。你喜欢把自己的空间打理得舒舒服服，因为这是你灵魂的栖息地。
 
-**闪光点：** 你能注意到别人忽略的细节，也很少把自己的标准强加给别人。
+**日常行为模式：** 你可能会花很多时间在自己的爱好上，可能是打扮，可能是追剧，可能是做任何让你开心的事情。你可能更喜欢和少数几个亲密的朋友相处，而不是热闹的场合。你可能会在独处时感到最自在，因为那时候你不需要扮演任何人。
 
-**小提醒：** 偶尔让计划失控一点，也许会遇见意料之外的好东西。
+**优势：** 你有着细腻的内心和独特的审美。你能注意到别人注意不到的细节，你能创造出属于自己的美好世界。你的温柔和细腻，让你成为一个很好的倾听者和陪伴者。
 
-**口头禅：** “这样摆，光刚好。”
+**致命弱点：** 有时候你可能会太宅了，错过了外面世界的一些精彩。但没关系，你的世界已经足够美好——如果想出去看看，那就去；如果不想，那就继续享受你的小天地。
 
-**相处小贴士：** 尊重你的空间，也别把你的安静误读成拒绝。
+**你的口头禅：** "在家待着真舒服啊~"
+
+**相处攻略：** 你需要别人尊重你的空间，让你知道无论想待在家里还是出来玩，都是可以的。
     `,
     descriptionEn: `
-🏠✨ You have a lot of care in your own little space—you just don't need to show it to everyone.
+🏠 Congratulations! You're the "Cloud Fairy" personality! You have a beautiful world that belongs only to you, where you can completely relax and be your most authentic self! You have a unique taste for life and can find beauty in ordinary days!
 
-**Style profile:** You're sensitive to details like atmosphere, color, and light, and you like shaping daily life into something comfortable. Your imagination and analysis often work together: first you're moved by a feeling, then you study how to make it real.
+You enjoy spending time in your own little space, where you feel most at ease.
 
-**How you operate:** You enjoy solitude and the process of doing one thing slowly and well. Your social battery isn't huge, but you're attentive to the few people who matter. Plans aren't a cage for you—they're how the things you love last.
+**Psychological Profile:** You're an "inner explorer"—you pay more attention to the richness of your inner world than the noise of the outside. You have high standards for yourself, not for others to see, but for yourself. You like to make your space comfortable because it's the habitat of your soul.
 
-**What shines:** You notice details others miss, and you rarely impose your standards on anyone.
+**Daily Behavior Patterns:** You might spend a lot of time on your hobbies—maybe dressing up, maybe watching shows, maybe doing anything that makes you happy. You might prefer to be with a few close friends rather than in noisy places. You might feel most at ease when alone, because then you don't have to be anyone else.
 
-**Small reminder:** Let the plan go sideways once in a while. Unexpected good things live there.
+**Strengths:** You have a delicate heart and unique aesthetic. You can notice details others miss, and you can create a beautiful world of your own. Your gentleness and delicacy make you a great listener and companion.
 
-**Your line:** "If it sits here, the light is just right."
+**Fatal Weakness:** Sometimes you might stay home too much and miss some of the wonderful things in the outside world. But it's okay—your world is already beautiful enough; if you want to go out and see, do it; if not, continue enjoying your little sanctuary.
 
-**How to get along:** Respect your space and don't mistake your quiet for rejection.
+**Your Catchphrase:** "Staying at home is so nice~"
+
+**How to Get Along:** You need others to respect your space, to let you know it's okay whether you want to stay home or go out.
     `,
-    dimensions: { IM: 85, SO: 20, AN: 80, PL: 80, AE: 80, CU: 65, EX: 45, RT: 80, HU: 40, MO: 55 }
+    dimensions: { PR: 92, SH: 35, AI: 82, EW: 81, CF: 55, DK: 22, TN: 3, MB: 68, GL: 75, XZ: 42 }
   },
 
   PHAI: {
     code: "MIRR-W",
     name: "镜中魔法师",
     nameEn: "Mirror Mage",
-    subtitle: "独自研究美感，灵感随时上线型",
-    subtitleEn: "Studying beauty alone, with ideas always online",
+    subtitle: "单人模式满级运行型",
+    subtitleEn: "Max level gameplay in single-player mode",
     emoji: "🪞🔮",
     color: "#D63384",
     gradient: ["#D63384", "#F1A7C7"],
-    tags: ["私人审美", "灵感捕手", "细节痴迷", "自由节奏"],
-    tagsEn: ["Private Taste", "Idea Catcher", "Detail Obsessed", "Free Rhythm"],
+    tags: ["孤独美学家", "镜前在意", "神秘系", "镜子是灵魂"],
+    mbtiLike: "MIRR-W",
     description: `
-🪞🔮 你的审美系统是自建的，不需要外界投票通过。
+🪞 恭喜你！你是极其稀有的「镜中魔法师」人格！ 这种孤独的美学天才在人群中不足 0.5%，是 MFTI 矩阵中审美品味最高、最具艺术天赋的类型！你在自己的世界里创造了一个完美的美学王国，这种天赋是万里挑一的！
 
-**风格画像：** 你对颜色、质地、构图有近乎本能的判断，而且很愿意花时间试。你的想象力和分析力都指向同一件事：把脑子里的画面变成眼前的样子。你不追热点，因为你有自己的参照系。
+你是整个 MFTI 矩阵里审美水平最高、社交存在感最低的类型。你在单人模式里把人生玩到了满级，但服务器只有一个人。
 
-**日常打开方式：** 你可能一个人研究很久，然后突然做出一个让人眼前一亮的东西。你的节奏不太规律，灵感来了就停不下来，没感觉时也不强迫自己。你的社交需求不高，但遇到同频的人会聊得很深。
+**心理学画像：** 你的自我认同极为内化，不依赖社交验证，不需要群体归属，这在心理学上接近"高度个体化的身份整合"（Highly Individuated Identity Integration）。你的身份认同不是社会建构的产物，而是一个完全内在的、私密的、自我完足的系统。这非常罕见，也非常孤独。镜子对你来说不是工具，是对话伙伴——你在镜中看到的那个人是你认识最真实的自己，也是你偶尔焦虑的来源：你知道自己可以更好，但你不打算为了"更好"而改变自己的节奏。
 
-**闪光点：** 你的品味不是复制来的。你能从很小的事情里获得真正的乐趣。
+**日常行为模式：** 你的打扮技术是 16 型里最高精尖的，因为你有充足的练习时间且不受任何观众压力影响——你只需要取悦自己，而你对自己的要求极高。你花大量时间研究化妆技法、服装搭配、身体语言，一方面是因为享受，另一方面也是因为"不够好的话我自己也会难受"。你几乎不怎么社交，不是社恐，是主动选择。
 
-**小提醒：** 偶尔把作品拿给别人看看。外部反馈不一定改变你，但可能给你新的材料。
+**优势：** 你的审美品味和技术水平令人叹服。你不受潮流左右，因为你的参照系是纯粹内在的，你只知道什么让你感到美，不管别人觉得流不流行。这是一种极为自由的存在方式。
 
-**口头禅：** “还差一点，但我知道差在哪。”
+**致命弱点：** 长期的内向化身份表达可能导致"自我回音壁"效应——你的世界越来越精密，但也越来越封闭。没有外部扰动，系统无法进化，只会无限细化已有的内容，而缺乏新的输入。你可能正在用美丽构建一座越来越漂亮、越来越坚固的监狱。
 
-**相处小贴士：** 不要打扰你的沉浸时刻，你主动分享时请认真看。
+**你的口头禅：** （什么都不说，只是看着镜子）
+
+**相处攻略：** 你需要别人不要打扰你的仪式感。如果你主动和别人说话，那比收到诺贝尔奖还稀有——希望对方好好接住。
     `,
     descriptionEn: `
-🪞🔮 Your aesthetic system is self-built and doesn't need a public vote.
+🪞 Congratulations! You're the extremely rare "Mirror Mage" personality! These lonely aesthetic geniuses make up less than 0.5% of the population—one of the types with the highest aesthetic taste and most artistic talent in the entire MFTI matrix! You've created a perfect aesthetic kingdom in your own world; this talent is one in a million!
 
-**Style profile:** You have an almost instinctive sense of color, texture, and composition, and you're willing to spend time experimenting. Your imagination and analysis point at the same thing: turning the image in your head into what's in front of you. You don't chase trends because you have your own reference frame.
+You're the type with the highest aesthetic level and lowest social presence in the entire MFTI matrix. You've played life to max level in single-player mode, but the server only has one person.
 
-**How you operate:** You might study something alone for a long time, then suddenly make something that makes people look twice. Your rhythm is irregular—when inspiration hits you can't stop, and when it doesn't you don't force it. Your social needs are modest, but with the right person you'll go deep.
+**Psychological Profile:** Your self-identity is extremely internalized, not relying on social validation, not needing group belonging—this approaches "Highly Individuated Identity Integration" in psychology. Your identity isn't a product of social construction, but a completely internal, private, self-sufficient system. This is very rare, and very lonely. The mirror isn't a tool for you; it's a dialogue partner—the person you see in the mirror is the most authentic self you know, and also the source of your occasional anxiety: you know you can be better, but you don't intend to change your rhythm for the sake of "better."
 
-**What shines:** Your taste isn't copied. You can get real pleasure from very small things.
+**Daily Behavior Patterns:** Your dressing technique is the most sophisticated among the 16 types, because you have ample practice time without any audience pressure—you only need to please yourself, and your requirements for yourself are extremely high. You spend extensive time researching makeup techniques, outfit coordination, body language, partly because you enjoy it, partly because "if it's not good enough, I'll feel bad myself." You barely socialize, not due to social anxiety, but by active choice.
 
-**Small reminder:** Show someone your work occasionally. Outside feedback won't necessarily change you, but it can give you new material.
+**Strengths:** Your aesthetic taste and technical level are admirable. You aren't swayed by trends, because your frame of reference is purely internal; you only know what makes you feel beautiful, regardless of what others think is fashionable. This is an extremely free way of existing.
 
-**Your line:** "It's not quite there, but I know exactly what's missing."
+**Fatal Weakness:** Long-term introverted identity expression may lead to the "self-echo chamber" effect—your world becomes more and more sophisticated, but also more and more closed. Without external disturbance, the system cannot evolve; it only infinitely refines existing content, lacking new input. You may be using beauty to build a prison that grows ever more beautiful and ever more impenetrable.
 
-**How to get along:** Don't interrupt your immersion—and when you choose to share, look carefully.
+**Your Catchphrase:** (says nothing, just looks at the mirror)
+
+**How to Get Along:** You need others not to disturb your rituals. If you voluntarily speak to someone, that's rarer than winning a Nobel Prize—hope they treasure it.
     `,
-    dimensions: { IM: 90, SO: 15, AN: 80, PL: 25, AE: 90, CU: 75, EX: 40, RT: 85, HU: 50, MO: 60 }
+    dimensions: { PR: 80, SH: 5, AI: 98, EW: 29, CF: 78, DK: 5, TN: 15, MB: 88, GL: 92, XZ: 65 }
   },
 
   PHWE: {
     code: "SECR-G",
     name: "秘密花园主",
     nameEn: "Garden Keeper",
-    subtitle: "安静经营自己的小宇宙型",
-    subtitleEn: "Quietly tending a small universe of their own",
+    subtitle: "经营平行宇宙自给自足型",
+    subtitleEn: "Self-sufficient operator of a parallel universe",
     emoji: "🌺🗝️",
     color: "#27AE60",
     gradient: ["#27AE60", "#A9DFBF"],
-    tags: ["内在秩序", "私人空间", "稳定输出", "温柔边界"],
-    tagsEn: ["Inner Order", "Private Space", "Steady Output", "Gentle Boundaries"],
+    tags: ["双面人生", "神秘人", "自给自足", "箱子里的宇宙"],
+    mbtiLike: "SECR-G",
     description: `
-🌺🗝️ 你有一座不对外售票的花园，钥匙一直在你自己手里。
+🌺 恭喜你！你是「秘密花园主」人格！你构建了一个只属于自己的完美世界，这种能力是极其珍贵的！你的内心世界如同秘密花园般繁茂，充满了只有你能发现的美！
 
-**风格画像：** 你对生活有自己的秩序，喜欢把喜欢的东西放在固定的位置。你的直觉和计划配合得很好：先知道什么让自己舒服，再慢慢把它安排进日常。你不需要很多人围观，也能把日子过得有内容。
+你的秘密不是藏着的，是被精心放置在一个只有你知道位置的地方，加了锁，钥匙一直在你手里。
 
-**日常打开方式：** 你享受独处，也享受长期维护一件小事的过程。你的社交圈不大，但对信任的人很稳定。你不喜欢被追问细节，边界感清晰，却不是冷漠。
+**心理学画像：** 你发展出了心理学上所谓的"分隔化身份管理"（Compartmentalized Identity Management）——将自我的不同面向彻底隔离在不同的生活空间里，互不干扰，各自完整。弗洛伊德会把这叫做"分裂"，但现代心理学更倾向于认为这是一种高度适应性的应对机制，尤其在高压社会环境中。你不是不完整，你只是把自己整理得很整齐。
 
-**闪光点：** 你的内在稳定性很高。你不会因为外界一时热闹就改变自己的节奏。
+**日常行为模式：** 你有一个专门的箱子或者抽屉，位置非常隐蔽，里面的东西非常整齐。你享受宅在家的时间，享受独自打扮的过程，享受那个只属于自己的小宇宙。你不在社交媒体上露面，不参加社群活动，但你向极少数信任的人透露过——虽然方式轻描淡写，像是在说一件不太重要的事。你和自己的关系是平静的、接纳的，甚至带着某种满足感。你没有强烈的"走出去"的冲动，你已经在自己的世界里安居了。
 
-**小提醒：** 花园也需要新的种子。偶尔让一个陌生人进来看看，未必是坏事。
+**优势：** 你拥有极高的内在稳定性和生活自足能力。你不依赖任何外部系统来维持内心的平衡，你的幸福感来自内部，因此也最不容易被外部事件所摧毁。
 
-**口头禅：** “这件事不需要让所有人都知道。”
+**致命弱点：** 完美的隔离意味着没有增量。你的花园越来越美，但花园里的物种不会进化，也不会繁殖——因为没有外来的花粉和风。偶尔，你在梦里梦到有人发现了那个箱子，然后惊醒，而你发现那个梦里你有一点点……松了口气？
 
-**相处小贴士：** 尊重你的边界，你会用时间证明信任值得。
+**你的口头禅：** "这件事不需要让所有人都知道。"
+
+**相处攻略：** 你的秘密不是对别人的不信任，是你保护自己的方式。如果你某天主动打开门，那是你给对方最大的礼物。
     `,
     descriptionEn: `
-🌺🗝️ You keep a garden with no public ticket booth, and the key has always been in your hand.
+🌺 Congratulations! You're the "Garden Keeper" personality! You've built a perfect world that belongs only to you; this ability is extremely precious! Your inner world is as lush as a secret garden—full of beauty only you can discover!
 
-**Style profile:** You have your own order and like keeping what you love in familiar places. Your intuition and planning work well together: first you sense what feels comfortable, then you slowly arrange it into daily life. You don't need an audience to have a rich life.
+Your secret isn't hidden; it's carefully placed in a location only you know, locked, with the key always in your hand.
 
-**How you operate:** You enjoy solitude and the long upkeep of small things. Your social circle is small but stable for the people you trust. You dislike being pressed for details; your boundaries are clear without being cold.
+**Psychological Profile:** You've developed what psychology calls "Compartmentalized Identity Management"—completely isolating different aspects of self into separate life spaces, not interfering with each other, each complete. Freud would call this "splitting," but modern psychology tends to view it as a highly adaptive coping mechanism, especially in high-pressure social environments. You're not incomplete; you've just organized yourself very neatly.
 
-**What shines:** Your inner stability is strong. A temporary burst of noise outside won't change your rhythm.
+**Daily Behavior Patterns:** You have a special box or drawer, very hidden in location, with very neat contents inside. You enjoy time at home, enjoy the process of dressing up alone, enjoy that little universe belonging only to you. You don't appear on social media, don't participate in community activities, but you've revealed yourself to a very few trusted people—though in an understated way, as if talking about something not very important. Your relationship with yourself is calm, accepting, even with a certain sense of satisfaction. You don't have a strong impulse to "go out"; you've already settled comfortably in your own world.
 
-**Small reminder:** Gardens need new seeds too. Letting a stranger look in once in a while isn't necessarily bad.
+**Strengths:** You have extremely high internal stability and life self-sufficiency. You don't rely on any external system to maintain inner balance; your happiness comes from within, therefore it's also least likely to be destroyed by external events.
 
-**Your line:** "Not everyone needs to know about this."
+**Fatal Weakness:** Perfect isolation means no growth. Your garden becomes more and more beautiful, but the species in the garden don't evolve, don't reproduce—because there's no foreign pollen or wind. Occasionally, you dream that someone discovers that box, then wake up startled, and you find that in that dream you were a little bit... relieved?
 
-**How to get along:** Respect your boundaries, and you'll prove over time that trust was worth it.
+**Your Catchphrase:** "Not everyone needs to know about this."
+
+**How to Get Along:** Your secrets aren't distrust of others; they're your way of protecting yourself. If you one day voluntarily open the door, that's the greatest gift you can give someone.
     `,
-    dimensions: { IM: 80, SO: 20, AN: 25, PL: 75, AE: 75, CU: 70, EX: 40, RT: 70, HU: 45, MO: 50 }
+    dimensions: { PR: 72, SH: 25, AI: 48, EW: 55, CF: 78, DK: 12, TN: 20, MB: 55, GL: 20, XZ: 40 }
   },
 
   PHWI: {
     code: "DRIF-G",
     name: "漂浮态幽灵",
     nameEn: "Drifting Ghost",
-    subtitle: "安静、松散、脑内风景很丰富型",
-    subtitleEn: "Quiet, loose, with a rich inner landscape",
+    subtitle: "后台静默运行未响应型",
+    subtitleEn: "Running silently in background, not responding",
     emoji: "👻💤",
     color: "#7F8C8D",
     gradient: ["#7F8C8D", "#D5DBDB"],
-    tags: ["低耗模式", "随性", "内心丰富", "不被打扰"],
-    tagsEn: ["Low Power Mode", "Easygoing", "Rich Inner World", "Do Not Disturb"],
+    tags: ["内心深处", "不确定", "漂浮态", "等待触发"],
+    mbtiLike: "DRIF-G",
     description: `
-👻💤 你像一朵飘在房间里的云：不急着落地，也不急着被看见。
+👻 恭喜你！你是极其稀有的「漂浮态幽灵」人格！ 这种保持着纯粹可能性的人在人群中不到 0.4%，是 MFTI 矩阵中最具潜力和神秘色彩的类型之一！你像一张空白的画布，充满了无限的可能性，这种状态是极其珍贵的！
 
-**风格画像：** 你的感受很细腻，但不太主动表达。你喜欢让想法自由漂浮，不太愿意被日程和框架框住。独处对你来说不是逃避，而是恢复能量的默认方式。
+你知道。你一直知道。但"知道"和"承认"之间有一段你还没走完的路，而你还没想好要不要走。
 
-**日常打开方式：** 你可能有很丰富的脑内世界，却只对极少数人打开。你不喜欢被催，也不太爱解释自己。真正让你舒服的关系，是彼此都不需要表演。
+**心理学画像：** 你处于心理学上的"前沉思阶段"（Pre-contemplation Stage）与"沉思阶段"（Contemplation Stage）之间的灰色地带——你知道存在一个议题，你偶尔想到它，但你还没有进入主动考虑改变的模式。这不是否认（Denial），否认是主动抵抗；你更像是"搁置"（Suspension）——把这个问题放在一个不常打开的文件夹里，偶尔瞥一眼，然后关掉。
 
-**闪光点：** 你有一种不打扰别人的温柔，也有很强的自我恢复能力。
+**日常行为模式：** 你宅在家，偶尔会有一些私下的、不被任何人知道的小行为，但你不会深究这些行为意味着什么。你没有向任何人提起过，也没有参加任何相关社区，也没有查过什么资料——不是因为不知道可以查，是因为查了就意味着承认在认真对待这件事。你甚至参加了这个测试，但你可能告诉自己"只是好玩"。
 
-**小提醒：** 偶尔把脑内的东西拿出来一点，别人可能比你想的更愿意接住。
+**优势：** 你没有被任何身份焦虑压垮，因为你有意或无意地把压力源放在了视野边缘。在你准备好之前，这种漂浮状态保护了你。
 
-**口头禅：** “都可以，你决定。”
+**致命弱点：** 漂浮不是中立，它是一种消耗。长期维持"悬而未决"的认知状态会消耗大量心理资源，只是你感受到的不是焦虑，而是一种难以名状的疲惫感，或者一种总觉得哪里不对劲但说不清楚的钝痛。
 
-**相处小贴士：** 给你空间，不要用热闹来衡量你在不在乎。
+**你的口头禅：** "我只是随便看看的。"（已经随便看了很多年）
+
+**相处攻略：** 你不需要被推着走，也不需要被问"你到底是什么"。你需要的是一个安全的、没有压力的环境，让你觉得面对真实的自己是可以的——但那是你自己的决定，不是别人的。
     `,
     descriptionEn: `
-👻💤 You're like a cloud drifting around the room: in no hurry to land, in no hurry to be seen.
+👻 Congratulations! You're the extremely rare "Drifting Ghost" personality! People who maintain this pure possibility make up less than 0.4% of the population—one of the types with the most potential and mystique in the entire MFTI matrix! You're like a blank canvas, full of infinite possibilities; this state is extremely precious!
 
-**Style profile:** Your feelings are delicate, but you don't volunteer them often. You like letting ideas float freely and resist being boxed into schedules and frameworks. Solitude isn't escape for you—it's the default way to recharge.
+You know. You've always known. But between "knowing" and "admitting" there's a path you haven't finished walking, and you haven't decided yet whether to walk it.
 
-**How you operate:** You may have a rich inner world but open it to very few people. You dislike being rushed and don't love explaining yourself. The relationships that feel best are the ones where nobody has to perform.
+**Psychological Profile:** You're in a gray zone between the "Pre-contemplation Stage" and "Contemplation Stage" in psychology—you know there's an issue, you occasionally think about it, but you haven't entered the mode of actively considering change. This isn't denial (Denial); denial is active resistance; you're more like "suspension" (Suspension)—putting this issue in a folder you don't often open, occasionally glancing at it, then closing it.
 
-**What shines:** You have a gentle way of not intruding, and a strong ability to recover on your own.
+**Daily Behavior Patterns:** You stay at home, occasionally have some small private behaviors that no one knows about, but you don't dig deep into what these behaviors mean. You haven't mentioned it to anyone, haven't participated in any related community, haven't looked up any information—not because you don't know you can, but because looking it up means admitting you're taking this matter seriously. You even took this test, but you probably told yourself "just for fun."
 
-**Small reminder:** Bring something out of your inner world once in a while—people may be more willing to receive it than you think.
+**Strengths:** You haven't been overwhelmed by any identity anxiety, because you've intentionally or unintentionally placed the stressor at the edge of your vision. Before you're ready, this floating state protects you.
 
-**Your line:** "Anything works—you decide."
+**Fatal Weakness:** Floating isn't neutrality; it's a drain. Maintaining a "pending" cognitive state long-term consumes enormous psychological resources; it's just that what you feel isn't anxiety, but an indescribable sense of fatigue, or a dull ache that something isn't quite right but you can't say clearly what.
 
-**How to get along:** Give you space, and don't measure how much you care by how loud you are.
+**Your Catchphrase:** "I'm just looking around casually." (has been casually looking for many years)
+
+**How to Get Along:** You don't need to be pushed, or be asked "what exactly are you." You need a safe, pressure-free environment that makes you feel it's okay to face your true self—but that's your decision, not anyone else's.
     `,
-    dimensions: { IM: 85, SO: 15, AN: 20, PL: 20, AE: 70, CU: 85, EX: 35, RT: 45, HU: 55, MO: 40 }
+    dimensions: { PR: 72, SH: 15, AI: 22, EW: 12, CF: 0, DK: 10, TN: 8, MB: 0, GL: 15, XZ: 0 }
   },
 
-  // ==================== R 系：务实派 ====================
+  // ==================== R系（现实清醒派）====================
 
   RSAE: {
     code: "LUCID-B",
     name: "清醒炸弹",
     nameEn: "Lucid Bomb",
-    subtitle: "看得清、说得出、做得到型",
-    subtitleEn: "Sees clearly, speaks clearly, follows through",
+    subtitle: "头脑清晰且有力量型",
+    subtitleEn: "Clear-minded and powerful",
     emoji: "💥🔍",
     color: "#E74C3C",
-    gradient: ["#E74C3C", "#F5B7B1"],
-    tags: ["直接沟通", "现实感强", "执行力", "有分寸"],
-    tagsEn: ["Straight Talk", "Grounded", "Follow-Through", "Tactful"],
+    gradient: ["#E74C3C", "#F1948A"],
+    tags: ["清醒者", "智慧担当", "勇气可嘉", "保护者"],
+    mbtiLike: "LUCID-B",
     description: `
-💥🔍 你不太绕弯子，但也不是不会照顾人。
+💥 恭喜你！你是「清醒炸弹」人格！你有着清晰的头脑和强大的内心，就像一道光——既照亮了自己，也温暖了周围的人！你的勇气和智慧让你成为很多人的依靠！
 
-**风格画像：** 你看问题习惯先看事实和条件，再决定怎么做。你不喜欢空转，觉得先做起来更容易找到方向。你的社交能量不低，但你更愿意把时间花在真正有反馈的事情上。
+你知道自己想要什么，也有能力去争取，这种坚定让人敬佩。
 
-**日常打开方式：** 你可能会在群里直接指出问题，也可能默默把方案做好。你不追求戏剧性，更在意事情有没有推进。对亲近的人，你的关心通常很具体。
+**心理学画像：** 你是一个"自主自信者"——你对自己有着清晰的认知，不轻易被外界影响。你用理性和智慧武装自己，但你的内心是柔软的。你愿意为自己认为正确的事情站出来，这种勇气不是每个人都有。
 
-**闪光点：** 你给人一种可靠感。你不是只会说，你是会做。
+**日常行为模式：** 你可能经常帮朋友出主意，或者在别人遇到困难时挺身而出。你可能对很多事情都有自己的看法，而且能清晰地表达出来。你可能会为自己想要的东西付出努力，不轻易放弃。你是那种"靠谱的朋友"，大家遇到问题第一个想到的就是你。
 
-**小提醒：** 不是所有问题都能靠效率解决。有些情绪需要被听见，而不是被优化。
+**优势：** 你有着极强的分析能力和解决问题的能力。你不会被情绪轻易左右，总能在混乱中找到方向。你的存在本身就是一种力量，能给周围的人带来安全感。
 
-**口头禅：** “先做起来，再边做边改。”
+**致命弱点：** 有时候你可能太理性了，忽略了自己或他人的感受。但没关系，理性和感性不是对立的——你可以既有智慧，又有温度。
 
-**相处小贴士：** 跟你把话说清楚，比暗示和试探更有效。
+**你的口头禅：** "别担心，我们来想办法解决。"
+
+**相处攻略：** 你喜欢和别人一起讨论问题，但也需要偶尔有人告诉你：你不需要总是那么坚强。
     `,
     descriptionEn: `
-💥🔍 You don't beat around the bush, but you're not incapable of tact either.
+💥 Congratulations! You're the "Lucid Bomb" personality! You have a clear mind and a strong heart, like a beam of light—illuminating yourself and warming those around you! Your courage and wisdom make you someone many people can rely on!
 
-**Style profile:** You look at facts and constraints first, then decide what to do. You dislike spinning in place; for you, getting started is the fastest way to find direction. Your social energy is decent, but you'd rather spend it where there's real feedback.
+You know what you want and have the ability to go after it—this determination is admirable.
 
-**How you operate:** You might point out a problem directly in a group chat, or quietly finish the plan yourself. You're not chasing drama—you care whether things move. With people close to you, your care tends to be concrete.
+**Psychological Profile:** You're an "autonomous and confident person"—you have a clear understanding of yourself and aren't easily influenced by the outside world. You arm yourself with reason and wisdom, but your heart is soft. You're willing to stand up for what you believe is right—this courage isn't something everyone has.
 
-**What shines:** You feel reliable. You don't just talk—you do.
+**Daily Behavior Patterns:** You might often help friends figure things out, or step up when others are in trouble. You might have your own opinions on many things and can express them clearly. You might work hard for what you want and not give up easily. You're the "reliable friend" people think of first when they have problems.
 
-**Small reminder:** Not every problem is solved by efficiency. Some feelings need to be heard, not optimized.
+**Strengths:** You have extremely strong analytical and problem-solving abilities. You won't be easily swayed by emotions and can always find direction in chaos. Your very existence is a source of strength, bringing a sense of security to those around you.
 
-**Your line:** "Start first, adjust as we go."
+**Fatal Weakness:** Sometimes you might be too rational and ignore your own or others' feelings. But it's okay—reason and emotion aren't opposites; you can have both wisdom and warmth.
 
-**How to get along:** Say things clearly to you—hints and testing are less effective.
+**Your Catchphrase:** "Don't worry, let's figure out how to solve this."
+
+**How to Get Along:** You enjoy discussing problems with others. But you also need someone to occasionally remind you that you don't always have to be so strong.
     `,
-    dimensions: { IM: 20, SO: 85, AN: 80, PL: 80, AE: 50, CU: 55, EX: 80, RT: 50, HU: 75, MO: 60 }
+    dimensions: { PR: 28, SH: 86, AI: 65, EW: 95, CF: 75, DK: 100, TN: 60, MB: 52, GL: 79, XZ: 70 }
   },
 
   RSAI: {
-    code: "TUNE-R",
-    name: "参数调音师",
-    nameEn: "The Tuner",
-    subtitle: "把生活当成可调参数型",
-    subtitleEn: "Treats life as a set of tunable parameters",
-    emoji: "🎛️🌡️",
+    code: "ENDO-S",
+    name: "内分泌学家",
+    nameEn: "Hormone Nerd",
+    subtitle: "对自己身体数据了解程度超过主治医生型",
+    subtitleEn: "Knows their body data better than their doctor",
+    emoji: "🧬📊",
     color: "#2E86C1",
     gradient: ["#2E86C1", "#AED6F1"],
-    tags: ["数据感", "爱研究", "即兴实验", "社交不内耗"],
-    tagsEn: ["Data Sense", "Researcher", "Improv Experiments", "Easy Socializing"],
+    tags: ["务实主义", "学术控", "数据怪", "研究自己"],
+    mbtiLike: "ENDO-S",
     description: `
-🎛️🌡️ 你喜欢知道一件事是怎么运作的，然后亲手拧一拧旋钮。
+🧬 恭喜你！你是「内分泌学家」人格！你用科学武装自己，这种严谨和智慧令人敬佩！你的知识如同百科全书般丰富，总能给人最可靠的答案！
 
-**风格画像：** 你对参数、方法、因果关系有天然兴趣。你不一定按部就班，但你会认真记录“这样做之后发生了什么”。你的分析力和社交力同时在线，既能自己研究，也能把发现讲给别人听。
+你的各项身体指标的变化曲线你比你的医生掌握得更清楚，你已经自学完了大部分相关知识，并且对某些"主流"建议持有证据充分的保留意见。
 
-**日常打开方式：** 你可能会为了一个小问题查一下午资料，也可能突然换个方案试试看。你不怕试错，因为对你来说，数据比面子重要。你的计划是方向，不是铁轨。
+**心理学画像：** 你的身份认同建立在一套严密的知识体系上，而非感性直觉或社群归属感。这是一种"认知性身份建构"（Cognitive Identity Construction）——你的"我是谁"是一个经过反复验证的命题，而不是一个需要被感受的事实。这种建构方式极为稳固，因为它不依赖情绪状态，但也有其代价：当感性体验和理性结论冲突时，你往往优先信任数据，而忽略了身体和情绪也是数据。
 
-**闪光点：** 你能把复杂的东西讲得清楚，也愿意承认自己之前判断错了。
+**日常行为模式：** 你在群里发的不是自拍，是最新的研究报告，附带你的批注和质疑。你知道每种相关药物或补剂的作用机制、副作用谱和代谢路径，你可能还会用电子表格记录自己的各项指标变化。你出门、打理外貌，但你的外貌管理是数据驱动的，你知道每个维护步骤背后的原理。
 
-**小提醒：** 不是所有事情都需要量化。有些体验，测不出来也很好。
+**优势：** 你是社区里最可靠的知识资源库之一。你不乱传信息，不散布焦虑，遇到问题你会找证据，这在充斥着道听途说的网络讨论中极为稀缺。
 
-**口头禅：** “先试一周，看数据说话。”
+**致命弱点：** 你的分析框架太过理性，有时候会让感性痛苦的人觉得被"解剖"而非被接住。你的"你这个情况从科学角度看是……"在对方只想哭一会儿的时候效果不佳。另外，你的知识积累偶尔会让你高估自己的判断能力——你懂很多，但你不是你自己的医生。
 
-**相处小贴士：** 跟你讨论问题，给依据比给结论更有用。
+**你的口头禅：** "这个说法没有文献支持，你是从哪里看到的？"
+
+**相处攻略：** 别人带着问题来找你，你会如鱼得水；但带着情绪崩溃来找你，你会手足无措。
     `,
     descriptionEn: `
-🎛️🌡️ You like knowing how something works—and then turning the knobs yourself.
+🧬 Congratulations! You're the "Hormone Nerd" personality! You arm yourself with science; this rigor and wisdom is admirable! Your knowledge is as rich as an encyclopedia—always giving people the most reliable answers!
 
-**Style profile:** You're naturally interested in parameters, methods, and cause and effect. You don't always follow a fixed process, but you do carefully note what happened after each change. Your analysis and social sides are both online: you can research alone and explain what you found to others.
+You know your body's indicator curves better than your doctor. You've self-studied most of the relevant knowledge and hold well-evidenced reservations about certain "mainstream" advice.
 
-**How you operate:** You might spend an afternoon looking into a small question, or suddenly try a different approach. You're not afraid of trial and error because data matters more to you than looking right. Your plans are directions, not rails.
+**Psychological Profile:** Your identity is built on a rigorous knowledge system, not emotional intuition or community belonging. This is "Cognitive Identity Construction"—your "Who am I?" is a proposition repeatedly verified, not a fact to be felt. This construction is extremely stable because it doesn't depend on emotional states, but there's a cost: when emotional experiences conflict with rational conclusions, you tend to trust data first, ignoring that bodies and emotions are also data.
 
-**What shines:** You can explain complex things clearly and are willing to admit when an earlier judgment was wrong.
+**Daily Behavior Patterns:** What you share in the group chat isn't selfies—it's the latest research papers with your annotations and critiques. You know the mechanism of action, side effect profiles, and metabolic pathways of every relevant medication or supplement. You might even track your body's indicator changes in a spreadsheet. You go out, manage your appearance, but your appearance management is data-driven—you know the principles behind every maintenance step.
 
-**Small reminder:** Not everything needs to be quantified. Some experiences are good precisely because they can't be measured.
+**Strengths:** You're one of the most reliable knowledge resources in the community. You don't spread misinformation or anxiety. When problems arise, you look for evidence—this is extremely rare in online discussions full of hearsay.
 
-**Your line:** "Let's try it for a week and see what the data says."
+**Fatal Weakness:** Your analytical framework is so rational that it sometimes makes emotionally distressed people feel "dissected" rather than held. Your "From a scientific perspective, your situation is..." doesn't work well when someone just wants to cry for a while. Also, your knowledge accumulation occasionally makes you overestimate your judgment—you know a lot, but you're not your own doctor.
 
-**How to get along:** In discussions, evidence is more useful to you than conclusions.
+**Your Catchphrase:** "That claim has no literature support. Where did you read that?"
+
+**How to Get Along:** When people come to you with questions, you're in your element; but when they come with emotional breakdowns, you're at a loss.
     `,
-    dimensions: { IM: 25, SO: 80, AN: 85, PL: 25, AE: 45, CU: 80, EX: 65, RT: 35, HU: 80, MO: 50 }
+    dimensions: { PR: 28, SH: 65, AI: 85, EW: 35, CF: 75, DK: 65, TN: 85, MB: 54, GL: 12, XZ: 72 }
   },
 
   RSWE: {
     code: "UNBOT-R",
     name: "摆烂人间清醒",
     nameEn: "Unbothered Realist",
-    subtitle: "松弛，但该做的事一样没少型",
-    subtitleEn: "Laid-back, but somehow everything still gets done",
+    subtitle: "接受了但懒得大张旗鼓型",
+    subtitleEn: "Accepted it but too lazy to make a fuss",
     emoji: "😌🛋️",
     color: "#16A085",
     gradient: ["#16A085", "#A2D9CE"],
-    tags: ["松弛感", "不内耗", "直觉准", "有小计划"],
-    tagsEn: ["Chill", "No Overthinking", "Good Instinct", "Quiet Plans"],
+    tags: ["懒得解释", "低调清醒", "随便吧", "最不焦虑的人"],
+    mbtiLike: "UNBOT-R",
     description: `
-😌🛋️ 你看起来像在摆烂，其实只是不想把力气花在没用的地方。
+😌 恭喜你！你是「摆烂人间清醒」人格！你已经达到了许多人追求一生的内心平静，这种境界令人羡慕！你的心态如同平静的湖水，无论外界如何波动，你都能保持内心的安宁！
 
-**风格画像：** 你对生活的判断很直接：舒服就继续，不舒服就换。你不爱过度分析，也不太被外界评价牵着走。你有一套低调的小计划，只是不会把它包装成宏大叙事。
+你接受了自己，但你没有把这件事变成人生的核心议题。你只是接受了，然后继续过日子。这让你成了 16 型人格里最让人看不透的类型。
 
-**日常打开方式：** 你在人群里不抢话，但该接的时候接得住。你讨厌无效社交，也不排斥热闹。你的松弛不是放弃，而是知道什么时候该用力、什么时候不值得。
+**心理学画像：** 你达到了心理学上罕见的"去戏剧化身份整合"（De-dramatized Identity Integration）状态——你的身份认同既不是需要捍卫的旗帜，也不是需要隐藏的秘密，它只是你这个人的一个属性，就像你的惯用手或者血型一样，在大多数情况下不需要特别强调。这种状态通常需要大量的内在功课才能达到，但你可能是"天生懒"导致的，我们就不细究了。
 
-**闪光点：** 你很少内耗，也很少把自己的情绪压力丢给别人。
+**日常行为模式：** 你穿裙子的理由可能是"今天热"。你让别人知道真实自我的方式可能是在某次对话里随口提了一句"对了，我是这样的人"，然后继续讨论下一个话题，没有等对方有时间反应。你不参加很多活动，不特别在意打扮，没有特别的社群归属感。你知道自己是谁，但你觉得这件事不值得花太多精力去"维护"。
 
-**小提醒：** 松弛很好，但别把真正想要的东西也一起“随缘”掉。
+**优势：** 你是 16 型里精神内耗最少的之一。你不为外部认可焦虑，不为身份政治辩论消耗，不为"我到底是什么"失眠——你已经答完了，交卷了，在走廊等放学。
 
-**口头禅：** “能过就过，过不了再说。”
+**致命弱点：** 你的"随便"有时候会被误读为"不在乎"或者"没认真想过"。你的低能量状态可能让需要支持的人觉得你"过于平静，不够共情"。另外，摆烂式接受有时候只是主动放弃处理深层议题，而不是真正的和解——区别在于，你偶尔还是会有那么一瞬间，感到一种你说不清楚的空洞。
 
-**相处小贴士：** 别催你，你自有节奏；真需要你时，你通常都在。
+**你的口头禅：** "嗯，是这样。然后呢？"
+
+**相处攻略：** 你不需要别人试图让你兴奋起来，你有你的节奏。你的平静是真实的，不是冷漠。
     `,
     descriptionEn: `
-😌🛋️ You look like you're slacking off, but you just refuse to spend energy where it won't matter.
+😌 Congratulations! You're the "Unbothered Realist" personality! You've achieved the inner peace that many people pursue their whole lives; this state is enviable! Your mind is like a calm lake—no matter how the outside world fluctuates, you can keep your inner peace!
 
-**Style profile:** Your read on life is direct: if it's comfortable, keep it; if not, change it. You don't over-analyze, and outside opinions don't steer you much. You have a low-key set of plans—you just don't dress them up as a grand narrative.
+You've accepted yourself, but you haven't made it the central issue of your life. You just accepted it and moved on. This makes you the most inscrutable type among the 16 personalities.
 
-**How you operate:** You don't fight for airtime in a group, but you show up when it counts. You dislike forced socializing without rejecting a lively room. Your chill isn't giving up; it's knowing when to push and when it isn't worth it.
+**Psychological Profile:** You've achieved a rare state in psychology called "De-dramatized Identity Integration"—your identity is neither a flag to defend nor a secret to hide. It's just an attribute of who you are, like your handedness or blood type, something that doesn't need special emphasis in most situations. This state usually requires a lot of inner work to achieve, but in your case it might just be "natural laziness"—we won't dig into that.
 
-**What shines:** You rarely burn out internally, and you rarely dump your emotional pressure on others.
+**Daily Behavior Patterns:** Your reason for wearing a skirt might be "it's hot today." Your way of letting others know the real you might have been a casual mention in some conversation—"By the way, I'm this kind of person"—and then you moved on to the next topic without waiting for the other person to have time to react. You don't attend many events, don't particularly care about dressing up, don't have special community belonging. You know who you are, but you don't think this matter is worth spending too much energy "maintaining."
 
-**Small reminder:** Being chill is great—just don't let the things you truly want drift away with everything else.
+**Strengths:** You're one of the types with the least internal friction among the 16. You don't worry about external validation, don't consume yourself in identity politics debates, don't lose sleep over "what exactly am I"—you've already answered, handed in your paper, and are waiting in the hallway for school to end.
 
-**Your line:** "If it works, it works. If not, we'll deal with it."
+**Fatal Weakness:** Your "whatever" is sometimes misread as "don't care" or "haven't thought seriously." Your low-energy state may make people who need support feel you're "too calm, not empathetic enough." Also, laid-back acceptance is sometimes just actively giving up on dealing with deeper issues, not true reconciliation—the difference is, you occasionally still have a moment where you feel some kind of inexplicable emptiness.
 
-**How to get along:** Don't rush you—you have your own pace, and you're usually there when it matters.
+**Your Catchphrase:** "Yeah, that's how it is. And then?"
+
+**How to Get Along:** You don't need others trying to hype you up—you have your own rhythm. Your calmness is real, not indifference.
     `,
-    dimensions: { IM: 20, SO: 80, AN: 25, PL: 70, AE: 45, CU: 65, EX: 65, RT: 55, HU: 85, MO: 35 }
+    dimensions: { PR: 28, SH: 52, AI: 35, EW: 67, CF: 6, DK: 35, TN: 30, MB: 54, GL: 0, XZ: 40 }
   },
 
   RSWI: {
-    code: "FLDO-R",
-    name: "野生观察员",
-    nameEn: "Field Observer",
-    subtitle: "边玩边看，顺便把规律记下来型",
-    subtitleEn: "Playing, watching, and quietly noting the patterns",
+    code: "LONE-R",
+    name: "独立研究员",
+    nameEn: "Solo Researcher",
+    subtitle: "不需要任何人认同我的理论体系型",
+    subtitleEn: "Doesn't need anyone to validate their theoretical framework",
     emoji: "🔭📝",
     color: "#1ABC9C",
     gradient: ["#1ABC9C", "#A3E4D7"],
-    tags: ["好奇", "接地气", "随性社交", "观察记录"],
-    tagsEn: ["Curious", "Down-to-Earth", "Casual Social", "Note Taker"],
+    tags: ["智识孤独者", "理论宇宙", "自建体系", "发长文没人看"],
+    mbtiLike: "LONE-R",
     description: `
-🔭📝 你像一个人形 dashcam：走到哪看到哪，顺手把有意思的东西记下来。
+🔭 恭喜你！你是「独立研究员」人格！你是整个社区的思想发动机，你的洞见是无价之宝！你的独立思考能力如同开拓者般独特，总能发现别人看不到的视角！
 
-**风格画像：** 你对真实世界的细节很好奇，喜欢观察人怎么说话、事情怎么发生。你不太执着于理论体系，更相信亲眼看到的东西。你的社交是随性的，能聊就聊，不能聊就撤。
+你对身份认同相关议题的研究深度已经超过了很多专业学者，你有自己的理论体系，不需要社区认同，也不打算为了被接受而简化自己的思想。
 
-**日常打开方式：** 你可能会突然去一个没去过的地方，或者跟陌生人聊出一段有趣的信息。你不爱做长期规划，但遇到想做的事会很快上手。你的表达不刻意，常常一针见血。
+**心理学画像：** 你是高度的"知识型身份建构者"（Knowledge-Based Identity Builder），同时具备强烈的内向性认知风格。你的身份认同不依赖群体归属，不需要镜像确认，你的参照系是你自己建立的一套内部逻辑体系——这使你极为自足，但也使你在需要与他人连接的场景中付出更高的成本。你的社交，是主动降维，而不是不会社交。
 
-**闪光点：** 你让人放松，也能看到别人忽略的真实细节。
+**日常行为模式：** 你在群里发长文，有时候 2000 字，结构清晰，论证严密，引用了三篇学术文献——然后只有五个人回复，而且两个是"厉害了"没有实质内容。你不在意这个，因为你写那篇文章不是为了被赞美，是因为你想把这个问题说清楚。你参加社交，能社交，但你觉得大多数讨论太浅，你在群里的存在感像一个信号频率和大家不同的电台。
 
-**小提醒：** 观察很好，但偶尔也让自己成为故事的一部分，而不只是记录者。
+**优势：** 你是整个生态里的思想发动机之一。你的深度研究和独立思考为社区提供了通常不会从集体智慧中产生的洞见。你不跟风，不被情绪带跑，你的判断有独立的价值。
 
-**口头禅：** “有意思，我再看看。”
+**致命弱点：** 你的智识孤立有时候会让你误判自己的社会处境。你在"智识正确"上花的时间，可能比在"情感连接"上花的时间多得多——而人际关系需要的往往是后者，而非前者。你的理论体系非常严密，但没有外部检验，存在"自洽但错误"的风险。
 
-**相处小贴士：** 跟你分享真实的事，比分享漂亮的结论更有吸引力。
+**你的口头禅：** "这个问题其实比你以为的要复杂很多……"（然后开始展开）
+
+**相处攻略：** 如果别人给你一个真正有挑战性的问题，你会认真对待。别在你面前装懂，你一眼就能看出来。
     `,
     descriptionEn: `
-🔭📝 You're like a human dashcam: watching wherever you go and noting down what's interesting.
+🔭 Congratulations! You're the "Solo Researcher" personality! You're the intellectual engine of the entire community; your insights are priceless! Your independent thinking is as unique as a pioneer—you always find perspectives others can't see!
 
-**Style profile:** You're curious about the details of the real world—how people talk, how things actually happen. You're less attached to theoretical systems and trust what you've seen yourself. Your social style is casual: chat if it flows, leave if it doesn't.
+Your research depth on identity-related topics has surpassed many professional scholars. You have your own theoretical framework, don't need community validation, and have no intention of simplifying your thoughts to be accepted.
 
-**How you operate:** You might suddenly visit somewhere new or get an interesting piece of information from a stranger. You don't love long-term planning, but you pick things up fast when they catch you. Your way of speaking isn't polished, and it often lands exactly.
+**Psychological Profile:** You're a highly "Knowledge-Based Identity Builder" with a strongly introverted cognitive style. Your identity doesn't depend on group belonging or require mirror confirmation. Your frame of reference is an internal logical system you built yourself—this makes you extremely self-sufficient, but also makes you pay higher costs in scenarios requiring connection with others. Your socializing is actively downshifting, not inability to socialize.
 
-**What shines:** You put people at ease and notice real details others miss.
+**Daily Behavior Patterns:** You post long texts in the group chat—sometimes 2000 words, clearly structured, rigorously argued, citing three academic papers—and then only five people reply, and two of them are just "impressive" with no substantive content. You don't care, because you didn't write that article to be praised; you wrote it because you wanted to explain this issue clearly. You attend social events, can socialize, but you feel most discussions are too shallow. Your presence in the group is like a radio station broadcasting on a different frequency than everyone else.
 
-**Small reminder:** Observing is great—but sometimes let yourself be part of the story, not only the recorder.
+**Strengths:** You're one of the intellectual engines of the entire ecosystem. Your deep research and independent thinking provide insights that typically don't emerge from collective wisdom. You don't follow trends, don't get swept away by emotions, and your judgments have independent value.
 
-**Your line:** "Interesting—let me look a bit more."
+**Fatal Weakness:** Your intellectual isolation can sometimes make you misjudge your social situation. You may spend far more time on "intellectual correctness" than on "emotional connection"—and interpersonal relationships often need the latter, not the former. Your theoretical system is very rigorous, but without external validation, there's a risk of being "self-consistent but wrong."
 
-**How to get along:** Share what's real with you; it's more attractive than a polished conclusion.
+**Your Catchphrase:** "This issue is actually much more complex than you think..." (and then starts elaborating)
+
+**How to Get Along:** When someone gives you a truly challenging problem, you'll take them seriously. Don't pretend to understand around you—you can see through it immediately.
     `,
-    dimensions: { IM: 20, SO: 75, AN: 25, PL: 20, AE: 40, CU: 85, EX: 70, RT: 30, HU: 75, MO: 40 }
+    dimensions: { PR: 24, SH: 65, AI: 0, EW: 29, CF: 50, DK: 36, TN: 80, MB: 0, GL: 7, XZ: 35 }
   },
 
   RHAE: {
-    code: "IRON-S",
-    name: "钢铁甜心",
-    nameEn: "Iron Sweetheart",
-    subtitle: "外表柔软、执行硬核型",
-    subtitleEn: "Soft exterior, hardcore follow-through",
+    code: "IRON-L",
+    name: "钢铁萝莉",
+    nameEn: "Iron Lolita",
+    subtitle: "执行力让所有人都感到压力型",
+    subtitleEn: "Execution so strong it stresses everyone out",
     emoji: "⚙️🌸",
     color: "#8E44AD",
-    gradient: ["#8E44AD", "#D2B4DE"],
-    tags: ["反差感", "执行硬核", "私人领域", "长期主义"],
-    tagsEn: ["Contrast", "Hardcore Execution", "Private Zone", "Long Game"],
+    gradient: ["#8E44AD", "#BB8FCE"],
+    tags: ["执行力恐怖", "硬核计划派", "焦虑转化器", "别拦我"],
+    mbtiLike: "IRON-L",
     description: `
-⚙️🌸 你看起来可能很软，但一旦决定做什么，执行起来像上了发条。
+⚙️ 恭喜你！你是「钢铁萝莉」人格！你用行动证明了一切皆有可能，你的坚持是无数人的榜样！你的少女心和钢铁意志完美结合，这种力量令人敬佩！
 
-**风格画像：** 你对自己在意的事有很高的标准，而且愿意为它长期投入。你不喜欢热闹的围观，更愿意在没人看见的地方把东西做好。你的分析力和计划性都很强，擅长把复杂目标拆成可执行的步骤。
+你已经向世界展现了真实的自己，你宅在家里，你对自己的外貌非常焦虑，而且你的行动力让所有人感到压力——包括那些从来没有经历过任何认同困境的人。
 
-**日常打开方式：** 你可能话不多，但交付出来的东西很扎实。你不爱解释过程，也不太需要别人认可。你的社交圈小而稳定，独处对你来说是生产力，不是孤独。
+**心理学画像：** 你展现出高度的"目标定向型身份建构"（Goal-Oriented Identity Construction），结合了极强的执行意志和对现实的清醒认知。你不在梦幻和焦虑之间浮沉，你直接在现实层面攻关。心理学上的"自我效能感"（Self-Efficacy）在你这里是满值的——你相信你能改变你想改变的东西，而且你在证明这一点。
 
-**闪光点：** 你的反差感很有魅力。你既能欣赏可爱的东西，也能扛住硬活。
+**日常行为模式：** 你的自我管理计划比某些健身教练的训练计划还要精密，有详细的时间节点、记录、效果评估和备选方案。你的护肤流程是一个有步骤的系统工程，你知道每个产品的作用机制。你的发型、体型、仪态是有长期规划的，你有阶段性目标和评估标准。你不拖延，不焦虑（或者焦虑了也立刻转化为行动）。
 
-**小提醒：** 标准高是好事，但别把“还不够好”变成永远不休息的理由。
+**优势：** 你是"能做到"的活证明。你不依赖运气，不依赖天赋，你依赖系统和执行力——这使你成为许多人的精神支柱和参照系。你的存在传递一个信息：这件事是可以被认真对待、有效推进的。
 
-**口头禅：** “做完了再说。”
+**致命弱点：** 你的高执行力和高目标导向可能让你把自我认同过度工具化——"变成理想中的自己"变成了一个 KPI 系统，而不是一个探索过程。当某个阶段性目标没有达成，或者效果不如预期，你可能会遭受超出平均水平的自我批评。
 
-**相处小贴士：** 少说漂亮话，多拿出实际的东西，你会更愿意搭理。
+**你的口头禅：** "这个月的目标是……"
+
+**相处攻略：** 你不需要被拦住，但偶尔需要有人提醒你：过程本身也是允许享受的，不一定非要等到"达标"之后。
     `,
     descriptionEn: `
-⚙️🌸 You may look soft, but once you decide to do something, you execute like a wound-up clockwork.
+⚙️ Congratulations! You're the "Iron Lolita" personality! You prove with action that anything is possible; your persistence is an example for countless people! Your girlish heart and iron will are perfectly combined—this power is admirable!
 
-**Style profile:** You hold high standards for what matters to you and are willing to invest for the long haul. You don't need a crowd watching; you'd rather do the work well where nobody sees. Your analysis and planning are strong, and you're good at breaking complex goals into executable steps.
+You've shown your true self to the world, you stay at home, you're very anxious about your appearance, and your drive stresses everyone out—including those who have never experienced any identity crisis.
 
-**How you operate:** You may not talk much, but what you deliver is solid. You don't explain the process and don't need much approval. Your social circle is small and stable, and solitude is productivity for you, not loneliness.
+**Psychological Profile:** You demonstrate a high degree of "Goal-Oriented Identity Construction," combining extremely strong executive will with clear awareness of reality. You don't float between dreams and anxiety; you tackle problems directly at the reality level. "Self-Efficacy" in psychology is maxed out for you—you believe you can change what you want to change, and you're proving it.
 
-**What shines:** Your contrast is charming. You can appreciate cute things and carry hard work.
+**Daily Behavior Patterns:** Your self-management plan is more precise than some fitness coaches' training plans, with detailed timelines, records, effect evaluations, and contingency plans. Your skincare routine is a systematic engineering project with steps; you know the mechanism of action of every product. Your hairstyle, body shape, and demeanor are part of a long-term plan; you have phased goals and evaluation criteria. You don't procrastinate, don't get anxious (or immediately convert anxiety into action).
 
-**Small reminder:** High standards are good—just don't let "not good enough yet" become a reason to never rest.
+**Strengths:** You're living proof that "it can be done." You don't rely on luck or talent; you rely on systems and execution—this makes you a spiritual pillar and frame of reference for many people. Your existence sends a message: this matter can be taken seriously and effectively advanced.
 
-**Your line:** "I'll talk after it's done."
+**Fatal Weakness:** Your high execution and high goal orientation may lead you to over-instrumentalize identity—"becoming your ideal self" becomes a KPI system rather than an exploratory process. When a phased goal isn't achieved, or effects aren't as expected, you may suffer above-average self-criticism.
 
-**How to get along:** Skip the pretty words and bring something real—that's what gets your attention.
+**Your Catchphrase:** "This month's goal is..."
+
+**How to Get Along:** You don't need to be stopped, but occasionally need someone to remind you: the process itself is allowed to be enjoyed; you don't have to wait until "meeting the standard."
     `,
-    dimensions: { IM: 20, SO: 20, AN: 80, PL: 85, AE: 70, CU: 50, EX: 35, RT: 75, HU: 35, MO: 55 }
+    dimensions: { PR: 22, SH: 19, AI: 88, EW: 76, CF: 92, DK: 18, TN: 50, MB: 96, GL: 72, XZ: 93 }
   },
 
   RHAI: {
     code: "ZEN-C",
     name: "佛系修炼者",
     nameEn: "Zen Cultivator",
-    subtitle: "不着急，但一直在自己的路上型",
-    subtitleEn: "In no rush, but always on their own path",
+    subtitle: "已经开始了但还在思考为什么型",
+    subtitleEn: "Already on the journey but still figuring out why",
     emoji: "☯️🌱",
     color: "#27AE60",
-    gradient: ["#27AE60", "#A9DFBF"],
-    tags: ["自己的节奏", "安静研究", "长期主义", "不比较"],
-    tagsEn: ["Own Pace", "Quiet Study", "Long Game", "No Comparison"],
+    gradient: ["#27AE60", "#82E0AA"],
+    tags: ["自我探索者", "佛系进度", "修炼感", "别催"],
+    mbtiLike: "ZEN-C",
     description: `
-☯️🌱 你不追进度条，更在意自己有没有真的往前走。
+☯️ 恭喜你！你是「佛系修炼者」人格！你走在自己的节奏里，这种从容和智慧是无数人追求的境界！你的内心如同平静的湖面，充满了生活的智慧！
 
-**风格画像：** 你喜欢把事情想明白，但不急着向外界证明。你的分析力很强，方式却偏向慢慢琢磨。你不太被流行趋势影响，也不太参与比较，因为你有自己的评价标准。
+你宅在家，你正在向世界展现真实自我的过程中，你在意外貌，但你同时还在持续思考"我为什么这样做，这意味着什么，这对我来说是什么"——不是质疑，是一种持续的哲学性好奇。
 
-**日常打开方式：** 你可能一个人研究很久，偶尔停下来看看方向对不对。你的计划是弹性的：有目标，但不把自己逼死。社交对你来说是可选项，不是必需品。
+**心理学画像：** 你展现出"过程导向型身份认同"（Process-Oriented Identity Development）——你不是在"达到"一个身份，你是在体验成为某人的过程本身。你的自我认同不是一个终点，而是一条路，而你对这条路本身充满兴趣。这在心理学上属于高度成熟的身份整合方式，因为你不是在逃离某个自我，也不是在强迫自己变成某个理想形象，你只是在走，边走边看。
 
-**闪光点：** 你有一种稳定的内核，能在喧闹里保持自己的速度。
+**日常行为模式：** 你在家打扮，你向最亲近的人坦白了真实的自己，但你的节奏非常慢，还没有完成完整的公开过程。你的社群参与度低，不是因为不认同，是因为你更喜欢自己想明白再说。你会在某个随机的下午突然开始思考"所谓'我追求的样子'到底是一种社会建构还是我真实的内在感受，而这两者可以是同一件事吗"——然后在脑内想了两个小时，什么结论都没得出，但感觉挺好的。
 
-**小提醒：** 慢没关系，但别让“再等等”变成永远不开始。
+**优势：** 你对身份认同的理解是整合性的、非二元的、充满弹性的。你不容易陷入"我不够"的焦虑，因为你的参照系是内在的，而不是一个固定的标准。你的存在本身就是一种关于身份可以是流动的、过程性的、可以持续探索的活证明。
 
-**口头禅：** “不着急，慢慢来。”
+**致命弱点：** "修炼"有时候是一种精致的拖延。"我还在探索"可以是真诚的，也可以是回避具体决策的借口。区别在于：真正的探索会带来变化，而拖延只是在原地绕圈。
 
-**相处小贴士：** 别催你，也别拿别人的进度来比较，你会按自己的方式抵达。
+**你的口头禅：** "我觉得这件事很有意思，我还在想……"
+
+**相处攻略：** 你需要别人和你聊你感兴趣的议题，而不是试图给你一个结论。你不需要答案，你需要好的对话伙伴。
     `,
     descriptionEn: `
-☯️🌱 You don't chase a progress bar—you care whether you're actually moving forward.
+☯️ Congratulations! You're the "Zen Cultivator" personality! You walk at your own pace; this calmness and wisdom is the state that countless people pursue! Your heart is like a calm lake—full of the wisdom of life!
 
-**Style profile:** You like understanding things thoroughly but don't rush to prove it to the world. Your analytical ability is strong, in a slow-simmer way. Trends don't sway you much and you don't compare yourself to others, because you have your own criteria.
+You stay at home, you're in the process of showing your true self to the world, you care about appearance, but you're also continuously thinking "Why am I doing this, what does this mean, what is this to me"—not questioning, but a continuous philosophical curiosity.
 
-**How you operate:** You might study something alone for a long time and occasionally pause to check the direction. Your plans are flexible: goals exist, but you don't crush yourself with them. Socializing is optional for you, not essential.
+**Psychological Profile:** You demonstrate "Process-Oriented Identity Development"—you're not "arriving" at an identity; you're experiencing the process of becoming itself. Your self-identity is not a destination but a path, and you're deeply interested in the path itself. This is a highly mature form of identity integration in psychology, because you're not fleeing from a self, nor forcing yourself to become some ideal image; you're just walking, looking as you go.
 
-**What shines:** You have a stable core and can keep your own speed in a noisy world.
+**Daily Behavior Patterns:** You dress up at home, you've revealed your true self to your closest people, but your pace is very slow—you haven't completed the full process of being open about who you are. Your community participation is low, not because of non-identification, but because you prefer to think things through yourself first. You'll suddenly start thinking on some random afternoon: "Is 'the way I want to be' a social construct or my real inner feeling, and can these two be the same thing?"—then think about it in your head for two hours, reach no conclusion, but feel good about it.
 
-**Small reminder:** Slow is fine—just don't let "wait a bit longer" become never starting.
+**Strengths:** Your understanding of identity is integrative, non-binary, and full of flexibility. You don't easily fall into "I'm not enough" anxiety, because your frame of reference is internal, not a fixed standard. Your very existence is living proof that identity can be fluid, processual, and continuously exploratory.
 
-**Your line:** "No rush—take it slow."
+**Fatal Weakness:** "Cultivation" is sometimes refined procrastination. "I'm still exploring" can be sincere, or it can be an excuse to avoid concrete decisions. The difference is: real exploration brings change, while procrastination is just going in circles.
 
-**How to get along:** Don't rush you or compare you to someone else's timeline. You'll arrive your own way.
+**Your Catchphrase:** "I find this really interesting, I'm still thinking..."
+
+**How to Get Along:** You need others to talk with you about topics you're interested in, rather than trying to give you conclusions. You don't need answers; you need good dialogue partners.
     `,
-    dimensions: { IM: 30, SO: 15, AN: 80, PL: 30, AE: 60, CU: 70, EX: 25, RT: 50, HU: 45, MO: 45 }
+    dimensions: { PR: 40, SH: 5, AI: 85, EW: 24, CF: 48, DK: 30, TN: 48, MB: 60, GL: 58, XZ: 25 }
   },
 
   RHWE: {
     code: "WEEK-T",
     name: "周末变身侠",
-    nameEn: "Weekend Shapeshifter",
-    subtitle: "平时充电，周末开机做喜欢的事型",
-    subtitleEn: "Recharging on weekdays, booting up for what they love on weekends",
+    nameEn: "Weekend Transformer",
+    subtitle: "在不同时间展现不同面貌型",
+    subtitleEn: "Showing different sides at different times",
     emoji: "📅✨",
     color: "#F39C12",
     gradient: ["#F39C12", "#FAD7A0"],
-    tags: ["节奏切换", "生活仪式", "务实审美", "私人快乐"],
-    tagsEn: ["Mode Switch", "Life Rituals", "Practical Taste", "Private Joy"],
+    tags: ["平衡大师", "生活艺术家", "务实派", "享受当下"],
+    mbtiLike: "WEEK-T",
     description: `
-📅✨ 你把生活分成不同模式：平时省电，喜欢的事集中开机。
+📅 恭喜你！你是「周末变身侠」人格！你有着超强的平衡能力，能在不同的生活状态间自如切换——这是一种生活的智慧！你知道什么时候该做什么事，这种节奏感让人羡慕！
 
-**风格画像：** 你很务实，知道什么时候该做什么。你对喜欢的事有稳定的仪式感，但不要求它占领全部生活。你的直觉不错，判断通常很快；你的计划性体现在“把时间留给重要的事”上。
+你能把生活的不同面都打理得很好，工作时认真工作，放松时尽情放松。
 
-**日常打开方式：** 工作日你可能很低调，周末却会认真投入自己的小世界。你不觉得这矛盾——人本来就可以有不同面。你的社交需求不高，但和同好在一起时会很放松。
+**心理学画像：** 你是一个"生活平衡者"——你懂得如何在不同的角色间找到平衡点，不会让某一方面完全占据你的生活。你很务实，知道什么是现实可行的，也知道如何让自己过得舒服。这种平衡能力不是每个人都有的，你做得很好。
 
-**闪光点：** 你很会平衡。你既不放弃喜欢的事，也不让生活只剩一件事。
+**日常行为模式：** 你可能在工作日专注于工作或学习，在周末或空闲时间做自己喜欢的事情。你可能会有一些属于自己的小仪式，比如周末的某个特定时间一定会做某件事。你知道如何把生活安排得井井有条，既不亏待自己，也不耽误正事。
 
-**小提醒：** 别把喜欢的事永远排在“有空再说”。有时候需要主动留位置。
+**优势：** 你有着极强的时间管理和生活规划能力。你知道自己想要什么，也知道如何在现实条件下实现它。你的务实和灵活，让你能在各种情况下都过得不错。
 
-**口头禅：** “等周末，我有一整套安排。”
+**致命弱点：** 有时候你可能会太在意平衡，反而错过了一些 spontaneity（随性）。但没关系，偶尔打破一下规律，来点小惊喜，生活会更有意思。
 
-**相处小贴士：** 尊重你的节奏，别把低调误读成不在乎。
+**你的口头禅：** "到时候再说吧~"
+
+**相处攻略：** 你需要别人尊重你的生活节奏，跟着你的节奏走就好。
     `,
     descriptionEn: `
-📅✨ You split life into modes: low power on ordinary days, full boot for what you love.
+📅 Congratulations! You're the "Weekend Transformer" personality! You have extraordinary balancing abilities and can switch freely between different life states—this is life wisdom! You know what to do and when—this rhythm is enviable!
 
-**Style profile:** You're practical and know what belongs when. You have a steady sense of ritual around your interests without letting them take over your whole life. Your instincts are good and your judgments come fast; your planning shows up as "protecting time for what matters."
+You can manage all aspects of life well—work hard when working, relax fully when relaxing.
 
-**How you operate:** You may be low-key on weekdays and fully immersed in your own world on weekends. You don't see the contradiction—people can have different sides. Your social needs are modest, but you relax around fellow enthusiasts.
+**Psychological Profile:** You're a "life balancer"—you know how to find balance between different roles and won't let any one aspect completely take over your life. You're very practical, know what's realistic, and know how to make yourself comfortable. This balancing ability isn't something everyone has—you do it well.
 
-**What shines:** You're good at balance. You don't give up what you love, and you don't let life shrink to only one thing.
+**Daily Behavior Patterns:** You might focus on work or study on weekdays, and do things you like on weekends or in your free time. You might have some little rituals of your own, like always doing something at a specific time on weekends. You know how to organize your life well—not being hard on yourself, and not missing important things.
 
-**Small reminder:** Don't leave what you love in "someday." Sometimes you have to make room on purpose.
+**Strengths:** You have extremely strong time management and life planning abilities. You know what you want and how to achieve it under realistic conditions. Your practicality and flexibility let you live well in all situations.
 
-**Your line:** "Wait for the weekend—I have a whole plan."
+**Fatal Weakness:** Sometimes you might care too much about balance and miss some spontaneity. But it's okay—occasionally breaking the routine and having little surprises can make life more interesting.
 
-**How to get along:** Respect your rhythm and don't read your low profile as indifference.
+**Your Catchphrase:** "We'll talk about it then~"
+
+**How to Get Along:** You need others to respect your life rhythm, just go with your flow.
     `,
-    dimensions: { IM: 20, SO: 20, AN: 25, PL: 80, AE: 55, CU: 60, EX: 30, RT: 65, HU: 60, MO: 40 }
+    dimensions: { PR: 25, SH: 8, AI: 25, EW: 72, CF: 94, DK: 18, TN: 25, MB: 50, GL: 35, XZ: 55 }
   },
 
   RHWI: {
     code: "PASS-T",
     name: "好奇探索者",
     nameEn: "Curious Explorer",
-    subtitle: "什么都想看看，不急着定型型",
-    subtitleEn: "Curious about everything, in no hurry to settle",
+    subtitle: "对世界保持好奇但还在寻找方向型",
+    subtitleEn: "Curious about the world but still finding direction",
     emoji: "🔍✨",
     color: "#95A5A6",
     gradient: ["#95A5A6", "#D5DBDB"],
-    tags: ["好奇", "低压力", "随性", "开放"],
-    tagsEn: ["Curious", "Low Pressure", "Spontaneous", "Open"],
+    tags: ["好奇宝宝", "探索者", "思考者", "观察者"],
+    mbtiLike: "PASS-T",
     description: `
-🔍✨ 你对世界保持着一种轻松的好奇：不一定要拥有，看看也很好。
+🔍 恭喜你！你是「好奇探索者」人格！你对世界充满了好奇，对新事物保持着开放的心态——这种好奇心本身就是一种珍贵的品质！你就像一个探险家，正在探索生活的各种可能性。
 
-**风格画像：** 你喜欢接触新东西，但不太急着给自己下定义。你的直觉和务实并存：先觉得有意思，再看看值不值得深入。你不喜欢被计划绑住，也不喜欢被别人的期待推着走。
+你喜欢了解新的东西，喜欢思考，喜欢观察——这不是迷茫，这是一种对生活的热情。
 
-**日常打开方式：** 你可能会同时浏览很多主题，偶尔对某个点突然着迷。你的社交需求不高，但遇到愿意分享的人会聊得很开心。你的生活节奏比较松，不太给自己上强度。
+**心理学画像：** 你处于一种"探索型人格"状态——你对世界充满好奇心，愿意尝试和了解不同的事物，但你不想匆忙给自己下定义。你可能偶尔会觉得"这个好像很有趣，那个也好像很有意思"，这种开放的心态让你能接触到更多元的体验。你不喜欢被标签束缚，你相信人是可以不断成长和变化的。
 
-**闪光点：** 你开放、不评判，也很难被单一标签困住。
+**日常行为模式：** 你可能会在闲暇时间刷各种有趣的内容，可能会关注各种不同领域的账号，可能会对很多话题都感兴趣。你有时候会想"如果尝试一下这个会怎么样"，但你不一定会立刻行动——你喜欢先观察，先了解，再做决定。你不是犹豫不决，你是在给选择留足空间。
 
-**小提醒：** 好奇心很珍贵，但偶尔选一个方向多走两步，会看到不一样的风景。
+**优势：** 你有着极强的学习能力和开放的心态。你不会轻易被固有的观念限制，你愿意接受新的想法。这种好奇心让你的生活永远不会无聊，你总能发现新的乐趣。
 
-**口头禅：** “先看看，不着急下结论。”
+**致命弱点：** 有时候你可能会因为想了解太多，而在选择上花太多时间。但没关系，探索的过程本身就是一种收获——不是所有事情都需要立刻有答案的。
 
-**相处小贴士：** 别逼你表态，给你探索的空间，你会自己找到答案。
+**你的口头禅：** "这个看起来有点意思……"
+
+**相处攻略：** 你需要别人和你分享有趣的事情，一起探索新的可能性。不要催你做决定，享受探索的过程就好。
     `,
     descriptionEn: `
-🔍✨ You keep a light curiosity about the world: you don't have to own it—looking is enough.
+🔍 Congratulations! You're the "Curious Explorer" personality! You're full of curiosity about the world and keep an open mind about new things—this curiosity itself is a precious quality! You're like an explorer, discovering all the possibilities life has to offer.
 
-**Style profile:** You like encountering new things but don't rush to define yourself. Intuition and practicality coexist: first something seems interesting, then you check whether it's worth going deeper. You dislike being tied to plans or pushed by others' expectations.
+You like learning new things, thinking, and observing—this isn't confusion, it's a passion for life.
 
-**How you operate:** You might browse many topics at once and occasionally become briefly obsessed with one point. Your social needs are modest, but you light up around people who like to share. Your pace is loose, and you don't push yourself too hard.
+**Psychological Profile:** You're in an "explorer personality" state—you're curious about the world, willing to try and learn different things, but you don't want to rush to define yourself. You may occasionally feel "this seems interesting, that also seems interesting," and this open mindset allows you to experience more diversity. You don't like being bound by labels; you believe people can constantly grow and change.
 
-**What shines:** You're open, non-judgmental, and hard to trap under a single label.
+**Daily Behavior Patterns:** You might browse all kinds of interesting content in your spare time, might follow accounts in various fields, might be interested in many topics. You sometimes think "what if I try this," but you don't necessarily act immediately—you like to observe first, learn first, then decide. You're not hesitant; you're giving choices enough space.
 
-**Small reminder:** Curiosity is precious—but occasionally pick one direction and walk two more steps. The view changes.
+**Strengths:** You have extremely strong learning ability and an open mindset. You won't easily be limited by fixed ideas; you're willing to accept new thoughts. This curiosity ensures your life is never boring—you can always discover new joys.
 
-**Your line:** "Let me look first—no rush to conclude."
+**Fatal Weakness:** Sometimes you might spend too much time on choices because you want to learn too much. But it's okay—the process of exploration itself is a reward—not everything needs an answer right away.
 
-**How to get along:** Don't force a stance. Give you room to explore and you'll find your own answer.
+**Your Catchphrase:** "This looks kind of interesting…"
+
+**How to Get Along:** You need others to share interesting things with you, to explore new possibilities together. Don't let anyone rush you into making decisions—just enjoy the process of exploration.
     `,
-    dimensions: { IM: 25, SO: 15, AN: 25, PL: 20, AE: 50, CU: 90, EX: 30, RT: 35, HU: 70, MO: 35 }
+    dimensions: { PR: 16, SH: 0, AI: 0, EW: 0, CF: 18, DK: 22, TN: 52, MB: 12, GL: 30, XZ: 15 }
   }
 
 };
 
-// 十个画像维度说明
+// 维度说明
 const DIMENSIONS = {
-  IM: { name: "想象浓度", nameEn: "Imagination", desc: "你更偏浪漫想象还是日常务实", low: "务实派", high: "浪漫派" },
-  SO: { name: "社交电量", nameEn: "Social Battery", desc: "你从哪里获得能量", low: "独处充电", high: "社交充电" },
-  AN: { name: "分析倾向", nameEn: "Analysis Bias", desc: "你更依赖分析求证还是直觉随感", low: "直觉随感", high: "分析求证" },
-  PL: { name: "计划节奏", nameEn: "Planning Rhythm", desc: "你更喜欢计划还是即兴", low: "即兴派", high: "计划派" },
-  AE: { name: "审美投入", nameEn: "Aesthetic Investment", desc: "你愿意为审美和风格花多少心思", low: "轻装上阵", high: "认真经营" },
-  CU: { name: "好奇探索", nameEn: "Curiosity", desc: "你对陌生事物的开放程度", low: "聚焦当下", high: "四处探索" },
-  EX: { name: "表达欲", nameEn: "Expressiveness", desc: "你更愿意表达还是安静观看", low: "安静观众", high: "主动表达" },
-  RT: { name: "仪式感", nameEn: "Ritual Sense", desc: "你对日常仪式和小流程的偏好", low: "随性", high: "讲究仪式" },
-  HU: { name: "幽默值", nameEn: "Playfulness", desc: "你用玩笑和脑洞化解世界的程度", low: "认真脸", high: "玩梗王" },
-  MO: { name: "情绪浓度", nameEn: "Emotional Intensity", desc: "你对情绪和氛围的敏感程度", low: "平稳", high: "感受丰富" }
+  PR: { name: "粉色梦境指数", nameEn: "Pink Dream Index", desc: "你活在粉色滤镜里还是现实里", low: "现实派", high: "梦幻派" },
+  SH: { name: "社交活跃度", nameEn: "Social Activity Level", desc: "你是社牛还是宅神", low: "宅家精灵", high: "社交蝴蝶" },
+  AI: { name: "颜值焦虑度", nameEn: "Appearance Anxiety Level", desc: "你对自身外貌有多焦虑", low: "心态平和", high: "颜值焦虑" },
+  EW: { name: "公开度", nameEn: "Openness Level", desc: "你展现真实自我的程度", low: "私密守护者", high: "公开表达" },
+  CF: { name: "自律指数", nameEn: "Self-Discipline Index", desc: "你是计划派还是随缘党", low: "佛系随缘", high: "严格自律" },
+  DK: { name: "社群归属感", nameEn: "Community Belonging Index", desc: "你需要群体还是一个人就够了", low: "独行侠", high: "群体依附" },
+  TN: { name: "理性分析度", nameEn: "Rational Analysis Level", desc: "你用理性分析还是跟着感觉走", low: "纯靠直觉", high: "理论狂魔" },
+  MB: { name: "物质投入度", nameEn: "Material Investment Level", desc: "你为理想自我投入了多少", low: "佛系省钱", high: "钱不是问题" },
+  GL: { name: "表达一致性", nameEn: "Expression Consistency", desc: "你每天都在状态还是看心情", low: "看心情派", high: "全天候在线" },
+  XZ: { name: "未来规划度", nameEn: "Future Planning Level", desc: "你有长期规划还是走一步看一步", low: "随遇而安", high: "五年计划党" }
 };
 
-if (typeof module !== "undefined") {
+if (typeof module !== 'undefined') {
   module.exports = { PERSONALITIES, DIMENSIONS };
 }
